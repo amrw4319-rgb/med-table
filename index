@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل جدول كلية الطب | Dr. Amr Elsayed</title>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: rgba(22, 31, 50, 0.7);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --border-glow: rgba(255, 255, 255, 0.1);
+      
+      --cyan-glow: #06b6d4;
+      --indigo-glow: #6366f1;
+      --emerald-glow: #10b981;
+      --rose-glow: #f43f5e;
+      --amber-glow: #f59e0b;
+
+      --text-white: #f8fafc;
+      --text-dim: #94a3b8;
+
+      /* Subject Specific Themes */
+      --anatomy-color: #f97316;
+      --biochem-color: #10b981;
+      --physio-color: #06b6d4;
+      --histo-color: #a855f7;
+      --prof-color: #ec4899;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-white);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .app-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .animated-card {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    /* Glassmorphism Styling */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    /* Header Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glow);
+      padding: 14px 0;
+      margin-bottom: 20px;
+    }
+
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    .user-greeting {
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub-title {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .profile-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glow);
+      padding: 6px 14px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .profile-pill:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--cyan-glow);
+      transform: translateY(-2px);
+    }
+
+    .group-tag {
+      background: linear-gradient(135deg, var(--cyan-glow), var(--indigo-glow));
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    /* Motivation Banner */
+    .quote-card {
+      padding: 18px 22px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-right: 4px solid var(--cyan-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.05));
+      pointer-events: none;
+    }
+
+    .quote-icon {
+      font-size: 26px;
+      color: var(--cyan-glow);
+    }
+
+    .quote-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* Live Next Session Widget */
+    .next-widget {
+      padding: 22px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      position: relative;
+      animation: pulseGlow 4s infinite;
+    }
+
+    .widget-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid var(--cyan-glow);
+      color: var(--cyan-glow);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .widget-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .widget-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .detail-item i {
+      font-size: 16px;
+      width: 22px;
+      text-align: center;
+    }
+
+    .label-title {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: block;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .label-value {
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    /* Navigation Sections */
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--cyan-glow) transparent;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-glow);
+      color: var(--text-dim);
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Search & Filter Bar */
+    .search-box {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .search-box i {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 16px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-glow);
+      padding: 12px 45px 12px 16px;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan-glow);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+
+    /* Timeline Session Cards */
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .session-card {
+      padding: 20px;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .session-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .subject-pill {
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .anatomy-tag { background: var(--anatomy-color); }
+    .biochem-tag { background: var(--biochem-color); }
+    .physio-tag { background: var(--physio-color); }
+    .histo-tag { background: var(--histo-color); }
+    .prof-tag { background: var(--prof-color); }
+
+    .session-card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .details-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .info-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    .info-block i {
+      color: var(--cyan-glow);
+    }
+
+    .tag-type {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+
+    /* Modal Setup */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 10, 18, 0.92);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+    }
+
+    .modal-card {
+      max-width: 480px;
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .modal-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: right;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #0b0f19;
+      border: 1px solid var(--border-glow);
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--cyan-glow);
+    }
+
+    /* Dropdown Ordered Items */
+    select.form-control option {
+      background: #161f32;
+      color: #fff;
+      padding: 8px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+      transition: all 0.3s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Footer Credits */
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid var(--border-glow);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .developer-credit {
+      color: var(--cyan-glow);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .empty-box {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-dim);
+    }
+
+    .empty-box i {
+      font-size: 45px;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .profile-pill {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .details-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Input Modal (User Name & Subgroup Selection) -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal-card glass-panel animated-card">
+      <div class="brand-avatar" style="margin: 0 auto 16px;">🩺</div>
+      <h2 class="modal-title">أهلاً بك في دليل الجدول الطبي!</h2>
+      <p class="modal-desc">سجل بياناتك مرة واحدة وسيتم حفظها تلقائياً على جهازك</p>
+
+      <div class="form-group">
+        <label class="form-label">الاسم (كما تحب أن يخاطبك الموقع):</label>
+        <input type="text" id="userNameInput" class="form-control" placeholder="مثال: أحمد أو نورهان..." value="">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">اختر مجموعتك الفرعية (Subgroup):</label>
+        <select id="userGroupSelect" class="form-control">
+          <option value="" disabled selected>-- اختر مجموعتك من القائمة --</option>
+          <option value="A1">المجموعة A1</option>
+          <option value="A2">المجموعة A2</option>
+          <option value="A3">المجموعة A3</option>
+          <option value="B1">المجموعة B1</option>
+          <option value="B2">المجموعة B2</option>
+          <option value="B3">المجموعة B3</option>
+          <option value="C1">المجموعة C1</option>
+          <option value="C2">المجموعة C2</option>
+          <option value="C3">المجموعة C3</option>
+          <option value="D1">المجموعة D1</option>
+          <option value="D2">المجموعة D2</option>
+          <option value="D3">المجموعة D3</option>
+        </select>
+      </div>
+
+      <button onclick="saveUserProfile()" class="btn-submit">دخول وتحديث الجدول 🚀</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="app-container header-wrapper">
+      <div class="brand-box">
+        <div class="brand-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div>
+          <div class="user-greeting" id="displayGreeting">مرحباً دكتور! 👋</div>
+          <div class="sub-title">Basic Structure & Function | Professional Practice 1</div>
+        </div>
+      </div>
+
+      <div class="profile-pill" onclick="openProfileModal()">
+        <span>المجموعة: <strong class="group-tag" id="displayGroupTag">غير محددة</strong></span>
+        <i class="fa-solid fa-arrows-rotate" style="font-size: 12px; color: var(--cyan-glow);"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+
+    <!-- Motivational Quotes Banner -->
+    <div class="quote-card glass-panel animated-card">
+      <i class="fa-solid fa-quote-right quote-icon"></i>
+      <div class="quote-text" id="motivationQuote">
+        "كل معلومة تحفظها وتستوعبها اليوم قد تكون السبب في إنقاذ حياة إنسان غداً. استعن بالله وواصل الشغف!"
+      </div>
+    </div>
+
+    <!-- Live Next Session Card -->
+    <div class="next-widget glass-panel animated-card">
+      <div class="widget-badge">
+        <i class="fa-solid fa-bolt"></i>
+        <span>الحصة التالية المباشرة</span>
+      </div>
+      <div class="widget-title" id="nextTitle">جاري تحميل البيانات...</div>
+      
+      <div class="widget-details-grid">
+        <div class="detail-item">
+          <i class="fa-regular fa-clock" style="color: var(--cyan-glow);"></i>
+          <div>
+            <span class="label-title">TIME (الوقت)</span>
+            <span class="label-value" id="nextTime">--:--</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <i class="fa-solid fa-location-dot" style="color: var(--rose-glow);"></i>
+          <div>
+            <span class="label-title">LOCATION (المكان)</span>
+            <span class="label-value" id="nextLocation">---</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <i class="fa-solid fa-book-medical" style="color: var(--emerald-glow);"></i>
+          <div>
+            <span class="label-title">SUBJECT (المادة)</span>
+            <span class="label-value" id="nextSubject">---</span>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <i class="fa-solid fa-layer-group" style="color: var(--amber-glow);"></i>
+          <div>
+            <span class="label-title">TYPE (النوع)</span>
+            <span class="label-value" id="nextType">---</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weeks Selector Navigation -->
+    <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
+    <div class="nav-scroll" id="weeksNavScroll">
+      <!-- Generated via JS -->
+    </div>
+
+    <!-- Days Selector Navigation -->
+    <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
+    <div class="nav-scroll" id="daysNavScroll">
+      <button class="nav-btn active" onclick="selectDay('Mon')"><i class="fa-solid fa-sun"></i> الإثنين</button>
+      <button class="nav-btn" onclick="selectDay('Tue')"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
+      <button class="nav-btn" onclick="selectDay('Wed')"><i class="fa-solid fa-sun"></i> الأربعاء</button>
+      <button class="nav-btn" onclick="selectDay('Thu')"><i class="fa-solid fa-sun"></i> الخميس</button>
+    </div>
+
+    <!-- Search Input Bar -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المادة، القاعة، أو العنوان (مثال: Bones, Anatomy, CR 106, CBC)..." oninput="renderTimeline()">
+    </div>
+
+    <!-- Timeline List -->
+    <div class="timeline-container" id="timelineContainer">
+      <!-- Items generated dynamically -->
+    </div>
+
+  </div>
+
+  <!-- Footer Credits -->
+  <footer>
+    تم التطوير بكل حب وشغف بواسطة <a href="#" class="developer-credit">Dr. Amr Elsayed</a> 🩺⚡
+  </footer>
+
+  <script>
+    // Motivational Quotes Array
+    const medicalQuotes = [
+      "دكتور المستقبل، كل دقيقة تقضيها في المذاكرة الآن تصنع بها طبيباً بارعاً في المستقبل! 🩺",
+      "كل معلومة تحفظها وتستوعبها اليوم قد تكون السبب في إنقاذ حياة إنسان غداً. ❤️",
+      "الطب رسالة سامية وجهد متواصل.. استعن بالله ولا تعجز! 🌟",
+      "أن تكون طبيباً يعني أن تكون أملاً للآخرين وقت ألمهم.. كن قديراً بهذا الأمل! 💪",
+      "طريق النجاح في الطب يحتاج صبراً وإصراراً، وأنت قدها وبطل طريقك! 🚀",
+      "نظم وقتك، جدد شغفك، واعلم أن الله لا يضيع أجر من أحسن عملاً. ✨"
+    ];
+
+    // Weeks Definitions
+    const studyWeeks = [
+      { id: 1, name: "الأسبوع 1", range: "21/9 - 24/9" },
+      { id: 2, name: "الأسبوع 2", range: "28/9 - 1/10" },
+      { id: 3, name: "الأسبوع 3", range: "5/10 - 8/10" },
+      { id: 4, name: "الأسبوع 4", range: "12/10 - 15/10" },
+      { id: 5, name: "الأسبوع 5", range: "19/10 - 22/10" },
+      { id: 6, name: "الأسبوع 6", range: "26/10 - 29/10" }
+    ];
+
+    // Full Schedule Database from JSON
+    const batchSchedule = [
+      // ===== WEEK 1 =====
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice (Concepts and attributes of professionalism)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 1: Carbohydrate chemistry I", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology Lecture 1 (Membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy types and classification of bones 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice (Concepts and attributes of professionalism)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 1: Carbohydrate chemistry I", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology - Lecture 1 (Membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 107 Medical Building C", type: "SGS" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology - Lecture 1 (Membranous organelles)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 1: Carbohydrate chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice (Concepts and attributes of professionalism)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology:Homeostasis, cell membrane", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Anatomy", title: "Anatomy lecture1 joints", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 1: Transport 1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Anatomy", title: "Anatomy lecture1 joints", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 1: Transport 1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Biochemistry", title: "Practical Biochemistry 1: lab hazards, specimen collection", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology Lecture 1 (Membranous organelles)", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 1: Carbohydrate chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 1:Transport 1", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Anatomy", title: "Anatomy lecture1 joints", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology:Homeostasis, cell membrane", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 1: Transport 1", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Anatomy", title: "Anatomy lecture1 joints", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology:Homeostasis, cell membrane", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 2: Transport 2", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology - Lecture 2 (Membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology - Lecture 2 (Membranous organelles)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 2: Transport 2", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 2: Transport 2", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology - Lecture 2 (Membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy types and classification of bones", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology: Homeostasis, cell membrane", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Histology", title: "Histology SGS 1 (Microscopes and micro-techniques)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice(Concepts and attributes of professionalism)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "Practical Biochemistry 2: colour reactions of carbohydrate", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology - Lecture 2 (Membranous organelles)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 1, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 2: Transport 2", location: "Hall 202 Medical Building C", type: "محاضرة" },
+
+      // ===== WEEK 2 =====
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics I)", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology:Rbcs, Hb", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-1)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 2: Carbohydrate chemistry II", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 3: Blood, plasma proteins, RBCs", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice  Relational classification of ethics and bioethics (Part-1)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 2: Carbohydrate chemistry | I", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 3: Blood, plasma proteins, RBCS", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics I)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 107 Medical Building C", type: "SGS" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 3: Blood, plasma proteins, RBCS", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 2: Carbohydrate chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics I)", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 3: Carbohydrate chemistry | 11", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 3 (Non-membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics I)", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics I)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 3: Blood, plasma proteins, RBCS", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 2: Carbohydrate chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology :Rbcs,Hb", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Histology", title: "Histology SGS 2 (Cytogenetics 1)", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 3: Carbohydrate chemistry 111", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology Lecture 3 (Non-membranous organelles)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice {Relational classification of ethics and bioethics (Part-1)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology Lecture 3 (Non-membranous organelles)", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 3: Carbohydrate chemistry 111", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology:Rbcs, Hb", location: "CR: 105 Medical", type: "عملي" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology Lecture 3 (Non-membranous organelles)", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 3: Carbohydrate chemistry", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 4: Hb, Blood group, transfusion", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology lecture 4 (nucleus)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology:Rbcs, Hb", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 4 (nucleus)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 4:Hb, Blood group, transfusion", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 4:Hb, Blood group, transfusion", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 4 (nucleus)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy clavicle, scapula, humerus 1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology:Rbcs,Hb", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Biochemistry", title: "SGS Biochemistry 1: Fat soluble vitamins", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-1)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology Practical 1 (Cytology)", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 4 (nucleus)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 2, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 4:Hb, Blood group, transfusion", location: "Hall 202 Medical Building C", type: "محاضرة" },
+
+      // ===== WEEK 3 =====
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 4: Lipid chemistry I", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology lecture-5 (Cytogenetics II)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 4: Lipid chemistry I", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture-5 (Cytogenetics II)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 107 Medical Building C", type: "SGS" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 5 (Cytogenetics II)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 4: Lipid chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 5: Lipid chemistry II", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 5: Anemia, polycythemia", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 5 (Cytogenetics II)", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 4: Lipid chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Biochemistry", title: "SGS Biochemistry 2: Water soluble vitamins", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 5: Lipid chemistry II", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 5: Anemia, polycythemia", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 5: Anemia, polycythemia", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 5: Lipid chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 5:Anemia, polycythemia", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 5: Lipid chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 105 Medical Building C", type: "SGS" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 6 (Epithelial tissue 1)", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 6:Platelets, coagulation 1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 6: Platelets, coagulation 1", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology lecture 6 (Epithelial tissue 1)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 105 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 6: Platelets, coagulation 1", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 6 (Epithelial tissue 1)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy humerus 2, radius, ulna", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology:HT, blood groups", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Histology", title: "Histology- SGS 3 (Cytogenetics III)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice (Spectrum of health and determinants)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 6 (Epithelial tissue 1)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 3, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 6: Platelets, coagulation 1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+
+      // ===== WEEK 4 =====
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Histology", title: "HistologySGS 4 (Epithelial tissue II)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 6: Lipid chemistry 111", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology lecture 7 (Connective tissue 1)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes", location: "CR: 106 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 6: Lipid chemistry 111", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 7 (Connective tissue 1)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 107 Medical Building C", type: "SGS" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 7 (Connective tissue 1)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 6: Lipid chemistry 111", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 7: Protein chemistry I", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 7:Coagulation2, fibrinolysis", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes", location: "CR: 202 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 205 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 7 (Connective tissue 1)", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 6: Lipid chemistry 111", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 201 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes I", location: "CR: 203 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Biochemistry", title: "SGS Biochemistry 4: Enzymes", location: "CR: 204 Medical Building C", type: "SGS" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 7: Protein chemistry I", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 7: Coagulation2, fibrinolysis", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes | I", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes II", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 7: Coagulation2, fibrinolysis", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 7: Protein chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes 11", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 7: Coagulation2, fibrinolysis", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 7: Protein chemistry I", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes II", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes", location: "CR: 105 Medical Building C", type: "SGS" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 8: Protein chemistry II", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 8: Coagulation disorders, WBCS", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes 11", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes II", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 8: Coagulation disorders, WBCS", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 8: Protein chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes 11", location: "CR: 102 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes II", location: "CR: 105 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 8: Protein chemistry II", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 8: Coagulation disorders, WBCS", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy hip femur1", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology:indices, CBC", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes II", location: "CR: 103 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Histology", title: "Histology SGS 4 (Epithelial tissue II)", location: "CR: 104 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice (self-directed learning)", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "SGS Biochemistry 5: Enzymes 11", location: "CR: 101 Medical Building C", type: "SGS" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 8: Coagulation disorders, WBCS", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 4, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 8: Protein chemistry II", location: "Hall 202 Medical Building C", type: "محاضرة" },
+
+      // ===== WEEK 5 =====
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-2)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 9: Protein chemistry 111", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology lecture 8 (Connective tissue II)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology:ESR, Hemostatic tests", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-2)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 9: Protein chemistry 111", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 8 (Connective tissue II)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 107 Medical Building C", type: "عملي" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 8 (Connective tissue II)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 9: Protein chemistry 111", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology:ESR, Hemostatic tests", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 10: Nucleic acid chemistry", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 9:Autonomic, Sympathetic1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 8 (Connective tissue II)", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 9: Protein chemistry 111", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Biochemistry", title: "Practical Biochemistry 3: Clinical enzymology", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 10: Nucleic acid chemistry", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 9: Autonomic, Sympathetic1", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 9: Autonomic, Sympathetic1", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 10: Nucleic acid chemistry", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 9: Autonomic, Sympathetic1", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 10: Nucleic acid chemistry", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 11: DNA Replication", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 10:Sympathetic2, Parasympathetic", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 10:Sympathetic2, Parasympathetic", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 11: DNA Replication", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology: ESR, Hemostatic tests", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 105 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 11: DNA Replication", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 10:Sympathetic2, Parasympathetic", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy femur2 tibia vertebrae", location: "Skill lab: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology:ESR, Hemostatic tests", location: "CR: 102 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 103 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Histology", title: "Histology Practical 2 (Epithelial and connective tissues)", location: "CR: 104 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice Relational classification of ethics and bioethics (Part-2)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "Practical Biochemistry 4: Protein separation techniques", location: "CR: 101 Medical Building C", type: "عملي" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 10:Sympathetic2, Parasympathetic", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 5, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 11: DNA Replication", location: "Hall 202 Medical Building C", type: "محاضرة" },
+
+      // ===== WEEK 6 =====
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["C1"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["C2"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["C3"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 201 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["D1"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["D2"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 205 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["D3"], subject: "Professional", title: "Professional practice  Relational classification of ethics and bioethics (Part-3)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 12: DNA repair & mutation", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Histology", title: "Histology - Lecture 9 (Blood)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["A1"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 106 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["A2"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["A3"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 201 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["B1"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["B2"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 205 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["B3"], subject: "Professional", title: "Professional practice Relational classification of bioethics (Part-3)}", location: "CR: 107 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 12: DNA repair & mutation", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Histology", title: "Histology lecture 9 (Blood)", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["A1"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 106 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["A2"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 201 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["A3"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["B1"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 202 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["B2"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["B3"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 107 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Histology", title: "Histology lecture 9 (Blood)", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Mon", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 12: DNA repair & mutation", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["A1"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 201 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["A2"], subject: "Professional", title: "Professional practice  Relational classification of ethics and bioethics (Part-3)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["A3"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["B1"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["B2"], subject: "Physiology", title: "Physiology : Revision", location: "CR: 205 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["B3"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 13: RNA Synthesis", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 11:Chemical transmitters, tone", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["C1"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["C2"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 202 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["C3"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["D1"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 204 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["D2"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 205 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["D3"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 203 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Histology", title: "Histology lecture 9 (Blood)", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 12: DNA repair & mutation", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["C1"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 201 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["C2"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["C3"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 203 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["D1"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["D2"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 205 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["D3"], subject: "Biochemistry", title: "Practical Biochemistry 5: Molecular biology techniques", location: "CR: 204 Medical Building C", type: "عملي" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 13: RNA Synthesis", location: "Hall 100B Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Tue", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 11:Chemical transmitters, tone", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["A1"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 101 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["A2"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 102 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["A3"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["B1"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 104 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["B2"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["B3"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 105 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 11:Chemical transmitters, tone", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "09:00 - 10:30", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 13: RNA Synthesis", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["C1"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 101 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["C2"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 102 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["C3"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 103 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["D1"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 104 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["D2"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["D3"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 105 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 11: Chemical transmitters, tone", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "10:30 - 12:00", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 13: RNA Synthesis", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["C1"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["C2"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 102 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["C3"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 103 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["D1"], subject: "Professional", title: "Professional practice  Relational classification of ethics and bioethics (Part-3)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["D2"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 105 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["D3"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["A1", "A2", "A3"], subject: "Biochemistry", title: "Biochemistry lecture 14: Protein Synthesis & Regulation", location: "Hall 301 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Wed", time: "12:15 - 01:45", groups: ["B1", "B2", "B3"], subject: "Physiology", title: "Physiology lecture 12:Revision", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["C1"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["C2"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 102 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["C3"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 103 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["D1"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 104 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["D2"], subject: "Professional", title: "Professional practice  Relational classification of ethics and bioethics (Part-3)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["D3"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 101 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["A1", "A2", "A3"], subject: "Physiology", title: "Physiology lecture 12: Revision", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "09:00 - 10:30", groups: ["B1", "B2", "B3"], subject: "Biochemistry", title: "Biochemistry lecture 14: Protein Synthesis & Regulation", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["A1"], subject: "Physiology", title: "Physiology: Revision", location: "CR: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["A2"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 102 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["A3"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 103 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["B1"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 104 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["B2"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 105 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["B3"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["C1", "C2", "C3"], subject: "Biochemistry", title: "Biochemistry lecture 14: Protein Synthesis & Regulation", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "10:30 - 12:00", groups: ["D1", "D2", "D3"], subject: "Physiology", title: "Physiology lecture 12:Revision", location: "Hall 202 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["A1"], subject: "Anatomy", title: "Anatomy X-ray + revision", location: "Skill lab: 101 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["A2"], subject: "Physiology", title: "Physiology:Revision", location: "CR: 102 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["A3"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 103 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["B1"], subject: "Histology", title: "Histology- Practical 3 (Blood) + (Revision)", location: "CR: 104 Medical Building C", type: "مراجعة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["B2"], subject: "Professional", title: "Professional practice (Relational classification of ethics and bioethics (Part-3)}", location: "CR: 105 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["B3"], subject: "Biochemistry", title: "Biochemistry: OSPE Revision", location: "CR: 101 Medical Building C", type: "مراجعة OSPE" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["C1", "C2", "C3"], subject: "Physiology", title: "Physiology lecture 12:Revision", location: "Hall 201 Medical Building C", type: "محاضرة" },
+      { week: 6, day: "Thu", time: "12:15 - 01:45", groups: ["D1", "D2", "D3"], subject: "Biochemistry", title: "Biochemistry lecture 14: Protein Synthesis & Regulation", location: "Hall 202 Medical Building C", type: "محاضرة" }
+    ];
+
+    // State Management
+    let currentUserName = localStorage.getItem('med_user_name') || '';
+    let currentUserGroup = localStorage.getItem('med_user_group') || '';
+    let selectedWeek = 1;
+    let selectedDay = 'Mon';
+
+    window.onload = function() {
+      // Pick random quote
+      const randQ = Math.floor(Math.random() * medicalQuotes.length);
+      document.getElementById('motivationQuote').innerText = medicalQuotes[randQ];
+
+      renderWeeksNav();
+
+      if (!currentUserGroup || !currentUserName) {
+        openProfileModal();
+      } else {
+        closeProfileModal();
+        updateUserUI();
+        renderTimeline();
+      }
+    };
+
+    function openProfileModal() {
+      document.getElementById('modalBackdrop').style.display = 'flex';
+      if (currentUserName) document.getElementById('userNameInput').value = currentUserName;
+      if (currentUserGroup) document.getElementById('userGroupSelect').value = currentUserGroup;
+    }
+
+    function closeProfileModal() {
+      document.getElementById('modalBackdrop').style.display = 'none';
+    }
+
+    function saveUserProfile() {
+      const nameVal = document.getElementById('userNameInput').value.trim();
+      const groupVal = document.getElementById('userGroupSelect').value;
+
+      if (!nameVal) {
+        alert('يرجى إدخال اسمك الكريم!');
+        return;
+      }
+      if (!groupVal) {
+        alert('يرجى اختيار مجموعتك الفرعية!');
+        return;
+      }
+
+      currentUserName = nameVal;
+      currentUserGroup = groupVal;
+
+      localStorage.setItem('med_user_name', currentUserName);
+      localStorage.setItem('med_user_group', currentUserGroup);
+
+      closeProfileModal();
+      updateUserUI();
+      renderTimeline();
+    }
+
+    function updateUserUI() {
+      document.getElementById('displayGreeting').innerText = `أهلاً د. ${currentUserName} ✨`;
+      document.getElementById('displayGroupTag').innerText = currentUserGroup;
+    }
+
+    function renderWeeksNav() {
+      const container = document.getElementById('weeksNavScroll');
+      container.innerHTML = '';
+      studyWeeks.forEach(w => {
+        const btn = document.createElement('button');
+        btn.className = `nav-btn ${w.id === selectedWeek ? 'active' : ''}`;
+        btn.innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${w.name} <small>(${w.range})</small>`;
+        btn.onclick = () => {
+          selectedWeek = w.id;
+          renderWeeksNav();
+          renderTimeline();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function selectDay(day) {
+      selectedDay = day;
+      const btns = document.querySelectorAll('#daysNavScroll .nav-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      renderTimeline();
+    }
+
+    function getSubjectTagClass(subj) {
+      switch(subj) {
+        case 'Anatomy': return 'anatomy-tag';
+        case 'Biochemistry': return 'biochem-tag';
+        case 'Physiology': return 'physio-tag';
+        case 'Histology': return 'histo-tag';
+        case 'Professional': return 'prof-tag';
+        default: return 'biochem-tag';
+      }
+    }
+
+    function renderTimeline() {
+      const container = document.getElementById('timelineContainer');
+      const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
+      container.innerHTML = '';
+
+      // Filter items matching user's specific subgroup (e.g. C1)
+      const filtered = batchSchedule.filter(item => {
+        const matchesWeek = item.week === selectedWeek;
+        const matchesDay = item.day === selectedDay;
+        const matchesGroup = item.groups.includes(currentUserGroup);
+        const matchesSearch = !searchVal || 
+          item.title.toLowerCase().includes(searchVal) || 
+          item.subject.toLowerCase().includes(searchVal) ||
+          item.location.toLowerCase().includes(searchVal);
+
+        return matchesWeek && matchesDay && matchesGroup && matchesSearch;
+      });
+
+      // Update Live Widget with next session
+      updateNextWidget(filtered[0] || batchSchedule.find(i => i.groups.includes(currentUserGroup) && i.week === selectedWeek));
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-box glass-panel">
+            <i class="fa-solid fa-calendar-xmark"></i>
+            <p>لا توجد حصص أو محاضرات تسجيلية لهذه المواعيد والخيارات.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'session-card glass-panel animated-card';
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="subject-pill ${getSubjectTagClass(item.subject)}">${item.subject}</span>
+            <span class="tag-type">${item.type}</span>
+          </div>
+
+          <div class="session-card-title">${item.title}</div>
+
+          <div class="details-row">
+            <div class="info-block">
+              <i class="fa-regular fa-clock"></i>
+              <div>
+                <span class="label-title">TIME (التوقيت)</span>
+                <span class="label-value">${item.time}</span>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <span class="label-title">LOCATION (المكان)</span>
+                <span class="label-value">${item.location}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function updateNextWidget(item) {
+      if (!item) {
+        document.getElementById('nextTitle').innerText = 'لا توجد حصص متبقية اليوم';
+        document.getElementById('nextTime').innerText = '--:--';
+        document.getElementById('nextLocation').innerText = '---';
+        document.getElementById('nextSubject').innerText = '---';
+        document.getElementById('nextType').innerText = '---';
+        return;
+      }
+
+      document.getElementById('nextTitle').innerText = item.title;
+      document.getElementById('nextTime').innerText = item.time;
+      document.getElementById('nextLocation').innerText = item.location;
+      document.getElementById('nextSubject').innerText = item.subject;
+      document.getElementById('nextType').innerText = item.type;
+    }
+  </script>
+</body>
+</html>
