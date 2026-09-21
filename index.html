@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دليل جدول كلية الطب | Dr. Amr Elsayed</title>
+  <title>دليل جدول كلية الطب | Real-time Tracker</title>
 
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,17 +183,6 @@
       overflow: hidden;
     }
 
-    .quote-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.05));
-      pointer-events: none;
-    }
-
     .quote-icon {
       font-size: 26px;
       color: var(--cyan-glow);
@@ -227,6 +216,12 @@
       font-size: 0.75rem;
       font-weight: 800;
       margin-bottom: 12px;
+    }
+
+    .widget-badge.live-now {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: var(--rose-glow);
+      color: var(--rose-glow);
     }
 
     .widget-title {
@@ -367,6 +362,11 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .session-card.active-now {
+      border-color: var(--rose-glow);
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
+    }
+
     .session-card:hover {
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-3px);
@@ -497,7 +497,6 @@
       border-color: var(--cyan-glow);
     }
 
-    /* Dropdown Ordered Items */
     select.form-control option {
       background: #161f32;
       color: #fff;
@@ -523,7 +522,6 @@
       box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
     }
 
-    /* Footer Credits */
     footer {
       margin-top: 50px;
       text-align: center;
@@ -551,7 +549,6 @@
       color: rgba(255,255,255,0.2);
     }
 
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       .header-wrapper {
         flex-direction: column;
@@ -570,7 +567,7 @@
 </head>
 <body>
 
-  <!-- Input Modal (User Name & Subgroup Selection) -->
+  <!-- Input Modal -->
   <div id="modalBackdrop" class="modal-backdrop">
     <div class="modal-card glass-panel animated-card">
       <div class="brand-avatar" style="margin: 0 auto 16px;">🩺</div>
@@ -633,11 +630,11 @@
       </div>
     </div>
 
-    <!-- Live Next Session Card -->
+    <!-- Live / Next Session Widget -->
     <div class="next-widget glass-panel animated-card">
-      <div class="widget-badge">
+      <div class="widget-badge" id="widgetBadge">
         <i class="fa-solid fa-bolt"></i>
-        <span>الحصة التالية المباشرة</span>
+        <span id="widgetBadgeText">الحصة التالية المباشرة</span>
       </div>
       <div class="widget-title" id="nextTitle">جاري تحميل البيانات...</div>
       
@@ -678,39 +675,33 @@
 
     <!-- Weeks Selector Navigation -->
     <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
-    <div class="nav-scroll" id="weeksNavScroll">
-      <!-- Generated via JS -->
-    </div>
+    <div class="nav-scroll" id="weeksNavScroll"></div>
 
     <!-- Days Selector Navigation -->
     <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
     <div class="nav-scroll" id="daysNavScroll">
-      <button class="nav-btn active" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
-      <button class="nav-btn" onclick="selectDay('Tue', event)"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
-      <button class="nav-btn" onclick="selectDay('Wed', event)"><i class="fa-solid fa-sun"></i> الأربعاء</button>
-      <button class="nav-btn" onclick="selectDay('Thu', event)"><i class="fa-solid fa-sun"></i> الخميس</button>
+      <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
+      <button class="nav-btn" data-day="Tue" onclick="selectDay('Tue', event)"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
+      <button class="nav-btn" data-day="Wed" onclick="selectDay('Wed', event)"><i class="fa-solid fa-sun"></i> الأربعاء</button>
+      <button class="nav-btn" data-day="Thu" onclick="selectDay('Thu', event)"><i class="fa-solid fa-sun"></i> الخميس</button>
     </div>
 
     <!-- Search Input Bar -->
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المادة، القاعة، أو العنوان (مثال: Bones, Anatomy, CR 106, CBC)..." oninput="renderTimeline()">
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المادة، القاعة، أو العنوان..." oninput="renderTimeline()">
     </div>
 
     <!-- Timeline List -->
-    <div class="timeline-container" id="timelineContainer">
-      <!-- Items generated dynamically -->
-    </div>
+    <div class="timeline-container" id="timelineContainer"></div>
 
   </div>
 
-  <!-- Footer Credits -->
   <footer>
     تم التطوير بكل حب وشغف بواسطة <a href="#" class="developer-credit">Dr. Amr Elsayed</a> 🩺⚡
   </footer>
 
   <script>
-    // Motivational Quotes Array
     const medicalQuotes = [
       "دكتور المستقبل، كل دقيقة تقضيها في المذاكرة الآن تصنع بها طبيباً بارعاً في المستقبل! 🩺",
       "كل معلومة تحفظها وتستوعبها اليوم قد تكون السبب في إنقاذ حياة إنسان غداً. ❤️",
@@ -720,33 +711,30 @@
       "نظم وقتك، جدد شغفك، واعلم أن الله لا يضيع أجر من أحسن عملاً. ✨"
     ];
 
-    // Weeks Definitions
     const studyWeeks = [
-      { id: 1, name: "الأسبوع 1", range: "21/9 - 24/9" },
-      { id: 2, name: "الأسبوع 2", range: "28/9 - 1/10" },
-      { id: 3, name: "الأسبوع 3", range: "5/10 - 8/10" },
-      { id: 4, name: "الأسبوع 4", range: "12/10 - 15/10" },
-      { id: 5, name: "الأسبوع 5", range: "19/10 - 22/10" },
-      { id: 6, name: "الأسبوع 6", range: "26/10 - 29/10" }
+      { id: 1, name: "الأسبوع 1", range: "21/9 - 24/9", startDate: "2026-09-21", endDate: "2026-09-24" },
+      { id: 2, name: "الأسبوع 2", range: "28/9 - 1/10", startDate: "2026-09-28", endDate: "2026-10-01" },
+      { id: 3, name: "الأسبوع 3", range: "5/10 - 8/10", startDate: "2026-10-05", endDate: "2026-10-08" },
+      { id: 4, name: "الأسبوع 4", range: "12/10 - 15/10", startDate: "2026-10-12", endDate: "2026-10-15" },
+      { id: 5, name: "الأسبوع 5", range: "19/10 - 22/10", startDate: "2026-10-19", endDate: "2026-10-22" },
+      { id: 6, name: "الأسبوع 6", range: "26/10 - 29/10", startDate: "2026-10-26", endDate: "2026-10-29" }
     ];
 
-    // Dynamic Schedule Array
     let batchSchedule = [];
-
-    // State Management
     let currentUserName = localStorage.getItem('med_user_name') || '';
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
     let selectedWeek = 1;
     let selectedDay = 'Mon';
 
     window.onload = async function() {
-      // Pick random quote
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
       document.getElementById('motivationQuote').innerText = medicalQuotes[randQ];
 
+      // Auto detect Current Week & Day based on System Clock
+      autoDetectTimeAndWeek();
       renderWeeksNav();
+      updateDayButtonsUI();
 
-      // Load external JSON data
       await loadScheduleData();
 
       if (!currentUserGroup || !currentUserName) {
@@ -756,22 +744,54 @@
         updateUserUI();
         renderTimeline();
       }
+
+      // Check real-time updates every 1 minute
+      setInterval(() => {
+        renderTimeline();
+      }, 60000);
     };
 
-    // Load JSON schedule asynchronously
+    // Auto Detect Week and Day based on system clock
+    function autoDetectTimeAndWeek() {
+      const now = new Date();
+      
+      // Map JS Day Index (1=Mon, 2=Tue, 3=Wed, 4=Thu)
+      const dayMap = { 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu' };
+      const todayDay = dayMap[now.getDay()];
+      if (todayDay) {
+        selectedDay = todayDay;
+      }
+
+      // Detect active week according to current date
+      const currentDateStr = now.toISOString().split('T')[0];
+      const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
+      if (matchedWeek) {
+        selectedWeek = matchedWeek.id;
+      }
+    }
+
+    function updateDayButtonsUI() {
+      const btns = document.querySelectorAll('#daysNavScroll .nav-btn');
+      btns.forEach(b => {
+        if (b.getAttribute('data-day') === selectedDay) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+    }
+
     async function loadScheduleData() {
       try {
         const response = await fetch('schedule.json');
-        if (!response.ok) {
-          throw new Error(`خطأ في الاستجابة: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Status: ${response.status}`);
         batchSchedule = await response.json();
       } catch (error) {
         console.error('فشل جلب ملف schedule.json:', error);
         document.getElementById('timelineContainer').innerHTML = `
           <div class="empty-box glass-panel">
             <i class="fa-solid fa-triangle-exclamation" style="color: var(--rose-glow);"></i>
-            <p>تعذر تحميل بيانات الجدول من ملف <code>schedule.json</code>.<br>تأكد من وجود الملف في نفس المجلد وتشغيله عبر سيرفر محلي (Live Server).</p>
+            <p>تعذر تحميل بيانات الجدول من ملف <code>schedule.json</code>.<br>تأكد من تشغيله عبر سيرفر محلي (Live Server).</p>
           </div>
         `;
       }
@@ -791,12 +811,8 @@
       const nameVal = document.getElementById('userNameInput').value.trim();
       const groupVal = document.getElementById('userGroupSelect').value;
 
-      if (!nameVal) {
-        alert('يرجى إدخال اسمك الكريم!');
-        return;
-      }
-      if (!groupVal) {
-        alert('يرجى اختيار مجموعتك الفرعية!');
+      if (!nameVal || !groupVal) {
+        alert('يرجى ملء كافة البيانات!');
         return;
       }
 
@@ -834,23 +850,33 @@
 
     function selectDay(day, event) {
       selectedDay = day;
-      const btns = document.querySelectorAll('#daysNavScroll .nav-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
-      }
+      updateDayButtonsUI();
       renderTimeline();
     }
 
-    function getSubjectTagClass(subj) {
-      switch(subj) {
-        case 'Anatomy': return 'anatomy-tag';
-        case 'Biochemistry': return 'biochem-tag';
-        case 'Physiology': return 'physio-tag';
-        case 'Histology': return 'histo-tag';
-        case 'Professional': return 'prof-tag';
-        default: return 'biochem-tag';
-      }
+    // Helper: Convert time string "09:00 AM" or "14:30" to Minutes from midnight
+    function timeToMinutes(timeStr) {
+      if (!timeStr) return 0;
+      timeStr = timeStr.trim().toUpperCase();
+      let isPM = timeStr.includes('PM');
+      let isAM = timeStr.includes('AM');
+      let cleanTime = timeStr.replace('AM', '').replace('PM', '').trim();
+      let [hours, minutes] = cleanTime.split(':').map(Number);
+
+      if (isPM && hours < 12) hours += 12;
+      if (isAM && hours === 12) hours = 0;
+
+      return (hours * 60) + (minutes || 0);
+    }
+
+    // Helper: Parse time range "09:00 - 11:00" or "09:00 AM - 11:00 AM"
+    function parseTimeRange(rangeStr) {
+      const parts = rangeStr.split('-');
+      if (parts.length < 2) return { startMins: 0, endMins: 1440 };
+      return {
+        startMins: timeToMinutes(parts[0]),
+        endMins: timeToMinutes(parts[1])
+      };
     }
 
     function renderTimeline() {
@@ -861,7 +887,10 @@
 
       container.innerHTML = '';
 
-      // Filter items matching user's specific subgroup
+      const now = new Date();
+      const currentMinutes = (now.getHours() * 60) + now.getMinutes();
+
+      // Filter schedule for group
       const filtered = batchSchedule.filter(item => {
         const matchesWeek = item.week === selectedWeek;
         const matchesDay = item.day === selectedDay;
@@ -874,26 +903,29 @@
         return matchesWeek && matchesDay && matchesGroup && matchesSearch;
       });
 
-      // Update Live Widget with next session
-      updateNextWidget(filtered[0] || batchSchedule.find(i => i.groups.includes(currentUserGroup) && i.week === selectedWeek));
+      // Process Real-time Live/Next Session Calculation
+      updateRealTimeWidget(filtered, currentMinutes);
 
       if (filtered.length === 0) {
         container.innerHTML = `
           <div class="empty-box glass-panel">
             <i class="fa-solid fa-calendar-xmark"></i>
-            <p>لا توجد حصص أو محاضرات تسجيلة لهذه المواعيد والخيارات.</p>
+            <p>لا توجد حصص أو محاضرات لهذه المواعيد والخيارات.</p>
           </div>
         `;
         return;
       }
 
       filtered.forEach(item => {
+        const { startMins, endMins } = parseTimeRange(item.time);
+        const isLiveNow = (currentMinutes >= startMins && currentMinutes <= endMins);
+
         const card = document.createElement('div');
-        card.className = 'session-card glass-panel animated-card';
+        card.className = `session-card glass-panel animated-card ${isLiveNow ? 'active-now' : ''}`;
         card.innerHTML = `
           <div class="card-top">
             <span class="subject-pill ${getSubjectTagClass(item.subject)}">${item.subject}</span>
-            <span class="tag-type">${item.type}</span>
+            <span class="tag-type">${item.type} ${isLiveNow ? '🔴 مبالشاش/جاري الآن' : ''}</span>
           </div>
 
           <div class="session-card-title">${item.title}</div>
@@ -920,21 +952,68 @@
       });
     }
 
-    function updateNextWidget(item) {
-      if (!item) {
-        document.getElementById('nextTitle').innerText = 'لا توجد حصص متبقية اليوم';
-        document.getElementById('nextTime').innerText = '--:--';
-        document.getElementById('nextLocation').innerText = '---';
-        document.getElementById('nextSubject').innerText = '---';
-        document.getElementById('nextType').innerText = '---';
+    function updateRealTimeWidget(todaySessions, currentMinutes) {
+      const widgetBadge = document.getElementById('widgetBadge');
+      const widgetBadgeText = document.getElementById('widgetBadgeText');
+
+      if (!todaySessions || todaySessions.length === 0) {
+        setWidgetEmpty("لا توجد حصص مجدولة لهذا اليوم 🎉");
         return;
       }
 
+      // Check if there is an active live session right now
+      let liveSession = todaySessions.find(s => {
+        const { startMins, endMins } = parseTimeRange(s.time);
+        return currentMinutes >= startMins && currentMinutes <= endMins;
+      });
+
+      if (liveSession) {
+        widgetBadge.className = "widget-badge live-now";
+        widgetBadgeText.innerText = "جاري الآن 🔴";
+        setWidgetData(liveSession);
+        return;
+      }
+
+      // Look for the upcoming session today
+      let nextSession = todaySessions.find(s => {
+        const { startMins } = parseTimeRange(s.time);
+        return currentMinutes < startMins;
+      });
+
+      if (nextSession) {
+        widgetBadge.className = "widget-badge";
+        widgetBadgeText.innerText = "الحصة القادمة اليوم ⚡";
+        setWidgetData(nextSession);
+      } else {
+        setWidgetEmpty("انتهت جميع حصص اليوم بنجاح! ✨");
+      }
+    }
+
+    function setWidgetData(item) {
       document.getElementById('nextTitle').innerText = item.title;
       document.getElementById('nextTime').innerText = item.time;
       document.getElementById('nextLocation').innerText = item.location;
       document.getElementById('nextSubject').innerText = item.subject;
       document.getElementById('nextType').innerText = item.type;
+    }
+
+    function setWidgetEmpty(msg) {
+      document.getElementById('nextTitle').innerText = msg;
+      document.getElementById('nextTime').innerText = '--:--';
+      document.getElementById('nextLocation').innerText = '---';
+      document.getElementById('nextSubject').innerText = '---';
+      document.getElementById('nextType').innerText = '---';
+    }
+
+    function getSubjectTagClass(subj) {
+      switch(subj) {
+        case 'Anatomy': return 'anatomy-tag';
+        case 'Biochemistry': return 'biochem-tag';
+        case 'Physiology': return 'physio-tag';
+        case 'Histology': return 'histo-tag';
+        case 'Professional': return 'prof-tag';
+        default: return 'biochem-tag';
+      }
     }
   </script>
 </body>
