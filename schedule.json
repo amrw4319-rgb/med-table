@@ -6,7 +6,7 @@
     "groups": ["C1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 106 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "عملي"
   },
   {
@@ -15,7 +15,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -26,7 +26,7 @@
     "groups": ["C3"],
     "subject": "Physiology",
     "title": "Physiology: Homeostasis, cell membrane",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -36,7 +36,7 @@
     "groups": ["D1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 202 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -46,7 +46,7 @@
     "groups": ["D2"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -56,7 +56,7 @@
     "groups": ["D3"],
     "subject": "Professional",
     "title": "Professional practice (Concepts and attributes of professionalism)",
-    "location": "CR: 107 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -86,7 +86,7 @@
     "groups": ["A1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 106 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "عملي"
   },
   {
@@ -95,7 +95,7 @@
     "time": "10:30 - 12:00",
     "groups": ["A2"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones 1",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -106,7 +106,7 @@
     "groups": ["A3"],
     "subject": "Physiology",
     "title": "Physiology: Homeostasis, cell membrane",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -116,7 +116,7 @@
     "groups": ["B1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 202 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -126,7 +126,7 @@
     "groups": ["B2"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -136,7 +136,7 @@
     "groups": ["B3"],
     "subject": "Professional",
     "title": "Professional practice (Concepts and attributes of professionalism)",
-    "location": "CR: 107 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -155,7 +155,7 @@
     "time": "10:30 - 12:00",
     "groups": ["D1", "D2", "D3"],
     "subject": "Histology",
-    "title": "Histology - Lecture 1 (Membranous organelles)",
+    "title": "Histology Lecture 1 (Membranous organelles)",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -165,8 +165,8 @@
     "time": "12:15 - 01:45",
     "groups": ["A1"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
-    "location": "CR: 106 Medical Building C",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
+    "location": "CR: 101 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -176,7 +176,7 @@
     "groups": ["A2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -185,7 +185,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A3"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -196,7 +196,7 @@
     "groups": ["B1"],
     "subject": "Physiology",
     "title": "Physiology: Homeostasis, cell membrane",
-    "location": "CR: 202 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -206,7 +206,7 @@
     "groups": ["B2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -216,7 +216,7 @@
     "groups": ["B3"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 107 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -225,7 +225,7 @@
     "time": "12:15 - 01:45",
     "groups": ["C1", "C2", "C3"],
     "subject": "Histology",
-    "title": "Histology - Lecture 1 (Membranous organelles)",
+    "title": "Histology Lecture 1 (Membranous organelles)",
     "location": "Hall 201 Medical Building C",
     "type": "محاضرة"
   },
@@ -246,7 +246,7 @@
     "groups": ["A1"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -256,7 +256,7 @@
     "groups": ["A2"],
     "subject": "Professional",
     "title": "Professional practice (Concepts and attributes of professionalism)",
-    "location": "CR: 202 Medical Building C",
+    "location": "CR: 102 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -266,7 +266,7 @@
     "groups": ["A3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 203 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -275,7 +275,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B1"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -285,8 +285,8 @@
     "time": "09:00 - 10:30",
     "groups": ["B2"],
     "subject": "Physiology",
-    "title": "Physiology:Homeostasis, cell membrane",
-    "location": "CR: 205 Medical Building C",
+    "title": "Physiology: Homeostasis, cell membrane",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -296,7 +296,7 @@
     "groups": ["B3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 204 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "عملي"
   },
   {
@@ -325,8 +325,8 @@
     "time": "10:30 - 12:00",
     "groups": ["C1"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
-    "location": "CR: 201 Medical Building C",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
+    "location": "CR: 101 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -336,7 +336,7 @@
     "groups": ["C2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 202 Medical Building C",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -345,7 +345,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C3"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -356,7 +356,7 @@
     "groups": ["D1"],
     "subject": "Physiology",
     "title": "Physiology: Homeostasis, cell membrane",
-    "location": "CR: 204 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -366,7 +366,7 @@
     "groups": ["D2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -376,7 +376,7 @@
     "groups": ["D3"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 203 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -406,7 +406,7 @@
     "groups": ["C1"],
     "subject": "Histology",
     "title": "Histology SGS 1 (Microscopes and micro-techniques)",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -415,8 +415,8 @@
     "time": "12:15 - 01:45",
     "groups": ["C2"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
-    "location": "CR: 202 Medical Building C",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
+    "location": "CR: 102 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -426,7 +426,7 @@
     "groups": ["C3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 203 Medical Building C",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -435,7 +435,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D1"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -446,7 +446,7 @@
     "groups": ["D2"],
     "subject": "Physiology",
     "title": "Physiology: Homeostasis, cell membrane",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -456,7 +456,7 @@
     "groups": ["D3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 1: lab hazards, specimen collection",
-    "location": "CR: 204 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "عملي"
   },
   {
@@ -505,7 +505,7 @@
     "time": "09:00 - 10:30",
     "groups": ["A3"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 103 Medical Building C",
     "type": "محاضرة"
   },
@@ -525,7 +525,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B2"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -545,7 +545,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C1", "C2", "C3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 1:Transport 1",
+    "title": "Physiology lecture 1: Transport 1",
     "location": "Hall 301 Medical Building C",
     "type": "محاضرة"
   },
@@ -585,7 +585,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C3"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 103 Medical Building C",
     "type": "محاضرة"
   },
@@ -605,7 +605,7 @@
     "time": "10:30 - 12:00",
     "groups": ["D2"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -615,7 +615,7 @@
     "time": "10:30 - 12:00",
     "groups": ["D3"],
     "subject": "Physiology",
-    "title": "Physiology:Homeostasis, cell membrane",
+    "title": "Physiology: Homeostasis, cell membrane",
     "location": "CR: 105 Medical Building C",
     "type": "عملي"
   },
@@ -645,7 +645,7 @@
     "time": "12:15 - 01:45",
     "groups": ["C1"],
     "subject": "Physiology",
-    "title": "Physiology:Homeostasis, cell membrane",
+    "title": "Physiology: Homeostasis, cell membrane",
     "location": "CR: 101 Medical Building C",
     "type": "عملي"
   },
@@ -675,7 +675,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D1"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 104 Medical Building C",
     "type": "محاضرة"
   },
@@ -695,7 +695,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D3"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -725,7 +725,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C1"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -765,7 +765,7 @@
     "time": "09:00 - 10:30",
     "groups": ["D2"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
@@ -835,7 +835,7 @@
     "time": "10:30 - 12:00",
     "groups": ["B1"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 104 Medical Building C",
     "type": "محاضرة"
   },
@@ -855,7 +855,7 @@
     "time": "10:30 - 12:00",
     "groups": ["B3"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -885,7 +885,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A1"],
     "subject": "Anatomy",
-    "title": "Anatomy types and classification of bones",
+    "title": "Practical Anatomy 1: Classification of bone, types",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -925,7 +925,7 @@
     "time": "12:15 - 01:45",
     "groups": ["B2"],
     "subject": "Professional",
-    "title": "Professional practice(Concepts and attributes of professionalism)",
+    "title": "Professional practice (Concepts and attributes of professionalism)",
     "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
