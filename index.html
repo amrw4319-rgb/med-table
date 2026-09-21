@@ -55,14 +55,12 @@
       overflow-x: hidden;
     }
 
-    /* Container */
     .app-container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 16px;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
@@ -82,7 +80,6 @@
       animation: fadeIn 0.4s ease-out forwards;
     }
 
-    /* Glassmorphism Styling */
     .glass-panel {
       background: var(--bg-card);
       backdrop-filter: blur(16px);
@@ -92,7 +89,6 @@
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
-    /* Header Navbar */
     header {
       position: sticky;
       top: 0;
@@ -171,7 +167,6 @@
       font-weight: 800;
     }
 
-    /* Motivation Banner */
     .quote-card {
       padding: 18px 22px;
       margin-bottom: 22px;
@@ -195,7 +190,6 @@
       line-height: 1.5;
     }
 
-    /* Live Next Session Widget */
     .next-widget {
       padding: 22px;
       margin-bottom: 25px;
@@ -267,7 +261,6 @@
       color: #f1f5f9;
     }
 
-    /* Navigation Sections */
     .section-label {
       font-size: 0.85rem;
       font-weight: 800;
@@ -317,7 +310,6 @@
       box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
     }
 
-    /* Search & Filter Bar */
     .search-box {
       position: relative;
       margin-bottom: 22px;
@@ -349,7 +341,6 @@
       box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
     }
 
-    /* Timeline Session Cards */
     .timeline-container {
       display: flex;
       flex-direction: column;
@@ -434,7 +425,6 @@
       font-weight: 700;
     }
 
-    /* Modal Setup */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -567,7 +557,7 @@
 </head>
 <body>
 
-  <!-- Input Modal -->
+  <!-- Modal -->
   <div id="modalBackdrop" class="modal-backdrop">
     <div class="modal-card glass-panel animated-card">
       <div class="brand-avatar" style="margin: 0 auto 16px;">🩺</div>
@@ -720,6 +710,9 @@
       { id: 6, name: "الأسبوع 6", range: "26/10 - 29/10", startDate: "2026-10-26", endDate: "2026-10-29" }
     ];
 
+    const dayIndexMap = { 'Mon': 0, 'Tue': 1, 'Wed': 2, 'Thu': 3 };
+    const dayArabicMap = { 'Mon': 'الإثنين', 'Tue': 'الثلاثاء', 'Wed': 'الأربعاء', 'Thu': 'الخميس' };
+
     let batchSchedule = [];
     let currentUserName = localStorage.getItem('med_user_name') || '';
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
@@ -730,7 +723,6 @@
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
       document.getElementById('motivationQuote').innerText = medicalQuotes[randQ];
 
-      // Auto detect Current Week & Day based on System Clock
       autoDetectTimeAndWeek();
       renderWeeksNav();
       updateDayButtonsUI();
@@ -745,24 +737,19 @@
         renderTimeline();
       }
 
-      // Check real-time updates every 1 minute
       setInterval(() => {
         renderTimeline();
       }, 60000);
     };
 
-    // Auto Detect Week and Day based on system clock
     function autoDetectTimeAndWeek() {
       const now = new Date();
-      
-      // Map JS Day Index (1=Mon, 2=Tue, 3=Wed, 4=Thu)
       const dayMap = { 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu' };
       const todayDay = dayMap[now.getDay()];
       if (todayDay) {
         selectedDay = todayDay;
       }
 
-      // Detect active week according to current date
       const currentDateStr = now.toISOString().split('T')[0];
       const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
       if (matchedWeek) {
@@ -854,7 +841,6 @@
       renderTimeline();
     }
 
-    // Helper: Convert time string "09:00 AM" or "14:30" to Minutes from midnight
     function timeToMinutes(timeStr) {
       if (!timeStr) return 0;
       timeStr = timeStr.trim().toUpperCase();
@@ -869,7 +855,6 @@
       return (hours * 60) + (minutes || 0);
     }
 
-    // Helper: Parse time range "09:00 - 11:00" or "09:00 AM - 11:00 AM"
     function parseTimeRange(rangeStr) {
       const parts = rangeStr.split('-');
       if (parts.length < 2) return { startMins: 0, endMins: 1440 };
@@ -877,6 +862,35 @@
         startMins: timeToMinutes(parts[0]),
         endMins: timeToMinutes(parts[1])
       };
+    }
+
+    // Chronological global minute calculation (Week + Day + Minutes)
+    function getSessionGlobalRange(item) {
+      const { startMins, endMins } = parseTimeRange(item.time);
+      const dIndex = dayIndexMap[item.day] !== undefined ? dayIndexMap[item.day] : 0;
+      const globalStart = (item.week - 1) * 10080 + (dIndex * 1440) + startMins;
+      const globalEnd = (item.week - 1) * 10080 + (dIndex * 1440) + endMins;
+      return { globalStart, globalEnd };
+    }
+
+    function getCurrentGlobalMinutes() {
+      const now = new Date();
+      const currentDateStr = now.toISOString().split('T')[0];
+      
+      let currentWeek = 1;
+      const matched = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
+      if (matched) {
+        currentWeek = matched.id;
+      } else if (studyWeeks.length > 0 && currentDateStr > studyWeeks[studyWeeks.length - 1].endDate) {
+        currentWeek = 99;
+      }
+
+      const jsDay = now.getDay();
+      const dayMapping = { 1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 0: 6 };
+      const currentDayIndex = dayMapping[jsDay] !== undefined ? dayMapping[jsDay] : 0;
+
+      const currentMins = (now.getHours() * 60) + now.getMinutes();
+      return (currentWeek - 1) * 10080 + (currentDayIndex * 1440) + currentMins;
     }
 
     function renderTimeline() {
@@ -887,10 +901,9 @@
 
       container.innerHTML = '';
 
-      const now = new Date();
-      const currentMinutes = (now.getHours() * 60) + now.getMinutes();
+      const nowGlobalMins = getCurrentGlobalMinutes();
 
-      // Filter schedule for group
+      // Render Lower List based on Selected Week & Day
       const filtered = batchSchedule.filter(item => {
         const matchesWeek = item.week === selectedWeek;
         const matchesDay = item.day === selectedDay;
@@ -903,8 +916,8 @@
         return matchesWeek && matchesDay && matchesGroup && matchesSearch;
       });
 
-      // Process Real-time Live/Next Session Calculation
-      updateRealTimeWidget(filtered, currentMinutes);
+      // Update Top Smart Real-Time Widget
+      updateRealTimeWidget(nowGlobalMins);
 
       if (filtered.length === 0) {
         container.innerHTML = `
@@ -917,15 +930,15 @@
       }
 
       filtered.forEach(item => {
-        const { startMins, endMins } = parseTimeRange(item.time);
-        const isLiveNow = (currentMinutes >= startMins && currentMinutes <= endMins);
+        const { globalStart, globalEnd } = getSessionGlobalRange(item);
+        const isLiveNow = (nowGlobalMins >= globalStart && nowGlobalMins <= globalEnd);
 
         const card = document.createElement('div');
         card.className = `session-card glass-panel animated-card ${isLiveNow ? 'active-now' : ''}`;
         card.innerHTML = `
           <div class="card-top">
             <span class="subject-pill ${getSubjectTagClass(item.subject)}">${item.subject}</span>
-            <span class="tag-type">${item.type} ${isLiveNow ? '🔴 مبالشاش/جاري الآن' : ''}</span>
+            <span class="tag-type">${item.type} ${isLiveNow ? '🔴 مباشر الآن' : ''}</span>
           </div>
 
           <div class="session-card-title">${item.title}</div>
@@ -952,19 +965,28 @@
       });
     }
 
-    function updateRealTimeWidget(todaySessions, currentMinutes) {
+    // Smart Global Lookahead Tracker for Top Widget
+    function updateRealTimeWidget(nowGlobalMins) {
       const widgetBadge = document.getElementById('widgetBadge');
       const widgetBadgeText = document.getElementById('widgetBadgeText');
 
-      if (!todaySessions || todaySessions.length === 0) {
-        setWidgetEmpty("لا توجد حصص مجدولة لهذا اليوم 🎉");
+      if (!batchSchedule || batchSchedule.length === 0 || !currentUserGroup) {
+        setWidgetEmpty("لا توجد بيانات متاحة حالياً");
         return;
       }
 
-      // Check if there is an active live session right now
-      let liveSession = todaySessions.find(s => {
-        const { startMins, endMins } = parseTimeRange(s.time);
-        return currentMinutes >= startMins && currentMinutes <= endMins;
+      // Get all sessions for this specific subgroup
+      const userSessions = batchSchedule.filter(s => s.groups.includes(currentUserGroup));
+
+      if (userSessions.length === 0) {
+        setWidgetEmpty("لا توجد حصص مسجلة لمجموعتك");
+        return;
+      }
+
+      // 1. Check if any session is Live NOW
+      const liveSession = userSessions.find(s => {
+        const { globalStart, globalEnd } = getSessionGlobalRange(s);
+        return nowGlobalMins >= globalStart && nowGlobalMins <= globalEnd;
       });
 
       if (liveSession) {
@@ -974,18 +996,21 @@
         return;
       }
 
-      // Look for the upcoming session today
-      let nextSession = todaySessions.find(s => {
-        const { startMins } = parseTimeRange(s.time);
-        return currentMinutes < startMins;
-      });
+      // 2. Look ahead for absolute NEXT session across current/future days and weeks
+      const upcomingSessions = userSessions
+        .map(s => ({ ...s, range: getSessionGlobalRange(s) }))
+        .filter(s => s.range.globalStart > nowGlobalMins)
+        .sort((a, b) => a.range.globalStart - b.range.globalStart);
 
-      if (nextSession) {
+      if (upcomingSessions.length > 0) {
+        const nextSession = upcomingSessions[0];
+        const dayAr = dayArabicMap[nextSession.day] || nextSession.day;
+
         widgetBadge.className = "widget-badge";
-        widgetBadgeText.innerText = "الحصة القادمة اليوم ⚡";
+        widgetBadgeText.innerText = `الحصة القادمة (${dayAr} - أسبوع ${nextSession.week}) ⚡`;
         setWidgetData(nextSession);
       } else {
-        setWidgetEmpty("انتهت جميع حصص اليوم بنجاح! ✨");
+        setWidgetEmpty("انتهت جميع حصص الفصل الدراسي بنجاح! 🎉");
       }
     }
 
