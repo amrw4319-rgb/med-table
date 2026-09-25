@@ -965,8 +965,8 @@
     "time": "09:00 - 10:30",
     "groups": ["C1"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics I)",
-    "location": "CR: 106 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -975,7 +975,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -985,8 +985,8 @@
     "time": "09:00 - 10:30",
     "groups": ["C3"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs, Hb",
-    "location": "CR: 201 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -995,8 +995,8 @@
     "time": "09:00 - 10:30",
     "groups": ["D1"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 202 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 103 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1006,7 +1006,7 @@
     "groups": ["D2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1015,8 +1015,8 @@
     "time": "09:00 - 10:30",
     "groups": ["D3"],
     "subject": "Professional",
-    "title": "Professional practice (Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 107 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1035,7 +1035,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 3: Blood, plasma proteins, RBCs",
+    "title": "Physiology lecture 3: Blood, plasma proteins, RBCS",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1045,8 +1045,8 @@
     "time": "10:30 - 12:00",
     "groups": ["A1"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 106 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1055,7 +1055,7 @@
     "time": "10:30 - 12:00",
     "groups": ["A2"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1065,8 +1065,8 @@
     "time": "10:30 - 12:00",
     "groups": ["A3"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
-    "location": "CR: 201 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1075,8 +1075,8 @@
     "time": "10:30 - 12:00",
     "groups": ["B1"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 202 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 103 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1086,7 +1086,7 @@
     "groups": ["B2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 205 Medical Building C",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1095,8 +1095,8 @@
     "time": "10:30 - 12:00",
     "groups": ["B3"],
     "subject": "Professional",
-    "title": "Professional practice  Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 107 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1105,7 +1105,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C1", "C2", "C3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 2: Carbohydrate chemistry | I",
+    "title": "Biochemistry lecture 2: Carbohydrate chemistry II",
     "location": "Hall 201 Medical Building C",
     "type": "محاضرة"
   },
@@ -1125,8 +1125,8 @@
     "time": "12:15 - 01:45",
     "groups": ["A1"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 106 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 101 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1135,8 +1135,8 @@
     "time": "12:15 - 01:45",
     "groups": ["A2"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 201 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 102 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1145,7 +1145,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A3"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1155,8 +1155,8 @@
     "time": "12:15 - 01:45",
     "groups": ["B1"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
-    "location": "CR: 202 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1165,8 +1165,8 @@
     "time": "12:15 - 01:45",
     "groups": ["B2"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics I)",
-    "location": "CR: 205 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1176,7 +1176,7 @@
     "groups": ["B3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 107 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1201,12 +1201,52 @@
   },
   {
     "week": 2,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Professional",
+    "title": "Professional practice: Classroom ethics",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 3: Blood, plasma proteins, RBCS",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Histology",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "Hall 300-B Medical Building C",
+    "type": "SGS"
+  },
+  {
+    "week": 2,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 2: Carbohydrate chemistry II",
+    "location": "Hall 300-A Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
     "day": "Tue",
     "time": "09:00 - 10:30",
     "groups": ["A1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1215,8 +1255,8 @@
     "time": "09:00 - 10:30",
     "groups": ["A2"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 202 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 102 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1225,8 +1265,8 @@
     "time": "09:00 - 10:30",
     "groups": ["A3"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics I)",
-    "location": "CR: 203 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 103 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1235,7 +1275,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B1"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1245,8 +1285,8 @@
     "time": "09:00 - 10:30",
     "groups": ["B2"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
-    "location": "CR: 205 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1255,8 +1295,8 @@
     "time": "09:00 - 10:30",
     "groups": ["B3"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 204 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1265,7 +1305,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C1", "C2", "C3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 3: Carbohydrate chemistry | 11",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
     "location": "Hall 100B Medical Building C",
     "type": "محاضرة"
   },
@@ -1285,8 +1325,8 @@
     "time": "10:30 - 12:00",
     "groups": ["C1"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 201 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 101 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1295,8 +1335,8 @@
     "time": "10:30 - 12:00",
     "groups": ["C2"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics I)",
-    "location": "CR: 202 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 102 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1305,7 +1345,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C3"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1315,8 +1355,8 @@
     "time": "10:30 - 12:00",
     "groups": ["D1"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
-    "location": "CR: 204 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 103 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1325,8 +1365,8 @@
     "time": "10:30 - 12:00",
     "groups": ["D2"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics I)",
-    "location": "CR: 205 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 104 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1336,7 +1376,7 @@
     "groups": ["D3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 203 Medical Building C",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1366,7 +1406,7 @@
     "groups": ["C1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 1: Fat soluble vitamins",
-    "location": "CR: 201 Medical Building C",
+    "location": "CR: 101 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1375,8 +1415,8 @@
     "time": "12:15 - 01:45",
     "groups": ["C2"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
-    "location": "CR: 202 Medical Building C",
+    "title": "Professional practice: Classroom ethics",
+    "location": "CR: 102 Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1385,8 +1425,8 @@
     "time": "12:15 - 01:45",
     "groups": ["C3"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 203 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 103 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1395,7 +1435,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D1"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1405,8 +1445,8 @@
     "time": "12:15 - 01:45",
     "groups": ["D2"],
     "subject": "Physiology",
-    "title": "Physiology :Rbcs,Hb",
-    "location": "CR: 205 Medical Building C",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 104 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1415,8 +1455,8 @@
     "time": "12:15 - 01:45",
     "groups": ["D3"],
     "subject": "Histology",
-    "title": "Histology SGS 2 (Cytogenetics 1)",
-    "location": "CR: 204 Medical Building C",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "CR: 105 Medical Building C",
     "type": "SGS"
   },
   {
@@ -1425,7 +1465,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A1", "A2", "A3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 3: Carbohydrate chemistry 111",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
     "location": "Hall 100B Medical Building C",
     "type": "محاضرة"
   },
@@ -1437,6 +1477,46 @@
     "subject": "Histology",
     "title": "Histology Lecture 3 (Non-membranous organelles)",
     "location": "Hall 202 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Tue",
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Tue",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Histology",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "SGS"
+  },
+  {
+    "week": 2,
+    "day": "Tue",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 3: Blood, plasma proteins, RBCS",
+    "location": "Hall 100-B Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Tue",
+    "time": "01:45 - 03:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Professional",
+    "title": "Professional practice: Classroom ethics",
+    "location": "Hall 100-A Medical Building C",
     "type": "محاضرة"
   },
   {
@@ -1465,7 +1545,7 @@
     "time": "09:00 - 10:30",
     "groups": ["A3"],
     "subject": "Professional",
-    "title": "Professional practice {Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 103 Medical Building C",
     "type": "محاضرة"
   },
@@ -1485,7 +1565,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B2"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1495,7 +1575,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B3"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
+    "title": "Physiology: RBCs, Hb",
     "location": "CR: 105 Medical Building C",
     "type": "عملي"
   },
@@ -1515,7 +1595,7 @@
     "time": "09:00 - 10:30",
     "groups": ["D1", "D2", "D3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 3: Carbohydrate chemistry 111",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1545,7 +1625,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C3"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 103 Medical Building C",
     "type": "محاضرة"
   },
@@ -1565,7 +1645,7 @@
     "time": "10:30 - 12:00",
     "groups": ["D2"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1575,8 +1655,8 @@
     "time": "10:30 - 12:00",
     "groups": ["D3"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs, Hb",
-    "location": "CR: 105 Medical",
+    "title": "Physiology: RBCs, Hb",
+    "location": "CR: 105 Medical Building C",
     "type": "عملي"
   },
   {
@@ -1595,7 +1675,7 @@
     "time": "10:30 - 12:00",
     "groups": ["B1", "B2", "B3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 3: Carbohydrate chemistry",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1605,7 +1685,7 @@
     "time": "12:15 - 01:45",
     "groups": ["C1"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
+    "title": "Physiology: RBCs, Hb",
     "location": "CR: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1635,7 +1715,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D1"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 104 Medical Building C",
     "type": "محاضرة"
   },
@@ -1655,7 +1735,7 @@
     "time": "12:15 - 01:45",
     "groups": ["D3"],
     "subject": "Anatomy",
-    "title": "Anatomy",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1675,7 +1755,47 @@
     "time": "12:15 - 01:45",
     "groups": ["B1", "B2", "B3"],
     "subject": "Histology",
-    "title": "Histology lecture 4 (nucleus)",
+    "title": "Histology lecture 4 (Cytogenetics 1)",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Wed",
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Histology",
+    "title": "Histology Practical 1 (Cytology)",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي"
+  },
+  {
+    "week": 2,
+    "day": "Wed",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 3: Carbohydrate chemistry III",
+    "location": "Hall 301 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Wed",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Professional",
+    "title": "Professional practice: Classroom ethics",
+    "location": "Hall 302 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Wed",
+    "time": "01:45 - 03:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 4: Hb, Blood group, transfusion",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1685,7 +1805,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C1"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1695,7 +1815,7 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs, Hb",
+    "title": "Physiology: RBCs, Hb",
     "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
@@ -1725,7 +1845,7 @@
     "time": "09:00 - 10:30",
     "groups": ["D2"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
@@ -1745,7 +1865,7 @@
     "time": "09:00 - 10:30",
     "groups": ["A1", "A2", "A3"],
     "subject": "Histology",
-    "title": "Histology lecture 4 (nucleus)",
+    "title": "Histology lecture 4 (Cytogenetics 1)",
     "location": "Hall 201 Medical Building C",
     "type": "محاضرة"
   },
@@ -1755,7 +1875,7 @@
     "time": "09:00 - 10:30",
     "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 4:Hb, Blood group, transfusion",
+    "title": "Physiology lecture 4: Hb, Blood group, transfusion",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1765,7 +1885,7 @@
     "time": "10:30 - 12:00",
     "groups": ["A1"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
+    "title": "Physiology: RBCs, Hb",
     "location": "CR: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1795,7 +1915,7 @@
     "time": "10:30 - 12:00",
     "groups": ["B1"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 104 Medical Building C",
     "type": "محاضرة"
   },
@@ -1815,7 +1935,7 @@
     "time": "10:30 - 12:00",
     "groups": ["B3"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1825,7 +1945,7 @@
     "time": "10:30 - 12:00",
     "groups": ["C1", "C2", "C3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 4:Hb, Blood group, transfusion",
+    "title": "Physiology lecture 4: Hb, Blood group, transfusion",
     "location": "Hall 201 Medical Building C",
     "type": "محاضرة"
   },
@@ -1835,7 +1955,7 @@
     "time": "10:30 - 12:00",
     "groups": ["D1", "D2", "D3"],
     "subject": "Histology",
-    "title": "Histology lecture 4 (nucleus)",
+    "title": "Histology lecture 4 (Cytogenetics 1)",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
   },
@@ -1845,7 +1965,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A1"],
     "subject": "Anatomy",
-    "title": "Anatomy clavicle, scapula, humerus 1",
+    "title": "Anatomy Practical 2: clavicle, scapula, humerus 1",
     "location": "Skill lab: 101 Medical Building C",
     "type": "عملي"
   },
@@ -1855,7 +1975,7 @@
     "time": "12:15 - 01:45",
     "groups": ["A2"],
     "subject": "Physiology",
-    "title": "Physiology:Rbcs,Hb",
+    "title": "Physiology: RBCs, Hb",
     "location": "CR: 102 Medical Building C",
     "type": "عملي"
   },
@@ -1885,7 +2005,7 @@
     "time": "12:15 - 01:45",
     "groups": ["B2"],
     "subject": "Professional",
-    "title": "Professional practice Relational classification of ethics and bioethics (Part-1)}",
+    "title": "Professional practice: Classroom ethics",
     "location": "CR: 105 Medical Building C",
     "type": "محاضرة"
   },
@@ -1905,7 +2025,7 @@
     "time": "12:15 - 01:45",
     "groups": ["C1", "C2", "C3"],
     "subject": "Histology",
-    "title": "Histology lecture 4 (nucleus)",
+    "title": "Histology lecture 4 (Cytogenetics 1)",
     "location": "Hall 201 Medical Building C",
     "type": "محاضرة"
   },
@@ -1915,9 +2035,49 @@
     "time": "12:15 - 01:45",
     "groups": ["D1", "D2", "D3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 4:Hb, Blood group, transfusion",
+    "title": "Physiology lecture 4: Hb, Blood group, transfusion",
     "location": "Hall 202 Medical Building C",
     "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Thu",
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 4: Hb, Blood group, transfusion",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Thu",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Professional",
+    "title": "Professional practice: Classroom ethics",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة"
+  },
+  {
+    "week": 2,
+    "day": "Thu",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 1: Fat soluble vitamins",
+    "location": "Hall 100-A Medical Building C",
+    "type": "SGS"
+  },
+  {
+    "week": 2,
+    "day": "Thu",
+    "time": "01:45 - 03:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Histology",
+    "title": "Histology SGS 2 (nucleus and cell inclusion)",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "SGS"
   },
   {
     "week": 3,
