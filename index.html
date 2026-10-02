@@ -13,10 +13,10 @@
 
   <style>
     :root {
-      --bg-main: #0b0f19;
-      --bg-card: rgba(22, 31, 50, 0.7);
+      --bg-main: #090d16;
+      --bg-card: rgba(20, 28, 45, 0.75);
       --bg-glass: rgba(255, 255, 255, 0.03);
-      --border-glow: rgba(255, 255, 255, 0.1);
+      --border-glow: rgba(255, 255, 255, 0.08);
       
       --cyan-glow: #06b6d4;
       --indigo-glow: #6366f1;
@@ -33,7 +33,6 @@
       --physio-color: #06b6d4;
       --histo-color: #a855f7;
       --prof-color: #ec4899;
-      --exam-color: #f59e0b;
     }
 
     * {
@@ -47,8 +46,8 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
       background-attachment: fixed;
       color: var(--text-white);
       min-height: 100vh;
@@ -57,28 +56,28 @@
     }
 
     .app-container {
-      max-width: 1000px;
+      max-width: 950px;
       margin: 0 auto;
       padding: 16px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.25); }
+      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.5); }
     }
 
     @keyframes floatIcon {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-5px); }
     }
 
     .animated-card {
-      animation: fadeIn 0.4s ease-out forwards;
+      animation: fadeIn 0.35s ease-out forwards;
     }
 
     .glass-panel {
@@ -87,17 +86,17 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-glow);
       border-radius: 20px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11, 15, 25, 0.85);
+      background: rgba(9, 13, 22, 0.88);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-glow);
-      padding: 14px 0;
+      padding: 12px 0;
       margin-bottom: 20px;
     }
 
@@ -115,21 +114,21 @@
     }
 
     .brand-avatar {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 20px;
       color: #fff;
-      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
       animation: floatIcon 3s ease-in-out infinite;
     }
 
     .user-greeting {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       background: linear-gradient(90deg, #ffffff, #93c5fd);
       -webkit-background-clip: text;
@@ -137,12 +136,12 @@
     }
 
     .sub-title {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
     }
 
     .profile-pill {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
       padding: 6px 14px;
       border-radius: 50px;
@@ -150,11 +149,11 @@
       align-items: center;
       gap: 10px;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.25s ease;
     }
 
     .profile-pill:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       border-color: var(--cyan-glow);
       transform: translateY(-2px);
     }
@@ -164,11 +163,11 @@
       color: #fff;
       padding: 2px 10px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 800;
     }
 
-    /* Main View Mode Selector (Schedule vs Exams) */
+    /* Main Navigation Switcher (Schedule / Exams) */
     .view-mode-selector {
       display: flex;
       gap: 10px;
@@ -177,57 +176,56 @@
 
     .view-btn {
       flex: 1;
-      padding: 12px;
+      padding: 12px 16px;
       border-radius: 16px;
       border: 1px solid var(--border-glow);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text-dim);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .view-btn.active {
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       color: #fff;
       border-color: transparent;
-      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
     }
 
     .view-btn.exams-mode.active {
       background: linear-gradient(135deg, #f59e0b, #ef4444);
-      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
     }
 
     .quote-card {
-      padding: 18px 22px;
-      margin-bottom: 22px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       border-right: 4px solid var(--cyan-glow);
       position: relative;
-      overflow: hidden;
     }
 
     .quote-icon {
-      font-size: 26px;
+      font-size: 22px;
       color: var(--cyan-glow);
     }
 
     .quote-text {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #e2e8f0;
       line-height: 1.5;
     }
 
-    /* Progress Bar Card */
+    /* Progress Card */
     .progress-card {
       padding: 16px 20px;
       margin-bottom: 20px;
@@ -237,16 +235,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       margin-bottom: 10px;
-      color: var(--text-white);
     }
 
     .progress-bar-bg {
       width: 100%;
-      height: 10px;
-      background: rgba(255, 255, 255, 0.08);
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 8px;
@@ -257,7 +254,7 @@
       width: 0%;
       background: linear-gradient(90deg, var(--cyan-glow), var(--emerald-glow));
       border-radius: 20px;
-      transition: width 0.5s ease-in-out;
+      transition: width 0.6s ease-in-out;
     }
 
     .progress-subtext {
@@ -265,10 +262,10 @@
       color: var(--text-dim);
     }
 
-    /* Next Session Widget */
+    /* Next Live Widget */
     .next-widget {
       padding: 22px;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       border: 1px solid rgba(6, 182, 212, 0.3);
       position: relative;
       animation: pulseGlow 4s infinite;
@@ -278,7 +275,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       flex-wrap: wrap;
       gap: 10px;
     }
@@ -303,20 +300,21 @@
     }
 
     .countdown-timer-box {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(6, 182, 212, 0.4);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(6, 182, 212, 0.35);
       color: var(--cyan-glow);
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
       font-weight: 800;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      letter-spacing: 0.5px;
     }
 
     .widget-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 14px;
@@ -324,12 +322,12 @@
 
     .widget-details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-      background: rgba(0, 0, 0, 0.2);
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
       padding: 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.04);
       margin-bottom: 14px;
     }
 
@@ -337,17 +335,17 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
 
     .detail-item i {
-      font-size: 16px;
-      width: 22px;
+      font-size: 15px;
+      width: 20px;
       text-align: center;
     }
 
     .label-title {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text-dim);
       display: block;
       font-weight: 700;
@@ -360,22 +358,22 @@
     }
 
     .calendar-btn {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: var(--text-white);
       padding: 8px 16px;
       border-radius: 12px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.3s;
+      transition: all 0.25s ease;
     }
 
     .calendar-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.12);
       border-color: var(--cyan-glow);
       color: #fff;
     }
@@ -390,7 +388,7 @@
     }
 
     .section-label {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 800;
       color: var(--text-dim);
       display: flex;
@@ -402,11 +400,11 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid var(--border-glow);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--text-dim);
       cursor: pointer;
     }
@@ -427,12 +425,12 @@
     }
 
     .nav-btn {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
       padding: 10px 18px;
       border-radius: 14px;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
@@ -447,7 +445,7 @@
     }
 
     .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -456,12 +454,12 @@
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       border-color: transparent;
       color: #fff;
-      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .search-box i {
@@ -470,17 +468,17 @@
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-dim);
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .search-input {
       width: 100%;
       background: rgba(15, 23, 42, 0.8);
       border: 1px solid var(--border-glow);
-      padding: 12px 45px 12px 16px;
+      padding: 12px 42px 12px 16px;
       border-radius: 14px;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       outline: none;
       transition: all 0.3s;
     }
@@ -493,11 +491,11 @@
     .timeline-container {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     .session-card {
-      padding: 20px;
+      padding: 18px 20px;
       position: relative;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -507,20 +505,20 @@
       box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
     }
 
-    /* Exam Cards Style */
+    /* Exam Cards */
     .exam-card {
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(239, 68, 68, 0.05));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(239, 68, 68, 0.04));
     }
 
     .exam-card:hover {
       border-color: var(--amber-glow);
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
     }
 
     .session-card:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     .card-top {
@@ -535,10 +533,9 @@
     .subject-pill {
       padding: 4px 12px;
       border-radius: 8px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 800;
       color: #fff;
-      letter-spacing: 0.5px;
     }
 
     .anatomy-tag { background: var(--anatomy-color); }
@@ -549,21 +546,21 @@
     .exam-tag { background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow)); }
 
     .session-card-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.4;
     }
 
     .details-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
       background: rgba(0, 0, 0, 0.25);
-      padding: 12px 16px;
+      padding: 12px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.03);
       margin-bottom: 12px;
     }
 
@@ -571,7 +568,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
 
     .info-block i {
@@ -579,10 +576,10 @@
     }
 
     .tag-type {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       padding: 2px 10px;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
       font-weight: 700;
     }
@@ -595,15 +592,15 @@
     }
 
     .status-upcoming {
-      background: rgba(16, 185, 129, 0.2);
+      background: rgba(16, 185, 129, 0.15);
       color: var(--emerald-glow);
       border: 1px solid var(--emerald-glow);
     }
 
     .status-passed {
-      background: rgba(148, 163, 184, 0.15);
+      background: rgba(148, 163, 184, 0.12);
       color: var(--text-dim);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .modal-backdrop {
@@ -619,34 +616,34 @@
     }
 
     .modal-card {
-      max-width: 480px;
+      max-width: 450px;
       width: 100%;
-      padding: 32px;
+      padding: 28px;
       text-align: center;
       position: relative;
     }
 
     .modal-title {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 900;
       margin-bottom: 8px;
       color: #fff;
     }
 
     .modal-desc {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-dim);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       text-align: right;
     }
 
     .form-label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--text-dim);
       margin-bottom: 6px;
@@ -656,10 +653,10 @@
       width: 100%;
       background: #0b0f19;
       border: 1px solid var(--border-glow);
-      padding: 12px 16px;
+      padding: 12px 14px;
       border-radius: 12px;
       color: #fff;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       outline: none;
       transition: border 0.3s;
     }
@@ -679,18 +676,18 @@
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       color: #fff;
       border: none;
-      padding: 14px;
+      padding: 12px;
       border-radius: 12px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
       transition: all 0.3s;
     }
 
     .btn-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.45);
     }
 
     footer {
@@ -698,7 +695,7 @@
       text-align: center;
       padding: 20px;
       border-top: 1px solid var(--border-glow);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-dim);
     }
 
@@ -710,14 +707,14 @@
 
     .empty-box {
       text-align: center;
-      padding: 40px 20px;
+      padding: 35px 20px;
       color: var(--text-dim);
     }
 
     .empty-box i {
-      font-size: 45px;
-      margin-bottom: 12px;
-      color: rgba(255,255,255,0.2);
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.18);
     }
 
     @media (max-width: 600px) {
@@ -943,23 +940,22 @@
       { id: 6, name: "الأسبوع 6", range: "25/10 - 29/10", startDate: "2026-10-25", endDate: "2026-10-29" }
     ];
 
-    // Official First Year Exams extracted directly from pdf
     const year1Exams = [
-      { title: "TBL: structure and function", date: "2026-10-10", day: "السبت", week: "الأسبوع 4", type: "TBL", location: "مدرجات كلية الطب" },
-      { title: "QUIZ: structure and function", date: "2026-11-01", day: "الأحد", week: "الأسبوع 7", type: "Quiz", location: "مدرجات كلية الطب" },
-      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-11-02", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
-      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-11-03", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
-      { title: "Practical biochemistry, physiology", date: "2026-11-05", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل بايو وفيزيولوجي" },
-      { title: "Quiz: professional practice 1", date: "2026-11-12", day: "الخميس", week: "الأسبوع 8", type: "Quiz", location: "مدرجات كلية الطب" },
-      { title: "TBL: musculoskeletal", date: "2026-11-28", day: "السبت", week: "الأسبوع 11", type: "TBL", location: "مدرجات كلية الطب" },
-      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", day: "الأحد", week: "الأسبوع 14", type: "Quiz", location: "مدرجات كلية الطب" },
-      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-12-21", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
-      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-12-22", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
-      { title: "Practical physiology", date: "2026-12-24", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل الفيزيولوجي" },
-      { title: "بداية امتحانات الفاينل (Start final exam for 1st level)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final Exam", location: "قاعات الامتحانات المركزية" }
+      { title: "TBL: structure and function", date: "2026-10-10", day: "السبت", week: "الأسبوع 4", type: "TBL" },
+      { title: "QUIZ: structure and function", date: "2026-11-01", day: "الأحد", week: "الأسبوع 7", type: "Quiz" },
+      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-11-02", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-11-03", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Practical biochemistry, physiology", date: "2026-11-05", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Quiz: professional practice 1", date: "2026-11-12", day: "الخميس", week: "الأسبوع 8", type: "Quiz" },
+      { title: "TBL: musculoskeletal", date: "2026-11-28", day: "السبت", week: "الأسبوع 11", type: "TBL" },
+      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", day: "الأحد", week: "الأسبوع 14", type: "Quiz" },
+      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-12-21", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-12-22", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical physiology", date: "2026-12-24", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "بداية امتحانات الفاينل (Start final exam for 1st level)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final Exam" }
     ];
 
-    const dayIndexMap = { 'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4 };
+    const dayToNum = { 'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6 };
     const dayArabicMap = { 'Sun': 'الأحد', 'Mon': 'الإثنين', 'Tue': 'الثلاثاء', 'Wed': 'الأربعاء', 'Thu': 'الخميس' };
 
     let batchSchedule = [];
@@ -968,7 +964,7 @@
     let selectedWeek = 3;
     let selectedDay = 'Sun';
     let hidePastSessions = true;
-    let currentViewMode = 'schedule'; // 'schedule' or 'exams'
+    let currentViewMode = 'schedule';
     let currentNextObject = null;
 
     window.onload = async function() {
@@ -989,7 +985,6 @@
         renderTimeline();
       }
 
-      // Update timer and UI every 1 second
       setInterval(() => {
         updateTimerAndProgress();
       }, 1000);
@@ -1013,28 +1008,83 @@
       renderTimeline();
     }
 
+    // Precise JS Date Session Calculator
+    function parseSessionDates(session) {
+      const weekObj = studyWeeks.find(w => w.id === session.week);
+      if (!weekObj) return null;
+
+      const [y, m, d] = weekObj.startDate.split('-').map(Number);
+      const weekStartDate = new Date(y, m - 1, d);
+      const weekStartDayNum = weekStartDate.getDay();
+
+      const sessionDayNum = dayToNum[session.day] !== undefined ? dayToNum[session.day] : 0;
+      let dayDiff = sessionDayNum - weekStartDayNum;
+      if (dayDiff < 0) dayDiff += 7;
+
+      const sessionDate = new Date(weekStartDate);
+      sessionDate.setDate(sessionDate.getDate() + dayDiff);
+
+      const { startMins, endMins } = parseTimeRange(session.time);
+
+      const startDateTime = new Date(sessionDate);
+      startDateTime.setHours(Math.floor(startMins / 60), startMins % 60, 0, 0);
+
+      const endDateTime = new Date(sessionDate);
+      endDateTime.setHours(Math.floor(endMins / 60), endMins % 60, 0, 0);
+
+      return { startDateTime, endDateTime, sessionDate };
+    }
+
+    function timeToMinutes(timeStr) {
+      if (!timeStr) return 0;
+      let clean = timeStr.trim().toUpperCase();
+      let isPM = clean.includes('PM');
+      let isAM = clean.includes('AM');
+      clean = clean.replace('AM', '').replace('PM', '').trim();
+      let [hours, minutes] = clean.split(':').map(Number);
+
+      if (!isAM && !isPM) {
+        if (hours >= 1 && hours <= 6) hours += 12;
+      } else {
+        if (isPM && hours < 12) hours += 12;
+        if (isAM && hours === 12) hours = 0;
+      }
+
+      return (hours * 60) + (minutes || 0);
+    }
+
+    function parseTimeRange(rangeStr) {
+      const parts = rangeStr.split('-');
+      if (parts.length < 2) return { startMins: 0, endMins: 1440 };
+      return {
+        startMins: timeToMinutes(parts[0]),
+        endMins: timeToMinutes(parts[1])
+      };
+    }
+
     function autoDetectTimeAndWeek() {
       const now = new Date();
       const currentDateStr = now.toISOString().split('T')[0];
 
-      // Auto detect week based on start/end date
+      // Auto detect active/upcoming week
       const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
       if (matchedWeek) {
         selectedWeek = matchedWeek.id;
       } else {
-        // Find first upcoming week
         const upcomingWeek = studyWeeks.find(w => w.startDate > currentDateStr);
         if (upcomingWeek) {
           selectedWeek = upcomingWeek.id;
         } else {
-          selectedWeek = 3; // Fallback to active week
+          selectedWeek = 3;
         }
       }
 
-      const dayMap = { 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu' };
-      const todayDay = dayMap[now.getDay()];
-      if (todayDay) {
-        selectedDay = todayDay;
+      const dayCodeMap = { 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu' };
+      const todayDayCode = dayCodeMap[now.getDay()];
+      if (todayDayCode) {
+        selectedDay = todayDayCode;
+      } else {
+        selectedDay = 'Sun';
       }
     }
 
@@ -1047,14 +1097,16 @@
 
     function updateDayButtonsUI() {
       const btns = document.querySelectorAll('#daysNavScroll .nav-btn');
-      const nowGlobalMins = getCurrentGlobalMinutes();
+      const now = new Date();
 
       btns.forEach(b => {
         const dayCode = b.getAttribute('data-day');
-        const dIndex = dayIndexMap[dayCode];
-        const dayEndGlobalMins = (selectedWeek - 1) * 10080 + (dIndex * 1440) + 1065; // 1065 = 17:45
-
-        if (hidePastSessions && nowGlobalMins > dayEndGlobalMins) {
+        
+        // Check if all sessions for this day have ended
+        const dummySession = { week: selectedWeek, day: dayCode, time: "01:45 - 03:15" };
+        const parsed = parseSessionDates(dummySession);
+        
+        if (parsed && hidePastSessions && now > parsed.endDateTime) {
           b.classList.add('hidden-elem');
         } else {
           b.classList.remove('hidden-elem');
@@ -1123,12 +1175,11 @@
     function renderWeeksNav() {
       const container = document.getElementById('weeksNavScroll');
       container.innerHTML = '';
-      const now = new Date();
-      const currentDateStr = now.toISOString().split('T')[0];
+      const currentDateStr = new Date().toISOString().split('T')[0];
 
       studyWeeks.forEach(w => {
         const isPastWeek = w.endDate < currentDateStr;
-        if (hidePastSessions && isPastWeek) return; // Hide past weeks if toggle active
+        if (hidePastSessions && isPastWeek) return;
 
         const btn = document.createElement('button');
         btn.className = `nav-btn ${w.id === selectedWeek ? 'active' : ''}`;
@@ -1149,63 +1200,12 @@
       renderTimeline();
     }
 
-    function timeToMinutes(timeStr) {
-      if (!timeStr) return 0;
-      timeStr = timeStr.trim().toUpperCase();
-      let isPM = timeStr.includes('PM');
-      let isAM = timeStr.includes('AM');
-      let cleanTime = timeStr.replace('AM', '').replace('PM', '').trim();
-      let [hours, minutes] = cleanTime.split(':').map(Number);
-
-      if (isPM && hours < 12) hours += 12;
-      if (isAM && hours === 12) hours = 0;
-
-      return (hours * 60) + (minutes || 0);
-    }
-
-    function parseTimeRange(rangeStr) {
-      const parts = rangeStr.split('-');
-      if (parts.length < 2) return { startMins: 0, endMins: 1440 };
-      return {
-        startMins: timeToMinutes(parts[0]),
-        endMins: timeToMinutes(parts[1])
-      };
-    }
-
-    function getSessionGlobalRange(item) {
-      const { startMins, endMins } = parseTimeRange(item.time);
-      const dIndex = dayIndexMap[item.day] !== undefined ? dayIndexMap[item.day] : 0;
-      const globalStart = (item.week - 1) * 10080 + (dIndex * 1440) + startMins;
-      const globalEnd = (item.week - 1) * 10080 + (dIndex * 1440) + endMins;
-      return { globalStart, globalEnd };
-    }
-
-    function getCurrentGlobalMinutes() {
-      const now = new Date();
-      const currentDateStr = now.toISOString().split('T')[0];
-      
-      let currentWeek = 1;
-      const matched = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
-      if (matched) {
-        currentWeek = matched.id;
-      } else if (studyWeeks.length > 0 && currentDateStr > studyWeeks[studyWeeks.length - 1].endDate) {
-        currentWeek = 99;
-      }
-
-      const jsDay = now.getDay();
-      const dayMapping = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6 };
-      const currentDayIndex = dayMapping[jsDay] !== undefined ? dayMapping[jsDay] : 0;
-
-      const currentMins = (now.getHours() * 60) + now.getMinutes();
-      return (currentWeek - 1) * 10080 + (currentDayIndex * 1440) + currentMins;
-    }
-
     function renderTimeline() {
       const container = document.getElementById('timelineContainer');
       const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
 
       container.innerHTML = '';
-      const nowGlobalMins = getCurrentGlobalMinutes();
+      const now = new Date();
 
       if (currentViewMode === 'exams') {
         renderExamsList(searchVal);
@@ -1224,14 +1224,14 @@
           item.location.toLowerCase().includes(searchVal) ||
           (item.doctor && item.doctor.toLowerCase().includes(searchVal));
 
-        const { globalEnd } = getSessionGlobalRange(item);
-        const isPastSession = nowGlobalMins > globalEnd;
+        const parsed = parseSessionDates(item);
+        const isPastSession = parsed && now > parsed.endDateTime;
         const passesPastFilter = !hidePastSessions || !isPastSession;
 
         return matchesWeek && matchesDay && matchesGroup && matchesSearch && passesPastFilter;
       });
 
-      updateRealTimeWidget(nowGlobalMins);
+      updateRealTimeWidget(now);
 
       if (filtered.length === 0) {
         container.innerHTML = `
@@ -1244,8 +1244,8 @@
       }
 
       filtered.forEach(item => {
-        const { globalStart, globalEnd } = getSessionGlobalRange(item);
-        const isLiveNow = (nowGlobalMins >= globalStart && nowGlobalMins <= globalEnd);
+        const parsed = parseSessionDates(item);
+        const isLiveNow = parsed && (now >= parsed.startDateTime && now <= parsed.endDateTime);
 
         const card = document.createElement('div');
         card.className = `session-card glass-panel animated-card ${isLiveNow ? 'active-now' : ''}`;
@@ -1313,7 +1313,7 @@
         container.innerHTML = `
           <div class="empty-box glass-panel">
             <i class="fa-solid fa-award"></i>
-            <p>لا توجد امتحانات مطابقة للبحث حالياً.</p>
+            <p>لا توجد امتحانات مطابقة حالياً.</p>
           </div>
         `;
         return;
@@ -1342,17 +1342,9 @@
                 <span class="label-value">${item.day} - ${item.date} (${item.week})</span>
               </div>
             </div>
-
-            <div class="info-block">
-              <i class="fa-solid fa-location-dot" style="color: var(--rose-glow);"></i>
-              <div>
-                <span class="label-title">LOCATION (المقر)</span>
-                <span class="label-value">${item.location}</span>
-              </div>
-            </div>
           </div>
 
-          <button class="calendar-btn" onclick="addToGoogleCalendar('${item.title}', '${item.location}', 'امتحان ${item.type}')">
+          <button class="calendar-btn" onclick="addToGoogleCalendar('${item.title}', 'مدرجات كلية الطب', 'امتحان ${item.type}')">
             <i class="fa-solid fa-calendar-plus" style="color: var(--amber-glow);"></i> إضافة لـ Google Calendar
           </button>
         `;
@@ -1360,7 +1352,7 @@
       });
     }
 
-    function updateRealTimeWidget(nowGlobalMins) {
+    function updateRealTimeWidget(now) {
       const widgetBadge = document.getElementById('widgetBadge');
       const widgetBadgeText = document.getElementById('widgetBadgeText');
 
@@ -1376,9 +1368,10 @@
         return;
       }
 
+      // 1. Check if Live Now
       const liveSession = userSessions.find(s => {
-        const { globalStart, globalEnd } = getSessionGlobalRange(s);
-        return nowGlobalMins >= globalStart && nowGlobalMins <= globalEnd;
+        const parsed = parseSessionDates(s);
+        return parsed && (now >= parsed.startDateTime && now <= parsed.endDateTime);
       });
 
       if (liveSession) {
@@ -1389,13 +1382,14 @@
         return;
       }
 
-      const upcomingSessions = userSessions
-        .map(s => ({ ...s, range: getSessionGlobalRange(s) }))
-        .filter(s => s.range.globalStart > nowGlobalMins)
-        .sort((a, b) => a.range.globalStart - b.range.globalStart);
+      // 2. Look ahead for future sessions
+      const upcoming = userSessions
+        .map(s => ({ ...s, parsed: parseSessionDates(s) }))
+        .filter(s => s.parsed && s.parsed.startDateTime > now)
+        .sort((a, b) => a.parsed.startDateTime - b.parsed.startDateTime);
 
-      if (upcomingSessions.length > 0) {
-        const nextSession = upcomingSessions[0];
+      if (upcoming.length > 0) {
+        const nextSession = upcoming[0];
         const dayAr = dayArabicMap[nextSession.day] || nextSession.day;
 
         widgetBadge.className = "widget-badge";
@@ -1409,21 +1403,13 @@
     }
 
     function updateTimerAndProgress() {
-      const nowGlobalMins = getCurrentGlobalMinutes();
+      const now = new Date();
 
-      // 1. Update Timer
+      // 1. Countdown Timer
       if (currentNextObject) {
-        const { startMins } = parseTimeRange(currentNextObject.time);
-        const dIndex = dayIndexMap[currentNextObject.day] || 0;
-        
-        // Approximate target timestamp
-        const weekObj = studyWeeks.find(w => w.id === currentNextObject.week);
-        if (weekObj) {
-          const startDate = new Date(weekObj.startDate);
-          startDate.setDate(startDate.getDate() + dIndex);
-          startDate.setHours(Math.floor(startMins / 60), startMins % 60, 0, 0);
-
-          const diffMs = startDate.getTime() - new Date().getTime();
+        const parsed = parseSessionDates(currentNextObject);
+        if (parsed) {
+          const diffMs = parsed.startDateTime.getTime() - now.getTime();
           if (diffMs > 0) {
             const hrs = Math.floor(diffMs / (1000 * 60 * 60));
             const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
@@ -1437,13 +1423,13 @@
         document.getElementById('countdownText').innerText = "--:--:--";
       }
 
-      // 2. Update Progress Bar
+      // 2. Daily Progress Bar
       if (batchSchedule && batchSchedule.length > 0 && currentUserGroup) {
         const todaySessions = batchSchedule.filter(s => s.week === selectedWeek && s.day === selectedDay && s.groups.includes(currentUserGroup));
         if (todaySessions.length > 0) {
           const completed = todaySessions.filter(s => {
-            const { globalEnd } = getSessionGlobalRange(s);
-            return nowGlobalMins > globalEnd;
+            const parsed = parseSessionDates(s);
+            return parsed && now > parsed.endDateTime;
           }).length;
 
           const pct = Math.round((completed / todaySessions.length) * 100);
@@ -1485,7 +1471,7 @@
     }
 
     function addToGoogleCalendar(title, location, details) {
-      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location || '')}`;
       window.open(url, '_blank');
     }
 
