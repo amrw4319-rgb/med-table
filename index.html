@@ -22,8 +22,8 @@
 
   <style>
     :root {
-      --bg-main: #090d16;
-      --bg-card: rgba(20, 28, 45, 0.78);
+      --bg-main: #080c16;
+      --bg-card: rgba(18, 26, 43, 0.82);
       --bg-glass: rgba(255, 255, 255, 0.03);
       --border-glow: rgba(255, 255, 255, 0.08);
       
@@ -55,15 +55,15 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        /* Medical Vector Grid Pattern Overlay */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(255, 255, 255, 0.022)' stroke-width='1'/%3E%3C/svg%3E"),
-        /* EKG Medical Pulse Wave Background Overlay */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='300' viewBox='0 0 1000 300'%3E%3Cpath d='M0,150 L300,150 L315,110 L330,190 L345,50 L360,250 L375,150 L410,150 L425,130 L440,150 L1000,150' stroke='rgba(6, 182, 212, 0.04)' stroke-width='3' fill='none'/%3E%3C/svg%3E"),
-        /* Radial Color Glows */
+        /* Medical Vector Symbols Pattern Overlay */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='rgba(6, 182, 212, 0.035)' stroke-width='1.2'%3E%3Cpath d='M30 20 v20 M20 30 h20'/%3E%3Ccircle cx='90' cy='30' r='12'/%3E%3Cpath d='M80 90 c10 -15, 20 -15, 30 0'/%3E%3Cpath d='M25 85 l15 15 M40 85 l-15 15'/%3E%3C/g%3E%3C/svg%3E"),
+        /* EKG Pulse Line Overlay */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='300' viewBox='0 0 1000 300'%3E%3Cpath d='M0,150 L300,150 L315,110 L330,190 L345,50 L360,250 L375,150 L410,150 L425,130 L440,150 L1000,150' stroke='rgba(99, 102, 241, 0.045)' stroke-width='3' fill='none'/%3E%3C/svg%3E"),
+        /* Glowing Ambient Gradients */
         radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
       background-attachment: fixed;
-      background-size: 60px 60px, 1000px 300px, 100% 100%, 100% 100%;
+      background-size: 120px 120px, 1000px 300px, 100% 100%, 100% 100%;
       color: var(--text-white);
       min-height: 100vh;
       padding-bottom: 60px;
@@ -82,8 +82,8 @@
     }
 
     @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.25); }
-      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.5); }
+      0%, 100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.22); }
+      50% { box-shadow: 0 0 28px rgba(6, 182, 212, 0.45); }
     }
 
     @keyframes floatIcon {
@@ -101,14 +101,14 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-glow);
       border-radius: 20px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.38);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.88);
+      background: rgba(8, 12, 22, 0.88);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-glow);
       padding: 12px 0;
@@ -286,6 +286,10 @@
       animation: pulseGlow 4s infinite;
     }
 
+    .next-widget.exam-widget-active {
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
     .widget-badge-row {
       display: flex;
       justify-content: space-between;
@@ -308,6 +312,12 @@
       font-weight: 800;
     }
 
+    .widget-badge.exam-style {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--amber-glow);
+      color: var(--amber-glow);
+    }
+
     .widget-badge.live-now {
       background: rgba(244, 63, 94, 0.2);
       border-color: var(--rose-glow);
@@ -326,6 +336,11 @@
       align-items: center;
       gap: 8px;
       letter-spacing: 0.5px;
+    }
+
+    .countdown-timer-box.exam-timer {
+      border-color: rgba(245, 158, 11, 0.4);
+      color: var(--amber-glow);
     }
 
     .widget-title {
@@ -823,7 +838,7 @@
       </div>
     </div>
 
-    <!-- Live / Next Session Widget -->
+    <!-- Live / Next Session or Exam Widget -->
     <div class="next-widget glass-panel animated-card" id="mainNextWidget">
       <div class="widget-badge-row">
         <div class="widget-badge" id="widgetBadge">
@@ -840,9 +855,9 @@
       
       <div class="widget-details-grid">
         <div class="detail-item">
-          <i class="fa-regular fa-clock" style="color: var(--cyan-glow);"></i>
+          <i class="fa-regular fa-clock" style="color: var(--cyan-glow);" id="nextIconTime"></i>
           <div>
-            <span class="label-title">TIME (الوقت)</span>
+            <span class="label-title" id="nextLabelTime">TIME (الوقت)</span>
             <span class="label-value" id="nextTime">--:--</span>
           </div>
         </div>
@@ -858,15 +873,15 @@
         <div class="detail-item">
           <i class="fa-solid fa-book-medical" style="color: var(--emerald-glow);"></i>
           <div>
-            <span class="label-title">SUBJECT (المادة)</span>
+            <span class="label-title" id="nextLabelSubj">SUBJECT (المادة)</span>
             <span class="label-value" id="nextSubject">---</span>
           </div>
         </div>
 
         <div class="detail-item">
-          <i class="fa-solid fa-user-doctor" style="color: var(--indigo-glow);"></i>
+          <i class="fa-solid fa-user-doctor" style="color: var(--indigo-glow);" id="nextIconDoc"></i>
           <div>
-            <span class="label-title">DOCTOR (المحاضر)</span>
+            <span class="label-title" id="nextLabelDoc">DOCTOR (المحاضر)</span>
             <span class="label-value" id="nextDoctor">---</span>
           </div>
         </div>
@@ -1010,20 +1025,22 @@
       const schedBtn = document.getElementById('modeScheduleBtn');
       const examsBtn = document.getElementById('modeExamsBtn');
       const scheduleControls = document.getElementById('scheduleControls');
+      const progressCard = document.getElementById('progressCard');
 
       if (mode === 'schedule') {
         schedBtn.classList.add('active');
         examsBtn.classList.remove('active');
         scheduleControls.style.display = 'block';
+        progressCard.style.display = 'block';
       } else {
         examsBtn.classList.add('active');
         schedBtn.classList.remove('active');
         scheduleControls.style.display = 'none';
+        progressCard.style.display = 'none';
       }
       renderTimeline();
     }
 
-    // Precise JS Date Session Calculator
     function parseSessionDates(session) {
       const weekObj = studyWeeks.find(w => w.id === session.week);
       if (!weekObj) return null;
@@ -1081,7 +1098,6 @@
       const now = new Date();
       const currentDateStr = now.toISOString().split('T')[0];
 
-      // Auto detect active/upcoming week
       const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
       if (matchedWeek) {
         selectedWeek = matchedWeek.id;
@@ -1117,7 +1133,6 @@
       btns.forEach(b => {
         const dayCode = b.getAttribute('data-day');
         
-        // Check if all sessions for this day have ended
         const dummySession = { week: selectedWeek, day: dayCode, time: "01:45 - 03:15" };
         const parsed = parseSessionDates(dummySession);
         
@@ -1222,6 +1237,8 @@
       container.innerHTML = '';
       const now = new Date();
 
+      updateRealTimeWidget(now);
+
       if (currentViewMode === 'exams') {
         renderExamsList(searchVal);
         return;
@@ -1245,8 +1262,6 @@
 
         return matchesWeek && matchesDay && matchesGroup && matchesSearch && passesPastFilter;
       });
-
-      updateRealTimeWidget(now);
 
       if (filtered.length === 0) {
         container.innerHTML = `
@@ -1368,8 +1383,57 @@
     }
 
     function updateRealTimeWidget(now) {
+      const mainWidget = document.getElementById('mainNextWidget');
       const widgetBadge = document.getElementById('widgetBadge');
       const widgetBadgeText = document.getElementById('widgetBadgeText');
+      const timerBox = document.getElementById('countdownBox');
+
+      // Labels Elements
+      const labelTime = document.getElementById('nextLabelTime');
+      const labelSubj = document.getElementById('nextLabelSubj');
+      const labelDoc = document.getElementById('nextLabelDoc');
+
+      if (currentViewMode === 'exams') {
+        // EXAMS MODE TOP WIDGET
+        mainWidget.classList.add('exam-widget-active');
+        timerBox.classList.add('exam-timer');
+        labelTime.innerText = "DATE (التاريخ)";
+        labelSubj.innerText = "EXAM (النوع)";
+        labelDoc.innerText = "WEEK (الأسبوع)";
+
+        const currentDateStr = now.toISOString().split('T')[0];
+        const upcomingExams = year1Exams
+          .filter(e => e.date >= currentDateStr)
+          .sort((a, b) => a.date.localeCompare(b.date));
+
+        if (upcomingExams.length > 0) {
+          const nextExam = upcomingExams[0];
+          const isToday = nextExam.date === currentDateStr;
+
+          widgetBadge.className = isToday ? "widget-badge live-now" : "widget-badge exam-style";
+          widgetBadgeText.innerText = isToday ? "امتحان اليوم 🔴" : `الامتحان القادم (${nextExam.day}) 🎯`;
+
+          document.getElementById('nextTitle').innerText = nextExam.title;
+          document.getElementById('nextTime').innerText = `${nextExam.day} - ${nextExam.date}`;
+          document.getElementById('nextLocation').innerText = 'قاعات ومدرجات الكلية';
+          document.getElementById('nextSubject').innerText = nextExam.type;
+          document.getElementById('nextDoctor').innerText = nextExam.week;
+          document.getElementById('nextType').innerText = 'امتحان رسمى';
+
+          currentNextObject = { ...nextExam, isExam: true };
+        } else {
+          setWidgetEmpty("انتهت جميع امتحانات الترم بنجاح! 🎉");
+          currentNextObject = null;
+        }
+        return;
+      }
+
+      // SCHEDULE MODE TOP WIDGET
+      mainWidget.classList.remove('exam-widget-active');
+      timerBox.classList.remove('exam-timer');
+      labelTime.innerText = "TIME (الوقت)";
+      labelSubj.innerText = "SUBJECT (المادة)";
+      labelDoc.innerText = "DOCTOR (المحاضر)";
 
       if (!batchSchedule || batchSchedule.length === 0 || !currentUserGroup) {
         setWidgetEmpty("لا توجد بيانات متاحة حالياً");
@@ -1422,24 +1486,40 @@
 
       // 1. Countdown Timer
       if (currentNextObject) {
-        const parsed = parseSessionDates(currentNextObject);
-        if (parsed) {
-          const diffMs = parsed.startDateTime.getTime() - now.getTime();
+        let targetTime = null;
+
+        if (currentNextObject.isExam) {
+          // Exam countdown target (Set to 09:00 AM on exam date)
+          const [y, m, d] = currentNextObject.date.split('-').map(Number);
+          targetTime = new Date(y, m - 1, d, 9, 0, 0);
+        } else {
+          const parsed = parseSessionDates(currentNextObject);
+          if (parsed) targetTime = parsed.startDateTime;
+        }
+
+        if (targetTime) {
+          const diffMs = targetTime.getTime() - now.getTime();
           if (diffMs > 0) {
-            const hrs = Math.floor(diffMs / (1000 * 60 * 60));
+            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const hrs = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
             const secs = Math.floor((diffMs % (1000 * 60)) / 1000);
-            document.getElementById('countdownText').innerText = `${hrs.toString().padStart(2, '0')}س : ${mins.toString().padStart(2, '0')}د : ${secs.toString().padStart(2, '0')}ث`;
+
+            if (days > 0) {
+              document.getElementById('countdownText').innerText = `${days}ي : ${hrs.toString().padStart(2, '0')}س : ${mins.toString().padStart(2, '0')}د`;
+            } else {
+              document.getElementById('countdownText').innerText = `${hrs.toString().padStart(2, '0')}س : ${mins.toString().padStart(2, '0')}د : ${secs.toString().padStart(2, '0')}ث`;
+            }
           } else {
-            document.getElementById('countdownText').innerText = "مباشر الآن 🔴";
+            document.getElementById('countdownText').innerText = currentNextObject.isExam ? "اليوم موعد الامتحان 🎯" : "مباشر الآن 🔴";
           }
         }
       } else {
         document.getElementById('countdownText').innerText = "--:--:--";
       }
 
-      // 2. Daily Progress Bar
-      if (batchSchedule && batchSchedule.length > 0 && currentUserGroup) {
+      // 2. Daily Progress Bar (Only in Schedule Mode)
+      if (currentViewMode === 'schedule' && batchSchedule && batchSchedule.length > 0 && currentUserGroup) {
         const todaySessions = batchSchedule.filter(s => s.week === selectedWeek && s.day === selectedDay && s.groups.includes(currentUserGroup));
         if (todaySessions.length > 0) {
           const completed = todaySessions.filter(s => {
@@ -1479,9 +1559,13 @@
 
     function addCurrentNextToCalendar() {
       if (currentNextObject) {
-        addToGoogleCalendar(currentNextObject.title, currentNextObject.location, `${currentNextObject.subject} - ${currentNextObject.type}`);
+        if (currentNextObject.isExam) {
+          addToGoogleCalendar(currentNextObject.title, 'مدرجات وقاعات كلية الطب', `امتحان ${currentNextObject.type} - ${currentNextObject.week}`);
+        } else {
+          addToGoogleCalendar(currentNextObject.title, currentNextObject.location, `${currentNextObject.subject} - ${currentNextObject.type}`);
+        }
       } else {
-        alert("لا توجد حصة قادمة حالياً لإضافتها!");
+        alert("لا توجد بيانات قادمة حالياً لإضافتها!");
       }
     }
 
