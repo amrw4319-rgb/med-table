@@ -261,14 +261,40 @@
       color: #f1f5f9;
     }
 
+    .section-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .section-label {
       font-size: 0.85rem;
       font-weight: 800;
       color: var(--text-dim);
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border-glow);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      cursor: pointer;
+    }
+
+    .toggle-container input {
+      cursor: pointer;
+      accent-color: var(--cyan-glow);
     }
 
     .nav-scroll {
@@ -295,6 +321,10 @@
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .nav-btn.hidden-day {
+      display: none !important;
     }
 
     .nav-btn:hover {
@@ -675,8 +705,15 @@
     <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
     <div class="nav-scroll" id="weeksNavScroll"></div>
 
-    <!-- Days Selector Navigation -->
-    <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
+    <!-- Days Selector Navigation with Toggle -->
+    <div class="section-header-flex">
+      <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
+      <label class="toggle-container">
+        <input type="checkbox" id="hidePastCheckbox" checked onchange="toggleHidePast()">
+        <span>إخفاء الأيام والمحاضرات المنتهية تلقائياً 👁️‍🗨️</span>
+      </label>
+    </div>
+
     <div class="nav-scroll" id="daysNavScroll">
       <button class="nav-btn" data-day="Sun" onclick="selectDay('Sun', event)"><i class="fa-solid fa-sun"></i> الأحد</button>
       <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
@@ -727,6 +764,7 @@
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
     let selectedWeek = 1;
     let selectedDay = 'Mon';
+    let hidePastSessions = true;
 
     window.onload = async function() {
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
@@ -734,7 +772,6 @@
 
       autoDetectTimeAndWeek();
       renderWeeksNav();
-      updateDayButtonsUI();
 
       await loadScheduleData();
 
@@ -743,11 +780,13 @@
       } else {
         closeProfileModal();
         updateUserUI();
+        updateDayButtonsUI();
         renderTimeline();
       }
 
       setInterval(() => {
         renderTimeline();
+        updateDayButtonsUI();
       }, 60000);
     };
 
@@ -766,10 +805,30 @@
       }
     }
 
+    function toggleHidePast() {
+      hidePastSessions = document.getElementById('hidePastCheckbox').checked;
+      updateDayButtonsUI();
+      renderTimeline();
+    }
+
     function updateDayButtonsUI() {
       const btns = document.querySelectorAll('#daysNavScroll .nav-btn');
+      const nowGlobalMins = getCurrentGlobalMinutes();
+
       btns.forEach(b => {
-        if (b.getAttribute('data-day') === selectedDay) {
+        const dayCode = b.getAttribute('data-day');
+        
+        // Check if all sessions for this day are finished
+        const dIndex = dayIndexMap[dayCode];
+        const dayEndGlobalMins = (selectedWeek - 1) * 10080 + (dIndex * 1440) + 1065; // 1065 = 17:45 (end of study day)
+
+        if (hidePastSessions && nowGlobalMins > dayEndGlobalMins) {
+          b.classList.add('hidden-day');
+        } else {
+          b.classList.remove('hidden-day');
+        }
+
+        if (dayCode === selectedDay) {
           b.classList.add('active');
         } else {
           b.classList.remove('active');
@@ -820,6 +879,7 @@
 
       closeProfileModal();
       updateUserUI();
+      updateDayButtonsUI();
       renderTimeline();
     }
 
@@ -838,6 +898,7 @@
         btn.onclick = () => {
           selectedWeek = w.id;
           renderWeeksNav();
+          updateDayButtonsUI();
           renderTimeline();
         };
         container.appendChild(btn);
@@ -873,7 +934,6 @@
       };
     }
 
-    // Chronological global minute calculation (Week + Day + Minutes)
     function getSessionGlobalRange(item) {
       const { startMins, endMins } = parseTimeRange(item.time);
       const dIndex = dayIndexMap[item.day] !== undefined ? dayIndexMap[item.day] : 0;
@@ -912,7 +972,7 @@
 
       const nowGlobalMins = getCurrentGlobalMinutes();
 
-      // Render Lower List based on Selected Week & Day
+      // Render Lower List based on Selected Week & Day & HidePast Filter
       const filtered = batchSchedule.filter(item => {
         const matchesWeek = item.week === selectedWeek;
         const matchesDay = item.day === selectedDay;
@@ -923,7 +983,13 @@
           item.location.toLowerCase().includes(searchVal) ||
           (item.doctor && item.doctor.toLowerCase().includes(searchVal));
 
-        return matchesWeek && matchesDay && matchesGroup && matchesSearch;
+        const { globalEnd } = getSessionGlobalRange(item);
+        const isPastSession = nowGlobalMins > globalEnd;
+
+        // Filter out past sessions if hidePastSessions is enabled
+        const passesPastFilter = !hidePastSessions || !isPastSession;
+
+        return matchesWeek && matchesDay && matchesGroup && matchesSearch && passesPastFilter;
       });
 
       // Update Top Smart Real-Time Widget
@@ -933,7 +999,7 @@
         container.innerHTML = `
           <div class="empty-box glass-panel">
             <i class="fa-solid fa-calendar-xmark"></i>
-            <p>لا توجد حصص أو محاضرات لهذه المواعيد والخيارات.</p>
+            <p>${hidePastSessions ? 'انتهت جميع حصص هذا اليوم بنجاح! 🎉 (أو لا توجد حصص مسجلة)' : 'لا توجد حصص أو محاضرات لهذه المواعيد.'}</p>
           </div>
         `;
         return;
@@ -985,7 +1051,6 @@
       });
     }
 
-    // Smart Global Lookahead Tracker for Top Widget
     function updateRealTimeWidget(nowGlobalMins) {
       const widgetBadge = document.getElementById('widgetBadge');
       const widgetBadgeText = document.getElementById('widgetBadgeText');
@@ -995,7 +1060,6 @@
         return;
       }
 
-      // Get all sessions for this specific subgroup
       const userSessions = batchSchedule.filter(s => s.groups.includes(currentUserGroup));
 
       if (userSessions.length === 0) {
@@ -1003,7 +1067,6 @@
         return;
       }
 
-      // 1. Check if any session is Live NOW
       const liveSession = userSessions.find(s => {
         const { globalStart, globalEnd } = getSessionGlobalRange(s);
         return nowGlobalMins >= globalStart && nowGlobalMins <= globalEnd;
@@ -1016,7 +1079,6 @@
         return;
       }
 
-      // 2. Look ahead for absolute NEXT session across current/future days and weeks
       const upcomingSessions = userSessions
         .map(s => ({ ...s, range: getSessionGlobalRange(s) }))
         .filter(s => s.range.globalStart > nowGlobalMins)
