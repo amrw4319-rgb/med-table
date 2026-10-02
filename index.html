@@ -33,6 +33,7 @@
       --physio-color: #06b6d4;
       --histo-color: #a855f7;
       --prof-color: #ec4899;
+      --exam-color: #f59e0b;
     }
 
     * {
@@ -167,6 +168,42 @@
       font-weight: 800;
     }
 
+    /* Main View Mode Selector (Schedule vs Exams) */
+    .view-mode-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .view-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border-glow);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .view-btn.active {
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .view-btn.exams-mode.active {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+    }
+
     .quote-card {
       padding: 18px 22px;
       margin-bottom: 22px;
@@ -190,12 +227,60 @@
       line-height: 1.5;
     }
 
+    /* Progress Bar Card */
+    .progress-card {
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-white);
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--cyan-glow), var(--emerald-glow));
+      border-radius: 20px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .progress-subtext {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Next Session Widget */
     .next-widget {
       padding: 22px;
       margin-bottom: 25px;
       border: 1px solid rgba(6, 182, 212, 0.3);
       position: relative;
       animation: pulseGlow 4s infinite;
+    }
+
+    .widget-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .widget-badge {
@@ -209,13 +294,25 @@
       border-radius: 30px;
       font-size: 0.75rem;
       font-weight: 800;
-      margin-bottom: 12px;
     }
 
     .widget-badge.live-now {
       background: rgba(244, 63, 94, 0.2);
       border-color: var(--rose-glow);
       color: var(--rose-glow);
+    }
+
+    .countdown-timer-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      color: var(--cyan-glow);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .widget-title {
@@ -227,12 +324,13 @@
 
     .widget-details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px;
       background: rgba(0, 0, 0, 0.2);
       padding: 14px;
       border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 14px;
     }
 
     .detail-item {
@@ -259,6 +357,27 @@
     .label-value {
       font-weight: 700;
       color: #f1f5f9;
+    }
+
+    .calendar-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-glow);
+      color: var(--text-white);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .calendar-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--cyan-glow);
+      color: #fff;
     }
 
     .section-header-flex {
@@ -323,7 +442,7 @@
       gap: 8px;
     }
 
-    .nav-btn.hidden-day {
+    .nav-btn.hidden-elem {
       display: none !important;
     }
 
@@ -388,6 +507,17 @@
       box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
     }
 
+    /* Exam Cards Style */
+    .exam-card {
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(239, 68, 68, 0.05));
+    }
+
+    .exam-card:hover {
+      border-color: var(--amber-glow);
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+    }
+
     .session-card:hover {
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-3px);
@@ -416,6 +546,7 @@
     .physio-tag { background: var(--physio-color); }
     .histo-tag { background: var(--histo-color); }
     .prof-tag { background: var(--prof-color); }
+    .exam-tag { background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow)); }
 
     .session-card-title {
       font-size: 1.1rem;
@@ -433,6 +564,7 @@
       padding: 12px 16px;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.04);
+      margin-bottom: 12px;
     }
 
     .info-block {
@@ -453,6 +585,25 @@
       font-size: 0.75rem;
       color: var(--text-dim);
       font-weight: 700;
+    }
+
+    .status-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .status-upcoming {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--emerald-glow);
+      border: 1px solid var(--emerald-glow);
+    }
+
+    .status-passed {
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--text-dim);
+      border: 1px solid rgba(148, 163, 184, 0.3);
     }
 
     .modal-backdrop {
@@ -629,7 +780,7 @@
         <div class="brand-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
         <div>
           <div class="user-greeting" id="displayGreeting">مرحباً دكتور! 👋</div>
-          <div class="sub-title">Basic Structure & Function | Professional Practice 1</div>
+          <div class="sub-title">Basic Structure & Function | Year 1</div>
         </div>
       </div>
 
@@ -642,6 +793,16 @@
 
   <div class="app-container">
 
+    <!-- Mode Selector: Schedule vs Exams -->
+    <div class="view-mode-selector">
+      <button class="view-btn active" id="modeScheduleBtn" onclick="switchViewMode('schedule')">
+        <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
+      </button>
+      <button class="view-btn exams-mode" id="modeExamsBtn" onclick="switchViewMode('exams')">
+        <i class="fa-solid fa-award"></i> امتحانات الفرقة الأولى 🩺
+      </button>
+    </div>
+
     <!-- Motivational Quotes Banner -->
     <div class="quote-card glass-panel animated-card">
       <i class="fa-solid fa-quote-right quote-icon"></i>
@@ -651,11 +812,18 @@
     </div>
 
     <!-- Live / Next Session Widget -->
-    <div class="next-widget glass-panel animated-card">
-      <div class="widget-badge" id="widgetBadge">
-        <i class="fa-solid fa-bolt"></i>
-        <span id="widgetBadgeText">الحصة التالية المباشرة</span>
+    <div class="next-widget glass-panel animated-card" id="mainNextWidget">
+      <div class="widget-badge-row">
+        <div class="widget-badge" id="widgetBadge">
+          <i class="fa-solid fa-bolt"></i>
+          <span id="widgetBadgeText">الحصة التالية المباشرة</span>
+        </div>
+        <div class="countdown-timer-box" id="countdownBox">
+          <i class="fa-solid fa-stopwatch"></i>
+          <span id="countdownText">--:--:--</span>
+        </div>
       </div>
+
       <div class="widget-title" id="nextTitle">جاري تحميل البيانات...</div>
       
       <div class="widget-details-grid">
@@ -699,27 +867,46 @@
           </div>
         </div>
       </div>
+
+      <button class="calendar-btn" id="nextCalendarBtn" onclick="addCurrentNextToCalendar()">
+        <i class="fa-solid fa-calendar-plus" style="color: var(--cyan-glow);"></i> إضافة لـ Google Calendar
+      </button>
     </div>
 
-    <!-- Weeks Selector Navigation -->
-    <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
-    <div class="nav-scroll" id="weeksNavScroll"></div>
-
-    <!-- Days Selector Navigation with Toggle -->
-    <div class="section-header-flex">
-      <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
-      <label class="toggle-container">
-        <input type="checkbox" id="hidePastCheckbox" checked onchange="toggleHidePast()">
-        <span>إخفاء الأيام والمحاضرات المنتهية تلقائياً 👁️‍🗨️</span>
-      </label>
+    <!-- Daily Progress Bar Card -->
+    <div class="progress-card glass-panel animated-card" id="progressCard">
+      <div class="progress-header">
+        <span><i class="fa-solid fa-chart-line" style="color: var(--cyan-glow);"></i> نسبة إنجاز اليوم الدراسي:</span>
+        <strong id="progressPercentText" style="color: var(--cyan-glow);">0%</strong>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="progress-subtext" id="progressSubtext">جاري الحساب...</div>
     </div>
 
-    <div class="nav-scroll" id="daysNavScroll">
-      <button class="nav-btn" data-day="Sun" onclick="selectDay('Sun', event)"><i class="fa-solid fa-sun"></i> الأحد</button>
-      <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
-      <button class="nav-btn" data-day="Tue" onclick="selectDay('Tue', event)"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
-      <button class="nav-btn" data-day="Wed" onclick="selectDay('Wed', event)"><i class="fa-solid fa-sun"></i> الأربعاء</button>
-      <button class="nav-btn" data-day="Thu" onclick="selectDay('Thu', event)"><i class="fa-solid fa-sun"></i> الخميس</button>
+    <!-- Schedule Specific Navigation Controls -->
+    <div id="scheduleControls">
+      <!-- Weeks Selector Navigation -->
+      <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
+      <div class="nav-scroll" id="weeksNavScroll"></div>
+
+      <!-- Days Selector Navigation with Toggle -->
+      <div class="section-header-flex">
+        <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
+        <label class="toggle-container">
+          <input type="checkbox" id="hidePastCheckbox" checked onchange="toggleHidePast()">
+          <span>إخفاء الأسابيع والأيام المنتهية تلقائياً 👁️‍🗨️</span>
+        </label>
+      </div>
+
+      <div class="nav-scroll" id="daysNavScroll">
+        <button class="nav-btn" data-day="Sun" onclick="selectDay('Sun', event)"><i class="fa-solid fa-sun"></i> الأحد</button>
+        <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
+        <button class="nav-btn" data-day="Tue" onclick="selectDay('Tue', event)"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
+        <button class="nav-btn" data-day="Wed" onclick="selectDay('Wed', event)"><i class="fa-solid fa-sun"></i> الأربعاء</button>
+        <button class="nav-btn" data-day="Thu" onclick="selectDay('Thu', event)"><i class="fa-solid fa-sun"></i> الخميس</button>
+      </div>
     </div>
 
     <!-- Search Input Bar -->
@@ -756,15 +943,33 @@
       { id: 6, name: "الأسبوع 6", range: "25/10 - 29/10", startDate: "2026-10-25", endDate: "2026-10-29" }
     ];
 
+    // Official First Year Exams extracted directly from pdf
+    const year1Exams = [
+      { title: "TBL: structure and function", date: "2026-10-10", day: "السبت", week: "الأسبوع 4", type: "TBL", location: "مدرجات كلية الطب" },
+      { title: "QUIZ: structure and function", date: "2026-11-01", day: "الأحد", week: "الأسبوع 7", type: "Quiz", location: "مدرجات كلية الطب" },
+      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-11-02", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
+      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-11-03", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
+      { title: "Practical biochemistry, physiology", date: "2026-11-05", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE", location: "معامل بايو وفيزيولوجي" },
+      { title: "Quiz: professional practice 1", date: "2026-11-12", day: "الخميس", week: "الأسبوع 8", type: "Quiz", location: "مدرجات كلية الطب" },
+      { title: "TBL: musculoskeletal", date: "2026-11-28", day: "السبت", week: "الأسبوع 11", type: "TBL", location: "مدرجات كلية الطب" },
+      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", day: "الأحد", week: "الأسبوع 14", type: "Quiz", location: "مدرجات كلية الطب" },
+      { title: "Practical anatomy, histology (اليوم الأول)", date: "2026-12-21", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
+      { title: "Practical anatomy, histology (اليوم الثاني)", date: "2026-12-22", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل تشريح وهستولوجي" },
+      { title: "Practical physiology", date: "2026-12-24", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE", location: "معامل الفيزيولوجي" },
+      { title: "بداية امتحانات الفاينل (Start final exam for 1st level)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final Exam", location: "قاعات الامتحانات المركزية" }
+    ];
+
     const dayIndexMap = { 'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4 };
     const dayArabicMap = { 'Sun': 'الأحد', 'Mon': 'الإثنين', 'Tue': 'الثلاثاء', 'Wed': 'الأربعاء', 'Thu': 'الخميس' };
 
     let batchSchedule = [];
     let currentUserName = localStorage.getItem('med_user_name') || '';
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
-    let selectedWeek = 1;
-    let selectedDay = 'Mon';
+    let selectedWeek = 3;
+    let selectedDay = 'Sun';
     let hidePastSessions = true;
+    let currentViewMode = 'schedule'; // 'schedule' or 'exams'
+    let currentNextObject = null;
 
     window.onload = async function() {
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
@@ -784,29 +989,58 @@
         renderTimeline();
       }
 
+      // Update timer and UI every 1 second
       setInterval(() => {
-        renderTimeline();
-        updateDayButtonsUI();
-      }, 60000);
+        updateTimerAndProgress();
+      }, 1000);
     };
+
+    function switchViewMode(mode) {
+      currentViewMode = mode;
+      const schedBtn = document.getElementById('modeScheduleBtn');
+      const examsBtn = document.getElementById('modeExamsBtn');
+      const scheduleControls = document.getElementById('scheduleControls');
+
+      if (mode === 'schedule') {
+        schedBtn.classList.add('active');
+        examsBtn.classList.remove('active');
+        scheduleControls.style.display = 'block';
+      } else {
+        examsBtn.classList.add('active');
+        schedBtn.classList.remove('active');
+        scheduleControls.style.display = 'none';
+      }
+      renderTimeline();
+    }
 
     function autoDetectTimeAndWeek() {
       const now = new Date();
+      const currentDateStr = now.toISOString().split('T')[0];
+
+      // Auto detect week based on start/end date
+      const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
+      if (matchedWeek) {
+        selectedWeek = matchedWeek.id;
+      } else {
+        // Find first upcoming week
+        const upcomingWeek = studyWeeks.find(w => w.startDate > currentDateStr);
+        if (upcomingWeek) {
+          selectedWeek = upcomingWeek.id;
+        } else {
+          selectedWeek = 3; // Fallback to active week
+        }
+      }
+
       const dayMap = { 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu' };
       const todayDay = dayMap[now.getDay()];
       if (todayDay) {
         selectedDay = todayDay;
       }
-
-      const currentDateStr = now.toISOString().split('T')[0];
-      const matchedWeek = studyWeeks.find(w => currentDateStr >= w.startDate && currentDateStr <= w.endDate);
-      if (matchedWeek) {
-        selectedWeek = matchedWeek.id;
-      }
     }
 
     function toggleHidePast() {
       hidePastSessions = document.getElementById('hidePastCheckbox').checked;
+      renderWeeksNav();
       updateDayButtonsUI();
       renderTimeline();
     }
@@ -817,15 +1051,13 @@
 
       btns.forEach(b => {
         const dayCode = b.getAttribute('data-day');
-        
-        // Check if all sessions for this day are finished
         const dIndex = dayIndexMap[dayCode];
-        const dayEndGlobalMins = (selectedWeek - 1) * 10080 + (dIndex * 1440) + 1065; // 1065 = 17:45 (end of study day)
+        const dayEndGlobalMins = (selectedWeek - 1) * 10080 + (dIndex * 1440) + 1065; // 1065 = 17:45
 
         if (hidePastSessions && nowGlobalMins > dayEndGlobalMins) {
-          b.classList.add('hidden-day');
+          b.classList.add('hidden-elem');
         } else {
-          b.classList.remove('hidden-day');
+          b.classList.remove('hidden-elem');
         }
 
         if (dayCode === selectedDay) {
@@ -891,7 +1123,13 @@
     function renderWeeksNav() {
       const container = document.getElementById('weeksNavScroll');
       container.innerHTML = '';
+      const now = new Date();
+      const currentDateStr = now.toISOString().split('T')[0];
+
       studyWeeks.forEach(w => {
+        const isPastWeek = w.endDate < currentDateStr;
+        if (hidePastSessions && isPastWeek) return; // Hide past weeks if toggle active
+
         const btn = document.createElement('button');
         btn.className = `nav-btn ${w.id === selectedWeek ? 'active' : ''}`;
         btn.innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${w.name} <small>(${w.range})</small>`;
@@ -965,14 +1203,17 @@
     function renderTimeline() {
       const container = document.getElementById('timelineContainer');
       const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
-      
-      if (!batchSchedule || batchSchedule.length === 0) return;
 
       container.innerHTML = '';
-
       const nowGlobalMins = getCurrentGlobalMinutes();
 
-      // Render Lower List based on Selected Week & Day & HidePast Filter
+      if (currentViewMode === 'exams') {
+        renderExamsList(searchVal);
+        return;
+      }
+
+      if (!batchSchedule || batchSchedule.length === 0) return;
+
       const filtered = batchSchedule.filter(item => {
         const matchesWeek = item.week === selectedWeek;
         const matchesDay = item.day === selectedDay;
@@ -985,21 +1226,18 @@
 
         const { globalEnd } = getSessionGlobalRange(item);
         const isPastSession = nowGlobalMins > globalEnd;
-
-        // Filter out past sessions if hidePastSessions is enabled
         const passesPastFilter = !hidePastSessions || !isPastSession;
 
         return matchesWeek && matchesDay && matchesGroup && matchesSearch && passesPastFilter;
       });
 
-      // Update Top Smart Real-Time Widget
       updateRealTimeWidget(nowGlobalMins);
 
       if (filtered.length === 0) {
         container.innerHTML = `
           <div class="empty-box glass-panel">
             <i class="fa-solid fa-calendar-xmark"></i>
-            <p>${hidePastSessions ? 'انتهت جميع حصص هذا اليوم بنجاح! 🎉 (أو لا توجد حصص مسجلة)' : 'لا توجد حصص أو محاضرات لهذه المواعيد.'}</p>
+            <p>${hidePastSessions ? 'انتهت جميع حصص هذا اليوم بنجاح! 🎉' : 'لا توجد حصص مسجلة لهذه المواعيد.'}</p>
           </div>
         `;
         return;
@@ -1046,6 +1284,77 @@
             </div>
             ` : ''}
           </div>
+
+          <button class="calendar-btn" onclick="addToGoogleCalendar('${item.title}', '${item.location}', '${item.subject} - ${item.type}')">
+            <i class="fa-solid fa-calendar-plus" style="color: var(--cyan-glow);"></i> إضافة لـ Google Calendar
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderExamsList(searchVal) {
+      const container = document.getElementById('timelineContainer');
+      const currentDateStr = new Date().toISOString().split('T')[0];
+
+      const filtered = year1Exams.filter(e => {
+        const matchesSearch = !searchVal || 
+          e.title.toLowerCase().includes(searchVal) || 
+          e.type.toLowerCase().includes(searchVal) ||
+          e.day.toLowerCase().includes(searchVal);
+
+        const isPast = e.date < currentDateStr;
+        const passesPastFilter = !hidePastSessions || !isPast;
+
+        return matchesSearch && passesPastFilter;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-box glass-panel">
+            <i class="fa-solid fa-award"></i>
+            <p>لا توجد امتحانات مطابقة للبحث حالياً.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const isPast = item.date < currentDateStr;
+
+        const card = document.createElement('div');
+        card.className = `session-card exam-card glass-panel animated-card`;
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="subject-pill exam-tag"><i class="fa-solid fa-file-signature"></i> ${item.type}</span>
+            <span class="status-badge ${isPast ? 'status-passed' : 'status-upcoming'}">
+              ${isPast ? '✅ انتهى الامتحان' : '⏳ امتحان قادم'}
+            </span>
+          </div>
+
+          <div class="session-card-title">${item.title}</div>
+
+          <div class="details-row">
+            <div class="info-block">
+              <i class="fa-regular fa-calendar" style="color: var(--amber-glow);"></i>
+              <div>
+                <span class="label-title">DATE (التاريخ)</span>
+                <span class="label-value">${item.day} - ${item.date} (${item.week})</span>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <i class="fa-solid fa-location-dot" style="color: var(--rose-glow);"></i>
+              <div>
+                <span class="label-title">LOCATION (المقر)</span>
+                <span class="label-value">${item.location}</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="calendar-btn" onclick="addToGoogleCalendar('${item.title}', '${item.location}', 'امتحان ${item.type}')">
+            <i class="fa-solid fa-calendar-plus" style="color: var(--amber-glow);"></i> إضافة لـ Google Calendar
+          </button>
         `;
         container.appendChild(card);
       });
@@ -1076,6 +1385,7 @@
         widgetBadge.className = "widget-badge live-now";
         widgetBadgeText.innerText = "جاري الآن 🔴";
         setWidgetData(liveSession);
+        currentNextObject = liveSession;
         return;
       }
 
@@ -1091,8 +1401,60 @@
         widgetBadge.className = "widget-badge";
         widgetBadgeText.innerText = `الحصة القادمة (${dayAr} - أسبوع ${nextSession.week}) ⚡`;
         setWidgetData(nextSession);
+        currentNextObject = nextSession;
       } else {
         setWidgetEmpty("انتهت جميع حصص الفصل الدراسي بنجاح! 🎉");
+        currentNextObject = null;
+      }
+    }
+
+    function updateTimerAndProgress() {
+      const nowGlobalMins = getCurrentGlobalMinutes();
+
+      // 1. Update Timer
+      if (currentNextObject) {
+        const { startMins } = parseTimeRange(currentNextObject.time);
+        const dIndex = dayIndexMap[currentNextObject.day] || 0;
+        
+        // Approximate target timestamp
+        const weekObj = studyWeeks.find(w => w.id === currentNextObject.week);
+        if (weekObj) {
+          const startDate = new Date(weekObj.startDate);
+          startDate.setDate(startDate.getDate() + dIndex);
+          startDate.setHours(Math.floor(startMins / 60), startMins % 60, 0, 0);
+
+          const diffMs = startDate.getTime() - new Date().getTime();
+          if (diffMs > 0) {
+            const hrs = Math.floor(diffMs / (1000 * 60 * 60));
+            const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diffMs % (1000 * 60)) / 1000);
+            document.getElementById('countdownText').innerText = `${hrs.toString().padStart(2, '0')}س : ${mins.toString().padStart(2, '0')}د : ${secs.toString().padStart(2, '0')}ث`;
+          } else {
+            document.getElementById('countdownText').innerText = "مباشر الآن 🔴";
+          }
+        }
+      } else {
+        document.getElementById('countdownText').innerText = "--:--:--";
+      }
+
+      // 2. Update Progress Bar
+      if (batchSchedule && batchSchedule.length > 0 && currentUserGroup) {
+        const todaySessions = batchSchedule.filter(s => s.week === selectedWeek && s.day === selectedDay && s.groups.includes(currentUserGroup));
+        if (todaySessions.length > 0) {
+          const completed = todaySessions.filter(s => {
+            const { globalEnd } = getSessionGlobalRange(s);
+            return nowGlobalMins > globalEnd;
+          }).length;
+
+          const pct = Math.round((completed / todaySessions.length) * 100);
+          document.getElementById('progressBarFill').style.width = `${pct}%`;
+          document.getElementById('progressPercentText').innerText = `${pct}%`;
+          document.getElementById('progressSubtext').innerText = `تم إنجاز ${completed} من أصل ${todaySessions.length} حصص اليوم (${dayArabicMap[selectedDay]})`;
+        } else {
+          document.getElementById('progressBarFill').style.width = `100%`;
+          document.getElementById('progressPercentText').innerText = `100%`;
+          document.getElementById('progressSubtext').innerText = `لا توجد حصص مسجلة لمجموعتك اليوم`;
+        }
       }
     }
 
@@ -1112,6 +1474,19 @@
       document.getElementById('nextSubject').innerText = '---';
       document.getElementById('nextDoctor').innerText = '---';
       document.getElementById('nextType').innerText = '---';
+    }
+
+    function addCurrentNextToCalendar() {
+      if (currentNextObject) {
+        addToGoogleCalendar(currentNextObject.title, currentNextObject.location, `${currentNextObject.subject} - ${currentNextObject.type}`);
+      } else {
+        alert("لا توجد حصة قادمة حالياً لإضافتها!");
+      }
+    }
+
+    function addToGoogleCalendar(title, location, details) {
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+      window.open(url, '_blank');
     }
 
     function getSubjectTagClass(subj) {
