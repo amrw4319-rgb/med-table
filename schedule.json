@@ -2081,13 +2081,80 @@
   },
   {
     "week": 3,
+    "day": "Sun",
+    "time": "09:00 - 10:30",
+    "groups": ["C1", "C2", "A2", "B2", "A3", "B3"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 2: Water soluble vitamins",
+    "location": "Online",
+    "type": "SGS",
+    "doctor": "د. دعاء"
+  },
+  {
+    "week": 3,
+    "day": "Sun",
+    "time": "09:00 - 10:30",
+    "groups": ["A1", "B1", "C3"],
+    "subject": "Physiology",
+    "title": "Physiology: Ht, cbc, indices",
+    "location": "Online",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
+  },
+  {
+    "week": 3,
+    "day": "Sun",
+    "time": "10:30 - 12:00",
+    "groups": ["A1", "D1", "D2", "B3", "A2", "B2"],
+    "subject": "Professional",
+    "title": "Professional practice (Spectrum of health and determinants)",
+    "location": "Online",
+    "type": "محاضرة",
+    "doctor": ""
+  },
+  {
+    "week": 3,
+    "day": "Sun",
+    "time": "10:30 - 12:00",
+    "groups": ["A3", "D3", "B1"],
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "location": "Online",
+    "type": "SGS",
+    "doctor": "د. عبير"
+  },
+  {
+    "week": 3,
+    "day": "Sun",
+    "time": "12:15 - 01:45",
+    "groups": ["C1", "C2", "C3", "D1", "D2", "D3", "B1", "B2", "B3"],
+    "subject": "Histology",
+    "title": "Histology lecture 6 (Cytogenetics II)",
+    "location": "Online",
+    "type": "محاضرة",
+    "doctor": "د. عبير"
+  },
+  {
+    "week": 3,
+    "day": "Sun",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3", "D1", "D2", "D3", "A1", "A2", "A3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 6: Anemia, polycythemia",
+    "location": "Online",
+    "type": "محاضرة",
+    "doctor": "د. إيمان"
+  },
+  {
+    "week": 3,
     "day": "Mon",
     "time": "09:00 - 10:30",
     "groups": ["C1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 106 Medical Building C",
-    "type": "SGS"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
   },
   {
     "week": 3,
@@ -2095,19 +2162,21 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. دعاء يوسف"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "09:00 - 10:30",
     "groups": ["C3"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 201 Medical Building C",
-    "type": "عملي"
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 2: Water soluble vitamins",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم مجدي"
   },
   {
     "week": 3,
@@ -2116,8 +2185,9 @@
     "groups": ["D1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. ساره"
   },
   {
     "week": 3,
@@ -2126,18 +2196,20 @@
     "groups": ["D2"],
     "subject": "Histology",
     "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 105 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "09:00 - 10:30",
     "groups": ["D3"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 107 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Physiology",
+    "title": "Physiology: HT, cbc, indices",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا"
   },
   {
     "week": 3,
@@ -2147,7 +2219,8 @@
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 4: Lipid chemistry I",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هاله"
   },
   {
     "week": 3,
@@ -2155,19 +2228,21 @@
     "time": "09:00 - 10:30",
     "groups": ["B1", "B2", "B3"],
     "subject": "Histology",
-    "title": "Histology lecture-5 (Cytogenetics II)",
+    "title": "Histology lecture- 5 (Epithelium I)",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. سالي"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "10:30 - 12:00",
     "groups": ["A1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 106 Medical Building C",
-    "type": "SGS"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
   },
   {
     "week": 3,
@@ -2175,19 +2250,21 @@
     "time": "10:30 - 12:00",
     "groups": ["A2"],
     "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. دعاء يوسف"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "10:30 - 12:00",
     "groups": ["A3"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 201 Medical Building C",
-    "type": "عملي"
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم مجدي"
   },
   {
     "week": 3,
@@ -2196,8 +2273,9 @@
     "groups": ["B1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. ساره"
   },
   {
     "week": 3,
@@ -2206,18 +2284,20 @@
     "groups": ["B2"],
     "subject": "Histology",
     "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 105 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "10:30 - 12:00",
     "groups": ["B3"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 107 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Physiology",
+    "title": "Physiology: HT, cbc indices",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا"
   },
   {
     "week": 3,
@@ -2227,7 +2307,8 @@
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 4: Lipid chemistry I",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هاله"
   },
   {
     "week": 3,
@@ -2235,29 +2316,32 @@
     "time": "10:30 - 12:00",
     "groups": ["D1", "D2", "D3"],
     "subject": "Histology",
-    "title": "Histology lecture-5 (Cytogenetics II)",
+    "title": "Histology lecture- 5 (Epithelium I)",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. سالي"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "12:15 - 01:45",
     "groups": ["A1"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 106 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "12:15 - 01:45",
     "groups": ["A2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
+    "subject": "Physiology",
+    "title": "Physiology: HT cbc indices",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا"
   },
   {
     "week": 3,
@@ -2265,19 +2349,21 @@
     "time": "12:15 - 01:45",
     "groups": ["A3"],
     "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "12:15 - 01:45",
     "groups": ["B1"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 202 Medical Building C",
-    "type": "عملي"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "CR: 103 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. دعاء يوسف"
   },
   {
     "week": 3,
@@ -2285,279 +2371,395 @@
     "time": "12:15 - 01:45",
     "groups": ["B2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 105 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم مجدي"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "12:15 - 01:45",
     "groups": ["B3"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 107 Medical Building C",
-    "type": "SGS"
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ساره"
   },
   {
     "week": 3,
     "day": "Mon",
     "time": "12:15 - 01:45",
     "groups": ["C1", "C2", "C3"],
+    "subject": "Histology",
+    "title": "Histology lecture 5 (Epithelium 1)",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. سالي"
+  },
+  {
+    "week": 3,
+    "day": "Mon",
+    "time": "12:15 - 01:45",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 4: Lipid chemistry",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هاله"
+  },
+  {
+    "week": 3,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Professional",
+    "title": "Professional practice (Spectrum of health and determinants)",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
+  },
+  {
+    "week": 3,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Physiology",
+    "title": "Physiology",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. ندا"
+  },
+  {
+    "week": 3,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Hall 300-B Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هالة"
+  },
+  {
+    "week": 3,
+    "day": "Mon",
+    "time": "01:45 - 03:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. ساره"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["A1"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 2: Water soluble vitamins",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم مجدي"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["A2"],
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ولاء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["A3"],
+    "subject": "Physiology",
+    "title": "Physiology: HT indices",
+    "location": "CR: 103 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. داليا"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["B1"],
+    "subject": "Professional",
+    "title": "Professional practice (Spectrum of health and determinants)",
+    "location": "CR: 105 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أماني شوقي"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["B2"],
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندى سليمان"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["B3"],
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "location": "CR: 106 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. شيماء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 5: Lipid chemistry II",
+    "location": "Hall 100B Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هاله"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "09:00 - 10:30",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 5: Hb, erythropoeisis",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["C1"],
+    "subject": "Professional",
+    "title": "Professional practice (Spectrum of health and determinants)",
+    "location": "CR: 101 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أماني شوقي"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["C2"],
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. شيماء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["C3"],
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندى سليمان"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["D1"],
+    "subject": "Physiology",
+    "title": "Physiology: HT indices",
+    "location": "CR: 103 Medical Building C",
+    "type": "عملي",
+    "doctor": ""
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["D2"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 2: Water soluble vitamins",
+    "location": "CR: 105 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم مجدي"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["D3"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 2: Water soluble vitamins",
+    "location": "CR: 106 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. ولاء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "10:30 - 12:00",
+    "groups": ["A1", "A2", "A3"],
     "subject": "Histology",
     "title": "Histology lecture 5 (Cytogenetics II)",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Mon",
-    "time": "12:15 - 01:45",
-    "groups": ["D1", "D2", "D3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 4: Lipid chemistry I",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "location": "Hall 100B Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["A1"],
+    "time": "10:30 - 12:00",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 4: Lipid chemistry",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هاله"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "12:15 - 01:45",
+    "groups": ["C1"],
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم مجدي"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "12:15 - 01:45",
+    "groups": ["C2"],
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ولاء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "12:15 - 01:45",
+    "groups": ["C3"],
     "subject": "Histology",
     "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. شيماء"
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["A2"],
+    "time": "12:15 - 01:45",
+    "groups": ["D1"],
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندى سليمان"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "12:15 - 01:45",
+    "groups": ["D2"],
+    "subject": "Physiology",
+    "title": "Physiology: HT indices",
+    "location": "CR: 105 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. داليا"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "12:15 - 01:45",
+    "groups": ["D3"],
     "subject": "Professional",
     "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 202 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أماني شوقي"
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["A3"],
+    "time": "12:15 - 01:45",
+    "groups": ["A1", "A2", "A3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
+    "title": "Biochemistry lecture 5: Lipid chemistry",
+    "location": "Hall 100B Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هاله"
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["B1"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["B2"],
+    "time": "12:15 - 01:45",
+    "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 205 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology lecture 5: Hb, erythropoeisis",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
-    "groups": ["B3"],
+    "time": "01:45 - 03:15",
+    "groups": ["A1", "A2", "A3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 204 Medical Building C",
-    "type": "SGS"
+    "title": "Biochemistry",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. ولاء"
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
+    "time": "01:45 - 03:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. شيماء"
+  },
+  {
+    "week": 3,
+    "day": "Tue",
+    "time": "01:45 - 03:15",
     "groups": ["C1", "C2", "C3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 5: Lipid chemistry II",
-    "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
+    "subject": "Physiology",
+    "title": "Physiology",
+    "location": "Hall 100-A Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. داليا"
   },
   {
     "week": 3,
     "day": "Tue",
-    "time": "09:00 - 10:30",
+    "time": "01:45 - 03:15",
     "groups": ["D1", "D2", "D3"],
-    "subject": "Physiology",
-    "title": "Physiology lecture 5: Anemia, polycythemia",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["C1"],
     "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["C2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["C3"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["D1"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 204 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["D2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["D3"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["A1", "A2", "A3"],
-    "subject": "Histology",
-    "title": "Histology lecture 5 (Cytogenetics II)",
-    "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "10:30 - 12:00",
-    "groups": ["B1", "B2", "B3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 4: Lipid chemistry I",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["C1"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["C2"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["C3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["D1"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["D2"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 205 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["D3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 2: Water soluble vitamins",
-    "location": "CR: 204 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["A1", "A2", "A3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 5: Lipid chemistry II",
-    "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Tue",
-    "time": "12:15 - 01:45",
-    "groups": ["B1", "B2", "B3"],
-    "subject": "Physiology",
-    "title": "Physiology lecture 5: Anemia, polycythemia",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "title": "Professional practice",
+    "location": "Hall 100-B Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
@@ -2565,9 +2767,10 @@
     "time": "09:00 - 10:30",
     "groups": ["A1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
+    "title": "Practical Biochemistry 3: Vitamins",
     "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "type": "عملي",
+    "doctor": "د. بسمة"
   },
   {
     "week": 3,
@@ -2577,7 +2780,8 @@
     "subject": "Histology",
     "title": "Histology- SGS 3 (Cytogenetics III)",
     "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "type": "SGS",
+    "doctor": "د. نهلة"
   },
   {
     "week": 3,
@@ -2587,7 +2791,8 @@
     "subject": "Professional",
     "title": "Professional practice (Spectrum of health and determinants)",
     "location": "CR: 103 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. لمياء"
   },
   {
     "week": 3,
@@ -2595,29 +2800,32 @@
     "time": "09:00 - 10:30",
     "groups": ["B1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 105 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "09:00 - 10:30",
     "groups": ["B2"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "subject": "Physiology",
+    "title": "Physiology: HT indices",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. داليا"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "09:00 - 10:30",
     "groups": ["B3"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 105 Medical Building C",
-    "type": "عملي"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. محمد صبري"
   },
   {
     "week": 3,
@@ -2625,9 +2833,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C1", "C2", "C3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 5: Anemia, polycythemia",
+    "title": "Physiology lecture 5: Hb, erythropoesis",
     "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
@@ -2635,29 +2844,32 @@
     "time": "09:00 - 10:30",
     "groups": ["D1", "D2", "D3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 5: Lipid chemistry II",
+    "title": "Biochemistry lecture 5: Lipid chemistry",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. ولاء"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["C1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
     "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "type": "SGS",
+    "doctor": "د. نهلة"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["C2"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "subject": "Physiology",
+    "title": "Physiology: HT indices",
     "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "type": "عملي",
+    "doctor": "د. داليا"
   },
   {
     "week": 3,
@@ -2667,7 +2879,8 @@
     "subject": "Professional",
     "title": "Professional practice (Spectrum of health and determinants)",
     "location": "CR: 103 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. لمياء"
   },
   {
     "week": 3,
@@ -2675,29 +2888,32 @@
     "time": "10:30 - 12:00",
     "groups": ["D1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 105 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. بسمة"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["D2"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["D3"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 105 Medical Building C",
-    "type": "عملي"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. محمد صبري"
   },
   {
     "week": 3,
@@ -2705,9 +2921,10 @@
     "time": "10:30 - 12:00",
     "groups": ["A1", "A2", "A3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 5:Anemia, polycythemia",
+    "title": "Physiology lecture 5: Hb, erythropoesis",
     "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
@@ -2715,9 +2932,10 @@
     "time": "10:30 - 12:00",
     "groups": ["B1", "B2", "B3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 5: Lipid chemistry II",
+    "title": "Biochemistry lecture 5: Lipid chemistry",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. ولاء"
   },
   {
     "week": 3,
@@ -2725,59 +2943,65 @@
     "time": "12:15 - 01:45",
     "groups": ["C1"],
     "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
+    "title": "Physiology: HT indices",
     "location": "CR: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. داليا"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "12:15 - 01:45",
     "groups": ["C2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
+    "subject": "Professional",
+    "title": "Professional practice (Spectrum of health and determinants)",
     "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "type": "محاضرة",
+    "doctor": "د. لمياء"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "12:15 - 01:45",
     "groups": ["C3"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
     "location": "CR: 103 Medical Building C",
-    "type": "SGS"
+    "type": "عملي",
+    "doctor": "د. بسمة"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "12:15 - 01:45",
     "groups": ["D1"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 104 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Histology",
+    "title": "Histology- SGS 3 (Cytogenetics III)",
+    "location": "CR: 105 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سلمى"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "12:15 - 01:45",
     "groups": ["D2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 105 Medical Building C",
-    "type": "SGS"
+    "subject": "Anatomy",
+    "title": "Practical Anatomy 3: humerus 2, radius, ulna",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. محمد صبري"
   },
   {
     "week": 3,
     "day": "Wed",
     "time": "12:15 - 01:45",
     "groups": ["D3"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 3: Vitamins",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 3,
@@ -2787,7 +3011,8 @@
     "subject": "Histology",
     "title": "Histology lecture 6 (Epithelial tissue 1)",
     "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
@@ -2795,249 +3020,54 @@
     "time": "12:15 - 01:45",
     "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 6:Platelets, coagulation 1",
+    "title": "Physiology lecture 6: Anemia, polycythemia",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. نوال"
   },
   {
     "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["C1"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["C2"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 102 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["C3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["D1"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["D2"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 105 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
-    "groups": ["D3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 101 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
+    "day": "Wed",
+    "time": "01:45 - 03:15",
     "groups": ["A1", "A2", "A3"],
-    "subject": "Physiology",
-    "title": "Physiology lecture 6: Platelets, coagulation 1",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
-    "day": "Thu",
-    "time": "09:00 - 10:30",
+    "day": "Wed",
+    "time": "01:45 - 03:15",
     "groups": ["B1", "B2", "B3"],
-    "subject": "Histology",
-    "title": "Histology lecture 6 (Epithelial tissue 1)",
+    "subject": "Biochemistry",
+    "title": "Biochemistry",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أنسام"
   },
   {
     "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["A1"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["A2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 102 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["A3"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["B1"],
-    "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 104 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["B2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 105 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["B3"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
+    "day": "Wed",
+    "time": "01:45 - 03:15",
     "groups": ["C1", "C2", "C3"],
-    "subject": "Physiology",
-    "title": "Physiology lecture 6: Platelets, coagulation 1",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "10:30 - 12:00",
-    "groups": ["D1", "D2", "D3"],
-    "subject": "Histology",
-    "title": "Histology lecture 6 (Epithelial tissue 1)",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["A1"],
-    "subject": "Anatomy",
-    "title": "Anatomy humerus 2, radius, ulna",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["A2"],
-    "subject": "Physiology",
-    "title": "Physiology:HT, blood groups",
-    "location": "CR: 102 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["A3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["B1"],
-    "subject": "Histology",
-    "title": "Histology- SGS 3 (Cytogenetics III)",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["B2"],
     "subject": "Professional",
-    "title": "Professional practice (Spectrum of health and determinants)",
-    "location": "CR: 105 Medical Building C",
-    "type": "محاضرة"
+    "title": "Professional practice",
+    "location": "Hall 301 Medical Building C",
+    "type": "محاضرة",
+    "doctor": ""
   },
   {
     "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["B3"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 3: Role of folate& B12 in hematopoiesis",
-    "location": "CR: 101 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
-    "groups": ["C1", "C2", "C3"],
-    "subject": "Histology",
-    "title": "Histology lecture 6 (Epithelial tissue 1)",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 3,
-    "day": "Thu",
-    "time": "12:15 - 01:45",
+    "day": "Wed",
+    "time": "01:45 - 03:15",
     "groups": ["D1", "D2", "D3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 6: Platelets, coagulation 1",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "title": "Physiology",
+    "location": "Hall 302 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. إيمان"
   },
   {
     "week": 4,
