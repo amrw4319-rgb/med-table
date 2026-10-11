@@ -55,11 +55,8 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        /* Medical Vector Symbols Pattern Overlay */
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='rgba(6, 182, 212, 0.035)' stroke-width='1.2'%3E%3Cpath d='M30 20 v20 M20 30 h20'/%3E%3Ccircle cx='90' cy='30' r='12'/%3E%3Cpath d='M80 90 c10 -15, 20 -15, 30 0'/%3E%3Cpath d='M25 85 l15 15 M40 85 l-15 15'/%3E%3C/g%3E%3C/svg%3E"),
-        /* EKG Pulse Line Overlay */
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='300' viewBox='0 0 1000 300'%3E%3Cpath d='M0,150 L300,150 L315,110 L330,190 L345,50 L360,250 L375,150 L410,150 L425,130 L440,150 L1000,150' stroke='rgba(99, 102, 241, 0.045)' stroke-width='3' fill='none'/%3E%3C/svg%3E"),
-        /* Glowing Ambient Gradients */
         radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
       background-attachment: fixed;
@@ -182,7 +179,6 @@
       font-weight: 800;
     }
 
-    /* Main Navigation Switcher (Schedule / Exams) */
     .view-mode-selector {
       display: flex;
       gap: 10px;
@@ -240,7 +236,6 @@
       line-height: 1.5;
     }
 
-    /* Progress Card */
     .progress-card {
       padding: 16px 20px;
       margin-bottom: 20px;
@@ -277,7 +272,6 @@
       color: var(--text-dim);
     }
 
-    /* Next Live Widget */
     .next-widget {
       padding: 22px;
       margin-bottom: 22px;
@@ -535,7 +529,6 @@
       box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
     }
 
-    /* Exam Cards */
     .exam-card {
       border: 1px solid rgba(245, 158, 11, 0.35);
       background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(239, 68, 68, 0.04));
@@ -820,7 +813,6 @@
 
   <div class="app-container">
 
-    <!-- Mode Selector: Schedule vs Exams -->
     <div class="view-mode-selector">
       <button class="view-btn active" id="modeScheduleBtn" onclick="switchViewMode('schedule')">
         <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
@@ -830,7 +822,6 @@
       </button>
     </div>
 
-    <!-- Motivational Quotes Banner -->
     <div class="quote-card glass-panel animated-card">
       <i class="fa-solid fa-quote-right quote-icon"></i>
       <div class="quote-text" id="motivationQuote">
@@ -838,7 +829,6 @@
       </div>
     </div>
 
-    <!-- Live / Next Session or Exam Widget -->
     <div class="next-widget glass-panel animated-card" id="mainNextWidget">
       <div class="widget-badge-row">
         <div class="widget-badge" id="widgetBadge">
@@ -900,7 +890,6 @@
       </button>
     </div>
 
-    <!-- Daily Progress Bar Card -->
     <div class="progress-card glass-panel animated-card" id="progressCard">
       <div class="progress-header">
         <span><i class="fa-solid fa-chart-line" style="color: var(--cyan-glow);"></i> نسبة إنجاز اليوم الدراسي:</span>
@@ -912,13 +901,10 @@
       <div class="progress-subtext" id="progressSubtext">جاري الحساب...</div>
     </div>
 
-    <!-- Schedule Specific Navigation Controls -->
     <div id="scheduleControls">
-      <!-- Weeks Selector Navigation -->
       <div class="section-label"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
       <div class="nav-scroll" id="weeksNavScroll"></div>
 
-      <!-- Days Selector Navigation with Toggle -->
       <div class="section-header-flex">
         <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
         <label class="toggle-container">
@@ -936,13 +922,11 @@
       </div>
     </div>
 
-    <!-- Search Input Bar -->
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المادة، المحاضر، القاعة، أو العنوان..." oninput="renderTimeline()">
     </div>
 
-    <!-- Timeline List -->
     <div class="timeline-container" id="timelineContainer"></div>
 
   </div>
@@ -1132,7 +1116,6 @@
 
       btns.forEach(b => {
         const dayCode = b.getAttribute('data-day');
-        
         const dummySession = { week: selectedWeek, day: dayCode, time: "01:45 - 03:15" };
         const parsed = parseSessionDates(dummySession);
         
@@ -1157,12 +1140,6 @@
         batchSchedule = await response.json();
       } catch (error) {
         console.error('فشل جلب ملف schedule.json:', error);
-        document.getElementById('timelineContainer').innerHTML = `
-          <div class="empty-box glass-panel">
-            <i class="fa-solid fa-triangle-exclamation" style="color: var(--rose-glow);"></i>
-            <p>تعذر تحميل بيانات الجدول من ملف <code>schedule.json</code>.<br>تأكد من تشغيله عبر سيرفر محلي (Live Server).</p>
-          </div>
-        `;
       }
     }
 
@@ -1176,7 +1153,8 @@
       document.getElementById('modalBackdrop').style.display = 'none';
     }
 
-    function saveUserProfile() {
+    // ⭐ الدالة المعدلة لإرسال الاسم والمجموعة إلى جوجل شيت عند التسجيل
+    async function saveUserProfile() {
       const nameVal = document.getElementById('userNameInput').value.trim();
       const groupVal = document.getElementById('userGroupSelect').value;
 
@@ -1190,6 +1168,21 @@
 
       localStorage.setItem('med_user_name', currentUserName);
       localStorage.setItem('med_user_group', currentUserGroup);
+
+      // إرسال البيانات لجوجل شيت في الخلفية بدون مغادرة الصفحة
+      try {
+        const webAppUrl = 'YOUR_GOOGLE_APPS_SCRIPT_URL'; // استبدل هذا برابط الـ Web App الخاص بك
+        if (webAppUrl !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+          fetch(webAppUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: currentUserName, group: currentUserGroup })
+          });
+        }
+      } catch (e) {
+        console.error("خطأ في تسجيل المستخدم:", e);
+      }
 
       closeProfileModal();
       updateUserUI();
@@ -1388,13 +1381,11 @@
       const widgetBadgeText = document.getElementById('widgetBadgeText');
       const timerBox = document.getElementById('countdownBox');
 
-      // Labels Elements
       const labelTime = document.getElementById('nextLabelTime');
       const labelSubj = document.getElementById('nextLabelSubj');
       const labelDoc = document.getElementById('nextLabelDoc');
 
       if (currentViewMode === 'exams') {
-        // EXAMS MODE TOP WIDGET
         mainWidget.classList.add('exam-widget-active');
         timerBox.classList.add('exam-timer');
         labelTime.innerText = "DATE (التاريخ)";
@@ -1428,7 +1419,6 @@
         return;
       }
 
-      // SCHEDULE MODE TOP WIDGET
       mainWidget.classList.remove('exam-widget-active');
       timerBox.classList.remove('exam-timer');
       labelTime.innerText = "TIME (الوقت)";
@@ -1447,7 +1437,6 @@
         return;
       }
 
-      // 1. Check if Live Now
       const liveSession = userSessions.find(s => {
         const parsed = parseSessionDates(s);
         return parsed && (now >= parsed.startDateTime && now <= parsed.endDateTime);
@@ -1461,7 +1450,6 @@
         return;
       }
 
-      // 2. Look ahead for future sessions
       const upcoming = userSessions
         .map(s => ({ ...s, parsed: parseSessionDates(s) }))
         .filter(s => s.parsed && s.parsed.startDateTime > now)
@@ -1484,12 +1472,9 @@
     function updateTimerAndProgress() {
       const now = new Date();
 
-      // 1. Countdown Timer
       if (currentNextObject) {
         let targetTime = null;
-
         if (currentNextObject.isExam) {
-          // Exam countdown target (Set to 09:00 AM on exam date)
           const [y, m, d] = currentNextObject.date.split('-').map(Number);
           targetTime = new Date(y, m - 1, d, 9, 0, 0);
         } else {
@@ -1518,7 +1503,6 @@
         document.getElementById('countdownText').innerText = "--:--:--";
       }
 
-      // 2. Daily Progress Bar (Only in Schedule Mode)
       if (currentViewMode === 'schedule' && batchSchedule && batchSchedule.length > 0 && currentUserGroup) {
         const todaySessions = batchSchedule.filter(s => s.week === selectedWeek && s.day === selectedDay && s.groups.includes(currentUserGroup));
         if (todaySessions.length > 0) {
@@ -1528,7 +1512,7 @@
           }).length;
 
           const pct = Math.round((completed / todaySessions.length) * 100);
-          document.getElementById('progressBarFill').style.width = `${pct}%`;
+          document.getElementById('progressBarFill').style.width = `${pct%}`;
           document.getElementById('progressPercentText').innerText = `${pct}%`;
           document.getElementById('progressSubtext').innerText = `تم إنجاز ${completed} من أصل ${todaySessions.length} حصص اليوم (${dayArabicMap[selectedDay]})`;
         } else {
