@@ -767,7 +767,7 @@
 
       <div class="form-group">
         <label class="form-label">الاسم (كما تحب أن يخاطبك الموقع):</label>
-        <input type="text" id="userNameInput" class="form-control" placeholder="مثال: أحمد أو نورهان..." value="">
+        <input type="text" id="userNameInput" class="form-control" placeholder="..." value="">
       </div>
 
       <div class="form-group">
@@ -1171,8 +1171,8 @@
 
       // إرسال البيانات لجوجل شيت في الخلفية بدون مغادرة الصفحة
       try {
-        const webAppUrl = 'YOUR_GOOGLE_APPS_SCRIPT_URL'; // استبدل هذا برابط الـ Web App الخاص بك
-        if (webAppUrl !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbxTtsY-n9K06xkLqW4ZOok9I-z71n0A46GiYEH4yNd__fYmoaPq0Rw3Kc1cSEEyK__p/exec'; // استبدل هذا برابط الـ Web App الخاص بك
+        if (webAppUrl !== 'https://script.google.com/macros/s/AKfycbxTtsY-n9K06xkLqW4ZOok9I-z71n0A46GiYEH4yNd__fYmoaPq0Rw3Kc1cSEEyK__p/exec') {
           fetch(webAppUrl, {
             method: 'POST',
             mode: 'no-cors',
