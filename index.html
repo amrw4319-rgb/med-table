@@ -981,6 +981,9 @@
     let currentViewMode = 'schedule';
     let currentNextObject = null;
 
+    // رابط الـ Web App الخاص بك من Google Apps Script
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxWFGh3S-2xN8jrHl-nFAgCTEt0Q389Pp_N0rhV8sWGvGER4JjllcHmT3S7OeksZeK/exec';
+
     window.onload = async function() {
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
       document.getElementById('motivationQuote').innerText = medicalQuotes[randQ];
@@ -997,12 +1000,29 @@
         updateUserUI();
         updateDayButtonsUI();
         renderTimeline();
+
+        // ⭐ تسجيل زيارة جديدة في الشيت تلقائياً في كل مرة يفتح فيها الموقع وهو مسجل مسبقاً
+        sendVisitLogToSheet(currentUserName, currentUserGroup, "فتح الموقع / زيارة جديدة");
       }
 
       setInterval(() => {
         updateTimerAndProgress();
       }, 1000);
     };
+
+    // دالة إرسال سجل الزيارات لجوجل شيت
+    function sendVisitLogToSheet(name, group, actionType) {
+      try {
+        fetch(webAppUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name + " (" + actionType + ")", group: group })
+        });
+      } catch (e) {
+        console.error("خطأ في تسجيل الزيارة:", e);
+      }
+    }
 
     function switchViewMode(mode) {
       currentViewMode = mode;
@@ -1153,7 +1173,7 @@
       document.getElementById('modalBackdrop').style.display = 'none';
     }
 
-    // ⭐ الدالة المعدلة والمصلحة لإرسال البيانات إلى Google Sheets
+    // ⭐ عند تسجيل الدخول لأول مرة
     async function saveUserProfile() {
       const nameVal = document.getElementById('userNameInput').value.trim();
       const groupVal = document.getElementById('userGroupSelect').value;
@@ -1169,19 +1189,8 @@
       localStorage.setItem('med_user_name', currentUserName);
       localStorage.setItem('med_user_group', currentUserGroup);
 
-      // رابط الـ Web App الخاص بك من Google Apps Script
-      const webAppUrl = 'https://script.google.com/macros/s/AKfycbzxWFGh3S-2xN8jrHl-nFAgCTEt0Q389Pp_N0rhV8sWGvGER4JjllcHmT3S7OeksZeK/exec';
-
-      try {
-        fetch(webAppUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: currentUserName, group: currentUserGroup })
-        });
-      } catch (e) {
-        console.error("خطأ في تسجيل المستخدم:", e);
-      }
+      // تسجيل الدخول لأول مرة في الشيت
+      sendVisitLogToSheet(currentUserName, currentUserGroup, "تسجيل لأول مرة");
 
       closeProfileModal();
       updateUserUI();
