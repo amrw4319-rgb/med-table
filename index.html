@@ -1153,7 +1153,7 @@
       document.getElementById('modalBackdrop').style.display = 'none';
     }
 
-    // ⭐ الدالة المعدلة لإرسال الاسم والمجموعة إلى جوجل شيت عند التسجيل
+    // ⭐ الدالة المعدلة والمصلحة لإرسال البيانات إلى Google Sheets
     async function saveUserProfile() {
       const nameVal = document.getElementById('userNameInput').value.trim();
       const groupVal = document.getElementById('userGroupSelect').value;
@@ -1169,17 +1169,16 @@
       localStorage.setItem('med_user_name', currentUserName);
       localStorage.setItem('med_user_group', currentUserGroup);
 
-      // إرسال البيانات لجوجل شيت في الخلفية بدون مغادرة الصفحة
+      // رابط الـ Web App الخاص بك من Google Apps Script
+      const webAppUrl = 'https://script.google.com/macros/s/AKfycbxTtsY-n9K06xkLqW4ZOok9I-z71n0A46GiYEH4yNd__fYmoaPq0Rw3Kc1cSEEyK__p/exec';
+
       try {
-        const webAppUrl = 'https://script.google.com/macros/s/AKfycbxTtsY-n9K06xkLqW4ZOok9I-z71n0A46GiYEH4yNd__fYmoaPq0Rw3Kc1cSEEyK__p/exec'; // استبدل هذا برابط الـ Web App الخاص بك
-        if (webAppUrl !== 'https://script.google.com/macros/s/AKfycbxTtsY-n9K06xkLqW4ZOok9I-z71n0A46GiYEH4yNd__fYmoaPq0Rw3Kc1cSEEyK__p/exec') {
-          fetch(webAppUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: currentUserName, group: currentUserGroup })
-          });
-        }
+        fetch(webAppUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: currentUserName, group: currentUserGroup })
+        });
       } catch (e) {
         console.error("خطأ في تسجيل المستخدم:", e);
       }
@@ -1512,7 +1511,7 @@
           }).length;
 
           const pct = Math.round((completed / todaySessions.length) * 100);
-          document.getElementById('progressBarFill').style.width = `${pct%}`;
+          document.getElementById('progressBarFill').style.width = `${pct}%`;
           document.getElementById('progressPercentText').innerText = `${pct}%`;
           document.getElementById('progressSubtext').innerText = `تم إنجاز ${completed} من أصل ${todaySessions.length} حصص اليوم (${dayArabicMap[selectedDay]})`;
         } else {
