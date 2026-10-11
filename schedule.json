@@ -3069,15 +3069,16 @@
     "type": "محاضرة",
     "doctor": "د. إيمان"
   },
-  {
+ {
     "week": 4,
     "day": "Mon",
     "time": "09:00 - 10:30",
     "groups": ["C1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 106 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
@@ -3085,9 +3086,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
   },
   {
     "week": 4,
@@ -3095,9 +3097,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C3"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 201 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا علاء"
   },
   {
     "week": 4,
@@ -3105,9 +3108,10 @@
     "time": "09:00 - 10:30",
     "groups": ["D1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
@@ -3115,199 +3119,263 @@
     "time": "09:00 - 10:30",
     "groups": ["D2"],
     "subject": "Histology",
-    "title": "HistologySGS 4 (Epithelial tissue II)",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. نهلة"
   },
   {
     "week": 4,
     "day": "Mon",
     "time": "09:00 - 10:30",
     "groups": ["D3"],
-    "subject": "Professional",
-    "title": "Professional practice (self-directed learning)",
-    "location": "CR: 107 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "09:00 - 10:30",
-    "groups": ["A1", "A2", "A3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 6: Lipid chemistry 111",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "09:00 - 10:30",
-    "groups": ["B1", "B2", "B3"],
-    "subject": "Histology",
-    "title": "Histology lecture 7 (Connective tissue 1)",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["A1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes",
-    "location": "CR: 106 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["A2"],
-    "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
-    "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["A3"],
-    "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 201 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["B1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["B2"],
-    "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["B3"],
-    "subject": "Professional",
-    "title": "Professional practice (self-directed learning)",
-    "location": "CR: 107 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["C1", "C2", "C3"],
-    "subject": "Biochemistry",
-    "title": "Biochemistry lecture 6: Lipid chemistry 111",
-    "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "10:30 - 12:00",
-    "groups": ["D1", "D2", "D3"],
-    "subject": "Histology",
-    "title": "Histology lecture 7 (Connective tissue 1)",
-    "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
-  },
-  {
-    "week": 4,
-    "day": "Mon",
-    "time": "12:15 - 01:45",
-    "groups": ["A1"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
     "location": "CR: 106 Medical Building C",
-    "type": "محاضرة"
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "09:00 - 10:30",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 6: Protein chemistry",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "09:00 - 10:30",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Histology",
+    "title": "Histology lecture 7 (Connective tissue 1)",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أسماء"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["A1"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هالة"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["A2"],
+    "subject": "Anatomy",
+    "title": "Anatomy hip femur 1",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["A3"],
+    "subject": "Physiology",
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا علاء"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["B1"],
+    "subject": "Biochemistry",
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["B2"],
+    "subject": "Histology",
+    "title": "Histology SGS 4 (Epithelial tissue II)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. نهلة"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["B3"],
+    "subject": "Professional",
+    "title": "Professional practice (self-directed learning)",
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 6: Protein chemistry",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "10:30 - 12:00",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Histology",
+    "title": "Histology lecture 7 (Connective tissue 1)",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أسماء"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "12:15 - 13:45",
+    "groups": ["A1"],
+    "subject": "Professional",
+    "title": "Professional practice (self-directed learning)",
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "12:15 - 13:45",
     "groups": ["A2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A3"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. آلاء فوزي"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B1"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 202 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ندا علاء"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B3"],
     "subject": "Histology",
     "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 107 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. نهلة"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C1", "C2", "C3"],
     "subject": "Histology",
     "title": "Histology lecture 7 (Connective tissue 1)",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أسماء"
   },
   {
     "week": 4,
     "day": "Mon",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["D1", "D2", "D3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 6: Lipid chemistry 111",
+    "title": "Biochemistry lecture 6: Protein chemistry",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "13:45 - 15:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Professional",
+    "title": "Professional practice",
+    "location": "Hall 201 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "13:45 - 15:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Physiology",
+    "title": "Physiology",
+    "location": "Hall 202 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. ندا علاء"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "13:45 - 15:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Hall 300-B Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. سامح"
+  },
+  {
+    "week": 4,
+    "day": "Mon",
+    "time": "13:45 - 15:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
@@ -3315,9 +3383,10 @@
     "time": "09:00 - 10:30",
     "groups": ["A1"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 4,
@@ -3326,8 +3395,9 @@
     "groups": ["A2"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 202 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. أماني شوقي"
   },
   {
     "week": 4,
@@ -3335,9 +3405,10 @@
     "time": "09:00 - 10:30",
     "groups": ["A3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. بسمة"
   },
   {
     "week": 4,
@@ -3345,9 +3416,10 @@
     "time": "09:00 - 10:30",
     "groups": ["B1"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
@@ -3355,9 +3427,10 @@
     "time": "09:00 - 10:30",
     "groups": ["B2"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 205 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3365,9 +3438,10 @@
     "time": "09:00 - 10:30",
     "groups": ["B3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 204 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
@@ -3375,9 +3449,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C1", "C2", "C3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 7: Protein chemistry I",
+    "title": "Biochemistry lecture 7: Protein chemistry II",
     "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. دعاء"
   },
   {
     "week": 4,
@@ -3385,9 +3460,10 @@
     "time": "09:00 - 10:30",
     "groups": ["D1", "D2", "D3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 7:Coagulation2, fibrinolysis",
+    "title": "Physiology lecture 7: platelets, coagulation 1",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. نوال"
   },
   {
     "week": 4,
@@ -3396,8 +3472,9 @@
     "groups": ["C1"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 201 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. أماني شوقي"
   },
   {
     "week": 4,
@@ -3405,9 +3482,10 @@
     "time": "10:30 - 12:00",
     "groups": ["C2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes",
-    "location": "CR: 202 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. بسمة"
   },
   {
     "week": 4,
@@ -3415,9 +3493,10 @@
     "time": "10:30 - 12:00",
     "groups": ["C3"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
@@ -3425,9 +3504,10 @@
     "time": "10:30 - 12:00",
     "groups": ["D1"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 204 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3435,9 +3515,10 @@
     "time": "10:30 - 12:00",
     "groups": ["D2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 205 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
@@ -3446,8 +3527,9 @@
     "groups": ["D3"],
     "subject": "Histology",
     "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
+    "location": "Hall 100B Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 4,
@@ -3457,7 +3539,8 @@
     "subject": "Histology",
     "title": "Histology lecture 7 (Connective tissue 1)",
     "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أسماء"
   },
   {
     "week": 4,
@@ -3465,89 +3548,142 @@
     "time": "10:30 - 12:00",
     "groups": ["B1", "B2", "B3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 6: Lipid chemistry 111",
+    "title": "Biochemistry lecture 6: Protein chemistry",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. دعاء"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C1"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 201 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. سامح"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C2"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 202 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. أماني شوقي"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes I",
-    "location": "CR: 203 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 101 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. بسمة"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["D1"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["D2"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 205 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["D3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 4: Enzymes",
-    "location": "CR: 204 Medical Building C",
-    "type": "SGS"
+    "title": "SGS Biochemistry 4: Nucleic acid chemistry, DNA replication",
+    "location": "CR: 102 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A1", "A2", "A3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 7: Protein chemistry I",
+    "title": "Biochemistry lecture 7: Protein chemistry II",
     "location": "Hall 100B Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. دعاء"
   },
   {
     "week": 4,
     "day": "Tue",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 7: Coagulation2, fibrinolysis",
+    "title": "Physiology lecture 7: platelets, coagulation 1",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. نوال"
+  },
+  {
+    "week": 4,
+    "day": "Tue",
+    "time": "13:45 - 15:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. دعاء"
+  },
+  {
+    "week": 4,
+    "day": "Tue",
+    "time": "13:45 - 15:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Hall 202 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أسماء"
+  },
+  {
+    "week": 4,
+    "day": "Tue",
+    "time": "13:45 - 15:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Physiology",
+    "title": "Physiology (homeostasis, cell membrane)",
+    "location": "Hall 100-A Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. نوال"
+  },
+  {
+    "week": 4,
+    "day": "Tue",
+    "time": "13:45 - 15:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Professional",
+    "title": "Professional practice",
+    "location": "Hall 100-B Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. أماني شوقي"
   },
   {
     "week": 4,
@@ -3555,9 +3691,10 @@
     "time": "09:00 - 10:30",
     "groups": ["A1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes | I",
+    "title": "Practical Biochemistry 4: Protein separative techniques",
     "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
@@ -3566,8 +3703,9 @@
     "groups": ["A2"],
     "subject": "Histology",
     "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. مها"
   },
   {
     "week": 4,
@@ -3576,8 +3714,9 @@
     "groups": ["A3"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 103 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
   },
   {
     "week": 4,
@@ -3585,19 +3724,21 @@
     "time": "09:00 - 10:30",
     "groups": ["B1"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes II",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "09:00 - 10:30",
     "groups": ["B2"],
-    "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "subject": "Physiology",
+    "title": "Physiology: blood grouping",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3605,19 +3746,21 @@
     "time": "09:00 - 10:30",
     "groups": ["B3"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 105 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology lecture 7: platelets, coagulation",
+    "location": "CR: 104 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "09:00 - 10:30",
     "groups": ["C1", "C2", "C3"],
-    "subject": "Physiology",
-    "title": "Physiology lecture 7: Coagulation2, fibrinolysis",
-    "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 7: Protein chemistry",
+    "location": "Hall 100B Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
   },
   {
     "week": 4,
@@ -3625,69 +3768,76 @@
     "time": "09:00 - 10:30",
     "groups": ["D1", "D2", "D3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 7: Protein chemistry I",
+    "title": "Practical Biochemistry 4: Protein separative techniques",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["C1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes 11",
+    "subject": "Histology",
+    "title": "Histology SGS 4 (Epithelial tissue)",
     "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "type": "SGS",
+    "doctor": "د. مها"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["C2"],
-    "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "subject": "Professional",
+    "title": "Professional practice (self-directed learning)",
+    "location": "CR: 103 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["C3"],
-    "subject": "Professional",
-    "title": "Professional practice (self-directed learning)",
-    "location": "CR: 103 Medical Building C",
-    "type": "محاضرة"
+    "subject": "Biochemistry",
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 106 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["D1"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "subject": "Physiology",
+    "title": "Physiology: blood grouping",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["D2"],
-    "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "subject": "Physiology",
+    "title": "Physiology lecture 7: platelets, coagulation 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
   },
   {
     "week": 4,
     "day": "Wed",
     "time": "10:30 - 12:00",
     "groups": ["D3"],
-    "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 105 Medical Building C",
-    "type": "عملي"
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 7: Protein chemistry II",
+    "location": "CR: 104 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
   },
   {
     "week": 4,
@@ -3695,9 +3845,10 @@
     "time": "10:30 - 12:00",
     "groups": ["A1", "A2", "A3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 7: Coagulation2, fibrinolysis",
-    "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "title": "Physiology: blood grouping",
+    "location": "Hall 100B Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3705,89 +3856,142 @@
     "time": "10:30 - 12:00",
     "groups": ["B1", "B2", "B3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 7: Protein chemistry I",
+    "title": "Practical Biochemistry 4: Protein separative techniques",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C1"],
-    "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 101 Medical Building C",
-    "type": "عملي"
-  },
-  {
-    "week": 4,
-    "day": "Wed",
-    "time": "12:15 - 01:45",
-    "groups": ["C2"],
-    "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes II",
-    "location": "CR: 102 Medical Building C",
-    "type": "SGS"
-  },
-  {
-    "week": 4,
-    "day": "Wed",
-    "time": "12:15 - 01:45",
-    "groups": ["C3"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 104 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. مها"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
-    "groups": ["D1"],
+    "time": "12:15 - 13:45",
+    "groups": ["C2"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 104 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 101 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
-    "groups": ["D2"],
+    "time": "12:15 - 13:45",
+    "groups": ["C3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes",
-    "location": "CR: 105 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 103 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. أنسام"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
+    "groups": ["D1"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry lecture 8: Protein chemistry III",
+    "location": "CR: 106 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "12:15 - 13:45",
+    "groups": ["D2"],
+    "subject": "Physiology",
+    "title": "Physiology lecture 8: Coagulation 2, fibrinolysis",
+    "location": "CR: 102 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "12:15 - 13:45",
     "groups": ["D3"],
-    "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "subject": "Histology",
+    "title": "Histology",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "SGS",
+    "doctor": "د. مها"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A1", "A2", "A3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 8: Protein chemistry II",
-    "location": "Hall 301 Medical Building C",
-    "type": "محاضرة"
+    "title": "Biochemistry",
+    "location": "Hall 100B Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هايدي"
   },
   {
     "week": 4,
     "day": "Wed",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B1", "B2", "B3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 8: Coagulation disorders, WBCS",
+    "title": "Physiology (transport 1)",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "13:45 - 15:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Anatomy",
+    "title": "Anatomy hip femur 1",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. رانيا حسن"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "13:45 - 15:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Anatomy",
+    "title": "Anatomy hip femur 1",
+    "location": "Hall 202 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. رانيا حسن"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "13:45 - 15:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Professional",
+    "title": "Professional practice (self-directed learning)",
+    "location": "Hall 301 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. غادة سالم"
+  },
+  {
+    "week": 4,
+    "day": "Wed",
+    "time": "13:45 - 15:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Anatomy",
+    "title": "Anatomy hip femur 1",
+    "location": "Hall 302 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. رانيا حسن"
   },
   {
     "week": 4,
@@ -3795,9 +3999,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C1"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
@@ -3805,9 +4010,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C2"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 102 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3815,9 +4021,10 @@
     "time": "09:00 - 10:30",
     "groups": ["C3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes 11",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
@@ -3825,9 +4032,10 @@
     "time": "09:00 - 10:30",
     "groups": ["D1"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
@@ -3836,8 +4044,9 @@
     "groups": ["D2"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 105 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. دعاء حبيب"
   },
   {
     "week": 4,
@@ -3845,9 +4054,10 @@
     "time": "09:00 - 10:30",
     "groups": ["D3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes II",
-    "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
@@ -3855,9 +4065,10 @@
     "time": "09:00 - 10:30",
     "groups": ["A1", "A2", "A3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 8: Coagulation disorders, WBCS",
+    "title": "Physiology lecture 8: Coagulation 2, fibrinolysis",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
   },
   {
     "week": 4,
@@ -3865,9 +4076,10 @@
     "time": "09:00 - 10:30",
     "groups": ["B1", "B2", "B3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 8: Protein chemistry II",
+    "title": "Biochemistry lecture 8: Protein chemistry III",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
@@ -3875,9 +4087,10 @@
     "time": "10:30 - 12:00",
     "groups": ["A1"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 101 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
@@ -3885,9 +4098,10 @@
     "time": "10:30 - 12:00",
     "groups": ["A2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes 11",
-    "location": "CR: 102 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
@@ -3895,9 +4109,10 @@
     "time": "10:30 - 12:00",
     "groups": ["A3"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
+    "title": "Histology SGS 4 (Epithelial tissue)",
     "location": "CR: 103 Medical Building C",
-    "type": "SGS"
+    "type": "SGS",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
@@ -3906,8 +4121,9 @@
     "groups": ["B1"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 104 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. دعاء حبيب"
   },
   {
     "week": 4,
@@ -3915,9 +4131,10 @@
     "time": "10:30 - 12:00",
     "groups": ["B2"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes II",
-    "location": "CR: 105 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
@@ -3925,9 +4142,10 @@
     "time": "10:30 - 12:00",
     "groups": ["B3"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
@@ -3935,9 +4153,10 @@
     "time": "10:30 - 12:00",
     "groups": ["C1", "C2", "C3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 8: Protein chemistry II",
+    "title": "Biochemistry lecture 8: Protein chemistry III",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
@@ -3945,89 +4164,142 @@
     "time": "10:30 - 12:00",
     "groups": ["D1", "D2", "D3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 8: Coagulation disorders, WBCS",
+    "title": "Physiology lecture 8: Coagulation 2, fibrinolysis",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A1"],
     "subject": "Anatomy",
-    "title": "Anatomy hip femur1",
+    "title": "Anatomy hip femur 1",
     "location": "Skill lab: 101 Medical Building C",
-    "type": "عملي"
+    "type": "عملي",
+    "doctor": "د. ولاء عبد الحليم"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A2"],
     "subject": "Physiology",
-    "title": "Physiology:indices, CBC",
-    "location": "CR: 102 Medical Building C",
-    "type": "عملي"
+    "title": "Physiology: blood grouping",
+    "location": "CR: 104 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. شيماء علي"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["A3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes II",
-    "location": "CR: 103 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هانم"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B1"],
     "subject": "Histology",
-    "title": "Histology SGS 4 (Epithelial tissue II)",
-    "location": "CR: 104 Medical Building C",
-    "type": "SGS"
+    "title": "Histology SGS 4 (Epithelial tissue)",
+    "location": "CR: 103 Medical Building C",
+    "type": "SGS",
+    "doctor": "د. هالة"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B2"],
     "subject": "Professional",
     "title": "Professional practice (self-directed learning)",
-    "location": "CR: 105 Medical Building C",
-    "type": "محاضرة"
+    "location": "CR: 106 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. دعاء حبيب"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["B3"],
     "subject": "Biochemistry",
-    "title": "SGS Biochemistry 5: Enzymes 11",
-    "location": "CR: 101 Medical Building C",
-    "type": "SGS"
+    "title": "Practical Biochemistry 4: Protein separative techniques",
+    "location": "CR: 102 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. ولاء"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["C1", "C2", "C3"],
     "subject": "Physiology",
-    "title": "Physiology lecture 8: Coagulation disorders, WBCS",
+    "title": "Physiology lecture 8: Coagulation 2, fibrinolysis",
     "location": "Hall 201 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. أميرة"
   },
   {
     "week": 4,
     "day": "Thu",
-    "time": "12:15 - 01:45",
+    "time": "12:15 - 13:45",
     "groups": ["D1", "D2", "D3"],
     "subject": "Biochemistry",
-    "title": "Biochemistry lecture 8: Protein chemistry II",
+    "title": "Biochemistry lecture 8: Protein chemistry III",
     "location": "Hall 202 Medical Building C",
-    "type": "محاضرة"
+    "type": "محاضرة",
+    "doctor": "د. هالة"
+  },
+  {
+    "week": 4,
+    "day": "Thu",
+    "time": "13:45 - 15:15",
+    "groups": ["A1", "A2", "A3"],
+    "subject": "Physiology",
+    "title": "Physiology (transport 2)",
+    "location": "Hall 201 Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. نانسى"
+  },
+  {
+    "week": 4,
+    "day": "Thu",
+    "time": "13:45 - 15:15",
+    "groups": ["B1", "B2", "B3"],
+    "subject": "Professional",
+    "title": "Professional practice",
+    "location": "Hall 202 Medical Building C",
+    "type": "Lecture",
+    "doctor": "د. دعاء حبيب"
+  },
+  {
+    "week": 4,
+    "day": "Thu",
+    "time": "13:45 - 15:15",
+    "groups": ["C1", "C2", "C3"],
+    "subject": "Biochemistry",
+    "title": "Biochemistry",
+    "location": "Hall 100-A Medical Building C",
+    "type": "محاضرة",
+    "doctor": "د. هالة"
+  },
+  {
+    "week": 4,
+    "day": "Thu",
+    "time": "13:45 - 15:15",
+    "groups": ["D1", "D2", "D3"],
+    "subject": "Histology",
+    "title": "Histology",
+    "location": "Skill lab: 101 Medical Building C",
+    "type": "عملي",
+    "doctor": "د. هالة"
   },
   {
     "week": 5,
