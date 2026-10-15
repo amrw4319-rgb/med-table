@@ -487,7 +487,6 @@
       margin-right: 10px;
     }
 
-    /* قائمة اختيار احترافية مخصصة بدلاً من الـ Select القبيحة */
     .custom-dropdown-container {
       position: relative;
       user-select: none;
@@ -531,7 +530,6 @@
     }
     .custom-dropdown-item:hover { background: rgba(6, 182, 212, 0.15); color: #fff; }
 
-    /* شبكة اختيار المجموعات الاحترافية */
     .groups-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -677,7 +675,7 @@
     </div>
   </div>
 
-  <!-- Modal إرسال رسالة أو شكوى (عبر Formspree المجاني والمستقر تماماً) -->
+  <!-- Modal إرسال رسالة أو شكوى (Formspree المحدث) -->
   <div id="feedbackModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
@@ -944,11 +942,9 @@
       if (currentUserGroup) selectLoginGroup(currentUserGroup);
     }
 
-    /* نظام القوائم الاحترافية المخصصة */
     function toggleDropdown(menuId) {
       const menu = document.getElementById(menuId);
       const isVisible = menu.style.display === 'block';
-      // إغلاق أي قوائم مفتوحة أخرى
       document.querySelectorAll('.custom-dropdown-menu').forEach(m => m.style.display = 'none');
       menu.style.display = isVisible ? 'none' : 'block';
     }
@@ -971,7 +967,6 @@
       document.getElementById('timeDropdownMenu').style.display = 'none';
     }
 
-    /* دليل الاستخدام التفاعلي (GUIDE) */
     function openGuideModal(type) {
       const modal = document.getElementById('guideModal');
       const titleEl = document.getElementById('guideModalTitle');
@@ -990,19 +985,18 @@
         contentEl.innerHTML = `
           <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>1. إضافة مهمة جديدة:</strong> اكتب اسم المهمة، ثم اختر اليوم المخصص والساعة عبر القوائم الاحترافية المنسدلة بالأفل.</div>
           <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>2. إنشاء قوائم متعددة:</strong> يمكنك فصل مواضيعك (مثل قائمة فسيولوجي وقائمة أناتومي) عبر زر "قائمة جديدة".</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>3. تتبع الإنجاز:</strong> عند إتمام أي مهمة، ضع علامة صح وسيرتفع مؤشر التقدم لحظياً لدعم حماسك.</div>
+          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>3. تتبع الإنجاز:</strong> عند إتمام أي مهمة، وضع علامة صح وسيرتفع مؤشر التقدم لحظياً لدعم حماسك.</div>
         `;
       }
       modal.style.display = 'flex';
     }
 
-    /* نظام إرسال رسائل وشكاوي احترافي عبر Formspree المجاني */
     async function sendFeedbackMessage() {
       const text = document.getElementById('feedbackText').value.trim();
       if (!text) { alert('يرجى كتابة رسالتك أولاً!'); return; }
 
       try {
-        const response = await fetch("https://formspree.io/f/mwpvrqyk", {
+        const response = await fetch("https://formspree.io/f/mjygjgvy", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: currentUserName, group: currentUserGroup, message: text })
@@ -1013,7 +1007,7 @@
           document.getElementById('feedbackText').value = '';
           document.getElementById('feedbackModal').style.display = 'none';
         } else {
-          alert('حدث خطأ أثناء الإرسال، يجدر المحاولة لاحقاً.');
+          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.');
         }
       } catch (e) {
         alert('تعذر الاتصال بالخادم، تأكد من اتصال الإنترنت.');
@@ -1186,7 +1180,6 @@
       window.open(url, '_blank');
     }
 
-    /* دوال TASK LIST */
     function renderTaskListsView() {
       const navContainer = document.getElementById('taskListsNavContainer');
       navContainer.innerHTML = '';
