@@ -6,7 +6,7 @@
   <title>دليل كلية الطب | منصة رفيق الدكاترة 🩺</title>
 
   <!-- PWA & Mobile Web App Meta Tags -->
-  <meta name="theme-color" content="#080c16">
+  <meta name="theme-color" content="#050811">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -21,9 +21,10 @@
 
   <style>
     :root {
-      --bg-main: #070a14;
-      --bg-card: rgba(15, 23, 42, 0.75);
-      --border-glow: rgba(255, 255, 255, 0.07);
+      --bg-main: #050811;
+      --bg-card: rgba(13, 20, 38, 0.78);
+      --border-glow: rgba(255, 255, 255, 0.09);
+      --border-glow-hover: rgba(6, 182, 212, 0.4);
       
       --cyan-glow: #06b6d4;
       --indigo-glow: #6366f1;
@@ -43,15 +44,25 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* خلفية متحركة ونابضة بالحياة (Mesh Gradient Animation) */
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
+        radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.08) 0px, transparent 60%);
       background-attachment: fixed;
+      background-size: 200% 200%;
+      animation: bgPulse 15s ease infinite alternate;
       color: var(--text-white);
       min-height: 100vh;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgPulse {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
     }
 
     .app-container {
@@ -60,25 +71,35 @@
       padding: 16px;
     }
 
+    /* تصميم الـ Glossy Glassmorphism الفاخر */
     .glass-panel {
       background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-glow);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.18); /* انعكاس ضوئي علوي */
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* الهيدر الموحد */
+    .glass-panel:hover {
+      border-color: var(--border-glow-hover);
+      box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* الهيدر الأنيق */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 10, 20, 0.88);
-      backdrop-filter: blur(20px);
+      background: rgba(5, 8, 17, 0.82);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border-bottom: 1px solid var(--border-glow);
       padding: 12px 0;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .header-wrapper {
@@ -95,26 +116,32 @@
     }
 
     .brand-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 19px;
       color: #fff;
-      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+      animation: floatAvatar 4s ease-in-out infinite;
+    }
+
+    @keyframes floatAvatar {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(3deg); }
     }
 
     .user-greeting {
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 800;
       color: #fff;
     }
 
     .sub-title {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       color: var(--text-dim);
     }
 
@@ -126,268 +153,344 @@
 
     .nav-tasks-btn {
       background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
-      color: #070a14;
+      color: #050811;
       border: none;
-      padding: 8px 16px;
-      border-radius: 12px;
+      padding: 9px 16px;
+      border-radius: 14px;
       font-size: 0.82rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: transform 0.2s;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .nav-tasks-btn:hover { transform: translateY(-2px); }
+    .nav-tasks-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+    }
 
     .profile-pill {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
-      padding: 6px 12px;
+      padding: 7px 14px;
       border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
       font-size: 0.78rem;
+      transition: all 0.3s;
+    }
+
+    .profile-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--cyan-glow);
     }
 
     .group-tag {
       background: var(--cyan-glow);
-      color: #070a14;
-      padding: 1px 8px;
+      color: #050811;
+      padding: 2px 9px;
       border-radius: 10px;
       font-weight: 800;
     }
 
-    /* أزرار تبديل عرض الجدول والامتحانات */
+    /* أزرار التبديل (Tabs) */
     .view-selector {
       display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .view-btn {
       flex: 1;
-      padding: 10px;
-      border-radius: 12px;
+      padding: 12px;
+      border-radius: 14px;
       border: 1px solid var(--border-glow);
       background: rgba(255, 255, 255, 0.02);
       color: var(--text-dim);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.2s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .view-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
     }
 
     .view-btn.active {
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       color: #fff;
       border-color: transparent;
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+      transform: translateY(-2px);
     }
 
     .view-btn.exams-mode.active {
       background: linear-gradient(135deg, #f59e0b, #ef4444);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
     }
 
-    /* كارت التحفيز والنصائح */
+    /* كارت الاقتباس اللامع */
     .quote-box {
-      padding: 14px 18px;
-      margin-bottom: 16px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      border-right: 3px solid var(--cyan-glow);
+      gap: 14px;
+      border-right: 4px solid var(--cyan-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-box::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+      animation: shimmer 6s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
 
     .quote-text {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: #cbd5e1;
+      line-height: 1.5;
     }
 
     .info-icon-btn {
-      background: rgba(6, 182, 212, 0.1);
+      background: rgba(6, 182, 212, 0.12);
       border: 1px solid var(--cyan-glow);
       color: var(--cyan-glow);
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      transition: all 0.3s;
       flex-shrink: 0;
     }
 
-    /* ودجت الحصة القادمة */
+    .info-icon-btn:hover {
+      background: var(--cyan-glow);
+      color: #050811;
+      transform: scale(1.1) rotate(15deg);
+    }
+
+    /* ودجت الحصة الحية (Next Widget) */
     .next-widget {
-      padding: 18px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 22px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      position: relative;
     }
 
     .widget-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .widget-badge {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 800;
-      background: rgba(6, 182, 212, 0.12);
+      background: rgba(6, 182, 212, 0.15);
       color: var(--cyan-glow);
       border: 1px solid var(--cyan-glow);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .widget-badge.live {
-      background: rgba(244, 63, 94, 0.15);
+      background: rgba(244, 63, 94, 0.2);
       color: var(--rose-glow);
       border-color: var(--rose-glow);
+      animation: pulseLive 2s infinite;
+    }
+
+    @keyframes pulseLive {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
     }
 
     .countdown-box {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 4px 12px;
-      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px 14px;
+      border-radius: 14px;
       color: var(--cyan-glow);
+      border: 1px solid rgba(6, 182, 212, 0.2);
     }
 
     .widget-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 14px;
       color: #fff;
     }
 
     .widget-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 14px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    .w-item { font-size: 0.78rem; }
-    .w-label { color: var(--text-dim); display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .w-item { font-size: 0.8rem; }
+    .w-label { color: var(--text-dim); display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
     .w-val { font-weight: 700; color: #f1f5f9; }
 
-    /* أزرار الأسابيع والأيام */
+    /* الأزرار التفاعلية للأسبوع والأيام */
     .nav-scroll {
       display: flex;
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 6px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      scrollbar-width: none; /* إخفاء شريط التمرير لمظهر أَنظف */
     }
+    .nav-scroll::-webkit-scrollbar { display: none; }
 
     .nav-chip {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 0.8rem;
+      padding: 9px 16px;
+      border-radius: 14px;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-chip:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     .nav-chip.active {
       background: var(--cyan-glow);
-      color: #070a14;
+      color: #050811;
       border-color: transparent;
-      font-weight: 800;
+      font-weight: 900;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
     }
 
-    .nav-chip.hidden-elem { display: none !important; }
-
-    /* البحث والبطاقات */
+    /* حقل البحث المتطور */
     .search-box {
       position: relative;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .search-box i {
       position: absolute;
-      right: 14px;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-dim);
-      font-size: 13px;
+      font-size: 14px;
+      transition: color 0.3s;
     }
 
     .search-input {
       width: 100%;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(13, 20, 38, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 10px 38px 10px 14px;
-      border-radius: 12px;
+      padding: 12px 42px 12px 16px;
+      border-radius: 14px;
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       outline: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .search-input:focus { border-color: var(--cyan-glow); }
+    .search-input:focus {
+      border-color: var(--cyan-glow);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+    }
+    .search-input:focus + i { color: var(--cyan-glow); }
 
+    /* بطاقات الجدول والامتحانات الحية */
     .timeline-card {
-      padding: 16px;
-      margin-bottom: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      animation: cardEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    @keyframes cardEntrance {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card-top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .subject-tag {
-      padding: 2px 10px;
-      border-radius: 6px;
-      font-size: 0.72rem;
+      padding: 3px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
       font-weight: 800;
       color: #fff;
     }
-    .anatomy { background: #f97316; }
-    .biochem { background: #10b981; }
-    .physio { background: #06b6d4; }
-    .histo { background: #a855f7; }
-    .prof { background: #ec4899; }
-    .exam { background: #f59e0b; }
+    .anatomy { background: #f97316; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    .biochem { background: #10b981; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+    .physio { background: #06b6d4; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); }
+    .histo { background: #a855f7; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3); }
+    .prof { background: #ec4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); }
+    .exam { background: linear-gradient(135deg, #f59e0b, #ef4444); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35); }
 
     .card-title {
-      font-size: 0.98rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: #fff;
     }
 
     .card-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 0.78rem;
+      gap: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
       color: var(--text-dim);
+      border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
     .card-details span { color: #f1f5f9; font-weight: 600; }
@@ -395,6 +498,12 @@
     /* =================== صفحة المهام المنفصلة (Tasks Page) =================== */
     .tasks-page-view {
       display: none;
+      animation: fadeInPage 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .tasks-page-header {
@@ -410,134 +519,174 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 0.8rem;
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--cyan-glow);
+      transform: translateX(-3px);
     }
 
     .task-progress-box {
-      background: rgba(0, 0, 0, 0.25);
-      padding: 14px;
-      border-radius: 14px;
-      margin-bottom: 16px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .task-row-card {
       background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 12px 16px;
-      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 14px 18px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .task-row-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     .task-content {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       flex: 1;
     }
 
     .task-checkbox {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--cyan-glow);
+      width: 20px;
+      height: 20px;
+      accent-color: var(--emerald-glow);
       cursor: pointer;
+      transition: transform 0.2s;
     }
+    .task-checkbox:active { transform: scale(1.2); }
 
     .task-title-text {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: #e2e8f0;
+      transition: all 0.3s;
     }
 
     .task-title-text.done {
       text-decoration: line-through;
       color: var(--text-dim);
+      opacity: 0.7;
     }
 
     .task-meta-badge {
-      background: rgba(6, 182, 212, 0.1);
-      color: var(--cyan-glow);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      font-size: 0.68rem;
-      padding: 2px 8px;
-      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--emerald-glow);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 8px;
       font-weight: 700;
-      margin-right: 8px;
+      margin-right: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .add-task-form-box {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 14px;
-      border-radius: 14px;
-      margin-top: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 16px;
+      border-radius: 16px;
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 8px;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
-    @media(max-width: 650px) {
+    @media(max-width: 750px) {
       .add-task-form-box { grid-template-columns: 1fr; }
     }
 
     .form-ctrl {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(13, 20, 38, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 9px 12px;
-      border-radius: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
       color: #fff;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       outline: none;
+      transition: all 0.3s;
     }
-    .form-ctrl:focus { border-color: var(--cyan-glow); }
+    .form-ctrl:focus {
+      border-color: var(--emerald-glow);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    }
 
     .btn-primary {
-      background: var(--cyan-glow);
-      color: #070a14;
+      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
+      color: #050811;
       border: none;
-      padding: 9px 16px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.82rem;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.85rem;
       cursor: pointer;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(16, 185, 129, 0.5);
     }
 
-    /* Modals العامة */
+    /* Modal عام */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(7, 10, 20, 0.85);
-      backdrop-filter: blur(10px);
+      background: rgba(5, 8, 17, 0.88);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       padding: 16px;
+      animation: fadeInModal 0.3s ease;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .modal-card {
       max-width: 440px;
       width: 100%;
-      padding: 24px;
+      padding: 28px;
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 50px;
       text-align: center;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-dim);
       border-top: 1px solid var(--border-glow);
-      padding-top: 16px;
+      padding-top: 20px;
     }
-    .developer-credit { color: var(--cyan-glow); font-weight: 800; text-decoration: none; }
+    .developer-credit { color: var(--cyan-glow); font-weight: 900; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -545,18 +694,18 @@
   <!-- Modal تسجيل الدخول الأول -->
   <div id="loginModal" class="modal-backdrop" style="display: flex;">
     <div class="modal-card glass-panel" style="text-align: center;">
-      <div class="brand-avatar" style="margin: 0 auto 14px;">🩺</div>
-      <h2 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 6px;">أهلاً بك يا دكتور!</h2>
-      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 18px;">سجل بياناتك مرة واحدة لربط جدولك بدقة</p>
+      <div class="brand-avatar" style="margin: 0 auto 16px;">🩺</div>
+      <h2 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 8px;">مرحباً بك يا دكتور!</h2>
+      <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 20px;">سجل بياناتك مرة واحدة لربط جدولك وتتبع حضورك بدقة</p>
 
-      <div style="text-align: right; margin-bottom: 12px;">
-        <label style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 4px;">الاسم الكريم:</label>
+      <div style="text-align: right; margin-bottom: 14px;">
+        <label style="font-size: 0.78rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 6px;">الاسم الكريم:</label>
         <input type="text" id="modalNameInput" class="search-input" placeholder="مثال: د. أحمد...">
       </div>
 
-      <div style="text-align: right; margin-bottom: 16px;">
-        <label style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 4px;">اختر المجموعة (Subgroup):</label>
-        <select id="modalGroupSelect" class="search-input" style="background: #0f172a;">
+      <div style="text-align: right; margin-bottom: 20px;">
+        <label style="font-size: 0.78rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 6px;">اختر المجموعة (Subgroup):</label>
+        <select id="modalGroupSelect" class="search-input" style="background: #0d1426;">
           <option value="" disabled selected>-- اختر مجموعتك --</option>
           <option value="A1">المجموعة A1</option><option value="A2">المجموعة A2</option><option value="A3">المجموعة A3</option>
           <option value="B1">المجموعة B1</option><option value="B2">المجموعة B2</option><option value="B3">المجموعة B3</option>
@@ -565,21 +714,21 @@
         </select>
       </div>
 
-      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 11px;">بدء الاستخدام 🚀</button>
+      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 13px;">دخول إلى المنصة 🚀</button>
     </div>
   </div>
 
-  <!-- Modal نصائح المذاكرة -->
+  <!-- Modal إرشادات المذاكرة -->
   <div id="tipsModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <h3 style="font-size: 1rem; font-weight: 800; color: var(--cyan-glow);"><i class="fa-solid fa-lightbulb"></i> إرشادات تنظيم الوقت والمذاكرة</h3>
-        <button onclick="document.getElementById('tipsModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:16px;"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--cyan-glow);"><i class="fa-solid fa-lightbulb"></i> إرشادات تنظيم الوقت الطبية</h3>
+        <button onclick="document.getElementById('tipsModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:18px;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.6; display: flex; flex-direction: column; gap: 8px;">
-        <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>1. الاسترجاع النشط (Active Recall):</strong> لا تقرأ المحاضرة كأنها رواية. بعد كل جزئية، اقفل الملف واسأل نفسك عن المفاهيم الأساسية.</div>
-        <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>2. التكرار المتباعد (Spaced Repetition):</strong> خصص أول 15 دقيقة من يومك لمراجعة سريعة لما ذاكرته بالأمس لتثبيته في الذاكرة طويلة المدى.</div>
-        <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>3. ربط الوظيفة بالتركيب:</strong> في الأناتومي والبيوِكيم، افهم "لماذا" يحدث التفاعل أو أين يوجد العضو، فالفهم يوفر 80% من جهد الحفظ.</div>
+      <div style="font-size: 0.84rem; color: #cbd5e1; line-height: 1.7; display: flex; flex-direction: column; gap: 10px;">
+        <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);"><strong>1. الاسترجاع النشط (Active Recall):</strong> لا تقرأ السلايدز كأنها رواية، بل اغلق الكتاب بعد كل صفحة وحاول تسميع المعلومات لنفسك.</div>
+        <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);"><strong>2. التكرار المتباعد (Spaced Repetition):</strong> خصص 15 دقيقة أول يومك لمراجعة ما ذاكرته بالأمس لتثبيته في الذاكرة طويلة المدى.</div>
+        <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);"><strong>3. ربط الوظيفة بالتركيب:</strong> في الأناتومي والبيوِكيم، افهم "لماذا" يحدث التفاعل، فالفهم يوفر 80% من جهد الحفظ.</div>
       </div>
     </div>
   </div>
@@ -608,7 +757,7 @@
 
   <div class="app-container">
 
-    <!-- =================== لوحة التحكم الرئيسية (Dashboard) =================== -->
+    <!-- =================== لوحة التحكم الرئيسية =================== -->
     <div id="mainDashboardView">
 
       <div class="view-selector">
@@ -622,7 +771,7 @@
 
       <div class="quote-box glass-panel">
         <div class="quote-text" id="dailyQuote">"نظم وقتك، واعلم أن كل خطوة تخطوها اليوم تقربك لهدفك السامي."</div>
-        <div class="info-icon-btn" onclick="document.getElementById('tipsModal').style.display='flex'" title="نصائح سريعة">
+        <div class="info-icon-btn" onclick="document.getElementById('tipsModal').style.display='flex'" title="إرشادات">
           <i class="fa-solid fa-info"></i>
         </div>
       </div>
@@ -635,24 +784,24 @@
         </div>
         <div class="widget-title" id="widgetTitle">جاري تحميل البيانات...</div>
         <div class="widget-grid">
-          <div class="w-item"><span class="w-label" id="lblTime">الوقت</span><span class="w-val" id="valTime">--:--</span></div>
+          <div class="w-item"><span class="w-label">الوقت</span><span class="w-val" id="valTime">--:--</span></div>
           <div class="w-item"><span class="w-label">المكان</span><span class="w-val" id="valLocation">---</span></div>
-          <div class="w-item"><span class="w-label" id="lblSubj">المادة</span><span class="w-val" id="valSubject">---</span></div>
-          <div class="w-item"><span class="w-label" id="lblDoc">المحاضر</span><span class="w-val" id="valDoctor">---</span></div>
+          <div class="w-item"><span class="w-label">المادة</span><span class="w-val" id="valSubject">---</span></div>
+          <div class="w-item"><span class="w-label">المحاضر</span><span class="w-val" id="valDoctor">---</span></div>
         </div>
-        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-glow); color:#fff; padding:6px 14px; border-radius:10px; font-size:0.75rem; font-weight:700; cursor:pointer;">
+        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.05); border:1px solid var(--border-glow); color:#fff; padding:7px 14px; border-radius:10px; font-size:0.78rem; font-weight:700; cursor:pointer; transition: all 0.3s;">
           <i class="fa-solid fa-calendar-plus" style="color:var(--cyan-glow);"></i> إضافة لـ Google Calendar
         </button>
       </div>
 
-      <!-- أدوات الفلترة للجدول -->
+      <!-- الفلاتر -->
       <div id="scheduleFilterControls">
-        <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim); margin-bottom: 6px;"><i class="fa-solid fa-calendar-week"></i> الأسبوع الدراسي:</div>
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-dim); margin-bottom: 6px;"><i class="fa-solid fa-calendar-week"></i> الأسبوع الدراسي:</div>
         <div class="nav-scroll" id="weeksNavContainer"></div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اليوم:</div>
-          <label style="font-size: 0.72rem; color: var(--text-dim); cursor: pointer;">
+          <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اليوم:</div>
+          <label style="font-size: 0.75rem; color: var(--text-dim); cursor: pointer;">
             <input type="checkbox" id="hidePastToggle" checked onchange="renderMainContent()"> إخفاء المنتهي 👁️‍🗨️
           </label>
         </div>
@@ -673,44 +822,44 @@
       <div id="mainTimelineList"></div>
     </div>
 
-    <!-- =================== صفحة إدارة المهام والوقت (Tasks View) =================== -->
-    <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 20px;">
+    <!-- =================== صفحة إدارة المهام والوقت المنفصلة =================== -->
+    <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 24px;">
       <div class="tasks-page-header">
         <div>
-          <h2 style="font-size: 1.15rem; font-weight: 900; color: #fff; margin-bottom: 2px;">🎯 إدارة المهام وجدولة الوقت</h2>
-          <p style="font-size: 0.75rem; color: var(--text-dim);">خطط لمذاكرتك لكل يوم وساعة بدقة تامة</p>
+          <h2 style="font-size: 1.25rem; font-weight: 900; color: #fff; margin-bottom: 4px;">🎯 المهام وجدولة الوقت اليومي</h2>
+          <p style="font-size: 0.78rem; color: var(--text-dim);">خطط لمذاكرتك لكل يوم وساعة بدقة واحترافية</p>
         </div>
         <button onclick="switchToDashboardView()" class="back-btn">
-          <i class="fa-solid fa-arrow-right"></i> العودة للجدول
+          <i class="fa-solid fa-arrow-right"></i> العودة للجدول الرئيسي
         </button>
       </div>
 
       <!-- تبديل القوائم -->
-      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 12px;"></div>
+      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 14px;"></div>
 
-      <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
-        <button onclick="addNewCustomList()" style="background:rgba(16,185,129,0.12); border:1px dashed var(--emerald-glow); color:var(--emerald-glow); padding:6px 12px; border-radius:10px; font-size:0.75rem; font-weight:700; cursor:pointer;">
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 14px;">
+        <button onclick="addNewCustomList()" style="background:rgba(16,185,129,0.12); border:1px dashed var(--emerald-glow); color:var(--emerald-glow); padding:7px 14px; border-radius:12px; font-size:0.78rem; font-weight:700; cursor:pointer; transition: all 0.3s;">
           <i class="fa-solid fa-plus"></i> قائمة جديدة
         </button>
       </div>
 
-      <!-- مؤشر إنجاز المهام -->
+      <!-- مؤشر الإنجاز -->
       <div class="task-progress-box">
-        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; margin-bottom: 6px;">
-          <span>نسبة إنجاز القائمة:</span>
+        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px;">
+          <span>نسبة إنجاز القائمة الحالية:</span>
           <strong id="taskProgressPct" style="color: var(--emerald-glow);">0%</strong>
         </div>
-        <div style="width:100%; height:6px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden;">
-          <div id="taskProgressBarFill" style="height:100%; width:0%; background:var(--emerald-glow); transition:width 0.4s;"></div>
+        <div style="width:100%; height:8px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden;">
+          <div id="taskProgressBarFill" style="height:100%; width:0%; background:var(--emerald-glow); transition:width 0.5s cubic-bezier(0.16, 1, 0.3, 1);"></div>
         </div>
       </div>
 
-      <!-- قائمة المهام الحالية -->
-      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;"></div>
+      <!-- قائمة عناصر المهام -->
+      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;"></div>
 
-      <!-- فورم إضافة مهمة مع تحديد اليوم والساعة -->
+      <!-- فورم إضافة مهمة جديدة بتحديد اليوم والساعة -->
       <div class="add-task-form-box">
-        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="اسم المهمة أو المنهج (مثلاً: ريفيجن فسيولوجي)...">
+        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة (مثلاً: ريفيجن فسيولوجي)...">
         <select id="newTaskDaySelect" class="form-ctrl">
           <option value="اليوم">كل الأيام / عام</option>
           <option value="الأحد">الأحد</option><option value="الإثنين">الإثنين</option><option value="الثلاثاء">الثلاثاء</option><option value="الأربعاء">الأربعاء</option><option value="الخميس">الخميس</option><option value="الجمعة">الجمعة</option><option value="السبت">السبت</option>
@@ -752,16 +901,15 @@
       { title: "بداية امتحانات الفاينل (Final Exam)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final" }
     ];
 
-    // القائمة الافتراضية للمهام مستخرجة من المنهج
     const defaultTasks = [
       { id: 1, text: "Biochemistry: Lipid & Protein Chemistry", day: "الأحد", time: "09:00", completed: false },
-      { id: 2, text: "Biochemistry: Molecular Biology (DNA & Transcription)", day: "الإثنين", time: "10:00", completed: false },
+      { id: 2, text: "Biochemistry: Molecular Biology", day: "الإثنين", time: "10:00", completed: false },
       { id: 3, text: "Physiology: Transport 1 & 2 topics", day: "الثلاثاء", time: "11:00", completed: false },
       { id: 4, text: "Physiology: Blood groups & transfusion", day: "الأربعاء", time: "12:00", completed: false },
       { id: 5, text: "Histology: Epithelial & Connective tissues", day: "الخميس", time: "13:00", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v2')) || [
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v3')) || [
       { id: 'def_list', name: 'مهام End Module الأساسية', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
@@ -831,7 +979,6 @@
       document.getElementById('headerGroupTag').innerText = currentUserGroup;
     }
 
-    /* التنقل بين الصفحات الرئيسية والمهام */
     function switchToTasksView() {
       document.getElementById('mainDashboardView').style.display = 'none';
       document.getElementById('tasksPageView').style.display = 'block';
@@ -844,7 +991,6 @@
       renderMainContent();
     }
 
-    /* تبديل التبويبات في الداشبورد */
     function switchTab(tab) {
       currentTab = tab;
       document.getElementById('btnSchedTab').classList.remove('active');
@@ -918,7 +1064,6 @@
     function renderScheduleTimeline() {
       const container = document.getElementById('mainTimelineList');
       const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-      const hidePast = document.getElementById('hidePastToggle').checked;
       container.innerHTML = '';
 
       const filtered = batchSchedule.filter(item => {
@@ -930,17 +1075,18 @@
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:24px; color:var(--text-dim); font-size:0.82rem;">لا توجد حصص دراسية مطابقة لهذه الفلاتر.</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.85rem;">لا توجد حصص دراسية مطابقة لهذه الفلاتر. 🎉</div>`;
         return;
       }
 
-      filtered.forEach(item => {
+      filtered.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'timeline-card glass-panel';
+        card.style.animationDelay = `${index * 0.06}s`;
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag ${getSubjectClass(item.subject)}">${item.subject}</span>
-            <span style="font-size:0.72rem; color:var(--cyan-glow); font-weight:700;">${item.type}</span>
+            <span style="font-size:0.75rem; color:var(--cyan-glow); font-weight:800;">${item.type}</span>
           </div>
           <div class="card-title">${item.title}</div>
           <div class="card-details">
@@ -956,13 +1102,14 @@
     function renderExamsList() {
       const container = document.getElementById('mainTimelineList');
       container.innerHTML = '';
-      year1Exams.forEach(exam => {
+      year1Exams.forEach((exam, index) => {
         const card = document.createElement('div');
         card.className = 'timeline-card glass-panel';
+        card.style.animationDelay = `${index * 0.06}s`;
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag exam">${exam.type}</span>
-            <span style="font-size:0.72rem; color:var(--amber-glow); font-weight:700;">امتحان معتمد 🎯</span>
+            <span style="font-size:0.75rem; color:var(--amber-glow); font-weight:800;">امتحان معتمد 🎯</span>
           </div>
           <div class="card-title">${exam.title}</div>
           <div class="card-details">
@@ -985,10 +1132,7 @@
 
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
-      const now = new Date();
       const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup));
-      
-      // اختيار الحصة التالية كنموذج عرض للودجت
       if (userSess.length > 0) {
         const next = userSess[0];
         activeNextItem = next;
@@ -997,7 +1141,7 @@
         document.getElementById('valLocation').innerText = next.location;
         document.getElementById('valSubject').innerText = next.subject;
         document.getElementById('valDoctor').innerText = next.doctor || 'غير محدد';
-        document.getElementById('countdownTimerText').innerText = "متاح بالموقع ⚡";
+        document.getElementById('countdownTimerText').innerText = "نشط الآن ⚡";
       }
     }
 
@@ -1007,7 +1151,7 @@
       window.open(url, '_blank');
     }
 
-    /* =================== منطق صفحة المهام المتقدمة =================== */
+    /* منطق صفحة المهام */
     function renderTaskListsView() {
       const navContainer = document.getElementById('taskListsNavContainer');
       navContainer.innerHTML = '';
@@ -1026,7 +1170,7 @@
       itemsContainer.innerHTML = '';
 
       if (activeList.items.length === 0) {
-        itemsContainer.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-dim); font-size:0.8rem;">القائمة فارغة. أضف أول مهمة بالأسفل! ✨</div>`;
+        itemsContainer.innerHTML = `<div style="text-align:center; padding:24px; color:var(--text-dim); font-size:0.82rem;">القائمة فارغة. أضف أول مهمة بالأسفل! ✨</div>`;
       } else {
         activeList.items.forEach(task => {
           const row = document.createElement('div');
@@ -1039,7 +1183,7 @@
                 <span class="task-meta-badge"><i class="fa-regular fa-clock"></i> ${task.day} - ${task.time}</span>
               </div>
             </div>
-            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer;" title="حذف"><i class="fa-solid fa-trash"></i></button>
+            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer; transition: color 0.3s;" title="حذف" onmouseover="this.style.color='#f43f5e'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-trash"></i></button>
           `;
           itemsContainer.appendChild(row);
         });
@@ -1058,7 +1202,7 @@
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: day, time: time, completed: false });
-        localStorage.setItem('med_task_lists_v2', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v3', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1070,7 +1214,7 @@
         const item = list.items.find(i => i.id === taskId);
         if (item) {
           item.completed = !item.completed;
-          localStorage.setItem('med_task_lists_v2', JSON.stringify(userLists));
+          localStorage.setItem('med_task_lists_v3', JSON.stringify(userLists));
           renderTaskListsView();
         }
       }
@@ -1080,7 +1224,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v2', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v3', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1091,7 +1235,7 @@
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v2', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v3', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
