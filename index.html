@@ -102,7 +102,6 @@
       transform: translateY(-2px);
     }
 
-    /* الهيدر المطلوب: الترحيب والجروب فوق، وتحتهم زر التاسكات */
     header {
       position: sticky;
       top: 0;
@@ -199,7 +198,6 @@
     }
     .feedback-trigger-btn:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.08); }
 
-    /* أزرار التبديل الرئيسية */
     .view-selector {
       display: flex;
       gap: 10px;
@@ -233,24 +231,34 @@
       background: linear-gradient(135deg, #f59e0b, #ef4444);
     }
 
-    /* كارت التوجيهات السريعة (GUIDES) */
-    .guide-box {
-      padding: 14px 18px;
-      margin-bottom: 18px;
+    /* أزرار الـ Guide مع علامة (i) */
+    .section-header-flex {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      border-right: 3px solid var(--cyan-glow);
+      align-items: center;
+      margin-bottom: 8px;
     }
 
-    .guide-text {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #cbd5e1;
+    .info-guide-btn {
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid var(--cyan-glow);
+      color: var(--cyan-glow);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .info-guide-btn:hover {
+      background: var(--cyan-glow);
+      color: #030712;
+      transform: scale(1.1);
     }
 
-    /* الودجت الحية */
     .next-widget {
       padding: 20px;
       margin-bottom: 18px;
@@ -306,7 +314,6 @@
     .w-label { color: var(--text-dim); display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
     .w-val { font-weight: 700; color: #f1f5f9; }
 
-    /* فلاتر الأسبوع والأيام */
     .nav-scroll {
       display: flex;
       gap: 8px;
@@ -366,12 +373,6 @@
     .timeline-card {
       padding: 16px;
       margin-bottom: 12px;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .card-top-row {
@@ -473,7 +474,7 @@
       color: #e2e8f0;
     }
     .task-title-text.done {
-      text-decoration: line-through;
+      text-decoration: line-text;
       color: var(--text-dim);
     }
 
@@ -524,7 +525,7 @@
       cursor: pointer;
     }
 
-    /* Modal عام */
+    /* Modal عام للإرشادات والرسائل */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -538,7 +539,7 @@
     }
 
     .modal-card {
-      max-width: 420px;
+      max-width: 440px;
       width: 100%;
       padding: 24px;
     }
@@ -593,14 +594,27 @@
     </div>
   </div>
 
-  <!-- Modal إرسال رسالة للمطور (Feedback / Bug Report) -->
+  <!-- Modal الدليل التفاعلي (GUIDE Modal) -->
+  <div id="guideModal" class="modal-backdrop">
+    <div class="modal-card glass-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 id="guideModalTitle" style="font-size: 1.05rem; font-weight: 900; color: var(--cyan-glow);">دليل الاستخدام</h3>
+        <button onclick="document.getElementById('guideModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:16px;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="guideModalContent" style="font-size: 0.84rem; color: #cbd5e1; line-height: 1.7; display: flex; flex-direction: column; gap: 10px;">
+        <!-- يتم تعبئة المحتوى ديناميكياً -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal إرسال رسالة للمطور (Feedback) -->
   <div id="feedbackModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <h3 style="font-size: 1rem; font-weight: 800; color: var(--cyan-glow);"><i class="fa-solid fa-paper-plane"></i> إرسال ملاحظة أو شكر</h3>
         <button onclick="document.getElementById('feedbackModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">هل واجهتك مشكلة تقنية، أو تريد إرسال كلمة شكر؟ سيتم إرسالها لسيرفر المطور مباشرة.</p>
+      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">أرسل ملاحظة تقنية أو كلمة شكر وسيتم حفظها مباشرة في سيرفر النظام.</p>
       <textarea id="feedbackText" class="search-input" style="height: 90px; resize: none; margin-bottom: 12px; padding: 10px;" placeholder="اكتب رسالتك هنا..."></textarea>
       <button onclick="sendFeedbackMessage()" class="btn-primary" style="width: 100%; padding: 10px;">إرسال الرسالة</button>
     </div>
@@ -640,8 +654,12 @@
         </button>
       </div>
 
-      <div class="guide-box glass-panel">
-        <div class="guide-text"><strong>GUIDE:</strong> قم بمراجعة جدولك اليومي واستخدم TASK LIST لتنظيم مهام المذاكرة بدقة.</div>
+      <!-- رأس جدول الحصص مع زر (i) للاستخدام -->
+      <div class="section-header-flex">
+        <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن</div>
+        <div class="info-guide-btn" onclick="openGuideModal('schedule')" title="كيف تستخدم الجدول؟">
+          <i class="fa-solid fa-info"></i>
+        </div>
       </div>
 
       <!-- الودجت الحية -->
@@ -663,11 +681,10 @@
       </div>
 
       <div id="scheduleFilterControls">
-        <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim); margin-bottom: 6px;"><i class="fa-solid fa-calendar-week"></i> الأسبوع الدراسي:</div>
         <div class="nav-scroll" id="weeksNavContainer"></div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اليوم:</div>
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);">اختر اليوم:</div>
           <label style="font-size: 0.72rem; color: var(--text-dim); cursor: pointer;">
             <input type="checkbox" id="hidePastToggle" checked onchange="renderMainContent()"> إخفاء المنتهي 👁️‍🗨️
           </label>
@@ -693,16 +710,17 @@
     <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 22px;">
       <div class="tasks-page-header">
         <div>
-          <h2 style="font-size: 1.15rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 style="font-size: 1.15rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
+            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="كيف تستخدم Task List؟">
+              <i class="fa-solid fa-info"></i>
+            </div>
+          </div>
           <p style="font-size: 0.75rem; color: var(--text-dim);">إدارة المهام وتنظيم وقت المذاكرة لكل يوم وساعة</p>
         </div>
         <button onclick="switchToDashboardView()" class="back-btn">
           <i class="fa-solid fa-arrow-right"></i> العودة للجدول
         </button>
-      </div>
-
-      <div class="guide-box glass-panel" style="margin-bottom: 14px;">
-        <div class="guide-text"><strong>GUIDE:</strong> حدد المهام المطلوبة وتابع نسبة إنجازك أول بأول لتجنب تراكم المحاضرات.</div>
       </div>
 
       <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 12px;"></div>
@@ -769,7 +787,7 @@
       { id: 5, text: "Histology: Epithelial & Connective tissues", day: "الخميس", time: "13:00", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v5')) || [
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v6')) || [
       { id: 'def_list', name: 'مهام End Module الأساسية', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
@@ -800,6 +818,31 @@
       setInterval(updateRealtimeClock, 1000);
     };
 
+    /* دليل الاستخدام التفاعلي لزر (i) */
+    function openGuideModal(type) {
+      const modal = document.getElementById('guideModal');
+      const titleEl = document.getElementById('guideModalTitle');
+      const contentEl = document.getElementById('guideModalContent');
+
+      if (type === 'schedule') {
+        titleEl.innerText = "دليل استخدام جدول المحاضرات";
+        contentEl.innerHTML = `
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>1. اختيار الأسبوع:</strong> انتقل بين الأسابيع الدراسية من شريط الأسبوع بالأعلى لعرض المحاضرات الخاصة بكل فترة.</div>
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>2. تصفية الأيام:</strong> اضغط على أي يوم (الأحد، الإثنين...) لعرض حصص وسكاشن ذلك اليوم فقط لمجموعتك الفرعية.</div>
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>3. البحث السريع:</strong> استخدم خانة البحث للعثور على محاضر معينة أو قاعة أو مادة فوراً.</div>
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>4. Google Calendar:</strong> يمكنك بضغطة زر إضافة أي محاضرة مباشرة إلى تقويم جوجل الخاص بك.</div>
+        `;
+      } else if (type === 'tasks') {
+        titleEl.innerText = "دليل استخدام TASK LIST";
+        contentEl.innerHTML = `
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>1. إضافة مهمة جديدة:</strong> اكتب عنوان المهمة، حدد اليوم المناسب، واضبط الساعة بدقة ثم اضغط "إضافة مهمة".</div>
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>2. قوائم مخصصة:</strong> يمكنك إنشاء أكثر من قائمة (مثل قائمة فسيولوجي وقائمة أناتومي) عبر زر "قائمة جديدة".</div>
+          <div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;"><strong>3. تتبع الإنجاز:</strong> عند إتمام أي مهمة، ضع علامة صح بجانبها ليتحرك شريط التقدم لحظياً ويزيد من إنجازك.</div>
+        `;
+      }
+      modal.style.display = 'flex';
+    }
+
     function sendBackendLog(action, msg = null) {
       try {
         fetch(webAppUrl, {
@@ -814,7 +857,7 @@
       const text = document.getElementById('feedbackText').value.trim();
       if (!text) { alert('يرجى كتابة رسالة أولاً!'); return; }
       sendBackendLog("رسالة ملاحظة/شكر", text);
-      alert('تم إرسال رسالتك بنجاح إلى سيرفر المطور. شكراً لتواصلك! 🚀');
+      alert('تم إرسال رسالتك بنجاح إلى سيرفر النظام. شكراً لتواصلك! 🚀');
       document.getElementById('feedbackText').value = '';
       document.getElementById('feedbackModal').style.display = 'none';
     }
@@ -1050,7 +1093,7 @@
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: day, time: time, completed: false });
-        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v6', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1060,7 +1103,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         const item = list.items.find(i => i.id === taskId);
-        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists)); renderTaskListsView(); }
+        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v6', JSON.stringify(userLists)); renderTaskListsView(); }
       }
     }
 
@@ -1068,7 +1111,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v6', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1079,7 +1122,7 @@
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v6', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
