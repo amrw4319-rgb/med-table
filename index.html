@@ -22,9 +22,9 @@
   <style>
     :root {
       --bg-main: #030712;
-      --bg-card: rgba(11, 19, 38, 0.72);
+      --bg-card: rgba(11, 19, 38, 0.75);
       --border-glow: rgba(255, 255, 255, 0.08);
-      --border-glow-hover: rgba(6, 182, 212, 0.5);
+      --border-glow-hover: rgba(6, 182, 212, 0.45);
       
       --cyan-glow: #06b6d4;
       --indigo-glow: #6366f1;
@@ -44,13 +44,11 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* خلفية إجرامية مع دوائر إضاءة متحركة (Ambient Background Orbs) */
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
-        radial-gradient(at 85% 85%, rgba(6, 182, 212, 0.18) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.1) 0px, transparent 60%);
+        radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
       background-attachment: fixed;
       background-size: 200% 200%;
       animation: bgMorph 18s ease infinite alternate;
@@ -66,7 +64,6 @@
       100% { background-position: 100% 100%; }
     }
 
-    /* كرات مضيئة متحركة في الخلفية لإعطاء عمق إجرامي */
     .ambient-glow {
       position: fixed;
       width: 350px;
@@ -74,17 +71,11 @@
       border-radius: 50%;
       filter: blur(80px);
       z-index: -1;
-      opacity: 0.25;
-      animation: floatOrbs 10s ease-in-out infinite alternate;
+      opacity: 0.2;
       pointer-events: none;
     }
     .orb-1 { top: -100px; right: -100px; background: var(--indigo-glow); }
-    .orb-2 { bottom: -100px; left: -100px; background: var(--cyan-glow); animation-delay: -5s; }
-
-    @keyframes floatOrbs {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(30px, 40px) scale(1.1); }
-    }
+    .orb-2 { bottom: -100px; left: -100px; background: var(--cyan-glow); }
 
     .app-container {
       max-width: 900px;
@@ -94,32 +85,31 @@
       z-index: 1;
     }
 
-    /* تصميم الـ Glossy Glassmorphism الفاخر جداً */
     .glass-panel {
       background: var(--bg-card);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
       border: 1px solid var(--border-glow);
-      border-top: 1px solid rgba(255, 255, 255, 0.22); /* انعكاس ضوئي زجاجي */
-      border-radius: 22px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .glass-panel:hover {
       border-color: var(--border-glow-hover);
-      box-shadow: 0 25px 60px rgba(6, 182, 212, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(6, 182, 212, 0.15);
+      transform: translateY(-2px);
     }
 
-    /* الهيدر الجديد بالترتيب المطلوب */
+    /* الهيدر المطلوب: الترحيب والجروب فوق، وتحتهم زر التاسكات */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(3, 7, 18, 0.82);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border-bottom: 1px solid var(--border-glow);
       padding: 14px 0;
       margin-bottom: 24px;
@@ -139,248 +129,190 @@
     }
 
     .user-greeting {
-      font-size: 1.1rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff, #93c5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 0.5s ease;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
     }
 
     .profile-pill {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
-      padding: 7px 16px;
+      padding: 6px 14px;
       border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      font-size: 0.8rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .profile-pill:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--cyan-glow);
-      transform: scale(1.03);
+      font-size: 0.78rem;
     }
 
     .group-tag {
-      background: linear-gradient(135deg, var(--cyan-glow), var(--indigo-glow));
-      color: #fff;
-      padding: 2px 10px;
-      border-radius: 12px;
-      font-weight: 900;
-      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+      background: var(--cyan-glow);
+      color: #030712;
+      padding: 2px 9px;
+      border-radius: 10px;
+      font-weight: 800;
     }
 
     .header-bottom-row {
       width: 100%;
+      display: flex;
+      gap: 10px;
     }
 
     .nav-tasks-btn {
-      width: 100%;
+      flex: 1;
       background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
       color: #030712;
       border: none;
-      padding: 11px 20px;
-      border-radius: 14px;
-      font-size: 0.88rem;
-      font-weight: 900;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nav-tasks-btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      animation: shimmerBtn 4s infinite;
-    }
-
-    @keyframes shimmerBtn {
-      0% { left: -100%; }
-      20% { left: 100%; }
-      100% { left: 100%; }
-    }
-
-    .nav-tasks-btn:hover {
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.55);
-    }
-
-    /* أزرار التبديل الرئيسية (Tabs) */
-    .view-selector {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .view-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border-glow);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-dim);
-      font-size: 0.9rem;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.85rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s;
     }
 
-    .view-btn:hover {
-      background: rgba(255, 255, 255, 0.07);
+    .nav-tasks-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+    }
+
+    .feedback-trigger-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glow);
       color: #fff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s;
+    }
+    .feedback-trigger-btn:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.08); }
+
+    /* أزرار التبديل الرئيسية */
+    .view-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .view-btn {
+      flex: 1;
+      padding: 11px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
     }
 
     .view-btn.active {
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       color: #fff;
       border-color: transparent;
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-      transform: translateY(-2px);
     }
 
     .view-btn.exams-mode.active {
       background: linear-gradient(135deg, #f59e0b, #ef4444);
-      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
     }
 
-    /* كارت الاقتباس الفاخر */
-    .quote-box {
-      padding: 16px 20px;
-      margin-bottom: 20px;
+    /* كارت التوجيهات السريعة (GUIDES) */
+    .guide-box {
+      padding: 14px 18px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      border-right: 4px solid var(--cyan-glow);
+      gap: 12px;
+      border-right: 3px solid var(--cyan-glow);
     }
 
-    .quote-text {
-      font-size: 0.9rem;
-      font-weight: 700;
+    .guide-text {
+      font-size: 0.82rem;
+      font-weight: 600;
       color: #cbd5e1;
-      line-height: 1.6;
     }
 
-    .info-icon-btn {
-      background: rgba(6, 182, 212, 0.15);
-      border: 1px solid var(--cyan-glow);
-      color: var(--cyan-glow);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      flex-shrink: 0;
-    }
-
-    .info-icon-btn:hover {
-      background: var(--cyan-glow);
-      color: #030712;
-      transform: scale(1.15) rotate(20deg);
-      box-shadow: 0 0 20px var(--cyan-glow);
-    }
-
-    /* الودجت الحية للحدث القادم */
+    /* الودجت الحية */
     .next-widget {
-      padding: 24px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(6, 182, 212, 0.4);
-      position: relative;
+      padding: 20px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .widget-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .widget-badge {
-      font-size: 0.78rem;
-      font-weight: 900;
-      background: rgba(6, 182, 212, 0.18);
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(6, 182, 212, 0.12);
       color: var(--cyan-glow);
       border: 1px solid var(--cyan-glow);
-      padding: 5px 14px;
+      padding: 3px 10px;
       border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .widget-badge.live {
-      background: rgba(244, 63, 94, 0.25);
-      color: var(--rose-glow);
-      border-color: var(--rose-glow);
-      animation: pulseLive 2s infinite;
-    }
-
-    @keyframes pulseLive {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
     }
 
     .countdown-box {
-      font-size: 0.85rem;
-      font-weight: 900;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 6px 16px;
-      border-radius: 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 12px;
+      border-radius: 12px;
       color: var(--cyan-glow);
-      border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .widget-title {
-      font-size: 1.2rem;
-      font-weight: 900;
-      margin-bottom: 16px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 12px;
       color: #fff;
     }
 
     .widget-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 12px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 16px;
-      border-radius: 16px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
     }
 
-    .w-item { font-size: 0.82rem; }
-    .w-label { color: var(--text-dim); display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
-    .w-val { font-weight: 800; color: #f1f5f9; }
+    .w-item { font-size: 0.78rem; }
+    .w-label { color: var(--text-dim); display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .w-val { font-weight: 700; color: #f1f5f9; }
 
-    /* أزرار الأسابيع والأيام الانسيابية */
+    /* فلاتر الأسبوع والأيام */
     .nav-scroll {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 16px;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
       scrollbar-width: none;
     }
     .nav-scroll::-webkit-scrollbar { display: none; }
@@ -389,74 +321,56 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-size: 0.85rem;
-      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .nav-chip:hover {
-      background: rgba(255, 255, 255, 0.09);
-      color: #fff;
-      transform: translateY(-2px);
+      transition: all 0.25s;
     }
 
     .nav-chip.active {
       background: var(--cyan-glow);
       color: #030712;
       border-color: transparent;
-      font-weight: 900;
-      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
-      transform: scale(1.03);
+      font-weight: 800;
     }
 
-    /* صندوق البحث المتطور */
     .search-box {
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .search-box i {
       position: absolute;
-      right: 18px;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-dim);
-      font-size: 15px;
-      transition: color 0.3s;
+      font-size: 13px;
     }
 
     .search-input {
       width: 100%;
       background: rgba(11, 19, 38, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 13px 44px 13px 18px;
-      border-radius: 16px;
+      padding: 11px 40px 11px 16px;
+      border-radius: 14px;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       outline: none;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .search-input:focus { border-color: var(--cyan-glow); }
 
-    .search-input:focus {
-      border-color: var(--cyan-glow);
-      box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
-    }
-    .search-input:focus + i { color: var(--cyan-glow); }
-
-    /* بطاقات الجدول والامتحانات بأنيميشن دخول اسطوري */
     .timeline-card {
-      padding: 20px;
-      margin-bottom: 16px;
-      animation: cardEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      opacity: 0;
-      transform: translateY(20px);
+      padding: 16px;
+      margin-bottom: 12px;
+      animation: fadeIn 0.3s ease;
     }
 
-    @keyframes cardEntrance {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -464,288 +378,208 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .subject-tag {
-      padding: 4px 14px;
-      border-radius: 10px;
-      font-size: 0.78rem;
-      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
       color: #fff;
     }
-    .anatomy { background: #f97316; box-shadow: 0 4px 18px rgba(249, 115, 22, 0.35); }
-    .biochem { background: #10b981; box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35); }
-    .physio { background: #06b6d4; box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35); }
-    .histo { background: #a855f7; box-shadow: 0 4px 18px rgba(168, 85, 247, 0.35); }
-    .prof { background: #ec4899; box-shadow: 0 4px 18px rgba(236, 72, 153, 0.35); }
-    .exam { background: linear-gradient(135deg, #f59e0b, #ef4444); box-shadow: 0 4px 18px rgba(245, 158, 11, 0.4); }
+    .anatomy { background: #f97316; }
+    .biochem { background: #10b981; }
+    .physio { background: #06b6d4; }
+    .histo { background: #a855f7; }
+    .prof { background: #ec4899; }
+    .exam { background: #f59e0b; }
 
     .card-title {
-      font-size: 1.1rem;
-      font-weight: 900;
-      margin-bottom: 14px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 10px;
       color: #fff;
     }
 
     .card-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 0.85rem;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
       color: var(--text-dim);
-      border: 1px solid rgba(255, 255, 255, 0.04);
     }
+    .card-details span { color: #f1f5f9; font-weight: 600; }
 
-    .card-details span { color: #f1f5f9; font-weight: 700; }
-
-    /* =================== صفحة المهام المنفصلة =================== */
+    /* صفحة TASK LIST المنفصلة */
     .tasks-page-view {
       display: none;
-      animation: fadeInPage 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes fadeInPage {
-      from { opacity: 0; transform: scale(0.97) translateY(10px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .tasks-page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .back-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-size: 0.85rem;
-      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--cyan-glow);
-      transform: translateX(-4px);
-    }
-
-    .task-progress-box {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 18px;
-      border-radius: 18px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      gap: 6px;
     }
 
     .task-row-card {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 16px 20px;
-      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 12px 16px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .task-row-card:hover {
-      border-color: rgba(16, 185, 129, 0.5);
-      transform: translateY(-3px) scale(1.005);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      margin-bottom: 8px;
     }
 
     .task-content {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       flex: 1;
     }
 
     .task-checkbox {
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
       accent-color: var(--emerald-glow);
       cursor: pointer;
-      transition: transform 0.25s;
     }
-    .task-checkbox:active { transform: scale(1.25); }
 
     .task-title-text {
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-size: 0.88rem;
+      font-weight: 700;
       color: #e2e8f0;
-      transition: all 0.3s;
     }
-
     .task-title-text.done {
       text-decoration: line-through;
       color: var(--text-dim);
-      opacity: 0.65;
     }
 
     .task-meta-badge {
-      background: rgba(16, 185, 129, 0.15);
+      background: rgba(16, 185, 129, 0.1);
       color: var(--emerald-glow);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      border-radius: 10px;
-      font-weight: 800;
-      margin-right: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-right: 8px;
     }
 
     .add-task-form-box {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 18px;
-      border-radius: 18px;
-      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 14px;
+      margin-top: 14px;
       display: grid;
       grid-template-columns: 1fr auto auto auto;
-      gap: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      gap: 8px;
     }
 
-    @media(max-width: 750px) {
+    @media(max-width: 700px) {
       .add-task-form-box { grid-template-columns: 1fr; }
     }
 
     .form-ctrl {
       background: rgba(11, 19, 38, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 12px 16px;
-      border-radius: 14px;
+      padding: 9px 12px;
+      border-radius: 10px;
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       outline: none;
-      transition: all 0.35s;
     }
-    .form-ctrl:focus {
-      border-color: var(--emerald-glow);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-    }
+    .form-ctrl:focus { border-color: var(--emerald-glow); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
       color: #030712;
       border: none;
-      padding: 12px 22px;
-      border-radius: 14px;
-      font-weight: 900;
-      font-size: 0.88rem;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.82rem;
       cursor: pointer;
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.55);
     }
 
-    /* Modal عام إجرامي */
+    /* Modal عام */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(12px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       padding: 16px;
-      animation: fadeInModal 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes fadeInModal {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     .modal-card {
-      max-width: 440px;
+      max-width: 420px;
       width: 100%;
-      padding: 30px;
+      padding: 24px;
     }
 
-    /* تصميم الفوتر ورابط الإنستجرام المطلوب */
     footer {
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-dim);
       border-top: 1px solid var(--border-glow);
-      padding-top: 24px;
+      padding-top: 18px;
     }
 
     .developer-credit {
       color: var(--cyan-glow);
-      font-weight: 900;
+      font-weight: 800;
       text-decoration: none;
-      position: relative;
-      transition: all 0.3s;
-      display: inline-block;
+      transition: color 0.2s;
     }
-
-    .developer-credit::after {
-      content: '';
-      position: absolute;
-      width: 100%; height: 2px;
-      bottom: -3px; right: 0;
-      background: linear-gradient(90deg, var(--cyan-glow), var(--indigo-glow));
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .developer-credit:hover {
-      color: #fff;
-      text-shadow: 0 0 15px var(--cyan-glow);
-    }
-
-    .developer-credit:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
+    .developer-credit:hover { color: #fff; text-shadow: 0 0 10px var(--cyan-glow); }
   </style>
 </head>
 <body>
 
-  <!-- كرات الإضاءة الخلفية المتحركة -->
   <div class="ambient-glow orb-1"></div>
   <div class="ambient-glow orb-2"></div>
 
   <!-- Modal تسجيل الدخول الأول -->
   <div id="loginModal" class="modal-backdrop" style="display: flex;">
     <div class="modal-card glass-panel" style="text-align: center;">
-      <div style="width: 50px; height: 50px; border-radius: 16px; background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow)); display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; margin: 0 auto 18px; box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);">🩺</div>
-      <h2 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 8px;">مرحباً بك يا دكتور!</h2>
-      <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 22px;">سجل بياناتك لربط جدولك وتتبع حضورك باحترافية</p>
+      <div style="width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow)); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; margin: 0 auto 14px;">🩺</div>
+      <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;">مرحباً بك يا دكتور</h2>
+      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 16px;">يرجى إدخال البيانات لربط الجدول والمتابعة</p>
 
-      <div style="text-align: right; margin-bottom: 16px;">
-        <label style="font-size: 0.8rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 6px;">الاسم الكريم:</label>
+      <div style="text-align: right; margin-bottom: 12px;">
+        <label style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 4px;">الاسم:</label>
         <input type="text" id="modalNameInput" class="search-input" placeholder="مثال: د. أحمد...">
       </div>
 
-      <div style="text-align: right; margin-bottom: 22px;">
-        <label style="font-size: 0.8rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 6px;">اختر المجموعة (Subgroup):</label>
+      <div style="text-align: right; margin-bottom: 16px;">
+        <label style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; display: block; margin-bottom: 4px;">المجموعة (Subgroup):</label>
         <select id="modalGroupSelect" class="search-input" style="background: #0b1326;">
           <option value="" disabled selected>-- اختر مجموعتك --</option>
           <option value="A1">المجموعة A1</option><option value="A2">المجموعة A2</option><option value="A3">المجموعة A3</option>
@@ -755,26 +589,24 @@
         </select>
       </div>
 
-      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 14px;">دخول إلى المنصة 🚀</button>
+      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 11px;">متابعة 🚀</button>
     </div>
   </div>
 
-  <!-- Modal إرشادات المذاكرة -->
-  <div id="tipsModal" class="modal-backdrop">
+  <!-- Modal إرسال رسالة للمطور (Feedback / Bug Report) -->
+  <div id="feedbackModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-        <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--cyan-glow);"><i class="fa-solid fa-lightbulb"></i> إرشادات تنظيم الوقت الطبية</h3>
-        <button onclick="document.getElementById('tipsModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:20px;"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 1rem; font-weight: 800; color: var(--cyan-glow);"><i class="fa-solid fa-paper-plane"></i> إرسال ملاحظة أو شكر</h3>
+        <button onclick="document.getElementById('feedbackModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.75; display: flex; flex-direction: column; gap: 12px;">
-        <div style="background:rgba(255,255,255,0.03); padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.05);"><strong>1. الاسترجاع النشط (Active Recall):</strong> اغلق الكتاب بعد كل صفحة وحاول تسميع المعلومات لنفسك لترسيخها في العقل.</div>
-        <div style="background:rgba(255,255,255,0.03); padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.05);"><strong>2. التكرار المتباعد (Spaced Repetition):</strong> خصص أول 15 دقيقة لمراجعة ما ذاكرته بالأمس لنقله للذاكرة طويلة المدى.</div>
-        <div style="background:rgba(255,255,255,0.03); padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.05);"><strong>3. ربط الوظيفة بالتركيب:</strong> افهم سبب حدوث التفاعل العضوي أو الفسيولوجي بدلاً من الحفظ الأعمى.</div>
-      </div>
+      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">هل واجهتك مشكلة تقنية، أو تريد إرسال كلمة شكر؟ سيتم إرسالها لسيرفر المطور مباشرة.</p>
+      <textarea id="feedbackText" class="search-input" style="height: 90px; resize: none; margin-bottom: 12px; padding: 10px;" placeholder="اكتب رسالتك هنا..."></textarea>
+      <button onclick="sendFeedbackMessage()" class="btn-primary" style="width: 100%; padding: 10px;">إرسال الرسالة</button>
     </div>
   </div>
 
-  <!-- Header الجديد بالترتيب المطلوب: مرحبا دكتور وقصادها الجروب، وتحتهم زر التاسكات -->
+  <!-- Header -->
   <header>
     <div class="app-container header-wrapper">
       <div class="header-top-row">
@@ -785,7 +617,10 @@
       </div>
       <div class="header-bottom-row">
         <button onclick="switchToTasksView()" class="nav-tasks-btn">
-          <i class="fa-solid fa-list-check"></i> المهام وجدولة الوقت الاحترافية ⚡
+          <i class="fa-solid fa-list-check"></i> TASK LIST
+        </button>
+        <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn">
+          <i class="fa-solid fa-comment-dots"></i> إرسال ملاحظة
         </button>
       </div>
     </div>
@@ -793,7 +628,7 @@
 
   <div class="app-container">
 
-    <!-- =================== لوحة التحكم الرئيسية =================== -->
+    <!-- لوحة التحكم الرئيسية -->
     <div id="mainDashboardView">
 
       <div class="view-selector">
@@ -801,22 +636,19 @@
           <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
         </button>
         <button class="view-btn exams-mode" id="btnExamTab" onclick="switchTab('exams')">
-          <i class="fa-solid fa-award"></i> امتحانات الموديل 🩺
+          <i class="fa-solid fa-award"></i> الامتحانات 🩺
         </button>
       </div>
 
-      <div class="quote-box glass-panel">
-        <div class="quote-text" id="dailyQuote">"نظم وقتك، واعلم أن كل خطوة تخطوها اليوم تقربك لهدفك السامي."</div>
-        <div class="info-icon-btn" onclick="document.getElementById('tipsModal').style.display='flex'" title="إرشادات">
-          <i class="fa-solid fa-info"></i>
-        </div>
+      <div class="guide-box glass-panel">
+        <div class="guide-text"><strong>GUIDE:</strong> قم بمراجعة جدولك اليومي واستخدم TASK LIST لتنظيم مهام المذاكرة بدقة.</div>
       </div>
 
-      <!-- الودجت الحية للحدث القادم -->
+      <!-- الودجت الحية -->
       <div class="next-widget glass-panel" id="nextWidgetBox">
         <div class="widget-top">
-          <div class="widget-badge" id="widgetBadge"><i class="fa-solid fa-bolt"></i> الحصة التالية</div>
-          <div class="countdown-box" id="countdownTimerText">--:--:--</div>
+          <div class="widget-badge" id="widgetBadge"><i class="fa-solid fa-bolt"></i> المحاضرة القادمة</div>
+          <div class="countdown-box" id="countdownTimerText">نشط ⚡</div>
         </div>
         <div class="widget-title" id="widgetTitle">جاري تحميل البيانات...</div>
         <div class="widget-grid">
@@ -825,19 +657,18 @@
           <div class="w-item"><span class="w-label">المادة</span><span class="w-val" id="valSubject">---</span></div>
           <div class="w-item"><span class="w-label">المحاضر</span><span class="w-val" id="valDoctor">---</span></div>
         </div>
-        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.06); border:1px solid var(--border-glow); color:#fff; padding:8px 16px; border-radius:12px; font-size:0.8rem; font-weight:800; cursor:pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--cyan-glow)'" onmouseout="this.style.borderColor='var(--border-glow)'">
+        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-glow); color:#fff; padding:6px 12px; border-radius:10px; font-size:0.75rem; font-weight:700; cursor:pointer;">
           <i class="fa-solid fa-calendar-plus" style="color:var(--cyan-glow);"></i> إضافة لـ Google Calendar
         </button>
       </div>
 
-      <!-- الفلاتر -->
       <div id="scheduleFilterControls">
-        <div style="font-size: 0.85rem; font-weight: 900; color: var(--text-dim); margin-bottom: 8px;"><i class="fa-solid fa-calendar-week"></i> الأسبوع الدراسي:</div>
+        <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim); margin-bottom: 6px;"><i class="fa-solid fa-calendar-week"></i> الأسبوع الدراسي:</div>
         <div class="nav-scroll" id="weeksNavContainer"></div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <div style="font-size: 0.85rem; font-weight: 900; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اليوم:</div>
-          <label style="font-size: 0.78rem; color: var(--text-dim); cursor: pointer;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اليوم:</div>
+          <label style="font-size: 0.72rem; color: var(--text-dim); cursor: pointer;">
             <input type="checkbox" id="hidePastToggle" checked onchange="renderMainContent()"> إخفاء المنتهي 👁️‍🗨️
           </label>
         </div>
@@ -858,42 +689,42 @@
       <div id="mainTimelineList"></div>
     </div>
 
-    <!-- =================== صفحة إدارة المهام والوقت المنفصلة =================== -->
-    <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 26px;">
+    <!-- صفحة TASK LIST المنفصلة -->
+    <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 22px;">
       <div class="tasks-page-header">
         <div>
-          <h2 style="font-size: 1.35rem; font-weight: 900; color: #fff; margin-bottom: 4px;">🎯 المهام وجدولة الوقت اليومي</h2>
-          <p style="font-size: 0.82rem; color: var(--text-dim);">خطط لمذاكرتك لكل يوم وساعة بدقة واحترافية مطلقة</p>
+          <h2 style="font-size: 1.15rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
+          <p style="font-size: 0.75rem; color: var(--text-dim);">إدارة المهام وتنظيم وقت المذاكرة لكل يوم وساعة</p>
         </div>
         <button onclick="switchToDashboardView()" class="back-btn">
-          <i class="fa-solid fa-arrow-right"></i> العودة للجدول الرئيسي
+          <i class="fa-solid fa-arrow-right"></i> العودة للجدول
         </button>
       </div>
 
-      <!-- تبديل القوائم -->
-      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 16px;"></div>
+      <div class="guide-box glass-panel" style="margin-bottom: 14px;">
+        <div class="guide-text"><strong>GUIDE:</strong> حدد المهام المطلوبة وتابع نسبة إنجازك أول بأول لتجنب تراكم المحاضرات.</div>
+      </div>
 
-      <div style="display: flex; justify-content: flex-end; margin-bottom: 16px;">
-        <button onclick="addNewCustomList()" style="background:rgba(16,185,129,0.15); border:1px dashed var(--emerald-glow); color:var(--emerald-glow); padding:8px 16px; border-radius:14px; font-size:0.82rem; font-weight:800; cursor:pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(16,185,129,0.25)'" onmouseout="this.style.background='rgba(16,185,129,0.15)'">
+      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 12px;"></div>
+
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
+        <button onclick="addNewCustomList()" style="background:rgba(16,185,129,0.12); border:1px dashed var(--emerald-glow); color:var(--emerald-glow); padding:6px 12px; border-radius:10px; font-size:0.75rem; font-weight:700; cursor:pointer;">
           <i class="fa-solid fa-plus"></i> قائمة جديدة
         </button>
       </div>
 
-      <!-- مؤشر الإنجاز -->
-      <div class="task-progress-box">
-        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 8px;">
-          <span>نسبة إنجاز القائمة الحالية:</span>
+      <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: 12px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; margin-bottom: 6px;">
+          <span>نسبة إنجاز القائمة:</span>
           <strong id="taskProgressPct" style="color: var(--emerald-glow);">0%</strong>
         </div>
-        <div style="width:100%; height:9px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden;">
-          <div id="taskProgressBarFill" style="height:100%; width:0%; background:var(--emerald-glow); transition:width 0.5s cubic-bezier(0.16, 1, 0.3, 1);"></div>
+        <div style="width:100%; height:6px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden;">
+          <div id="taskProgressBarFill" style="height:100%; width:0%; background:var(--emerald-glow); transition:width 0.4s;"></div>
         </div>
       </div>
 
-      <!-- قائمة عناصر المهام -->
-      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:12px; margin-bottom:18px;"></div>
+      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;"></div>
 
-      <!-- فورم إضافة مهمة جديدة بتحديد اليوم والساعة -->
       <div class="add-task-form-box">
         <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة (مثلاً: ريفيجن فسيولوجي)...">
         <select id="newTaskDaySelect" class="form-ctrl">
@@ -907,19 +738,11 @@
 
   </div>
 
-  <!-- الفوتر مع رابط إنستجرام الخاص بك -->
   <footer>
     تم التطوير بكل حب وشغف بواسطة <a href="https://www.instagram.com/amrelsayed_18?srtk=MTl5Y3d1MXUyNmhh&utm_source=qr" target="_blank" class="developer-credit">Dr. AMR eLSAYED</a> 🩺⚡
   </footer>
 
   <script>
-    const quotesList = [
-      "دكتور المستقبل، كل دقيقة تقضيها في المذاكرة اليوم تصنع بها طبيباً بارعاً.",
-      "نظم وقتك، واعلم أن كل خطوة تخطوها اليوم تقربك لهدفك السامي.",
-      "الطب رسالة سامية وجهد متواصل.. استعن بالله ولا تعجز.",
-      "ثق في قدراتك، فمن وصل للطب قادر على إنجاز أضعاف ما يظن."
-    ];
-
     const studyWeeks = [
       { id: 1, name: "الأسبوع 1", startDate: "2026-09-21", endDate: "2026-09-24" },
       { id: 2, name: "الأسبوع 2", startDate: "2026-09-28", endDate: "2026-10-01" },
@@ -946,7 +769,7 @@
       { id: 5, text: "Histology: Epithelial & Connective tissues", day: "الخميس", time: "13:00", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v4')) || [
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v5')) || [
       { id: 'def_list', name: 'مهام End Module الأساسية', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
@@ -962,7 +785,6 @@
     const webAppUrl = 'https://script.google.com/macros/s/AKfycbxgvxq4Davq98ge1Or6vcnUjhAEglvOII0jfd1g3dbwnR7tYhjWbNkgq2y9wG4ioN2K/exec';
 
     window.onload = async function() {
-      document.getElementById('dailyQuote').innerText = quotesList[Math.floor(Math.random() * quotesList.length)];
       autoDetectTimeAndWeek();
       renderWeeksNav();
       await loadSchedule();
@@ -973,20 +795,28 @@
         document.getElementById('loginModal').style.display = 'none';
         updateHeaderUI();
         renderMainContent();
-        sendVisitLog("فتح الموقع");
+        sendBackendLog("فتح الموقع");
       }
-
       setInterval(updateRealtimeClock, 1000);
     };
 
-    function sendVisitLog(action) {
+    function sendBackendLog(action, msg = null) {
       try {
         fetch(webAppUrl, {
           method: 'POST', mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: currentUserName + " (" + action + ")", group: currentUserGroup })
+          body: JSON.stringify({ name: currentUserName + " (" + action + ")", group: currentUserGroup, message: msg })
         });
       } catch (e) { console.error(e); }
+    }
+
+    function sendFeedbackMessage() {
+      const text = document.getElementById('feedbackText').value.trim();
+      if (!text) { alert('يرجى كتابة رسالة أولاً!'); return; }
+      sendBackendLog("رسالة ملاحظة/شكر", text);
+      alert('تم إرسال رسالتك بنجاح إلى سيرفر المطور. شكراً لتواصلك! 🚀');
+      document.getElementById('feedbackText').value = '';
+      document.getElementById('feedbackModal').style.display = 'none';
     }
 
     function handleUserLogin() {
@@ -999,7 +829,7 @@
       localStorage.setItem('med_user_name', name);
       localStorage.setItem('med_user_group', group);
 
-      sendVisitLog("تسجيل جديد");
+      sendBackendLog("تسجيل جديد");
       document.getElementById('loginModal').style.display = 'none';
       updateHeaderUI();
       renderMainContent();
@@ -1032,19 +862,8 @@
       currentTab = tab;
       document.getElementById('btnSchedTab').classList.remove('active');
       document.getElementById('btnExamTab').classList.remove('active');
-
-      const filterControls = document.getElementById('scheduleFilterControls');
-      const nextWidget = document.getElementById('nextWidgetBox');
-
-      if (tab === 'schedule') {
-        document.getElementById('btnSchedTab').classList.add('active');
-        filterControls.style.display = 'block';
-        nextWidget.style.display = 'block';
-      } else {
-        document.getElementById('btnExamTab').classList.add('active');
-        filterControls.style.display = 'none';
-        nextWidget.style.display = 'none';
-      }
+      document.getElementById('scheduleFilterControls').style.display = (tab === 'schedule') ? 'block' : 'none';
+      document.getElementById('nextWidgetBox').style.display = (tab === 'schedule') ? 'block' : 'none';
       renderMainContent();
     }
 
@@ -1104,26 +923,22 @@
       container.innerHTML = '';
 
       const filtered = batchSchedule.filter(item => {
-        const matchW = item.week === selectedWeek;
-        const matchD = item.day === selectedDay;
-        const matchG = item.groups.includes(currentUserGroup);
-        const matchS = !search || item.title.toLowerCase().includes(search) || item.subject.toLowerCase().includes(search);
-        return matchW && matchD && matchG && matchS;
+        return item.week === selectedWeek && item.day === selectedDay && item.groups.includes(currentUserGroup) &&
+          (!search || item.title.toLowerCase().includes(search) || item.subject.toLowerCase().includes(search));
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.88rem;">لا توجد حصص دراسية مطابقة لهذه الفلاتر. 🎉</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.82rem;">لا توجد محاضرات مطابقة حالياً.</div>`;
         return;
       }
 
-      filtered.forEach((item, index) => {
+      filtered.forEach(item => {
         const card = document.createElement('div');
         card.className = 'timeline-card glass-panel';
-        card.style.animationDelay = `${index * 0.05}s`;
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag ${getSubjectClass(item.subject)}">${item.subject}</span>
-            <span style="font-size:0.78rem; color:var(--cyan-glow); font-weight:900;">${item.type}</span>
+            <span style="font-size:0.75rem; color:var(--cyan-glow); font-weight:800;">${item.type}</span>
           </div>
           <div class="card-title">${item.title}</div>
           <div class="card-details">
@@ -1139,14 +954,13 @@
     function renderExamsList() {
       const container = document.getElementById('mainTimelineList');
       container.innerHTML = '';
-      year1Exams.forEach((exam, index) => {
+      year1Exams.forEach(exam => {
         const card = document.createElement('div');
         card.className = 'timeline-card glass-panel';
-        card.style.animationDelay = `${index * 0.05}s`;
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag exam">${exam.type}</span>
-            <span style="font-size:0.78rem; color:var(--amber-glow); font-weight:900;">امتحان معتمد 🎯</span>
+            <span style="font-size:0.75rem; color:var(--amber-glow); font-weight:800;">امتحان معتمد 🎯</span>
           </div>
           <div class="card-title">${exam.title}</div>
           <div class="card-details">
@@ -1178,7 +992,6 @@
         document.getElementById('valLocation').innerText = next.location;
         document.getElementById('valSubject').innerText = next.subject;
         document.getElementById('valDoctor').innerText = next.doctor || 'غير محدد';
-        document.getElementById('countdownTimerText').innerText = "نشط الآن ⚡";
       }
     }
 
@@ -1188,7 +1001,7 @@
       window.open(url, '_blank');
     }
 
-    /* منطق صفحة المهام */
+    /* دوال TASK LIST */
     function renderTaskListsView() {
       const navContainer = document.getElementById('taskListsNavContainer');
       navContainer.innerHTML = '';
@@ -1207,7 +1020,7 @@
       itemsContainer.innerHTML = '';
 
       if (activeList.items.length === 0) {
-        itemsContainer.innerHTML = `<div style="text-align:center; padding:25px; color:var(--text-dim); font-size:0.85rem;">القائمة فارغة. أضف أول مهمة بالأسفل! ✨</div>`;
+        itemsContainer.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-dim); font-size:0.8rem;">القائمة فارغة.</div>`;
       } else {
         activeList.items.forEach(task => {
           const row = document.createElement('div');
@@ -1220,12 +1033,11 @@
                 <span class="task-meta-badge"><i class="fa-regular fa-clock"></i> ${task.day} - ${task.time}</span>
               </div>
             </div>
-            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:16px; transition: color 0.3s;" title="حذف" onmouseover="this.style.color='#f43f5e'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-trash"></i></button>
+            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
           `;
           itemsContainer.appendChild(row);
         });
       }
-
       updateTaskListProgress(activeList);
     }
 
@@ -1233,13 +1045,12 @@
       const title = document.getElementById('newTaskTitleInput').value.trim();
       const day = document.getElementById('newTaskDaySelect').value;
       const time = document.getElementById('newTaskTimeInput').value;
-
       if (!title) { alert('يرجى كتابة عنوان المهمة!'); return; }
 
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: day, time: time, completed: false });
-        localStorage.setItem('med_task_lists_v4', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1249,11 +1060,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         const item = list.items.find(i => i.id === taskId);
-        if (item) {
-          item.completed = !item.completed;
-          localStorage.setItem('med_task_lists_v4', JSON.stringify(userLists));
-          renderTaskListsView();
-        }
+        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists)); renderTaskListsView(); }
       }
     }
 
@@ -1261,18 +1068,18 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v4', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
 
     function addNewCustomList() {
-      const listName = prompt("أدخل اسم القائمة الجديدة (مثلاً: مهام الهستولوجي):");
+      const listName = prompt("أدخل اسم القائمة الجديدة:");
       if (listName && listName.trim()) {
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v4', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v5', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
