@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دليل كلية الطب | منصة رفيق الدكاترة 🩺</title>
+  <title>دليل جدول كلية الطب | Medical Dashboard</title>
 
   <!-- PWA & Mobile Web App Meta Tags -->
   <meta name="theme-color" content="#080c16">
@@ -52,22 +52,22 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
       background-attachment: fixed;
       color: var(--text-white);
       min-height: 100vh;
-      padding-bottom: 60px;
+      padding-bottom: 50px;
     }
 
     .app-container {
-      max-width: 950px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 16px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -77,19 +77,19 @@
 
     .glass-panel {
       background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid var(--border-glow);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.38);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 12, 22, 0.9);
-      backdrop-filter: blur(20px);
+      background: rgba(8, 12, 22, 0.92);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-glow);
       padding: 12px 0;
       margin-bottom: 20px;
@@ -100,6 +100,9 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
     }
 
     .brand-box {
@@ -109,28 +112,25 @@
     }
 
     .brand-avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 18px;
       color: #fff;
-      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.35);
     }
 
     .user-greeting {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
-      background: linear-gradient(90deg, #ffffff, #93c5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #fff;
     }
 
     .sub-title {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text-dim);
     }
 
@@ -138,188 +138,73 @@
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
       padding: 6px 14px;
-      border-radius: 50px;
+      border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 10px;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.2s;
     }
 
     .profile-pill:hover {
-      background: rgba(255, 255, 255, 0.1);
       border-color: var(--cyan-glow);
     }
 
     .group-tag {
       background: linear-gradient(135deg, var(--cyan-glow), var(--indigo-glow));
       color: #fff;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 800;
-    }
-
-    /* أزرار التبديل الرئيسية بين الأقسام */
-    .main-nav-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-
-    .main-tab-btn {
-      flex: 1;
-      min-width: 130px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--border-glow);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-dim);
-      font-size: 0.88rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.3s;
-    }
-
-    .main-tab-btn.active {
-      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
-    }
-
-    .main-tab-btn.tasks-tab.active {
-      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
-    }
-
-    .main-tab-btn.exams-tab.active {
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-    }
-
-    .quote-card {
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      border-right: 4px solid var(--cyan-glow);
-    }
-
-    .quote-content {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .quote-icon {
-      font-size: 22px;
-      color: var(--cyan-glow);
-    }
-
-    .quote-text {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      line-height: 1.5;
-    }
-
-    .info-btn-circle {
-      background: rgba(6, 182, 212, 0.15);
-      border: 1px solid var(--cyan-glow);
-      color: var(--cyan-glow);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
-
-    .info-btn-circle:hover {
-      background: var(--cyan-glow);
-      color: #fff;
-      transform: scale(1.05);
-    }
-
-    .progress-card {
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .progress-bar-bg {
-      width: 100%;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--cyan-glow), var(--emerald-glow));
-      border-radius: 20px;
-      transition: width 0.6s ease-in-out;
-    }
-
-    .progress-subtext {
+      padding: 2px 8px;
+      border-radius: 12px;
       font-size: 0.75rem;
-      color: var(--text-dim);
+      font-weight: 800;
     }
 
-    /* تصميم قسم المهام (Tasklists) الاحترافي */
-    .tasks-section {
-      display: none;
+    /* تخطيط الصفحة: عمودين (الجانبي للمهام، والرئيسي للجداول) */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
-    .tasks-header-row {
+    @media (max-width: 900px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* لوحة المهام الجانبية (Sidebar Tasks) */
+    .sidebar-tasks {
+      padding: 18px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .tasks-header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      gap: 10px;
+      margin-bottom: 14px;
     }
 
     .lists-nav-scroll {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
       padding-bottom: 6px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .list-pill-btn {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
-      padding: 8px 16px;
-      border-radius: 12px;
-      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.2s;
     }
 
     .list-pill-btn.active {
@@ -333,50 +218,42 @@
       background: rgba(16, 185, 129, 0.15);
       border: 1px dashed var(--emerald-glow);
       color: var(--emerald-glow);
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
       font-weight: 700;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .task-item-card {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 14px 16px;
-      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 10px 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
-      transition: all 0.2s;
-    }
-
-    .task-item-card:hover {
-      border-color: rgba(6, 182, 212, 0.3);
+      margin-bottom: 8px;
     }
 
     .task-info {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex: 1;
     }
 
     .task-checkbox {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       accent-color: var(--cyan-glow);
       cursor: pointer;
     }
 
     .task-text {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #e2e8f0;
+      color: #cbd5e1;
     }
 
     .task-text.completed {
@@ -384,182 +261,170 @@
       color: var(--text-dim);
     }
 
-    .task-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .icon-action-btn {
+    .icon-delete-btn {
       background: transparent;
       border: none;
       color: var(--text-dim);
       cursor: pointer;
-      font-size: 14px;
+      font-size: 12px;
       padding: 4px;
-      transition: color 0.2s;
     }
+    .icon-delete-btn:hover { color: var(--rose-glow); }
 
-    .icon-action-btn.delete:hover { color: var(--rose-glow); }
-
-    .add-task-form {
+    .add-task-box {
       display: flex;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 8px;
+      margin-top: 12px;
     }
 
-    .add-task-input {
-      flex: 1;
+    .form-input-clean {
+      width: 100%;
       background: rgba(15, 23, 42, 0.8);
       border: 1px solid var(--border-glow);
-      padding: 10px 14px;
-      border-radius: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       outline: none;
     }
+    .form-input-clean:focus { border-color: var(--cyan-glow); }
 
-    .add-task-input:focus { border-color: var(--cyan-glow); }
+    /* المنطقة الرئيسية للمحتوى (Main Content Area) */
+    .main-content-area {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-    .btn-action-primary {
-      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
+    .view-mode-selector {
+      display: flex;
+      gap: 10px;
+    }
+
+    .view-btn {
+      flex: 1;
+      padding: 10px 14px;
       border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-dim);
+      font-size: 0.85rem;
       font-weight: 800;
       cursor: pointer;
-    }
-
-    /* Modal عام للنصائح وتفاصيل الإرشاد */
-    .custom-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(7, 10, 18, 0.9);
-      backdrop-filter: blur(10px);
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      padding: 16px;
+      gap: 8px;
+      transition: all 0.2s;
     }
 
-    .custom-modal-card {
-      max-width: 500px;
-      width: 100%;
-      padding: 24px;
-      max-height: 85vh;
-      overflow-y: auto;
+    .view-btn.active {
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      color: #fff;
+      border-color: transparent;
     }
 
-    .modal-header-flex {
+    .view-btn.exams-mode.active {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+    }
+
+    .quote-card {
+      padding: 14px 18px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
+      gap: 12px;
+      border-right: 4px solid var(--cyan-glow);
     }
 
-    .modal-close-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: none;
-      color: var(--text-dim);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .advice-box {
-      background: rgba(6, 182, 212, 0.05);
-      border-right: 3px solid var(--cyan-glow);
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin-bottom: 12px;
+    .quote-text {
       font-size: 0.85rem;
-      line-height: 1.6;
-      color: #cbd5e1;
+      font-weight: 600;
+      color: #e2e8f0;
+      line-height: 1.4;
     }
 
-    /* ب باقي الودجتس والتصميم القديم */
+    .tips-btn {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid var(--cyan-glow);
+      color: var(--cyan-glow);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .tips-btn:hover { background: var(--cyan-glow); color: #fff; }
+
+    /* الودجت القادم والتفاصيل */
     .next-widget {
-      padding: 22px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 18px;
+      border: 1px solid rgba(6, 182, 212, 0.25);
     }
 
     .widget-badge-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .widget-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(6, 182, 212, 0.15);
+      background: rgba(6, 182, 212, 0.12);
       border: 1px solid var(--cyan-glow);
       color: var(--cyan-glow);
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
       font-weight: 800;
     }
-
-    .widget-badge.live-now {
-      background: rgba(244, 63, 94, 0.2);
-      border-color: var(--rose-glow);
-      color: var(--rose-glow);
-    }
+    .widget-badge.live-now { background: rgba(244, 63, 94, 0.15); border-color: var(--rose-glow); color: var(--rose-glow); }
 
     .countdown-timer-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(6, 182, 212, 0.35);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(6, 182, 212, 0.3);
       color: var(--cyan-glow);
-      padding: 5px 14px;
-      border-radius: 20px;
+      padding: 4px 12px;
+      border-radius: 16px;
       font-weight: 800;
-      font-size: 0.82rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 0.78rem;
     }
 
     .widget-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 14px;
+      color: #fff;
+      margin-bottom: 12px;
     }
 
     .widget-details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 10px;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 14px;
-      border-radius: 14px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
     }
 
     .detail-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.82rem;
+      gap: 8px;
+      font-size: 0.78rem;
     }
 
     .label-title {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: var(--text-dim);
       display: block;
       font-weight: 700;
-      text-transform: uppercase;
     }
 
     .label-value {
@@ -568,42 +433,39 @@
     }
 
     .calendar-btn {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
       color: var(--text-white);
-      padding: 8px 16px;
-      border-radius: 12px;
-      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
+    .calendar-btn:hover { border-color: var(--cyan-glow); }
 
     .nav-scroll {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
     }
 
     .nav-btn {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-
     .nav-btn.hidden-elem { display: none !important; }
     .nav-btn.active {
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
@@ -613,62 +475,51 @@
 
     .search-box {
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .search-box i {
       position: absolute;
-      right: 16px;
+      right: 14px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-dim);
-    }
-
-    .search-input {
-      width: 100%;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid var(--border-glow);
-      padding: 12px 42px 12px 16px;
-      border-radius: 14px;
-      color: #fff;
-      font-size: 0.88rem;
-      outline: none;
+      font-size: 14px;
     }
 
     .timeline-container {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .session-card {
-      padding: 18px 20px;
-      position: relative;
+      padding: 16px 18px;
     }
 
     .session-card.active-now {
       border-color: var(--rose-glow);
-      box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
     }
 
     .exam-card {
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(239, 68, 68, 0.04));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.03));
     }
 
     .card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .subject-pill {
-      padding: 4px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
       font-weight: 800;
       color: #fff;
     }
@@ -680,80 +531,94 @@
     .prof-tag { background: var(--prof-color); }
 
     .session-card-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 12px;
+      color: #fff;
+      margin-bottom: 10px;
     }
 
     .details-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 12px 14px;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px 12px;
+      border-radius: 10px;
     }
 
     .info-block {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-    }
-
-    .tag-type {
-      background: rgba(255, 255, 255, 0.06);
-      padding: 2px 10px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      color: var(--text-dim);
+      gap: 6px;
+      font-size: 0.78rem;
     }
 
     .status-badge {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 12px;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .status-upcoming { background: rgba(16, 185, 129, 0.15); color: var(--emerald-glow); border: 1px solid var(--emerald-glow); }
+
+    /* Modal عام للإعدادات أو النصائح */
+    .custom-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 10, 18, 0.88);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
     }
 
-    .status-upcoming { background: rgba(16, 185, 129, 0.15); color: var(--emerald-glow); border: 1px solid var(--emerald-glow); }
-    .status-passed { background: rgba(148, 163, 184, 0.12); color: var(--text-dim); border: 1px solid rgba(148, 163, 184, 0.25); }
+    .custom-modal-card {
+      max-width: 440px;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
 
     footer {
-      margin-top: 50px;
+      margin-top: 40px;
       text-align: center;
-      padding: 20px;
+      padding: 16px;
       border-top: 1px solid var(--border-glow);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-dim);
     }
-
-    .developer-credit {
-      color: var(--cyan-glow);
-      font-weight: 800;
-      text-decoration: none;
-    }
+    .developer-credit { color: var(--cyan-glow); font-weight: 800; text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <!-- Modal تسجيل الدخول الأول -->
+  <!-- Modal تسجيل الدخول -->
   <div id="modalBackdrop" class="custom-modal-backdrop" style="display: flex;">
     <div class="custom-modal-card glass-panel animated-card" style="text-align: center;">
-      <div class="brand-avatar" style="margin: 0 auto 16px;">🩺</div>
-      <h2 style="font-size: 1.35rem; font-weight: 900; margin-bottom: 8px;">أهلاً بك يا دكتور في رفيقك الطبي!</h2>
-      <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 20px;">سجل بياناتك مرة واحدة ليتزامن جدولك ومذاكرتك بدقة</p>
+      <div class="brand-avatar" style="margin: 0 auto 14px;">🩺</div>
+      <h2 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 6px;">أهلاً بك يا دكتور!</h2>
+      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 16px;">سجل بياناتك مرة واحدة لضبط جدولك بدقة</p>
 
-      <div class="form-group" style="text-align: right; margin-bottom: 16px;">
-        <label style="display: block; font-size: 0.78rem; font-weight: 700; color: var(--text-dim); margin-bottom: 6px;">الاسم الكريم:</label>
-        <input type="text" id="userNameInput" class="search-input" placeholder="مثال: د. أحمد..." style="padding: 12px;">
+      <div style="text-align: right; margin-bottom: 12px;">
+        <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); display: block; margin-bottom: 4px;">الاسم الكريم:</label>
+        <input type="text" id="userNameInput" class="form-input-clean" placeholder="مثال: د. أحمد...">
       </div>
 
-      <div class="form-group" style="text-align: right; margin-bottom: 20px;">
-        <label style="display: block; font-size: 0.78rem; font-weight: 700; color: var(--text-dim); margin-bottom: 6px;">اختر مجموعتك الفرعية (Subgroup):</label>
-        <select id="userGroupSelect" class="search-input" style="padding: 12px; background: #0b0f19;">
+      <div style="text-align: right; margin-bottom: 16px;">
+        <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); display: block; margin-bottom: 4px;">المجموعة الفرعية (Subgroup):</label>
+        <select id="userGroupSelect" class="form-input-clean" style="background: #0b0f19;">
           <option value="" disabled selected>-- اختر مجموعتك --</option>
           <option value="A1">المجموعة A1</option><option value="A2">المجموعة A2</option><option value="A3">المجموعة A3</option>
           <option value="B1">المجموعة B1</option><option value="B2">المجموعة B2</option><option value="B3">المجموعة B3</option>
@@ -762,193 +627,173 @@
         </select>
       </div>
 
-      <button onclick="saveUserProfile()" class="btn-action-primary" style="width: 100%; padding: 12px;">انطلق إلى الداشبورد 🚀</button>
+      <button onclick="saveUserProfile()" class="btn-submit">دخول للداشبورد 🚀</button>
     </div>
   </div>
 
-  <!-- Modal النصائح الإمبراطورية -->
+  <!-- Modal النصائح الأكاديمية المبسطة -->
   <div id="adviceModal" class="custom-modal-backdrop">
-    <div class="custom-modal-card glass-panel animated-card">
-      <div class="modal-header-flex">
-        <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--cyan-glow);"><i class="fa-solid fa-brain"></i> دليل المذاكرة الإمبراطوري لطب </h3>
-        <button onclick="closeAdviceModal()" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+    <div class="custom-modal-card glass-panel animated-card" style="max-width: 480px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h3 style="font-size: 1.05rem; font-weight: 900; color: var(--cyan-glow);">💡 نصائح لتنظيم المذاكرة</h3>
+        <button onclick="closeAdviceModal()" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:16px;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="advice-box">
-        <strong>1. طريقة Active Recall (الاسترجاع النشط):</strong> لا تقرأ السلايدز كأنك تقرأ قصة! بعد كل صفحة، اقفل الكتاب واسأل نفسك: "إيه النقطة اللي لسه قاريها؟" وحاول تسميعها لنفسك.
+      <div style="background: rgba(6, 182, 212, 0.05); border-right: 3px solid var(--cyan-glow); padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+        <strong>الاسترجاع النشط (Active Recall):</strong> بعد قراءة المحاضرة، اقفل المصدر وحاول كتابة العناصر الرئيسية من دماغك بدلاً من إعادة القراءة السلبية.
       </div>
-      <div class="advice-box">
-        <strong>2. نظام Spaced Repetition (التكرار المتباعد):</strong> ما تذاكرش المادة مرة واحدة وتنساها. اراجع اللي مذاكرته امبارح في 10 دقايق قبل ما تبدأ جديد، ده بيثبت المعلومة في الـ Long-term memory.
+      <div style="background: rgba(6, 182, 212, 0.05); border-right: 3px solid var(--cyan-glow); padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+        <strong>التكرار المتباعد (Spaced Repetition):</strong> راجع ملخص ما درسناه أمس لمدة 10 دقائق قبل بدء محتوى اليوم لضمان تثبيته بالذاكرة طويلة المدى.
       </div>
-      <div class="advice-box">
-        <strong>3. التعامل مع كميات الأناتومي والبيوِكيم:</strong> اربط دائماً بين الفنكشن (وظيفة العضو أو الإنزيم) والستركشر (الشكل). الفهم بيسهل 80% من الحفظ!
-      </div>
-      <div class="advice-box" style="border-right-color: var(--emerald-glow);">
-        <strong>رسالة طمأنة من دكتور سبقك:</strong> الامتحانات دي مجرد محطات قياس مش أكتر، أنت أدها ومستقبل العيلة والناس مستنيين طبيب شاطر زيك.. اهدى، وكل شيء هيعدي بفضل الله! 💪❤️
+      <div style="background: rgba(16, 185, 129, 0.05); border-right: 3px solid var(--emerald-glow); padding: 10px 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+        <strong>اطمئن:</strong> الامتحانات قياس لمستوى الفهم وليست تعجيزاً. نظم وقتك، خذ قسطاً كافياً من النوم، وكل شيء سيكون على ما يرام! 💪
       </div>
     </div>
   </div>
 
   <!-- Header -->
   <header>
-    <div class="app-container header-wrapper">
+    <div class="header-wrapper">
       <div class="brand-box">
         <div class="brand-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
         <div>
           <div class="user-greeting" id="displayGreeting">مرحباً دكتور! 👋</div>
-          <div class="sub-title">Lifelong Medical Dashboard | Year 1</div>
+          <div class="sub-title">Medical Student Dashboard | Year 1</div>
         </div>
       </div>
 
       <div class="profile-pill" onclick="openProfileModal()">
-        <span>المجموعة: <strong class="group-tag" id="displayGroupTag">غير محددة</strong></span>
-        <i class="fa-solid fa-arrows-rotate" style="font-size: 12px; color: var(--cyan-glow);"></i>
+        <span>المجموعة: <strong class="group-tag" id="displayGroupTag">--</strong></span>
+        <i class="fa-solid fa-arrows-rotate" style="font-size: 11px; color: var(--cyan-glow);"></i>
       </div>
     </div>
   </header>
 
   <div class="app-container">
 
-    <!-- أزرار التنقل بين أقسام المنصة -->
-    <div class="main-nav-tabs">
-      <button class="main-tab-btn active" id="tabScheduleBtn" onclick="switchMainTab('schedule')">
-        <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
-      </button>
-      <button class="main-tab-btn tasks-tab" id="tabTasksBtn" onclick="switchMainTab('tasks')">
-        <i class="fa-solid fa-list-check"></i> قوائم المهام (End Module)
-      </button>
-      <button class="main-tab-btn exams-tab" id="tabExamsBtn" onclick="switchMainTab('exams')">
-        <i class="fa-solid fa-award"></i> الامتحانات 🩺
-      </button>
-    </div>
+    <!-- التخطيط العام ذو العمودين -->
+    <div class="dashboard-layout">
 
-    <!-- كارت التحفيز -->
-    <div class="quote-card glass-panel animated-card">
-      <div class="quote-content">
-        <i class="fa-solid fa-quote-right quote-icon"></i>
-        <div class="quote-text" id="motivationQuote">
-          "دكتور المستقبل، كل دقيقة تقضيها في المذاكرة تصنع بها طبيباً بارعاً. استعن بالله!"
+      <!-- العمود الجانبي: قوائم المهام (Tasklists) المستقلة تماماً -->
+      <aside class="sidebar-tasks glass-panel animated-card">
+        <div class="tasks-header-flex">
+          <h2 style="font-size: 0.95rem; font-weight: 900; color: #fff;"><i class="fa-solid fa-list-check" style="color: var(--cyan-glow);"></i> قوائم المهام (End Module)</h2>
+          <button onclick="createNewListPrompt()" class="add-list-btn"><i class="fa-solid fa-plus"></i> قائمة</button>
         </div>
-      </div>
-      <div class="info-btn-circle" onclick="openAdviceModal()" title="نصائح المذاكرة الإمبراطورية">
-        <i class="fa-solid fa-info"></i>
-      </div>
-    </div>
 
-    <!-- كارت الـ Progress الشامل -->
-    <div class="progress-card glass-panel animated-card" id="progressCard">
-      <div class="progress-header">
-        <span id="progressTitleLabel"><i class="fa-solid fa-chart-line" style="color: var(--cyan-glow);"></i> نسبة إنجاز اليوم الدراسي:</span>
-        <strong id="progressPercentText" style="color: var(--cyan-glow);">0%</strong>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressBarFill"></div>
-      </div>
-      <div class="progress-subtext" id="progressSubtext">جاري الحساب...</div>
-    </div>
+        <!-- شريط التنقل بين القوائم -->
+        <div class="lists-nav-scroll" id="listsNavScroll"></div>
 
-    <!-- قسم الجدول الأسبوعي -->
-    <div id="scheduleSection">
-      <div class="next-widget glass-panel animated-card" id="mainNextWidget">
-        <div class="widget-badge-row">
-          <div class="widget-badge" id="widgetBadge">
-            <i class="fa-solid fa-bolt"></i>
-            <span id="widgetBadgeText">الحصة التالية المباشرة</span>
+        <!-- نسبة الإنجاز للقائمة الحالية -->
+        <div style="margin-bottom: 12px;">
+          <div style="display: flex; justify-content:between; font-size: 0.72rem; font-weight: 700; color: var(--text-dim); margin-bottom: 4px;">
+            <span id="taskProgressLabel">إنجاز القائمة:</span>
+            <strong id="taskProgressText" style="color: var(--cyan-glow);">0%</strong>
           </div>
-          <div class="countdown-timer-box" id="countdownBox">
-            <i class="fa-solid fa-stopwatch"></i>
-            <span id="countdownText">--:--:--</span>
+          <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;">
+            <div id="taskProgressBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan-glow), var(--emerald-glow)); transition: width 0.4s;"></div>
           </div>
         </div>
 
-        <div class="widget-title" id="nextTitle">جاري تحميل البيانات...</div>
-        
-        <div class="widget-details-grid">
-          <div class="detail-item">
-            <i class="fa-regular fa-clock" style="color: var(--cyan-glow);"></i>
-            <div>
-              <span class="label-title" id="nextLabelTime">TIME (الوقت)</span>
-              <span class="label-value" id="nextTime">--:--</span>
+        <!-- محتوى المهام -->
+        <div id="currentTasksContainer" style="max-height: 380px; overflow-y: auto; margin-bottom: 12px; padding-left: 2px;"></div>
+
+        <!-- إضافة مهمة جديدة -->
+        <div class="add-task-box">
+          <input type="text" id="newTaskInput" class="form-input-clean" placeholder="أضف بنداً جديداً...">
+          <button onclick="addNewTask()" style="background: var(--cyan-glow); color: #080c16; border: none; padding: 0 14px; border-radius: 10px; font-weight: 800; cursor: pointer;"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </aside>
+
+      <!-- المنطقة الرئيسية: المحاضرات، العداد، الجداول والامتحانات -->
+      <main class="main-content-area">
+
+        <!-- تبديل العرض (جداول أم امتحانات) -->
+        <div class="view-mode-selector">
+          <button class="view-btn active" id="modeScheduleBtn" onclick="switchViewMode('schedule')">
+            <i class="fa-solid fa-calendar-days"></i> جدول المحاضرات الأسبوعي
+          </button>
+          <button class="view-btn exams-mode" id="modeExamsBtn" onclick="switchViewMode('exams')">
+            <i class="fa-solid fa-award"></i> الامتحانات الرسمية 🩺
+          </button>
+        </div>
+
+        <!-- كارت التحفيز السريع -->
+        <div class="quote-card glass-panel animated-card">
+          <div class="quote-text" id="motivationQuote">
+            "كل خطوة تخطوها اليوم في فهم علم الطب تقربك خطوة لتحقيق رسالتك السامية."
+          </div>
+          <button onclick="openAdviceModal()" class="tips-btn"><i class="fa-solid fa-lightbulb"></i> نصائح المذاكرة</button>
+        </div>
+
+        <!-- الودجت المباشر للحصة أو الامتحان القادم -->
+        <div class="next-widget glass-panel animated-card" id="mainNextWidget">
+          <div class="widget-badge-row">
+            <div class="widget-badge" id="widgetBadge">
+              <i class="fa-solid fa-bolt"></i>
+              <span id="widgetBadgeText">الحصة التالية المباشرة</span>
+            </div>
+            <div class="countdown-timer-box" id="countdownBox">
+              <i class="fa-solid fa-stopwatch"></i> <span id="countdownText">--:--:--</span>
             </div>
           </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-location-dot" style="color: var(--rose-glow);"></i>
-            <div>
-              <span class="label-title">LOCATION (المكان)</span>
-              <span class="label-value" id="nextLocation">---</span>
+
+          <div class="widget-title" id="nextTitle">جاري تحميل البيانات...</div>
+          
+          <div class="widget-details-grid">
+            <div class="detail-item">
+              <i class="regular fa-clock" style="color: var(--cyan-glow);"></i>
+              <div><span class="label-title" id="nextLabelTime">الوقت</span><span class="label-value" id="nextTime">--:--</span></div>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-location-dot" style="color: var(--rose-glow);"></i>
+              <div><span class="label-title">المكان</span><span class="label-value" id="nextLocation">---</span></div>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-book-medical" style="color: var(--emerald-glow);"></i>
+              <div><span class="label-title" id="nextLabelSubj">المادة</span><span class="label-value" id="nextSubject">---</span></div>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-user-doctor" style="color: var(--indigo-glow);"></i>
+              <div><span class="label-title" id="nextLabelDoc">المحاضر</span><span class="label-value" id="nextDoctor">---</span></div>
             </div>
           </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-book-medical" style="color: var(--emerald-glow);"></i>
-            <div>
-              <span class="label-title" id="nextLabelSubj">SUBJECT (المادة)</span>
-              <span class="label-value" id="nextSubject">---</span>
-            </div>
+
+          <button class="calendar-btn" onclick="addCurrentNextToCalendar()">
+            <i class="fa-solid fa-calendar-plus" style="color: var(--cyan-glow);"></i> إضافة لـ Google Calendar
+          </button>
+        </div>
+
+        <!-- أدوات اختيار الأسبوع والأيام (تظهر في وضع الجدول فقط) -->
+        <div id="scheduleControls">
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim); margin-bottom: 6px;"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
+          <div class="nav-scroll" id="weeksNavScroll"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
+            <label style="font-size: 0.72rem; color: var(--text-dim); cursor: pointer;">
+              <input type="checkbox" id="hidePastCheckbox" checked onchange="toggleHidePast()"> إخفاء الأيام المنتهية 👁️‍🗨️
+            </label>
           </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-user-doctor" style="color: var(--indigo-glow);"></i>
-            <div>
-              <span class="label-title" id="nextLabelDoc">DOCTOR (المحاضر)</span>
-              <span class="label-value" id="nextDoctor">---</span>
-            </div>
+
+          <div class="nav-scroll" id="daysNavScroll">
+            <button class="nav-btn" data-day="Sun" onclick="selectDay('Sun')">الأحد</button>
+            <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon')">الإثنين</button>
+            <button class="nav-btn" data-day="Tue" onclick="selectDay('Tue')">الثلاثاء</button>
+            <button class="nav-btn" data-day="Wed" onclick="selectDay('Wed')">الأربعاء</button>
+            <button class="nav-btn" data-day="Thu" onclick="selectDay('Thu')">الخميس</button>
           </div>
         </div>
 
-        <button class="calendar-btn" onclick="addCurrentNextToCalendar()">
-          <i class="fa-solid fa-calendar-plus" style="color: var(--cyan-glow);"></i> إضافة لـ Google Calendar
-        </button>
-      </div>
-
-      <div id="scheduleControls">
-        <div class="section-label" style="margin-bottom: 8px;"><i class="fa-solid fa-calendar-week"></i> اختر الأسبوع الدراسي:</div>
-        <div class="nav-scroll" id="weeksNavScroll"></div>
-
-        <div class="section-header-flex" style="margin-bottom: 8px;">
-          <div class="section-label"><i class="fa-solid fa-calendar-day"></i> اختر اليوم:</div>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--text-dim); cursor: pointer;">
-            <input type="checkbox" id="hidePastCheckbox" checked onchange="toggleHidePast()"> إخفاء الأيام المنتهية 👁️‍🗨️
-          </label>
+        <!-- صندوق البحث -->
+        <div class="search-box" id="searchBoxWrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" class="form-input-clean" style="padding-right: 38px;" placeholder="ابحث باسم المادة، المحاضر، أو القاعة..." oninput="renderTimeline()">
         </div>
 
-        <div class="nav-scroll" id="daysNavScroll">
-          <button class="nav-btn" data-day="Sun" onclick="selectDay('Sun', event)"><i class="fa-solid fa-sun"></i> الأحد</button>
-          <button class="nav-btn" data-day="Mon" onclick="selectDay('Mon', event)"><i class="fa-solid fa-sun"></i> الإثنين</button>
-          <button class="nav-btn" data-day="Tue" onclick="selectDay('Tue', event)"><i class="fa-solid fa-sun"></i> الثلاثاء</button>
-          <button class="nav-btn" data-day="Wed" onclick="selectDay('Wed', event)"><i class="fa-solid fa-sun"></i> الأربعاء</button>
-          <button class="nav-btn" data-day="Thu" onclick="selectDay('Thu', event)"><i class="fa-solid fa-sun"></i> الخميس</button>
-        </div>
-      </div>
+        <!-- محتوى الجدول أو الامتحانات -->
+        <div class="timeline-container" id="timelineContainer"></div>
 
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المادة، المحاضر، أو القاعة..." oninput="renderTimeline()">
-      </div>
-
-      <div class="timeline-container" id="timelineContainer"></div>
-    </div>
-
-    <!-- قسم قوائم المهام (Tasklists) -->
-    <div id="tasksSection" class="tasks-section glass-panel animated-card" style="padding: 20px;">
-      <div class="tasks-header-row">
-        <div>
-          <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 4px;">🎯 مهام ومواضيع End Module</h2>
-          <p style="font-size: 0.78rem; color: var(--text-dim);">رتب مذاكرتك، أنشئ قوائمك الخاصة، وتابع إنجازك أول بأول!</p>
-        </div>
-        <button onclick="createNewListPrompt()" class="add-list-btn">
-          <i class="fa-solid fa-plus"></i> إضافة قائمة جديدة
-        </button>
-      </div>
-
-      <!-- شريط التنقل بين القوائم -->
-      <div class="lists-nav-scroll" id="listsNavScroll"></div>
-
-      <!-- محتوى القائمة الحالية -->
-      <div id="currentTasksContainer"></div>
-
-      <!-- فورم إضافة مهمة جديدة -->
-      <div class="add-task-form">
-        <input type="text" id="newTaskInput" class="add-task-input" placeholder="أضف مهمة أو موضوع جديد هنا...">
-        <button onclick="addNewTask()" class="btn-action-primary">إضافة مهمة</button>
-      </div>
+      </main>
     </div>
 
   </div>
@@ -959,10 +804,10 @@
 
   <script>
     const medicalQuotes = [
-      "دكتور المستقبل، كل دقيقة تقضيها في المذاكرة اليوم تصنع بها طبيباً بارعاً في الغد! 🩺",
-      "لا تقلق من ضخامة المنهج؛ الجبل يُحتسى صخرة بصخرة.. وأنت قدها! 💪",
-      "الطب رسالة سامية وجهد متواصل.. استعن بالله ولا تعجز. 🌟",
-      "نظم وقتك، خذ قسطاً من الراحة، واعلم أن الله لا يضيع أجر من أحسن عملاً. ✨"
+      "كل دقيقة تقضيها في استيعاب علم الطب اليوم تصنع بها طبيباً بارعاً في المستقبل.",
+      "نظم وقتك، حافظ على هدوءك، وتذكر أن الإصرار يصنع المستحيل.",
+      "الطب رسالة سامية وجهد متواصل.. استعن بالله ولا تعجز.",
+      "النجاح في الكلية ليس بالمجهود الشاق فقط، بل بالتنظيم والذكاء في المذاكرة."
     ];
 
     const studyWeeks = [
@@ -983,23 +828,22 @@
       { title: "بداية امتحانات الفاينل (Start final exam)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final Exam" }
     ];
 
-    // القائمة الافتراضية المستخرجة من منهج الـ End Module
     const defaultEndModuleTasks = [
-      { id: 1, text: "Biochemistry: Lipid Chemistry (All studied topics)", completed: false },
-      { id: 2, text: "Biochemistry: Protein Chemistry (All studied topics)", completed: false },
-      { id: 3, text: "Biochemistry: Vitamins & Nucleoprotein Chemistry", completed: false },
-      { id: 4, text: "Biochemistry: Molecular Biology (Replication, DNA repair, Transcription)", completed: false },
-      { id: 5, text: "Physiology: Transport 1 (P 135-140) & Transport 2 (P 141-144)", completed: false },
-      { id: 6, text: "Physiology: Hb & Erythropoiesis (P 170-177)", completed: false },
-      { id: 7, text: "Physiology: Blood groups & transfusion (P 185-190)", completed: false },
-      { id: 8, text: "Histology: Cytogenetics (P 48-67)", completed: false },
-      { id: 9, text: "Histology: Epithelial tissue (P 68-87)", completed: false },
-      { id: 10, text: "Histology: Connective tissue (P 88-99)", completed: false },
-      { id: 11, text: "Anatomy: All studied topics revision", completed: false }
+      { id: 1, text: "Biochemistry: Lipid Chemistry", completed: false },
+      { id: 2, text: "Biochemistry: Protein Chemistry", completed: false },
+      { id: 3, text: "Biochemistry: Vitamins & Nucleoproteins", completed: false },
+      { id: 4, text: "Biochemistry: Molecular Biology (DNA/RNA)", completed: false },
+      { id: 5, text: "Physiology: Transport 1 & 2", completed: false },
+      { id: 6, text: "Physiology: Hb & Erythropoiesis", completed: false },
+      { id: 7, text: "Physiology: Blood groups & transfusion", completed: false },
+      { id: 8, text: "Histology: Cytogenetics", completed: false },
+      { id: 9, text: "Histology: Epithelial tissue", completed: false },
+      { id: 10, text: "Histology: Connective tissue", completed: false },
+      { id: 11, text: "Anatomy: End Module Revision", completed: false }
     ];
 
     let userTaskLists = JSON.parse(localStorage.getItem('med_user_task_lists')) || [
-      { id: 'default_module', name: 'مواضيع End Module (الأساسية)', tasks: defaultEndModuleTasks }
+      { id: 'default_module', name: 'قائمة End Module', tasks: defaultEndModuleTasks }
     ];
     let activeListId = userTaskLists[0].id;
 
@@ -1012,14 +856,14 @@
     let selectedWeek = 3;
     let selectedDay = 'Sun';
     let hidePastSessions = true;
-    let currentMainTab = 'schedule';
+    let currentViewMode = 'schedule';
     let currentNextObject = null;
 
     const webAppUrl = 'https://script.google.com/macros/s/AKfycbxgvxq4Davq98ge1Or6vcnUjhAEglvOII0jfd1g3dbwnR7tYhjWbNkgq2y9wG4ioN2K/exec';
 
     window.onload = async function() {
       const randQ = Math.floor(Math.random() * medicalQuotes.length);
-      document.getElementById('motivationQuote').innerText = medicalQuotes[randQ];
+      document.getElementById('motivationQuote').innerText = `"${medicalQuotes[randQ]}"`;
 
       autoDetectTimeAndWeek();
       renderWeeksNav();
@@ -1034,6 +878,8 @@
         renderTimeline();
         sendVisitLogToSheet(currentUserName, currentUserGroup, "فتح الموقع");
       }
+
+      renderTaskListsUI();
 
       setInterval(() => {
         updateTimerAndProgress();
@@ -1076,40 +922,29 @@
     function openAdviceModal() { document.getElementById('adviceModal').style.display = 'flex'; }
     function closeAdviceModal() { document.getElementById('adviceModal').style.display = 'none'; }
 
-    function switchMainTab(tab) {
-      currentMainTab = tab;
-      document.getElementById('tabScheduleBtn').classList.remove('active');
-      document.getElementById('tabTasksBtn').classList.remove('active');
-      document.getElementById('tabExamsBtn').classList.remove('active');
+    function switchViewMode(mode) {
+      currentViewMode = mode;
+      const schedBtn = document.getElementById('modeScheduleBtn');
+      const examsBtn = document.getElementById('modeExamsBtn');
+      const scheduleControls = document.getElementById('scheduleControls');
+      const searchBox = document.getElementById('searchBoxWrapper');
 
-      const scheduleSec = document.getElementById('scheduleSection');
-      const tasksSec = document.getElementById('tasksSection');
-      const progressCard = document.getElementById('progressCard');
-
-      if (tab === 'schedule') {
-        document.getElementById('tabScheduleBtn').classList.add('active');
-        scheduleSec.style.display = 'block';
-        tasksSec.style.display = 'none';
-        progressCard.style.display = 'block';
-        document.getElementById('progressTitleLabel').innerHTML = `<i class="fa-solid fa-chart-line" style="color: var(--cyan-glow);"></i> نسبة إنجاز اليوم الدراسي:`;
+      if (mode === 'schedule') {
+        schedBtn.classList.add('active');
+        examsBtn.classList.remove('active');
+        scheduleControls.style.display = 'block';
+        searchBox.style.display = 'block';
         renderTimeline();
-      } else if (tab === 'tasks') {
-        document.getElementById('tabTasksBtn').classList.add('active');
-        scheduleSec.style.display = 'none';
-        tasksSec.style.display = 'block';
-        progressCard.style.display = 'block';
-        document.getElementById('progressTitleLabel').innerHTML = `<i class="fa-solid fa-list-check" style="color: var(--emerald-glow);"></i> نسبة إنجاز القائمة الحالية:`;
-        renderTaskListsUI();
-      } else if (tab === 'exams') {
-        document.getElementById('tabExamsBtn').classList.add('active');
-        scheduleSec.style.display = 'block';
-        tasksSec.style.display = 'none';
-        progressCard.style.display = 'none';
+      } else {
+        examsBtn.classList.add('active');
+        schedBtn.classList.remove('active');
+        scheduleControls.style.display = 'none';
+        searchBox.style.display = 'none';
         renderExamsList('');
       }
     }
 
-    /* إدارة قوائم المهام (Tasklists) برمجياً */
+    /* إدارة قوائم المهام الجانبية */
     function renderTaskListsUI() {
       const listsScroll = document.getElementById('listsNavScroll');
       listsScroll.innerHTML = '';
@@ -1127,7 +962,7 @@
       tasksContainer.innerHTML = '';
 
       if (activeList.tasks.length === 0) {
-        tasksContainer.innerHTML = `<div style="text-align: center; padding: 20px; color: var(--text-dim);">لا توجد مهام في هذه القائمة حالياً. أضف مهمة جديدة بالأسفل! ✨</div>`;
+        tasksContainer.innerHTML = `<div style="text-align: center; padding: 16px; font-size: 0.78rem; color: var(--text-dim);">القائمة فارغة. أضف مهامك بالأسفل ✨</div>`;
       } else {
         activeList.tasks.forEach(task => {
           const div = document.createElement('div');
@@ -1137,9 +972,7 @@
               <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask('${activeList.id}', ${task.id})">
               <span class="task-text ${task.completed ? 'completed' : ''}">${task.text}</span>
             </div>
-            <div class="task-actions">
-              <button class="icon-action-btn delete" onclick="deleteTask('${activeList.id}', ${task.id})" title="حذف"><i class="fa-solid fa-trash"></i></button>
-            </div>
+            <button class="icon-delete-btn" onclick="deleteTask('${activeList.id}', ${task.id})" title="حذف"><i class="fa-solid fa-trash"></i></button>
           `;
           tasksContainer.appendChild(div);
         });
@@ -1184,7 +1017,7 @@
     }
 
     function createNewListPrompt() {
-      const name = prompt("أدخل اسم القائمة الجديدة (مثلاً: مراجعة الفسيولوجي النهائية):");
+      const name = prompt("أدخل اسم القائمة الجديدة:");
       if (name && name.trim()) {
         const newList = { id: 'list_' + Date.now(), name: name.trim(), tasks: [] };
         userTaskLists.push(newList);
@@ -1196,26 +1029,62 @@
 
     function updateTaskProgress(list) {
       if (!list || list.tasks.length === 0) {
-        document.getElementById('progressBarFill').style.width = '0%';
-        document.getElementById('progressBarFill').style.background = 'linear-gradient(90deg, var(--cyan-glow), var(--emerald-glow))';
-        document.getElementById('progressPercentText').innerText = '0%';
-        document.getElementById('progressSubtext').innerText = 'أضف مهام وابدأ الإنجاز!';
+        document.getElementById('taskProgressBar').style.width = '0%';
+        document.getElementById('taskProgressText').innerText = '0%';
         return;
       }
-      const completedCount = list.tasks.filter(t => t.completed).length;
-      const pct = Math.round((completedCount / list.tasks.length) * 100);
-      document.getElementById('progressBarFill').style.width = `${pct}%`;
-      document.getElementById('progressPercentText').innerText = `${pct}%`;
-      document.getElementById('progressSubtext').innerText = `تم إنجاز ${completedCount} من أصل ${list.tasks.length} مهمة في قائمة "${list.name}"`;
+      const completed = list.tasks.filter(t => t.completed).length;
+      const pct = Math.round((completed / list.tasks.length) * 100);
+      document.getElementById('taskProgressBar').style.width = `${pct}%`;
+      document.getElementById('taskProgressText').innerText = `${pct}%`;
     }
 
-    /* باقى الدوال (Schedule & Exams & Timers) */
+    /* بيانات الجداول والامتحانات */
     async function loadScheduleData() {
       try {
         const response = await fetch('schedule.json');
         if (!response.ok) throw new Error();
         batchSchedule = await response.json();
       } catch (e) { batchSchedule = []; }
+    }
+
+    function parseSessionDates(session) {
+      const weekObj = studyWeeks.find(w => w.id === session.week);
+      if (!weekObj) return null;
+      const [y, m, d] = weekObj.startDate.split('-').map(Number);
+      const weekStartDate = new Date(y, m - 1, d);
+      const weekStartDayNum = weekStartDate.getDay();
+      const sessionDayNum = dayToNum[session.day] !== undefined ? dayToNum[session.day] : 0;
+      let dayDiff = sessionDayNum - weekStartDayNum;
+      if (dayDiff < 0) dayDiff += 7;
+
+      const sessionDate = new Date(weekStartDate);
+      sessionDate.setDate(sessionDate.getDate() + dayDiff);
+      const { startMins, endMins } = parseTimeRange(session.time);
+
+      const startDateTime = new Date(sessionDate);
+      startDateTime.setHours(Math.floor(startMins / 60), startMins % 60, 0, 0);
+      const endDateTime = new Date(sessionDate);
+      endDateTime.setHours(Math.floor(endMins / 60), endMins % 60, 0, 0);
+
+      return { startDateTime, endDateTime };
+    }
+
+    function timeToMinutes(timeStr) {
+      if (!timeStr) return 0;
+      let clean = timeStr.trim().toUpperCase();
+      let isPM = clean.includes('PM'), isAM = clean.includes('AM');
+      clean = clean.replace('AM', '').replace('PM', '').trim();
+      let [hours, minutes] = clean.split(':').map(Number);
+      if (!isAM && !isPM) { if (hours >= 1 && hours <= 6) hours += 12; }
+      else { if (isPM && hours < 12) hours += 12; if (isAM && hours === 12) hours = 0; }
+      return (hours * 60) + (minutes || 0);
+    }
+
+    function parseTimeRange(rangeStr) {
+      const parts = rangeStr.split('-');
+      if (parts.length < 2) return { startMins: 0, endMins: 1440 };
+      return { startMins: timeToMinutes(parts[0]), endMins: timeToMinutes(parts[1]) };
     }
 
     function autoDetectTimeAndWeek() {
@@ -1237,6 +1106,13 @@
       const now = new Date();
       btns.forEach(b => {
         const dayCode = b.getAttribute('data-day');
+        const dummySession = { week: selectedWeek, day: dayCode, time: "01:45 - 03:15" };
+        const parsed = parseSessionDates(dummySession);
+        if (parsed && hidePastSessions && now > parsed.endDateTime) {
+          b.classList.add('hidden-elem');
+        } else {
+          b.classList.remove('hidden-elem');
+        }
         if (dayCode === selectedDay) b.classList.add('active');
         else b.classList.remove('active');
       });
@@ -1245,11 +1121,13 @@
     function renderWeeksNav() {
       const container = document.getElementById('weeksNavScroll');
       container.innerHTML = '';
+      const currentDateStr = new Date().toISOString().split('T')[0];
       studyWeeks.forEach(w => {
+        if (hidePastSessions && w.endDate < currentDateStr) return;
         const btn = document.createElement('button');
         btn.className = `nav-btn ${w.id === selectedWeek ? 'active' : ''}`;
-        btn.innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${w.name} <small>(${w.range})</small>`;
-        btn.onclick = () => { selectedWeek = w.id; renderWeeksNav(); renderTimeline(); };
+        btn.innerHTML = `${w.name} <small>(${w.range})</small>`;
+        btn.onclick = () => { selectedWeek = w.id; renderWeeksNav(); updateDayButtonsUI(); renderTimeline(); };
         container.appendChild(btn);
       });
     }
@@ -1257,36 +1135,45 @@
     function selectDay(day) { selectedDay = day; updateDayButtonsUI(); renderTimeline(); }
 
     function renderTimeline() {
-      if (currentMainTab !== 'schedule') return;
+      if (currentViewMode !== 'schedule') return;
       const container = document.getElementById('timelineContainer');
       const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
       container.innerHTML = '';
       const now = new Date();
+
+      updateRealTimeWidget(now);
+
+      if (!batchSchedule || batchSchedule.length === 0) return;
 
       const filtered = batchSchedule.filter(item => {
         const matchesWeek = item.week === selectedWeek;
         const matchesDay = item.day === selectedDay;
         const matchesGroup = item.groups.includes(currentUserGroup);
         const matchesSearch = !searchVal || item.title.toLowerCase().includes(searchVal) || item.subject.toLowerCase().includes(searchVal);
-        return matchesWeek && matchesDay && matchesGroup && matchesSearch;
+        const parsed = parseSessionDates(item);
+        const isPast = parsed && now > parsed.endDateTime;
+        return matchesWeek && matchesDay && matchesGroup && matchesSearch && (!hidePastSessions || !isPast);
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim);">لا توجد حصص مسجلة لهذه المواعيد.</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:24px; color:var(--text-dim); font-size:0.82rem;">لا توجد حصص مسجلة لهذه المواعيد.</div>`;
         return;
       }
 
       filtered.forEach(item => {
+        const parsed = parseSessionDates(item);
+        const isLiveNow = parsed && (now >= parsed.startDateTime && now <= parsed.endDateTime);
+
         const card = document.createElement('div');
-        card.className = `session-card glass-panel animated-card`;
+        card.className = `session-card glass-panel animated-card ${isLiveNow ? 'active-now' : ''}`;
         card.innerHTML = `
           <div class="card-top">
-            <span class="subject-pill">${item.subject}</span>
-            <span class="tag-type">${item.type}</span>
+            <span class="subject-pill ${getSubjectTagClass(item.subject)}">${item.subject}</span>
+            <span style="font-size: 0.7rem; color: var(--text-dim);">${item.type} ${isLiveNow ? '🔴 مباشر الآن' : ''}</span>
           </div>
           <div class="session-card-title">${item.title}</div>
           <div class="details-row">
-            <div class="info-block"><i class="fa-regular fa-clock" style="color:var(--cyan-glow);"></i> <span>${item.time}</span></div>
+            <div class="info-block"><i class="regular fa-clock" style="color:var(--cyan-glow);"></i> <span>${item.time}</span></div>
             <div class="info-block"><i class="fa-solid fa-location-dot" style="color:var(--rose-glow);"></i> <span>${item.location}</span></div>
             ${item.doctor ? `<div class="info-block"><i class="fa-solid fa-user-doctor" style="color:var(--indigo-glow);"></i> <span>${item.doctor}</span></div>` : ''}
           </div>
@@ -1298,41 +1185,127 @@
     function renderExamsList(searchVal) {
       const container = document.getElementById('timelineContainer');
       container.innerHTML = '';
+      const currentDateStr = new Date().toISOString().split('T')[0];
+
+      updateRealTimeWidget(new Date());
+
       year1Exams.forEach(item => {
+        const isPast = item.date < currentDateStr;
+        if (hidePastSessions && isPast) return;
+
         const card = document.createElement('div');
         card.className = `session-card exam-card glass-panel animated-card`;
         card.innerHTML = `
           <div class="card-top">
             <span class="subject-pill" style="background:var(--amber-glow);">${item.type}</span>
-            <span class="status-badge status-upcoming">امتحان رسمي 🎯</span>
+            <span class="status-badge ${isPast ? 'status-passed' : 'status-upcoming'}">${isPast ? 'منتهي' : 'قادم 🎯'}</span>
           </div>
           <div class="session-card-title">${item.title}</div>
           <div class="details-row">
-            <div class="info-block"><i class="fa-regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${item.day} - ${item.date} (${item.week})</span></div>
+            <div class="info-block"><i class="regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${item.day} - ${item.date} (${item.week})</span></div>
           </div>
         `;
         container.appendChild(card);
       });
     }
 
-    function updateTimerAndProgress() {
-      if (currentMainTab === 'schedule') {
-        // حساب بروجرس الحصص اليومية
-        const now = new Date();
-        const todaySessions = batchSchedule.filter(s => s.week === selectedWeek && s.day === selectedDay && s.groups.includes(currentUserGroup));
-        if (todaySessions.length > 0) {
-          const completed = todaySessions.length; // مثال افتراضي لتحديث الداشبورد
-          const pct = 100;
-          document.getElementById('progressBarFill').style.width = `${pct}%`;
-          document.getElementById('progressPercentText').innerText = `${pct}%`;
-          document.getElementById('progressSubtext').innerText = `جدول حصص اليوم (${dayArabicMap[selectedDay]}) نشط ومحدث`;
+    function updateRealTimeWidget(now) {
+      const widgetBadge = document.getElementById('widgetBadge');
+      const widgetBadgeText = document.getElementById('widgetBadgeText');
+
+      if (currentViewMode === 'exams') {
+        const currentDateStr = now.toISOString().split('T')[0];
+        const upcomingExams = year1Exams.filter(e => e.date >= currentDateStr).sort((a, b) => a.date.localeCompare(b.date));
+        if (upcomingExams.length > 0) {
+          const nextExam = upcomingExams[0];
+          widgetBadge.className = "widget-badge exam-style";
+          widgetBadgeText.innerText = `الامتحان القادم (${nextExam.day})`;
+          document.getElementById('nextTitle').innerText = nextExam.title;
+          document.getElementById('nextTime').innerText = `${nextExam.day} - ${nextExam.date}`;
+          document.getElementById('nextLocation').innerText = 'مدرجات الكلية';
+          document.getElementById('nextSubject').innerText = nextExam.type;
+          document.getElementById('nextDoctor').innerText = nextExam.week;
+          currentNextObject = { ...nextExam, isExam: true };
         }
+        return;
+      }
+
+      if (!batchSchedule || batchSchedule.length === 0 || !currentUserGroup) return;
+      const userSessions = batchSchedule.filter(s => s.groups.includes(currentUserGroup));
+      const liveSession = userSessions.find(s => {
+        const parsed = parseSessionDates(s);
+        return parsed && (now >= parsed.startDateTime && now <= parsed.endDateTime);
+      });
+
+      if (liveSession) {
+        widgetBadge.className = "widget-badge live-now";
+        widgetBadgeText.innerText = "محاضرة جارية الآن 🔴";
+        setWidgetData(liveSession);
+        currentNextObject = liveSession;
+        return;
+      }
+
+      const upcoming = userSessions
+        .map(s => ({ ...s, parsed: parseSessionDates(s) }))
+        .filter(s => s.parsed && s.parsed.startDateTime > now)
+        .sort((a, b) => a.parsed.startDateTime - b.parsed.startDateTime);
+
+      if (upcoming.length > 0) {
+        widgetBadge.className = "widget-badge";
+        widgetBadgeText.innerText = "الحصة القادمة";
+        setWidgetData(upcoming[0]);
+        currentNextObject = upcoming[0];
+      }
+    }
+
+    function updateTimerAndProgress() {
+      const now = new Date();
+      if (currentNextObject) {
+        let targetTime = currentNextObject.isExam ? new Date(currentNextObject.date + 'T09:00:00') : parseSessionDates(currentNextObject)?.startDateTime;
+        if (targetTime) {
+          const diffMs = targetTime.getTime() - now.getTime();
+          if (diffMs > 0) {
+            const hrs = Math.floor(diffMs / (1000 * 60 * 60));
+            const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diffMs % (1000 * 60)) / 1000);
+            document.getElementById('countdownText').innerText = `${hrs}س : ${mins}د : ${secs}ث`;
+          } else {
+            document.getElementById('countdownText').innerText = "الموعد الآن 🔴";
+          }
+        }
+      }
+    }
+
+    function setWidgetData(item) {
+      document.getElementById('nextTitle').innerText = item.title;
+      document.getElementById('nextTime').innerText = item.time;
+      document.getElementById('nextLocation').innerText = item.location;
+      document.getElementById('nextSubject').innerText = item.subject;
+      document.getElementById('nextDoctor').innerText = item.doctor || 'غير محدد';
+    }
+
+    function addCurrentNextToCalendar() {
+      if (currentNextObject) {
+        const title = currentNextObject.title;
+        const loc = currentNextObject.isExam ? 'مدرجات الكلية' : currentNextObject.location;
+        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&location=${encodeURIComponent(loc)}`;
+        window.open(url, '_blank');
       }
     }
 
     function updateUserUI() {
       document.getElementById('displayGreeting').innerText = `أهلاً د. ${currentUserName} ✨`;
       document.getElementById('displayGroupTag').innerText = currentUserGroup;
+    }
+
+    function getSubjectTagClass(subj) {
+      switch(subj) {
+        case 'Anatomy': return 'anatomy-tag';
+        case 'Biochemistry': return 'biochem-tag';
+        case 'Physiology': return 'physio-tag';
+        case 'Histology': return 'histo-tag';
+        default: return 'biochem-tag';
+      }
     }
   </script>
 </body>
