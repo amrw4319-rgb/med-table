@@ -562,7 +562,7 @@
       border-radius: 16px;
       margin-top: 16px;
       display: grid;
-      grid-template-columns: 1fr auto auto auto;
+      grid-template-columns: 1fr auto auto;
       gap: 10px;
     }
     @media(max-width: 750px) {
@@ -810,9 +810,9 @@
 
       <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;"></div>
 
-      <!-- فورم إضافة مهمة مع قوائم اختيار احترافية مخصصة -->
+      <!-- فورم إضافة مهمة مع قائمة اختيار اليوم الاحترافية -->
       <div class="add-task-form-box">
-        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة (مثلاً: ريفيجن فسيولوجي)...">
+        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة (مثلاً: ريفيجن فسيولوجي - نظري وحل أسئلة)...">
         
         <!-- قائمة اختيار اليوم الاحترافية -->
         <div class="custom-dropdown-container">
@@ -820,31 +820,22 @@
             <span id="selectedDayLabel">اليوم: عام</span> <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
           </div>
           <div class="custom-dropdown-menu" id="dayDropdownMenu">
-            <div class="custom-dropdown-item" onclick="setTaskDay('اليوم', 'عام')">عام / كل الأيام</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الأحد', 'الأحد')">الأحد</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الإثنين', 'الإثنين')">الإثنين</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الثلاثاء', 'الثلاثاء')">الثلاثاء</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الأربعاء', 'الأربعاء')">الأربعاء</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الخميس', 'الخميس')">الخميس</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الجمعة', 'الجمعة')">الجمعة</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('السبت', 'السبت')">السبت</div>
-          </div>
-        </div>
-
-        <!-- قائمة اختيار الساعة الاحترافية -->
-        <div class="custom-dropdown-container">
-          <div class="custom-dropdown-trigger" onclick="toggleDropdown('timeDropdownMenu')">
-            <span id="selectedTimeLabel">الساعة: 10:00 ص</span> <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
-          </div>
-          <div class="custom-dropdown-menu" id="timeDropdownMenu">
-            <div class="custom-dropdown-item" onclick="setTaskTime('08:00', '08:00 ص')">08:00 ص</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('10:00', '10:00 ص')">10:00 ص</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('12:00', '12:00 م')">12:00 م</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('14:00', '02:00 م')">02:00 م</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('16:00', '04:00 م')">04:00 م</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('18:00', '06:00 م')">06:00 م</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('20:00', '08:00 م')">08:00 م</div>
-            <div class="custom-dropdown-item" onclick="setTaskTime('22:00', '10:00 م')">10:00 م</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('عام')">عام / كل الأيام</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('السبت 17 أكتوبر')">السبت 17 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الأحد 18 أكتوبر')">الأحد 18 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الإثنين 19 أكتوبر')">الإثنين 19 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الثلاثاء 20 أكتوبر')">الثلاثاء 20 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الأربعاء 21 أكتوبر')">الأربعاء 21 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الخميس 22 أكتوبر')">الخميس 22 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الجمعة 23 أكتوبر')">الجمعة 23 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('السبت 24 أكتوبر')">السبت 24 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الأحد 25 أكتوبر')">الأحد 25 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الإثنين 26 أكتوبر')">الإثنين 26 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الثلاثاء 27 أكتوبر')">الثلاثاء 27 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الأربعاء 28 أكتوبر')">الأربعاء 28 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الخميس 29 أكتوبر')">الخميس 29 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('الجمعة 30 أكتوبر')">الجمعة 30 أكتوبر</div>
+            <div class="custom-dropdown-item" onclick="setTaskDay('السبت 31 أكتوبر')">السبت 31 أكتوبر (ليلة الامتحان)</div>
           </div>
         </div>
 
@@ -878,29 +869,28 @@
     ];
 
     const defaultTasks = [
-      { id: 1, text: "السبت 17 أكتوبر: Lipid Chemistry (نظري + حل أسئلة)", day: "السبت", time: "10:00", completed: false },
-      { id: 2, text: "الأحد 18 أكتوبر: Protein Chemistry (نظري + حل أسئلة)", day: "الأحد", time: "10:00", completed: false },
-      { id: 3, text: "الإثنين 19 أكتوبر: Vitamins + Nucleoprotein Chemistry (نظري + حل أسئلة)", day: "الإثنين", time: "10:00", completed: false },
-      { id: 4, text: "الثلاثاء 20 أكتوبر: Molecular Biology (Replication + DNA repair + Transcription) (نظري + حل أسئلة)", day: "الثلاثاء", time: "10:00", completed: false },
-      { id: 5, text: "الأربعاء 21 أكتوبر: Physiology - Transport 1 & 2 (نظري + حل أسئلة)", day: "الأربعاء", time: "10:00", completed: false },
-      { id: 6, text: "الخميس 22 أكتوبر: Physiology - Hb & Erythropoiesis (نظري + حل أسئلة)", day: "الخميس", time: "10:00", completed: false },
-      { id: 7, text: "الجمعة 23 أكتوبر: Physiology - Blood groups & transfusion (نظري + حل أسئلة)", day: "الجمعة", time: "10:00", completed: false },
-      { id: 8, text: "السبت 24 أكتوبر: Histology - Cytogenetics (نظري + حل أسئلة)", day: "السبت", time: "10:00", completed: false },
-      { id: 9, text: "الأحد 25 أكتوبر: Histology - Epithelial tissue (نظري + حل أسئلة)", day: "الأحد", time: "10:00", completed: false },
-      { id: 10, text: "الإثنين 26 أكتوبر: Histology - Connective tissue (نظري + حل أسئلة)", day: "الإثنين", time: "10:00", completed: false },
-      { id: 11, text: "الثلاثاء 27 أكتوبر: Anatomy (All studied topics) - الجزء الأول (نظري + حل أسئلة)", day: "الثلاثاء", time: "10:00", completed: false },
-      { id: 12, text: "الأربعاء 28 أكتوبر: Anatomy (All studied topics) - الجزء الثاني (نظري + حل أسئلة)", day: "الأربعاء", time: "10:00", completed: false },
-      { id: 13, text: "الخميس 29 أكتوبر: مراجعة عامة وحل امتحان تجريبي (1) (حل شامل وتصحيح الأخطاء)", day: "الخميس", time: "10:00", completed: false },
-      { id: 14, text: "الجمعة 30 أكتوبر: حل امتحان تجريبي (2) وتثبيت النقط الصعبة (حل شامل ومراجعة نهائية)", day: "الجمعة", time: "10:00", completed: false },
-      { id: 15, text: "السبت 31 أكتوبر (ليلة الامتحان): مراجعة سريعة للعينات والعناوين الرئيسية (نوم مبكر)", day: "السبت", time: "10:00", completed: false }
+      { id: 1, text: "Lipid Chemistry (مذاكرة نظري + حل أسئلة)", day: "السبت 17 أكتوبر", completed: false },
+      { id: 2, text: "Protein Chemistry (مذاكرة نظري + حل أسئلة)", day: "الأحد 18 أكتوبر", completed: false },
+      { id: 3, text: "Vitamins + Nucleoprotein Chemistry (مذاكرة نظري + حل أسئلة)", day: "الإثنين 19 أكتوبر", completed: false },
+      { id: 4, text: "Molecular Biology: Replication + DNA repair + Transcription (مذاكرة نظري + حل أسئلة)", day: "الثلاثاء 20 أكتوبر", completed: false },
+      { id: 5, text: "Physiology: Transport 1 & 2 (مذاكرة نظري + حل أسئلة)", day: "الأربعاء 21 أكتوبر", completed: false },
+      { id: 6, text: "Physiology: Hb & Erythropoiesis (مذاكرة نظري + حل أسئلة)", day: "الخميس 22 أكتوبر", completed: false },
+      { id: 7, text: "Physiology: Blood groups & transfusion (مذاكرة نظري + حل أسئلة)", day: "الجمعة 23 أكتوبر", completed: false },
+      { id: 8, text: "Histology: Cytogenetics (مذاكرة نظري + حل أسئلة)", day: "السبت 24 أكتوبر", completed: false },
+      { id: 9, text: "Histology: Epithelial tissue (مذاكرة نظري + حل أسئلة)", day: "الأحد 25 أكتوبر", completed: false },
+      { id: 10, text: "Histology: Connective tissue (مذاكرة نظري + حل أسئلة)", day: "الإثنين 26 أكتوبر", completed: false },
+      { id: 11, text: "Anatomy (All studied topics) - الجزء الأول (مذاكرة نظري + حل أسئلة)", day: "الثلاثاء 27 أكتوبر", completed: false },
+      { id: 12, text: "Anatomy (All studied topics) - الجزء الثاني (مذاكرة نظري + حل أسئلة)", day: "الأربعاء 28 أكتوبر", completed: false },
+      { id: 13, text: "مراجعة عامة وحل امتحان تجريبي (1) (حل شامل وتصحيح الأخطاء)", day: "الخميس 29 أكتوبر", completed: false },
+      { id: 14, text: "حل امتحان تجريبي (2) وتثبيت النقط الصعبة (حل شامل ومراجعة نهائية)", day: "الجمعة 30 أكتوبر", completed: false },
+      { id: 15, text: "مراجعة سريعة جداً للعينات والعناوين الرئيسية (قراءة خفيفة ونوم مبكر)", day: "السبت 31 أكتوبر", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v8')) || [
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v9')) || [
       { id: 'def_list', name: 'End module revision', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
-    let tempSelectedDayVal = "اليوم";
-    let tempSelectedTimeVal = "10:00";
+    let tempSelectedDayVal = "عام";
     let tempLoginGroup = "";
 
     let batchSchedule = [];
@@ -967,16 +957,10 @@
       }
     };
 
-    function setTaskDay(val, label) {
+    function setTaskDay(val) {
       tempSelectedDayVal = val;
-      document.getElementById('selectedDayLabel').innerText = "اليوم: " + label;
+      document.getElementById('selectedDayLabel').innerText = "اليوم: " + val;
       document.getElementById('dayDropdownMenu').style.display = 'none';
-    }
-
-    function setTaskTime(val, label) {
-      tempSelectedTimeVal = val;
-      document.getElementById('selectedTimeLabel').innerText = "الساعة: " + label;
-      document.getElementById('timeDropdownMenu').style.display = 'none';
     }
 
     function openGuideModal(type) {
@@ -995,7 +979,7 @@
       } else if (type === 'tasks') {
         titleEl.innerText = "دليل استخدام TASK LIST";
         contentEl.innerHTML = `
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>1. إضافة مهمة جديدة:</strong> اكتب اسم المهمة، ثم اختر اليوم المخصص والساعة عبر القوائم الاحترافية المنسدلة بالأفل.</div>
+          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>1. إضافة مهمة جديدة:</strong> اكتب عنوان المهمة، ثم اختر اليوم المخصص عبر القائمة المنسدلة بكل سهولة.</div>
           <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>2. إنشاء قوائم متعددة:</strong> يمكنك فصل مواضيعك (مثل قائمة فسيولوجي وقائمة أناتومي) عبر زر "قائمة جديدة".</div>
           <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>3. تتبع الإنجاز:</strong> عند إتمام أي مهمة، وضع علامة صح وسيرتفع مؤشر التقدم لحظياً لدعم حماسك.</div>
         `;
@@ -1220,7 +1204,7 @@
               <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTaskItem('${activeList.id}', ${task.id})">
               <div>
                 <span class="task-title-text ${task.completed ? 'done' : ''}">${task.text}</span>
-                <span class="task-meta-badge"><i class="fa-regular fa-clock"></i> ${task.day} - ${task.time}</span>
+                <span class="task-meta-badge"><i class="fa-regular fa-calendar"></i> ${task.day}</span>
               </div>
             </div>
             <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:15px;" title="حذف"><i class="fa-solid fa-trash"></i></button>
@@ -1237,8 +1221,8 @@
 
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
-        activeList.items.push({ id: Date.now(), text: title, day: tempSelectedDayVal, time: tempSelectedTimeVal, completed: false });
-        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
+        activeList.items.push({ id: Date.now(), text: title, day: tempSelectedDayVal, completed: false });
+        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1248,7 +1232,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         const item = list.items.find(i => i.id === taskId);
-        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists)); renderTaskListsView(); }
+        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists)); renderTaskListsView(); }
       }
     }
 
@@ -1256,7 +1240,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1267,7 +1251,7 @@
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
