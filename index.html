@@ -878,13 +878,25 @@
     ];
 
     const defaultTasks = [
-      { id: 1, text: "Biochemistry: Lipid & Protein Chemistry", day: "الأحد", time: "10:00", completed: false },
-      { id: 2, text: "Biochemistry: Molecular Biology", day: "الإثنين", time: "12:00", completed: false },
-      { id: 3, text: "Physiology: Transport 1 & 2 topics", day: "الثلاثاء", time: "14:00", completed: false }
+      { id: 1, text: "السبت 17 أكتوبر: Lipid Chemistry (نظري + حل أسئلة)", day: "السبت", time: "10:00", completed: false },
+      { id: 2, text: "الأحد 18 أكتوبر: Protein Chemistry (نظري + حل أسئلة)", day: "الأحد", time: "10:00", completed: false },
+      { id: 3, text: "الإثنين 19 أكتوبر: Vitamins + Nucleoprotein Chemistry (نظري + حل أسئلة)", day: "الإثنين", time: "10:00", completed: false },
+      { id: 4, text: "الثلاثاء 20 أكتوبر: Molecular Biology (Replication + DNA repair + Transcription) (نظري + حل أسئلة)", day: "الثلاثاء", time: "10:00", completed: false },
+      { id: 5, text: "الأربعاء 21 أكتوبر: Physiology - Transport 1 & 2 (نظري + حل أسئلة)", day: "الأربعاء", time: "10:00", completed: false },
+      { id: 6, text: "الخميس 22 أكتوبر: Physiology - Hb & Erythropoiesis (نظري + حل أسئلة)", day: "الخميس", time: "10:00", completed: false },
+      { id: 7, text: "الجمعة 23 أكتوبر: Physiology - Blood groups & transfusion (نظري + حل أسئلة)", day: "الجمعة", time: "10:00", completed: false },
+      { id: 8, text: "السبت 24 أكتوبر: Histology - Cytogenetics (نظري + حل أسئلة)", day: "السبت", time: "10:00", completed: false },
+      { id: 9, text: "الأحد 25 أكتوبر: Histology - Epithelial tissue (نظري + حل أسئلة)", day: "الأحد", time: "10:00", completed: false },
+      { id: 10, text: "الإثنين 26 أكتوبر: Histology - Connective tissue (نظري + حل أسئلة)", day: "الإثنين", time: "10:00", completed: false },
+      { id: 11, text: "الثلاثاء 27 أكتوبر: Anatomy (All studied topics) - الجزء الأول (نظري + حل أسئلة)", day: "الثلاثاء", time: "10:00", completed: false },
+      { id: 12, text: "الأربعاء 28 أكتوبر: Anatomy (All studied topics) - الجزء الثاني (نظري + حل أسئلة)", day: "الأربعاء", time: "10:00", completed: false },
+      { id: 13, text: "الخميس 29 أكتوبر: مراجعة عامة وحل امتحان تجريبي (1) (حل شامل وتصحيح الأخطاء)", day: "الخميس", time: "10:00", completed: false },
+      { id: 14, text: "الجمعة 30 أكتوبر: حل امتحان تجريبي (2) وتثبيت النقط الصعبة (حل شامل ومراجعة نهائية)", day: "الجمعة", time: "10:00", completed: false },
+      { id: 15, text: "السبت 31 أكتوبر (ليلة الامتحان): مراجعة سريعة للعينات والعناوين الرئيسية (نوم مبكر)", day: "السبت", time: "10:00", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v7')) || [
-      { id: 'def_list', name: 'مهام End Module الأساسية', items: defaultTasks }
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v8')) || [
+      { id: 'def_list', name: 'End module revision', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
     let tempSelectedDayVal = "اليوم";
@@ -1226,7 +1238,7 @@
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: tempSelectedDayVal, time: tempSelectedTimeVal, completed: false });
-        localStorage.setItem('med_task_lists_v7', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1236,7 +1248,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         const item = list.items.find(i => i.id === taskId);
-        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v7', JSON.stringify(userLists)); renderTaskListsView(); }
+        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists)); renderTaskListsView(); }
       }
     }
 
@@ -1244,7 +1256,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v7', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1255,7 +1267,7 @@
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v7', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v8', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
