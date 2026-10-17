@@ -618,7 +618,6 @@
     }
     .modal-card { max-width: 440px; width: 100%; padding: 28px; }
 
-    /* تنسيقات الامتحانات */
     .exam-module-header {
       font-size: 1.1rem;
       font-weight: 900;
@@ -716,7 +715,7 @@
     </div>
   </div>
 
-  <!-- Modal الدليل (مع زر إغلاق علوي وسفلي بارز) -->
+  <!-- Modal الدليل مع زر إغلاق صريح -->
   <div id="guideModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-glow); padding-bottom: 10px;">
@@ -964,7 +963,6 @@
   <script src="exams-data.js"></script>
 
   <script>
-    // تم تحديث الأسبوع الخامس ليطابق تاريخ اليوم (17 أكتوبر 2026) بدقة تامة
     const studyWeeks = [
       { id: 4, name: "الأسبوع 4", startDate: "2026-10-10", endDate: "2026-10-16" },
       { id: 5, name: "الأسبوع 5 (مراجعة)", startDate: "2026-10-17", endDate: "2026-10-24" },
@@ -1304,7 +1302,7 @@
     }
 
     /* -------------------------------------------------------------
-       خوارزمية المحاضرة القادمة (حصر الأسبوع الحالي فقط والعد التنازلي)
+       الخوارزمية الدقيقة لحساب المحاضرة القادمة بناءً على وقت الجهاز والتاريخ
     ---------------------------------------------------------------- */
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
@@ -1329,6 +1327,7 @@
 
         let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
         
+        // إذا كانت المحاضرة في نفس اليوم وانتهى وقت بدايتها، احتسبها للأسبوع القادم
         if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) {
           dayDiff = 7;
         }
@@ -1353,7 +1352,7 @@
         const minsLeft = minDiffInMinutes % 60;
         const secsLeft = 59 - now.getSeconds();
 
-        if (hrsLeft > 24) {
+        if (hrsLeft >= 24) {
           const daysLeft = Math.floor(hrsLeft / 24);
           document.getElementById('countdownTimerText').innerText = `تبقي ${daysLeft} يوم ⏳`;
         } else {
