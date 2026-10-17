@@ -7,7 +7,7 @@ window.ExamsModulesData = [
         examId: "lipid_biochem_master",
         subjectKey: "biochem",
         subjectName: "Biochemistry 🧪",
-        examTitle: "Lipid Biochemistry Master Assessment (160 Questions)",
+        examTitle: "Lipid Biochemistry",
         questions: [
           {
             question: "What are the fundamental physical solubility characteristics defining lipids?",
