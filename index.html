@@ -161,7 +161,7 @@
       gap: 10px;
     }
 
-    .nav-tasks-btn {
+    .nav-tasks-btn, .nav-exams-btn {
       flex: 1;
       background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
       color: #030712;
@@ -178,7 +178,12 @@
       box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .nav-tasks-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(6, 182, 212, 0.5); }
+    .nav-exams-btn {
+      background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow));
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+    }
+    .nav-tasks-btn:hover, .nav-exams-btn:hover { transform: translateY(-2px); }
 
     .feedback-trigger-btn {
       background: rgba(255, 255, 255, 0.05);
@@ -414,10 +419,10 @@
     }
     .card-details span { color: #f1f5f9; font-weight: 700; }
 
-    /* صفحة TASK LIST المنفصلة */
-    .tasks-page-view { display: none; }
+    /* الأقسام المنفصلة (Task List & Exams Portal) */
+    .sub-page-view { display: none; }
 
-    .tasks-page-header {
+    .sub-page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -608,6 +613,33 @@
     }
     .modal-card { max-width: 440px; width: 100%; padding: 28px; }
 
+    /* تنسيقات نظام الامتحانات المتوافقة مع الموقع */
+    .exam-module-header {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--cyan-glow);
+      margin: 20px 0 10px 0;
+      border-bottom: 1px solid var(--border-glow);
+      padding-bottom: 6px;
+    }
+    .exams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .exam-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-glow);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+    .exam-card:hover { border-color: var(--cyan-glow); transform: translateY(-2px); }
+
     footer {
       margin-top: 50px;
       text-align: center;
@@ -675,7 +707,7 @@
     </div>
   </div>
 
-  <!-- Modal إرسال رسالة أو شكوى (Formspree المحدث) -->
+  <!-- Modal إرسال رسالة أو شكوى -->
   <div id="feedbackModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
@@ -701,6 +733,9 @@
         <button onclick="switchToTasksView()" class="nav-tasks-btn">
           <i class="fa-solid fa-list-check"></i> TASK LIST
         </button>
+        <button onclick="switchToExamsView()" class="nav-exams-btn">
+          <i class="fa-solid fa-graduation-cap"></i> EXAMS PORTAL
+        </button>
         <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn">
           <i class="fa-solid fa-comment-dots"></i> إرسال ملاحظة
         </button>
@@ -710,9 +745,8 @@
 
   <div class="app-container">
 
-    <!-- لوحة التحكم الرئيسية -->
+    <!-- 1. لوحة التحكم الرئيسية (الجدول) -->
     <div id="mainDashboardView">
-
       <div class="view-selector">
         <button class="view-btn active" id="btnSchedTab" onclick="switchTab('schedule')">
           <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
@@ -773,21 +807,17 @@
       <div id="mainTimelineList"></div>
     </div>
 
-    <!-- صفحة TASK LIST المنفصلة -->
-    <div id="tasksPageView" class="tasks-page-view glass-panel" style="padding: 24px;">
-      <div class="tasks-page-header">
+    <!-- 2. صفحة TASK LIST المنفصلة -->
+    <div id="tasksPageView" class="sub-page-view glass-panel" style="padding: 24px;">
+      <div class="sub-page-header">
         <div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
-            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="GUIDE">
-              <i class="fa-solid fa-info"></i>
-            </div>
+            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
           </div>
           <p style="font-size: 0.78rem; color: var(--text-dim);">إدارة مهامك وتنظيم جدولك اليومي بدقة وسلاسة</p>
         </div>
-        <button onclick="switchToDashboardView()" class="back-btn">
-          <i class="fa-solid fa-arrow-right"></i> العودة للجدول
-        </button>
+        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للجدول</button>
       </div>
 
       <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 14px;"></div>
@@ -810,11 +840,8 @@
 
       <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;"></div>
 
-      <!-- فورم إضافة مهمة مع قائمة اختيار اليوم الاحترافية -->
       <div class="add-task-form-box">
-        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة (مثلاً: ريفيجن فسيولوجي - نظري وحل أسئلة)...">
-        
-        <!-- قائمة اختيار اليوم الاحترافية -->
+        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة...">
         <div class="custom-dropdown-container">
           <div class="custom-dropdown-trigger" onclick="toggleDropdown('dayDropdownMenu')">
             <span id="selectedDayLabel">اليوم: عام</span> <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
@@ -824,22 +851,52 @@
             <div class="custom-dropdown-item" onclick="setTaskDay('السبت 17 أكتوبر')">السبت 17 أكتوبر</div>
             <div class="custom-dropdown-item" onclick="setTaskDay('الأحد 18 أكتوبر')">الأحد 18 أكتوبر</div>
             <div class="custom-dropdown-item" onclick="setTaskDay('الإثنين 19 أكتوبر')">الإثنين 19 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الثلاثاء 20 أكتوبر')">الثلاثاء 20 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الأربعاء 21 أكتوبر')">الأربعاء 21 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الخميس 22 أكتوبر')">الخميس 22 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الجمعة 23 أكتوبر')">الجمعة 23 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('السبت 24 أكتوبر')">السبت 24 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الأحد 25 أكتوبر')">الأحد 25 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الإثنين 26 أكتوبر')">الإثنين 26 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الثلاثاء 27 أكتوبر')">الثلاثاء 27 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الأربعاء 28 أكتوبر')">الأربعاء 28 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الخميس 29 أكتوبر')">الخميس 29 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('الجمعة 30 أكتوبر')">الجمعة 30 أكتوبر</div>
-            <div class="custom-dropdown-item" onclick="setTaskDay('السبت 31 أكتوبر')">السبت 31 أكتوبر (ليلة الامتحان)</div>
           </div>
         </div>
-
         <button onclick="createNewTaskItem()" class="btn-primary">إضافة مهمة ⚡</button>
+      </div>
+    </div>
+
+    <!-- 3. صفحة EXAMS PORTAL المنفصلة (بنك الأسئلة مقسم حسب الموديولات والمواد) -->
+    <div id="examsPageView" class="sub-page-view glass-panel" style="padding: 24px;">
+      <div class="sub-page-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">بنك الأسئلة والامتحانات</h2>
+            <div class="info-guide-btn" onclick="openGuideModal('exams')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
+          </div>
+          <p style="font-size: 0.78rem; color: var(--text-dim);">اختبر نفسك في مواد موديولات السنة الأولى طب الزقازيق الأهلية</p>
+        </div>
+        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للجدول</button>
+      </div>
+
+      <div id="examsModulesContainer"></div>
+    </div>
+
+    <!-- 4. نافذة أداء الاختبار الفعلي (Quiz Screen) -->
+    <div id="quizEngineView" class="sub-page-view glass-panel" style="padding: 24px;">
+      <div class="sub-page-header">
+        <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> العودة لقائمة الامتحانات</button>
+        <span style="font-size: 0.82rem; color: var(--cyan-glow);" id="activeExamTitleBanner">اسم الامتحان</span>
+      </div>
+
+      <!-- نتيجة الاختبار -->
+      <div id="resultBox" class="glass-panel hidden" style="padding: 20px; margin-bottom: 20px; text-align: center;">
+        <h3 style="color: var(--emerald-glow); margin-bottom: 10px;">نتيجة الاختبار</h3>
+        <p style="font-size: 1.1rem; font-weight: 900;" id="scoreText">0 / 0</p>
+        <p style="font-size: 0.85rem; color: var(--text-dim);" id="percentText">0%</p>
+      </div>
+
+      <!-- مؤشر التنقل بين الأسئلة -->
+      <div id="navigatorBox" class="nav-scroll" style="margin-bottom: 16px;"></div>
+
+      <!-- عرض السؤال الحالي -->
+      <div id="quizBox" style="margin-bottom: 20px;"></div>
+
+      <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button class="btn-primary" onclick="prevQuestion()"><i class="fa-solid fa-arrow-right"></i> السابق</button>
+        <button id="submitExamBtn" class="btn-primary" style="background: var(--emerald-glow); color:#030712;" onclick="submitQuiz()">إنهاء وإرسال الامتحان ⚡</button>
+        <button class="btn-primary" onclick="nextQuestion()">التالي <i class="fa-solid fa-arrow-left"></i></button>
       </div>
     </div>
 
@@ -848,6 +905,9 @@
   <footer>
     تم التطوير بكل حب وشغف بواسطة <a href="https://www.instagram.com/amrelsayed_18?srtk=MTl5Y3d1MXUyNmhh&utm_source=qr" target="_blank" class="developer-credit">Dr. AMR eLSAYED</a> 🩺⚡
   </footer>
+
+  <!-- ملف الأسئلة المنفصل -->
+  <script src="exams-data.js"></script>
 
   <script>
     const studyWeeks = [
@@ -870,23 +930,10 @@
 
     const defaultTasks = [
       { id: 1, text: "Lipid Chemistry (مذاكرة نظري + حل أسئلة)", day: "السبت 17 أكتوبر", completed: false },
-      { id: 2, text: "Protein Chemistry (مذاكرة نظري + حل أسئلة)", day: "الأحد 18 أكتوبر", completed: false },
-      { id: 3, text: "Vitamins + Nucleoprotein Chemistry (مذاكرة نظري + حل أسئلة)", day: "الإثنين 19 أكتوبر", completed: false },
-      { id: 4, text: "Molecular Biology: Replication + DNA repair + Transcription (مذاكرة نظري + حل أسئلة)", day: "الثلاثاء 20 أكتوبر", completed: false },
-      { id: 5, text: "Physiology: Transport 1 & 2 (مذاكرة نظري + حل أسئلة)", day: "الأربعاء 21 أكتوبر", completed: false },
-      { id: 6, text: "Physiology: Hb & Erythropoiesis (مذاكرة نظري + حل أسئلة)", day: "الخميس 22 أكتوبر", completed: false },
-      { id: 7, text: "Physiology: Blood groups & transfusion (مذاكرة نظري + حل أسئلة)", day: "الجمعة 23 أكتوبر", completed: false },
-      { id: 8, text: "Histology: Cytogenetics (مذاكرة نظري + حل أسئلة)", day: "السبت 24 أكتوبر", completed: false },
-      { id: 9, text: "Histology: Epithelial tissue (مذاكرة نظري + حل أسئلة)", day: "الأحد 25 أكتوبر", completed: false },
-      { id: 10, text: "Histology: Connective tissue (مذاكرة نظري + حل أسئلة)", day: "الإثنين 26 أكتوبر", completed: false },
-      { id: 11, text: "Anatomy (All studied topics) - الجزء الأول (مذاكرة نظري + حل أسئلة)", day: "الثلاثاء 27 أكتوبر", completed: false },
-      { id: 12, text: "Anatomy (All studied topics) - الجزء الثاني (مذاكرة نظري + حل أسئلة)", day: "الأربعاء 28 أكتوبر", completed: false },
-      { id: 13, text: "مراجعة عامة وحل امتحان تجريبي (1) (حل شامل وتصحيح الأخطاء)", day: "الخميس 29 أكتوبر", completed: false },
-      { id: 14, text: "حل امتحان تجريبي (2) وتثبيت النقط الصعبة (حل شامل ومراجعة نهائية)", day: "الجمعة 30 أكتوبر", completed: false },
-      { id: 15, text: "مراجعة سريعة جداً للعينات والعناوين الرئيسية (قراءة خفيفة ونوم مبكر)", day: "السبت 31 أكتوبر", completed: false }
+      { id: 2, text: "Protein Chemistry (مذاكرة نظري + حل أسئلة)", day: "الأحد 18 أكتوبر", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v9')) || [
+    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v10')) || [
       { id: 'def_list', name: 'End module revision', items: defaultTasks }
     ];
     let currentActiveListId = userLists[0].id;
@@ -901,6 +948,11 @@
     let currentTab = 'schedule';
     let activeNextItem = null;
 
+    // محرك الاختبارات
+    let activeExam = null;
+    let currentQuestionIdx = 0;
+    let userExamAnswers = [];
+
     window.onload = async function() {
       autoDetectTimeAndWeek();
       renderWeeksNav();
@@ -913,6 +965,7 @@
         updateHeaderUI();
         renderMainContent();
       }
+      renderExamsPortal();
       setInterval(updateRealtimeClock, 1000);
     };
 
@@ -968,21 +1021,12 @@
       const titleEl = document.getElementById('guideModalTitle');
       const contentEl = document.getElementById('guideModalContent');
 
-      if (type === 'schedule') {
-        titleEl.innerText = "دليل استخدام الجدول الأسبوعي";
-        contentEl.innerHTML = `
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>1. التنقل بين الأسابيع:</strong> استخدم شريط الأسابيع بالأعلى للاطلاع على جدول كل أسبوع دراسي بوضوح.</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>2. فلترة الأيام:</strong> انقر على أي يوم (الأحد، الإثنين...) لعرض حصص وسكاشن مجموعتك الفرعية في ذلك اليوم فقط.</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>3. البحث الفوري:</strong> اكتب اسم المحاضر أو المادة في خانة البحث لتصل لبيانات المحاضرة في ثوانٍ.</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>4. Google Calendar:</strong> اضغط على زر الإضافة للتقويم لتنظيم مواعيدك الشخصية تلقائياً.</div>
-        `;
-      } else if (type === 'tasks') {
-        titleEl.innerText = "دليل استخدام TASK LIST";
-        contentEl.innerHTML = `
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>1. إضافة مهمة جديدة:</strong> اكتب عنوان المهمة، ثم اختر اليوم المخصص عبر القائمة المنسدلة بكل سهولة.</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>2. إنشاء قوائم متعددة:</strong> يمكنك فصل مواضيعك (مثل قائمة فسيولوجي وقائمة أناتومي) عبر زر "قائمة جديدة".</div>
-          <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;"><strong>3. تتبع الإنجاز:</strong> عند إتمام أي مهمة، وضع علامة صح وسيرتفع مؤشر التقدم لحظياً لدعم حماسك.</div>
-        `;
+      if (type === 'exams') {
+        titleEl.innerText = "دليل استخدام بنك الأسئلة";
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول والمادة ثم ابدأ الاختبار التدريبي لقياس مستواك وتثبيت معلوماتك فوراً.</div>`;
+      } else {
+        titleEl.innerText = "دليل الاستخدام";
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة.</div>`;
       }
       modal.style.display = 'flex';
     }
@@ -999,14 +1043,14 @@
         });
 
         if (response.ok) {
-          alert('تم إرسال رسالتك وملاحظتك بنجاح إلى المطور. شكراً لتواصلك! 🚀');
+          alert('تم إرسال رسالتك وملاحظتك بنجاح إلى المطور! 🚀');
           document.getElementById('feedbackText').value = '';
           document.getElementById('feedbackModal').style.display = 'none';
         } else {
-          alert('حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.');
+          alert('حدث خطأ أثناء الإرسال.');
         }
       } catch (e) {
-        alert('تعذر الاتصال بالخادم، تأكد من اتصال الإنترنت.');
+        alert('تعذر الاتصال بالخادم.');
       }
     }
 
@@ -1017,12 +1061,24 @@
 
     function switchToTasksView() {
       document.getElementById('mainDashboardView').style.display = 'none';
+      document.getElementById('examsPageView').style.display = 'none';
+      document.getElementById('quizEngineView').style.display = 'none';
       document.getElementById('tasksPageView').style.display = 'block';
       renderTaskListsView();
     }
 
+    function switchToExamsView() {
+      document.getElementById('mainDashboardView').style.display = 'none';
+      document.getElementById('tasksPageView').style.display = 'none';
+      document.getElementById('quizEngineView').style.display = 'none';
+      document.getElementById('examsPageView').style.display = 'block';
+      renderExamsPortal();
+    }
+
     function switchToDashboardView() {
       document.getElementById('tasksPageView').style.display = 'none';
+      document.getElementById('examsPageView').style.display = 'none';
+      document.getElementById('quizEngineView').style.display = 'none';
       document.getElementById('mainDashboardView').style.display = 'block';
       renderMainContent();
     }
@@ -1222,7 +1278,7 @@
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: tempSelectedDayVal, completed: false });
-        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v10', JSON.stringify(userLists));
         document.getElementById('newTaskTitleInput').value = '';
         renderTaskListsView();
       }
@@ -1232,7 +1288,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         const item = list.items.find(i => i.id === taskId);
-        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists)); renderTaskListsView(); }
+        if (item) { item.completed = !item.completed; localStorage.setItem('med_task_lists_v10', JSON.stringify(userLists)); renderTaskListsView(); }
       }
     }
 
@@ -1240,7 +1296,7 @@
       const list = userLists.find(l => l.id === listId);
       if (list) {
         list.items = list.items.filter(i => i.id !== taskId);
-        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v10', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1251,7 +1307,7 @@
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
         currentActiveListId = newList.id;
-        localStorage.setItem('med_task_lists_v9', JSON.stringify(userLists));
+        localStorage.setItem('med_task_lists_v10', JSON.stringify(userLists));
         renderTaskListsView();
       }
     }
@@ -1266,6 +1322,130 @@
       const pct = Math.round((done / list.items.length) * 100);
       document.getElementById('taskProgressBarFill').style.width = `${pct}%`;
       document.getElementById('taskProgressPct').innerText = `${pct}%`;
+    }
+
+    // منطق بنك الأسئلة والامتحانات
+    function renderExamsPortal() {
+      const container = document.getElementById('examsModulesContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (typeof ExamsModulesData === "undefined") {
+        container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">جاري تحميل ملف الأسئلة...</p>`;
+        return;
+      }
+
+      ExamsModulesData.forEach(module => {
+        const header = document.createElement('div');
+        header.className = 'exam-module-header';
+        header.innerText = module.moduleName;
+        container.appendChild(header);
+
+        const grid = document.createElement('div');
+        grid.className = 'exams-grid';
+
+        module.subjects.forEach(subject => {
+          const card = document.createElement('div');
+          card.className = 'exam-card';
+          card.innerHTML = `
+            <div>
+              <span class="subject-tag ${getSubjectClass(subject.subjectKey)}">${subject.subjectName}</span>
+              <h3 style="font-size:1rem; margin:10px 0 6px 0; color:#fff;">${subject.examTitle}</h3>
+              <p style="font-size:0.78rem; color:var(--text-dim);">عدد الأسئلة: ${subject.questions.length}</p>
+            </div>
+            <button class="btn-primary" style="margin-top:12px; padding:8px;" onclick="startExam('${subject.examId}')">بدء الاختبار ⚡</button>
+          `;
+          grid.appendChild(card);
+        });
+        container.appendChild(grid);
+      });
+    }
+
+    function startExam(examId) {
+      let found = null;
+      ExamsModulesData.forEach(m => {
+        m.subjects.forEach(s => {
+          if (s.examId === examId) found = s;
+        });
+      });
+      if (!found || found.questions.length === 0) {
+        alert('لا توجد أسئلة مضافة لهذا الاختبار حالياً!');
+        return;
+      }
+
+      activeExam = found;
+      currentQuestionIdx = 0;
+      userExamAnswers = new Array(activeExam.questions.length).fill(null);
+
+      document.getElementById('activeExamTitleBanner').innerText = activeExam.examTitle;
+      document.getElementById('examsPageView').style.display = 'none';
+      document.getElementById('quizEngineView').style.display = 'block';
+      document.getElementById('resultBox').classList.add('hidden');
+
+      renderQuizQuestion();
+      renderQuizNavigator();
+    }
+
+    function renderQuizNavigator() {
+      const nav = document.getElementById('navigatorBox');
+      nav.innerHTML = '';
+      activeExam.questions.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `nav-chip ${idx === currentQuestionIdx ? 'active' : ''}`;
+        btn.innerText = `سؤال ${idx + 1}`;
+        if (userExamAnswers[idx] !== null) btn.style.borderColor = 'var(--emerald-glow)';
+        btn.onclick = () => { currentQuestionIdx = idx; renderQuizQuestion(); renderQuizNavigator(); };
+        nav.appendChild(btn);
+      });
+    }
+
+    function renderQuizQuestion() {
+      const box = document.getElementById('quizBox');
+      const q = activeExam.questions[currentQuestionIdx];
+      let html = `<div style="font-size:0.95rem; font-weight:800; margin-bottom:14px; color:#fff;">السؤال ${currentQuestionIdx + 1}: ${q.question}</div>`;
+      
+      q.options.forEach((opt, oIdx) => {
+        let isSel = userExamAnswers[currentQuestionIdx] === oIdx ? 'background:rgba(6,182,212,0.2); border-color:var(--cyan-glow);' : 'background:rgba(0,0,0,0.3); border-color:var(--border-glow);';
+        html += `
+          <div onclick="selectExamOption(${oIdx})" style="${isSel} border:1px solid; padding:10px 14px; border-radius:12px; margin-bottom:8px; cursor:pointer; font-size:0.85rem; font-weight:700;">
+            ${String.fromCharCode(65 + oIdx)}. ${opt}
+          </div>
+        `;
+      });
+      box.innerHTML = html;
+    }
+
+    function selectExamOption(oIdx) {
+      userExamAnswers[currentQuestionIdx] = oIdx;
+      renderQuizQuestion();
+      renderQuizNavigator();
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIdx < activeExam.questions.length - 1) {
+        currentQuestionIdx++;
+        renderQuizQuestion();
+        renderQuizNavigator();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIdx > 0) {
+        currentQuestionIdx--;
+        renderQuizQuestion();
+        renderQuizNavigator();
+      }
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      activeExam.questions.forEach((q, idx) => {
+        if (userExamAnswers[idx] === q.answer) score++;
+      });
+      const pct = Math.round((score / activeExam.questions.length) * 100);
+      document.getElementById('scoreText').innerText = `${score} / ${activeExam.questions.length}`;
+      document.getElementById('percentText').innerText = `النسبة المئوية: ${pct}%`;
+      document.getElementById('resultBox').classList.remove('hidden');
     }
   </script>
 </body>
