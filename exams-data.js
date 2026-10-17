@@ -1,7 +1,3 @@
-/**
- * ZNU S1 Module - Comprehensive Lipid Biochemistry Master Exam Bank (160 Questions)
- * Formatted to match ExamsModulesData structure.
- */
 
 const LipidBiochemExam = {
     examId: "lipid_biochem_master",
@@ -449,6 +445,5 @@ const LipidBiochemExam = {
             answer: 1,
             rationale: "Mineralocorticoids such as aldosterone regulate water and mineral metabolism."
         }
-        // ... (يتضمن الكود المرفق كاملاً جميع الـ 160 سؤالاً بنفس الترتيب والتفاصيل الدقيقة لضمان تغطية البنك بالكامل في تطبيقك).
     ]
 };
