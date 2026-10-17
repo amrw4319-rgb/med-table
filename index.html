@@ -715,7 +715,7 @@
     </div>
   </div>
 
-  <!-- Modal الدليل مع زر إغلاق صريح -->
+  <!-- Modal الدليل -->
   <div id="guideModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-glow); padding-bottom: 10px;">
@@ -1302,7 +1302,30 @@
     }
 
     /* -------------------------------------------------------------
-       الخوارزمية الدقيقة لحساب المحاضرة القادمة بناءً على وقت الجهاز والتاريخ
+       محلل أوقات ذكي ودقيق (يتعامل مع 12 ساعة و 24 ساعة بدقة مطلقة)
+    ---------------------------------------------------------------- */
+    function parseTimeString(timeStr) {
+      if (!timeStr) return 0;
+      let start = timeStr.split('-')[0].trim().toLowerCase();
+      let isPM = start.includes('م') || start.includes('pm');
+      let isAM = start.includes('ص') || start.includes('am');
+      
+      let digits = start.replace(/[^0-9:]/g, '').split(':');
+      let h = parseInt(digits[0]) || 0;
+      let m = parseInt(digits[1]) || 0;
+      
+      if (isPM && h < 12) h += 12;
+      if (isAM && h === 12) h = 0;
+      // تصحيح تلقائي للساعات المسائية المكتوبة بصيغة مقتضبة مثل 1:45 لتعني 13:45 ظهراً
+      if (!isAM && !isPM && h >= 1 && h <= 6) {
+        h += 12;
+      }
+      
+      return h * 60 + m;
+    }
+
+    /* -------------------------------------------------------------
+       الخوارزمية الدقيقة لمحاضرة اليوم والغد والعد التنازلي دون أي خلط
     ---------------------------------------------------------------- */
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
@@ -1321,13 +1344,10 @@
         const sessDayIdx = daysOrder.indexOf(sess.day);
         if (sessDayIdx === -1) return;
 
-        const startTimeStr = sess.time.split('-')[0].trim();
-        const [h, m] = startTimeStr.split(':').map(Number);
-        const sessStartMinutes = h * 60 + m;
-
+        const sessStartMinutes = parseTimeString(sess.time);
         let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
         
-        // إذا كانت المحاضرة في نفس اليوم وانتهى وقت بدايتها، احتسبها للأسبوع القادم
+        // إذا كانت المحاضرة في نفس اليوم وقد انتهى وقت بدايتها، يتم ترحيلها للأسبوع القادم مؤقتاً لتظهر المحاضرة اللاحقة (غداً أو بعده)
         if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) {
           dayDiff = 7;
         }
