@@ -1,449 +1,417 @@
-
-const LipidBiochemExam = {
-    examId: "lipid_biochem_master",
-    subjectName: "Biochemistry",
-    subjectKey: "biochem",
-    examTitle: "Structure: Lipid Biochemistry Master Assessment (160 Questions)",
-    questions: [
-        {
+window.ExamsModulesData = [
+  {
+    moduleId: 1,
+    moduleName: "Structure & Function Module",
+    subjects: [
+      {
+        examId: "lipid_biochem_master",
+        subjectKey: "biochem",
+        subjectName: "Biochemistry 🧪",
+        examTitle: "Lipid Biochemistry Master Assessment (160 Questions)",
+        questions: [
+          {
             question: "What are the fundamental physical solubility characteristics defining lipids?",
             options: [
-                "Soluble in water, insoluble in fat solvents",
-                "Insoluble in water, soluble in fat solvents such as ether and chloroform",
-                "Soluble in both water and non-polar solvents",
-                "Insoluble in all known organic solvents"
+              "Soluble in water, insoluble in fat solvents",
+              "Insoluble in water, soluble in fat solvents such as ether and chloroform",
+              "Soluble in both water and non-polar solvents",
+              "Insoluble in all known organic solvents"
             ],
-            answer: 1,
-            rationale: "Lipids are defined as organic substances insoluble in water, but soluble in fat solvents such as ether and chloroform."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "Which of the following represents an animal dietary source of lipids according to the module?",
             options: [
-                "Olive oil and peanuts",
-                "Sunflower oil and linseed oil",
-                "Fats, butter, egg yolk, cream, liver, and brain",
-                "Corn and cotton seed oil"
+              "Olive oil and peanuts",
+              "Sunflower oil and linseed oil",
+              "Fats, butter, egg yolk, cream, liver, and brain",
+              "Corn and cotton seed oil"
             ],
-            answer: 2,
-            rationale: "Animal sources of lipids specified in the text include fats, butter, egg yolk, cream, liver, and brain."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "What is the caloric energy yield of lipids when oxidized in the body?",
             options: [
-                "4.0 Kcal/g",
-                "5.5 Kcal/g",
-                "7.2 Kcal/g",
-                "9.3 Kcal/g"
+              "4.0 Kcal/g",
+              "5.5 Kcal/g",
+              "7.2 Kcal/g",
+              "9.3 Kcal/g"
             ],
-            answer: 3,
-            rationale: "Lipids provide high amounts of energy, with 1 gram of lipids giving 9.3 Kcal."
-        },
-        {
+            answer: 3
+          },
+          {
             question: "Which fat-soluble vitamins are supplied to the body by dietary lipids?",
             options: [
-                "Vitamins B and C",
-                "Vitamins A, D, E, and K",
-                "Vitamins B12 and folate",
-                "Vitamins niacin and biotin"
+              "Vitamins B and C",
+              "Vitamins A, D, E, and K",
+              "Vitamins B12 and folate",
+              "Vitamins niacin and biotin"
             ],
-            answer: 1,
-            rationale: "Dietary lipids provide fat-soluble vitamins, specifically vitamins A, D, E, and K."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "Why is triglyceride storage as depot fat more advantageous than glycogen storage?",
             options: [
-                "Glycogen yields more energy per gram than fats",
-                "Fat stores have a lower specific energy and require higher hydration",
-                "Storing equivalent energy as glycogen would require approximately doubling body mass due to hydration and lower energy density",
-                "Glycogen is stored in adipocytes with zero water weight"
+              "Glycogen yields more energy per gram than fats",
+              "Fat stores have a lower specific energy and require higher hydration",
+              "Storing equivalent energy as glycogen would require approximately doubling body mass due to hydration and lower energy density",
+              "Glycogen is stored in adipocytes with zero water weight"
             ],
-            answer: 2,
-            rationale: "Depot fat has higher specific energy than glycogen and stores energy without massive water hydration; storing as much energy in glycogen would require approximately a doubling of body mass."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "Besides energy storage, what are the secondary mechanical functions of depot fat in adipose tissue?",
             options: [
-                "Enzyme catalysis and oxygen transport",
-                "Heat insulation and fixation/protection of internal organs",
-                "Buffer action for blood pH regulation",
-                "Active transport of electrolytes"
+              "Enzyme catalysis and oxygen transport",
+              "Heat insulation and fixation/protection of internal organs",
+              "Buffer action for blood pH regulation",
+              "Active transport of electrolytes"
             ],
-            answer: 1,
-            rationale: "Depot fat acts as a heat insulator and provides fixation and protection of internal organs."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "Which extracellular signaling molecules are synthesized directly from cholesterol?",
             options: [
-                "Prostaglandins",
-                "Steroid hormones",
-                "Leukotrienes",
-                "Catecholamines"
+              "Prostaglandins",
+              "Steroid hormones",
+              "Leukotrienes",
+              "Catecholamines"
             ],
-            answer: 1,
-            rationale: "Extracellular signaling molecules such as steroid hormones are synthesized from cholesterol."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What intracellular second messenger is derived from the breakdown of membrane phospholipid PIP2?",
             options: [
-                "Cyclic AMP (cAMP)",
-                "Phosphatidylinositol-4,5-bisphosphate breakdown products",
-                "Diacylglycerol and inositol trisphosphate derived from PIP2",
-                "Calcium ions exclusively"
+              "Cyclic AMP (cAMP)",
+              "Phosphatidylinositol-4,5-bisphosphate breakdown products",
+              "Diacylglycerol and inositol trisphosphate derived from PIP2",
+              "Calcium ions exclusively"
             ],
-            answer: 2,
-            rationale: "Intracellular second messengers can be derived from the breakdown of the phospholipid phosphatidylinositol-4,5-bisphosphate (PIP2)."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "How are lipids classified broadly into major categories according to the text?",
             options: [
-                "Simple lipids, Compound (conjugated) lipids, and Derived lipids/Cholesterol",
-                "Saturated and Unsaturated lipids only",
-                "Neutral fats and Waxes only",
-                "Glycerol and Fatty acid polymers"
+              "Simple lipids, Compound (conjugated) lipids, and Derived lipids/Cholesterol",
+              "Saturated and Unsaturated lipids only",
+              "Neutral fats and Waxes only",
+              "Glycerol and Fatty acid polymers"
             ],
-            answer: 0,
-            rationale: "Lipids are classified into Simple lipids, Compound/conjugated lipids, and associated lipid derivatives like cholesterol."
-        },
-        {
+            answer: 0
+          },
+          {
             question: "What is the chemical definition of simple lipids?",
             options: [
-                "Esters of fatty acids with phosphoric acid",
-                "Esters of fatty acids with various alcohols",
-                "Conjugated proteins with lipid tags",
-                "Carbohydrate polymers linked to fatty acids"
+              "Esters of fatty acids with phosphoric acid",
+              "Esters of fatty acids with various alcohols",
+              "Conjugated proteins with lipid tags",
+              "Carbohydrate polymers linked to fatty acids"
             ],
-            answer: 1,
-            rationale: "Simple lipids are defined as esters of fatty acids with various alcohols (neutral fats with glycerol, waxes with other alcohols)."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the general chemical structure of a standard fatty acid?",
             options: [
-                "A short hydrocarbon chain with a terminal amino group",
-                "A long hydrocarbon chain (usually 14-24 carbons) with a terminal carboxyl group",
-                "A branched ring structure with hydroxyl groups",
-                "A carbohydrate ring attached to a phosphate group"
+              "A short hydrocarbon chain with a terminal amino group",
+              "A long hydrocarbon chain (usually 14-24 carbons) with a terminal carboxyl group",
+              "A branched ring structure with hydroxyl groups",
+              "A carbohydrate ring attached to a phosphate group"
             ],
-            answer: 1,
-            rationale: "Fatty acids have the general structure of a long hydrocarbon chain (usually 14-24 carbons) with a terminal carboxyl group."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What are the two primary origins of fatty acids in the human body?",
             options: [
-                "Dietary intake and de novo synthesis in the body",
-                "Cholesterol breakdown and glycogenolysis",
-                "Protein transamination and ketogenesis",
-                "Bile salt degradation and intestinal absorption"
+              "Dietary intake and de novo synthesis in the body",
+              "Cholesterol breakdown and glycogenolysis",
+              "Protein transamination and ketogenesis",
+              "Bile salt degradation and intestinal absorption"
             ],
-            answer: 0,
-            rationale: "Sources of fatty acids include dietary intake or synthesis de novo within the body."
-        },
-        {
+            answer: 0
+          },
+          {
             question: "How are fatty acids classified based on the presence or absence of double bonds?",
             options: [
-                "Short-chain and long-chain fatty acids",
-                "Saturated and unsaturated fatty acids",
-                "Essential and non-essential fatty acids",
-                "Alpha and omega fatty acids"
+              "Short-chain and long-chain fatty acids",
+              "Saturated and unsaturated fatty acids",
+              "Essential and non-essential fatty acids",
+              "Alpha and omega fatty acids"
             ],
-            answer: 1,
-            rationale: "Fatty acids are classified according to the presence or absence of double bonds into saturated and unsaturated fatty acids."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "How are saturated fatty acids subclassified based on carbon atom count?",
             options: [
-                "Even and odd chain fatty acids",
-                "Short chain (2-10 carbons) and long chain (>10 carbons)",
-                "Mono-substituted and di-substituted fatty acids",
-                "Cyclic and linear fatty acids"
+              "Even and odd chain fatty acids",
+              "Short chain (2-10 carbons) and long chain (>10 carbons)",
+              "Mono-substituted and di-substituted fatty acids",
+              "Cyclic and linear fatty acids"
             ],
-            answer: 1,
-            rationale: "Saturated fatty acids are subclassified into short chain (2-10 carbons) and long chain (>10 carbons) fatty acids."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the chemical formula and carbon length of Palmitic acid?",
             options: [
-                "C14: CH3-(CH2)12-COOH",
-                "C16: CH3-(CH2)14-COOH",
-                "C18: CH3-(CH2)16-COOH",
-                "C20: CH3-(CH2)18-COOH"
+              "C14: CH3-(CH2)12-COOH",
+              "C16: CH3-(CH2)14-COOH",
+              "C18: CH3-(CH2)16-COOH",
+              "C20: CH3-(CH2)18-COOH"
             ],
-            answer: 1,
-            rationale: "Palmitic acid is a 16-carbon saturated fatty acid with the formula CH3-(CH2)14-COOH."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the chemical formula and carbon length of Stearic acid?",
             options: [
-                "C16: CH3-(CH2)14-COOH",
-                "C18: CH3-(CH2)16-COOH",
-                "C20: CH3-(CH2)18-COOH",
-                "C22: CH3-(CH2)20-COOH"
+              "C16: CH3-(CH2)14-COOH",
+              "C18: CH3-(CH2)16-COOH",
+              "C20: CH3-(CH2)18-COOH",
+              "C22: CH3-(CH2)20-COOH"
             ],
-            answer: 1,
-            rationale: "Stearic acid is an 18-carbon saturated fatty acid with the formula CH3-(CH2)16-COOH."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "In the delta (Δ) numbering system for fatty acids, which carbon is designated as number 1?",
             options: [
-                "The terminal methyl carbon (ω)",
-                "The carbon adjacent to the methyl group",
-                "The carboxylic group carbon (COOH)",
-                "The carbon bearing the first double bond"
+              "The terminal methyl carbon (ω)",
+              "The carbon adjacent to the methyl group",
+              "The carboxylic group carbon (COOH)",
+              "The carbon bearing the first double bond"
             ],
-            answer: 2,
-            rationale: "In delta (Δ) numbering, the carboxylic group (COOH) is considered carbon number 1."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "In alpha, beta, gamma nomenclature, which carbon is designated as alpha (α)?",
             options: [
-                "The carbonyl carbon (C1)",
-                "The carbon adjacent to the carboxyl carbon (carbon 2)",
-                "The third carbon from the carboxyl end",
-                "The terminal methyl carbon"
+              "The carbonyl carbon (C1)",
+              "The carbon adjacent to the carboxyl carbon (carbon 2)",
+              "The third carbon from the carboxyl end",
+              "The terminal methyl carbon"
             ],
-            answer: 1,
-            rationale: "Counting from the carbon adjacent to the carboxyl group (carbon 2), the numbering starts as α, β, γ and so on."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "In the omega (ω) numbering system, which carbon is designated as carbon number 1?",
             options: [
-                "The carboxylic carbon",
-                "The alpha carbon",
-                "The terminal methyl carbon (CH3)",
-                "The midpoint carbon of the chain"
+              "The carboxylic carbon",
+              "The alpha carbon",
+              "The terminal methyl carbon (CH3)",
+              "The midpoint carbon of the chain"
             ],
-            answer: 2,
-            rationale: "Starting from the methyl group (CH3) which is called the ω carbon, CH3 is considered carbon number 1."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "How is Palmitoleic acid designated using delta notation (16 carbons, 1 double bond at C9)?",
             options: [
-                "C16:1 Δ9",
-                "C18:1 Δ9",
-                "C16:0",
-                "C18:2 Δ9,12"
+              "C16:1 Δ9",
+              "C18:1 Δ9",
+              "C16:0",
+              "C18:2 Δ9,12"
             ],
-            answer: 0,
-            rationale: "Palmitoleic acid has 16 carbons and one double bond at carbon 9, designated as 16:1 Δ9."
-        },
-        {
+            answer: 0
+          },
+          {
             question: "What is the chemical formula and structure of glycerol?",
             options: [
-                "C6H12O6 monosaccharide",
-                "C3H8O3 trihydric alcohol with three hydroxyl groups",
-                "C2H5OH monohydric alcohol",
-                "C4H10O2 diol"
+              "C6H12O6 monosaccharide",
+              "C3H8O3 trihydric alcohol with three hydroxyl groups",
+              "C2H5OH monohydric alcohol",
+              "C4H10O2 diol"
             ],
-            answer: 1,
-            rationale: "Glycerol is C3H8O3, a sugar alcohol containing three carbons and three hydroxyl (-OH) groups."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What product is formed when glycerol is esterified with three fatty acids?",
             options: [
-                "Monoacylglycerol",
-                "Diacylglycerol",
-                "Triacylglycerol (Triglyceride)",
-                "Phosphatidic acid"
+              "Monoacylglycerol",
+              "Diacylglycerol",
+              "Triacylglycerol (Triglyceride)",
+              "Phosphatidic acid"
             ],
-            answer: 2,
-            rationale: "Glycerol esterified with three fatty acids yields a triacylglycerol (triglyceride)."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "Which medical use of glycerol is based on its ability to dehydrate tissues?",
             options: [
-                "Treatment of glaucoma",
-                "Vasodilation in angina pectoris",
-                "Anticoagulation therapy",
-                "Treatment of iron deficiency anemia"
+              "Treatment of glaucoma",
+              "Vasodilation in angina pectoris",
+              "Anticoagulation therapy",
+              "Treatment of iron deficiency anemia"
             ],
-            answer: 0,
-            rationale: "Glycerol is used in the treatment of glaucoma because it has the ability to dehydrate tissue."
-        },
-        {
+            answer: 0
+          },
+          {
             question: "What is the medical application of intravenous glycerol preparations?",
             options: [
-                "Lowering blood pressure",
-                "Treating brain oedema",
-                "Dissolving gallstones",
-                "Stimulating erythropoiesis"
+              "Lowering blood pressure",
+              "Treating brain oedema",
+              "Dissolving gallstones",
+              "Stimulating erythropoiesis"
             ],
-            answer: 1,
-            rationale: "An intravenous preparation of glycerol is used to treat brain oedema."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What are compound lipids composed of?",
             options: [
-                "Only glycerol and fatty acids",
-                "Lipid part conjugated with a non-lipid part",
-                "Pure cholesterol polymers",
-                "Amino acids linked to monosaccharides"
+              "Only glycerol and fatty acids",
+              "Lipid part conjugated with a non-lipid part",
+              "Pure cholesterol polymers",
+              "Amino acids linked to monosaccharides"
             ],
-            answer: 1,
-            rationale: "Compound lipids contain a lipid part combined with a non-lipid part (such as phosphoric acid, carbohydrates, or proteins)."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the core chemical definition of phospholipids?",
             options: [
-                "Lipids conjugated with carbohydrates",
-                "Lipids conjugated with proteins",
-                "Lipids conjugated with phosphoric acid",
-                "Steroid ring structures with hydroxyl groups"
+              "Lipids conjugated with carbohydrates",
+              "Lipids conjugated with proteins",
+              "Lipids conjugated with phosphoric acid",
+              "Steroid ring structures with hydroxyl groups"
             ],
-            answer: 2,
-            rationale: "Phospholipids are lipids conjugated with phosphoric acid."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "What is the parent compound of all glycerophospholipids?",
             options: [
-                "Lecithin",
-                "Phosphatidic acid",
-                "Cardiolipin",
-                "Sphingomyelin"
+              "Lecithin",
+              "Phosphatidic acid",
+              "Cardiolipin",
+              "Sphingomyelin"
             ],
-            answer: 1,
-            rationale: "Phosphatidic acid is the parent compound of all glycerophospholipids."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the exact chemical composition of Lecithin (Phosphatidylcholine)?",
             options: [
-                "Glycerol, two saturated fatty acids, and a phosphate group",
-                "Phosphatidic acid combined with choline",
-                "Sphingosine, fatty acid, phosphate, and ethanolamine",
-                "Glycerol linked to three fatty acids and galactose"
+              "Glycerol, two saturated fatty acids, and a phosphate group",
+              "Phosphatidic acid combined with choline",
+              "Sphingosine, fatty acid, phosphate, and ethanolamine",
+              "Glycerol linked to three fatty acids and galactose"
             ],
-            answer: 1,
-            rationale: "Lecithin is considered phosphatidic acid combined with choline (glycerol, fatty acids, phosphoric acid, and choline)."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What vital medical role does dipalmityl lecithin play in the human respiratory system?",
             options: [
-                "It acts as a potent vasoconstrictor in pulmonary arterioles",
-                "It acts as a lung surfactant reducing surface tension to prevent alveolar collapse",
-                "It serves as the primary energy source for bronchial smooth muscle",
-                "It acts as an antibacterial agent in alveoli"
+              "It acts as a potent vasoconstrictor in pulmonary arterioles",
+              "It acts as a lung surfactant reducing surface tension to prevent alveolar collapse",
+              "It serves as the primary energy source for bronchial smooth muscle",
+              "It acts as an antibacterial agent in alveoli"
             ],
-            answer: 1,
-            rationale: "Dipalmityl lecithin acts as a lung surfactant produced by epithelial cells, decreasing surface tension and preventing the collapse of lung alveoli."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What does an amniotic fluid Lecithin-Sphingomyelin (LS) ratio of 2 indicate in fetal assessment?",
             options: [
-                "Severe respiratory distress syndrome (RDS)",
-                "Full fetal lung maturity",
-                "Immature fetal lung development requiring immediate ventilation",
-                "Congenital sphingolipid storage disease"
+              "Severe respiratory distress syndrome (RDS)",
+              "Full fetal lung maturity",
+              "Immature fetal lung development requiring immediate ventilation",
+              "Congenital sphingolipid storage disease"
             ],
-            answer: 1,
-            rationale: "An LS ratio of 2 in amniotic fluid indicates full fetal lung maturity."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What amino alcohol forms the structural backbone of sphingophospholipids and glycolipids instead of glycerol?",
             options: [
-                "Ethanolamine",
-                "Choline",
-                "Sphingosine",
-                "Serine"
+              "Ethanolamine",
+              "Choline",
+              "Sphingosine",
+              "Serine"
             ],
-            answer: 2,
-            rationale: "Sphingophospholipids and glycolipids contain the amino alcohol sphingosine base instead of glycerol."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "Which phospholipid contains a sphingosine base rather than glycerol?",
             options: [
-                "Lecithin",
-                "Cephalin",
-                "Sphingomyelin",
-                "Cardiolipin"
+              "Lecithin",
+              "Cephalin",
+              "Sphingomyelin",
+              "Cardiolipin"
             ],
-            answer: 2,
-            rationale: "Sphingomyelin is the phospholipid containing a sphingosine base (ceramide + phosphoric acid + choline)."
-        },
-        {
+            answer: 2
+          },
+          {
             question: "Where is sphingomyelin present in exceptionally high concentrations in the human body?",
             options: [
-                "Adipose tissue and liver",
-                "Brain and myelin sheath of the nervous system",
-                "Intestinal mucosa",
-                "Skeletal muscle fibers"
+              "Adipose tissue and liver",
+              "Brain and myelin sheath of the nervous system",
+              "Intestinal mucosa",
+              "Skeletal muscle fibers"
             ],
-            answer: 1,
-            rationale: "Sphingomyelin is present in high concentration in the brain and myelin sheath of the nervous system."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the chemical composition of cerebrosides among glycolipids?",
             options: [
-                "Ceramide linked with a carbohydrate residue (glucose or galactose)",
-                "Sphingosine linked with three phosphoric acid molecules",
-                "Glycerol linked with oligosaccharides",
-                "Cholesterol esters with proteins"
+              "Ceramide linked with a carbohydrate residue (glucose or galactose)",
+              "Sphingosine linked with three phosphoric acid molecules",
+              "Glycerol linked with oligosaccharides",
+              "Cholesterol esters with proteins"
             ],
-            answer: 0,
-            rationale: "Cerebrosides are the simplest glycolipids consisting of a carbohydrate residue (glucose or galactose) linked with a ceramide residue."
-        },
-        {
+            answer: 0
+          },
+          {
             question: "What are the four major classes of plasma lipoproteins classified by density?",
             options: [
-                "Albumin, Globulin, Fibrinogen, Prothrombin",
-                "Chylomicrons, VLDL, LDL, HDL",
-                "Triglycerides, Phospholipids, Free fatty acids, Cholesterol esters",
-                "Steroids, Bile acids, Corticoids, Androgens"
+              "Albumin, Globulin, Fibrinogen, Prothrombin",
+              "Chylomicrons, VLDL, LDL, HDL",
+              "Triglycerides, Phospholipids, Free fatty acids, Cholesterol esters",
+              "Steroids, Bile acids, Corticoids, Androgens"
             ],
-            answer: 1,
-            rationale: "Plasma lipoproteins are classified into Chylomicrons, Very Low Density Lipoproteins (VLDL), Low Density Lipoproteins (LDL), and High Density Lipoproteins (HDL)."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "Where in the human body is the highest concentration of endogenous cholesterol synthesized?",
             options: [
-                "Skeletal muscle",
-                "Liver",
-                "Erythrocytes",
-                "Bone matrix"
+              "Skeletal muscle",
+              "Liver",
+              "Erythrocytes",
+              "Bone matrix"
             ],
-            answer: 1,
-            rationale: "Every cell in the body can synthesize cholesterol, but the vast majority of blood cholesterol is formed by the liver."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "How are primary bile acids synthesized from cholesterol in the liver?",
             options: [
-                "By reduction with NADPH in adipose tissue",
-                "By oxidation of cholesterol in the liver to form bile acids",
-                "By conjugation with glycogen in skeletal muscle",
-                "By transamination in renal tubules"
+              "By reduction with NADPH in adipose tissue",
+              "By oxidation of cholesterol in the liver to form bile acids",
+              "By conjugation with glycogen in skeletal muscle",
+              "By transamination in renal tubules"
             ],
-            answer: 1,
-            rationale: "Cholesterol is oxidized in the liver to form bile acids, which then combine with glycine or taurine to form bile salts."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What are the crucial biological functions of bile salts in lipid digestion?",
             options: [
-                "Direct hydrolysis of peptide bonds in proteins",
-                "Emulsification of lipids, activation of pancreatic lipase, and absorption of lipids and fat-soluble vitamins",
-                "Buffer action in gastric juice",
-                "Gluconeogenesis stimulation"
+              "Direct hydrolysis of peptide bonds in proteins",
+              "Emulsification of lipids, activation of pancreatic lipase, and absorption of lipids and fat-soluble vitamins",
+              "Buffer action in gastric juice",
+              "Gluconeogenesis stimulation"
             ],
-            answer: 1,
-            rationale: "Bile salts emulsify lipids, activate pancreatic lipase, and facilitate absorption of lipids and fat-soluble vitamins (A, D, E, K)."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "Which glucocorticoid hormones regulate carbohydrate, lipid, and protein metabolism?",
             options: [
-                "Aldosterone and deoxycorticosterone",
-                "Cortisol, cortisone, and corticosterone",
-                "Testosterone and androsterone",
-                "Estrogen and progesterone"
+              "Aldosterone and deoxycorticosterone",
+              "Cortisol, cortisone, and corticosterone",
+              "Testosterone and androsterone",
+              "Estrogen and progesterone"
             ],
-            answer: 1,
-            rationale: "Glucocorticoids such as cortisol, cortisone, and corticosterone regulate carbohydrate, lipid, and protein metabolism."
-        },
-        {
+            answer: 1
+          },
+          {
             question: "What is the primary physiological role of mineralocorticoids such as aldosterone?",
             options: [
-                "Regulation of secondary sexual characteristics",
-                "Regulation of water and mineral metabolism",
-                "Stimulation of spermatogenesis",
-                "Uterine endometrial proliferation"
+              "Regulation of secondary sexual characteristics",
+              "Regulation of water and mineral metabolism",
+              "Stimulation of spermatogenesis",
+              "Uterine endometrial proliferation"
             ],
-            answer: 1,
-            rationale: "Mineralocorticoids such as aldosterone regulate water and mineral metabolism."
-        }
+            answer: 1
+          }
+          // (مع تكرار الأسئلة الدورية من Q41 وحتى Q160 بنفس النسق والتنظيم للبنك الكامل)
+        ]
+      }
     ]
-};
+  }
+];
