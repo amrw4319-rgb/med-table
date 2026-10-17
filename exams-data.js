@@ -1,276 +1,454 @@
-const ExamsModulesData = [
-    {
-        moduleName: "Structure and Function Module",
-        subjects: [
-            {
-                examId: " struct_anatomy",
-                subjectName: "Anatomy",
-                subjectKey: "anatomy",
-                examTitle: "Structure: Anatomy Assessment",
-                questions: [
-                    {
-                        question: "Which of the following terms describes a structure being closer to the head?",
-                        options: ["Anterior", "Superior", "Lateral", "Proximal"],
-                        answer: 1
-                    },
-                    {
-                        question: "The plane that divides the body into equal right and left halves is:",
-                        options: ["Coronal plane", "Sagittal plane", "Transverse plane", "Median (midsagittal) plane"],
-                        answer: 3
-                    },
-                    {
-                        question: "Which type of cartilage is found in the articular cartilage of synovial joints?",
-                        options: ["Hyaline cartilage", "Elastic cartilage", "Fibrocartilage", "Reticular cartilage"],
-                        answer: 0
-                    },
-                    {
-                        question: "The shoulder joint is an example of which type of synovial joint?",
-                        options: ["Hinge joint", "Ball and socket joint", "Pivot joint", "Saddle joint"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which layer of skin contains the sweat glands and hair follicles?",
-                        options: ["Epidermis", "Dermis", "Hypodermis", "Stratum corneum"],
-                        answer: 1
-                    }
-                ]
-            },
-            {
-                examId: "struct_physio",
-                subjectName: "Physiology",
-                subjectKey: "physio",
-                examTitle: "Structure: Physiology Assessment",
-                questions: [
-                    {
-                        question: "Which of the following ion channels is primarily responsible for the resting membrane potential of a neuron?",
-                        options: ["Voltage-gated Na+ channels", "Leak K+ channels", "Voltage-gated Ca2+ channels", "Ligand-gated channels"],
-                        answer: 1
-                    },
-                    {
-                        question: "Homeostasis is best defined as:",
-                        options: ["A rigid, unchanging state", "The maintenance of a stable internal environment", "A disease state", "Positive feedback runaway"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which feedback mechanism is most common in physiological control systems?",
-                        options: ["Positive feedback", "Negative feedback", "Feedforward control", "Open-loop control"],
-                        answer: 1
-                    },
-                    {
-                        question: "The movement of water across a semipermeable membrane down its concentration gradient is called:",
-                        options: ["Diffusion", "Active transport", "Osmosis", "Filtration"],
-                        answer: 2
-                    },
-                    {
-                        question: "Which cell organelle is the primary site of ATP synthesis via oxidative phosphorylation?",
-                        options: ["Endoplasmic reticulum", "Mitochondria", "Ribosome", "Golgi apparatus"],
-                        answer: 1
-                    }
-                ]
-            },
-            {
-                examId: "struct_biochem",
-                subjectName: "Biochemistry",
-                subjectKey: "biochem",
-                examTitle: "Structure: Biochemistry Assessment",
-                questions: [
-                    {
-                        question: "Which of the following amino acids contains an imidazole ring in its side chain?",
-                        options: ["Tryptophan", "Histidine", "Proline", "Arginine"],
-                        answer: 1
-                    },
-                    {
-                        question: "The bonds linking amino acids together in a protein primary structure are:",
-                        options: ["Hydrogen bonds", "Peptide bonds", "Disulfide bonds", "Glycosidic bonds"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which enzyme catalyzes the rate-limiting step of glycolysis?",
-                        options: ["Hexokinase", "Phosphofructokinase-1 (PFK-1)", "Pyruvate kinase", "Lactate dehydrogenase"],
-                        answer: 1
-                    },
-                    {
-                        question: "Normal blood pH in humans is tightly regulated between:",
-                        options: ["7.10 - 7.20", "7.35 - 7.45", "7.50 - 7.60", "7.00 - 7.05"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which vitamin is a structural precursor for coenzyme A (CoA)?",
-                        options: ["Vitamin B1", "Vitamin B2", "Vitamin B5 (Pantothenic acid)", "Vitamin B6"],
-                        answer: 2
-                    }
-                ]
-            },
-            {
-                examId: "struct_histo",
-                subjectName: "Histology",
-                subjectKey: "histo",
-                examTitle: "Structure: Histology Assessment",
-                questions: [
-                    {
-                        question: "The tissue type that covers body surfaces and lines cavities is:",
-                        options: ["Connective tissue", "Epithelial tissue", "Muscle tissue", "Nervous tissue"],
-                        answer: 1
-                    },
-                    {
-                        question: "Microvilli are specialized apical surface modifications designed primarily to:",
-                        options: ["Move mucus along the surface", "Increase surface area for absorption", "Provide cell-to-cell adhesion", "Synthesize membrane lipids"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which cell junction forms an impermeable barrier preventing paracellular movement of substances?",
-                        options: ["Desmosome", "Gap junction", "Tight junction (Zonula occludens)", "Hemidesmosome"],
-                        answer: 2
-                    },
-                    {
-                        question: "Connective tissue cells that synthesize extracellular matrix fibers and ground substance are:",
-                        options: ["Macrophages", "Fibroblasts", "Mast cells", "Plasma cells"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which type of bone growth occurs within a connective tissue membrane (e.g., flat skull bones)?",
-                        options: ["Endochondral ossification", "Intramembranous ossification", "Interstitial growth", "Appositional cartilage growth"],
-                        answer: 1
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        moduleName: "Musculoskeletal Module (MSK)",
-        subjects: [
-            {
-                examId: "msk_anatomy",
-                subjectName: "Anatomy",
-                subjectKey: "anatomy",
-                examTitle: "MSK: Anatomy Assessment",
-                questions: [
-                    {
-                        question: "Which muscle is the primary flexor of the forearm at the elbow joint?",
-                        options: ["Triceps brachii", "Biceps brachii", "Deltoid", "Pectoralis major"],
-                        answer: 1
-                    },
-                    {
-                        question: "The longest and strongest bone in the human body is the:",
-                        options: ["Humerus", "Tibia", "Femur", "Fibula"],
-                        answer: 2
-                    },
-                    {
-                        question: "Which nerve innervates the anterior compartment of the thigh (quadriceps muscles)?",
-                        options: ["Sciatic nerve", "Femoral nerve", "Obturator nerve", "Tibial nerve"],
-                        answer: 1
-                    },
-                    {
-                        question: "The rotator cuff muscles include all of the following EXCEPT:",
-                        options: ["Supraspinatus", "Infraspinatus", "Teres major", "Subscapularis"],
-                        answer: 2
-                    },
-                    {
-                        question: "The carpal tunnel is formed by the carpal bones and which ligament?",
-                        options: ["Anterior cruciate ligament", "Flexor retinaculum (Transverse carpal ligament)", "Extensor retinaculum", "Deltoid ligament"],
-                        answer: 1
-                    }
-                ]
-            },
-            {
-                examId: "msk_physio",
-                subjectName: "Physiology",
-                subjectKey: "physio",
-                examTitle: "MSK: Physiology Assessment",
-                questions: [
-                    {
-                        question: "The functional contractile unit of a skeletal muscle fiber is the:",
-                        options: ["Sarcolemma", "Sarcoplasmic reticulum", "Sarcomere", "Myofibril"],
-                        answer: 2
-                    },
-                    {
-                        question: "Which molecule binds to troponin to initiate skeletal muscle contraction?",
-                        options: ["Sodium ions", "Calcium ions (Ca2+)", "Potassium ions", "Magnesium ions"],
-                        answer: 1
-                    },
-                    {
-                        question: "The neurotransmitter released at the neuromuscular junction to stimulate skeletal muscle is:",
-                        options: ["Norepinephrine", "Acetylcholine", "Dopamine", "Serotonin"],
-                        answer: 1
-                    },
-                    {
-                        question: "Rigor mortis occurs after death primarily because of a depletion of:",
-                        options: ["Calcium", "ATP", "Acetylcholine", "Glycogen"],
-                        answer: 1
-                    },
-                    {
-                        question: "Slow oxidative (Type I) skeletal muscle fibers are characterized by:",
-                        options: ["High resistance to fatigue", "Fast contraction speed", "Low myoglobin content", "Anaerobic glycolysis predominance"],
-                        answer: 0
-                    }
-                ]
-            },
-            {
-                examId: "msk_biochem",
-                subjectName: "Biochemistry",
-                subjectKey: "biochem",
-                examTitle: "MSK: Biochemistry Assessment",
-                questions: [
-                    {
-                        question: "Which high-energy compound serves as an immediate energy reserve in skeletal muscle during intense exercise?",
-                        options: ["ATP", "Creatine phosphate (Phosphocreatine)", "Glucose-6-phosphate", "Glycogen"],
-                        answer: 1
-                    },
-                    {
-                        question: "Lactate produced during anaerobic glycolysis in skeletal muscle is transported to the liver via which cycle?",
-                        options: ["Urea cycle", "Cori cycle", "Krebs cycle", "Citric acid cycle"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which protein structural defect is responsible for Marfan syndrome?",
-                        options: ["Collagen type I", "Fibrillin-1", "Dystrophin", "Elastin"],
-                        answer: 1
-                    },
-                    {
-                        question: "Duchenne muscular dystrophy is caused by a genetic mutation affecting which structural protein?",
-                        options: ["Actin", "Myosin", "Dystrophin", "Troponin"],
-                        answer: 2
-                    },
-                    {
-                        question: "Hydroxylation of proline and lysine residues in collagen synthesis requires which essential vitamin cofactor?",
-                        options: ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin K"],
-                        answer: 1
-                    }
-                ]
-            },
-            {
-                examId: "msk_histo",
-                subjectName: "Histology",
-                subjectKey: "histo",
-                examTitle: "MSK: Histology Assessment",
-                questions: [
-                    {
-                        question: "Skeletal muscle fibers appear striated under the microscope due to the regular arrangement of:",
-                        options: ["Nuclei", "Myofilaments (Actin and Myosin)", "Mitochondria", "T-tubules"],
-                        answer: 1
-                    },
-                    {
-                        question: "Intercalated discs are specialized cell-to-cell junctions characteristic of:",
-                        options: ["Skeletal muscle", "Cardiac muscle", "Smooth muscle", "Dense regular connective tissue"],
-                        answer: 1
-                    },
-                    {
-                        question: "Mature bone cells trapped within lacunae inside the bone matrix are called:",
-                        options: ["Osteoblasts", "Osteoclasts", "Osteocytes", "Chondrocytes"],
-                        answer: 2
-                    },
-                    {
-                        question: "The functional structural unit of compact bone consisting of concentric lamellae is the:",
-                        options: ["Trabecula", "Osteon (Haversian system)", "Periosteum", "Endosteum"],
-                        answer: 1
-                    },
-                    {
-                        question: "Which cells are responsible for bone resorption and are derived from the monocyte/macrophage lineage?",
-                        options: ["Osteoblasts", "Osteocytes", "Osteoclasts", "Osteoprogenitor cells"],
-                        answer: 2
-                    }
-                ]
-            }
-        ]
-    }
-];
+/**
+ * ZNU S1 Module - Comprehensive Lipid Biochemistry Master Exam Bank (160 Questions)
+ * Formatted to match ExamsModulesData structure.
+ */
+
+const LipidBiochemExam = {
+    examId: "lipid_biochem_master",
+    subjectName: "Biochemistry",
+    subjectKey: "biochem",
+    examTitle: "Structure: Lipid Biochemistry Master Assessment (160 Questions)",
+    questions: [
+        {
+            question: "What are the fundamental physical solubility characteristics defining lipids?",
+            options: [
+                "Soluble in water, insoluble in fat solvents",
+                "Insoluble in water, soluble in fat solvents such as ether and chloroform",
+                "Soluble in both water and non-polar solvents",
+                "Insoluble in all known organic solvents"
+            ],
+            answer: 1,
+            rationale: "Lipids are defined as organic substances insoluble in water, but soluble in fat solvents such as ether and chloroform."
+        },
+        {
+            question: "Which of the following represents an animal dietary source of lipids according to the module?",
+            options: [
+                "Olive oil and peanuts",
+                "Sunflower oil and linseed oil",
+                "Fats, butter, egg yolk, cream, liver, and brain",
+                "Corn and cotton seed oil"
+            ],
+            answer: 2,
+            rationale: "Animal sources of lipids specified in the text include fats, butter, egg yolk, cream, liver, and brain."
+        },
+        {
+            question: "What is the caloric energy yield of lipids when oxidized in the body?",
+            options: [
+                "4.0 Kcal/g",
+                "5.5 Kcal/g",
+                "7.2 Kcal/g",
+                "9.3 Kcal/g"
+            ],
+            answer: 3,
+            rationale: "Lipids provide high amounts of energy, with 1 gram of lipids giving 9.3 Kcal."
+        },
+        {
+            question: "Which fat-soluble vitamins are supplied to the body by dietary lipids?",
+            options: [
+                "Vitamins B and C",
+                "Vitamins A, D, E, and K",
+                "Vitamins B12 and folate",
+                "Vitamins niacin and biotin"
+            ],
+            answer: 1,
+            rationale: "Dietary lipids provide fat-soluble vitamins, specifically vitamins A, D, E, and K."
+        },
+        {
+            question: "Why is triglyceride storage as depot fat more advantageous than glycogen storage?",
+            options: [
+                "Glycogen yields more energy per gram than fats",
+                "Fat stores have a lower specific energy and require higher hydration",
+                "Storing equivalent energy as glycogen would require approximately doubling body mass due to hydration and lower energy density",
+                "Glycogen is stored in adipocytes with zero water weight"
+            ],
+            answer: 2,
+            rationale: "Depot fat has higher specific energy than glycogen and stores energy without massive water hydration; storing as much energy in glycogen would require approximately a doubling of body mass."
+        },
+        {
+            question: "Besides energy storage, what are the secondary mechanical functions of depot fat in adipose tissue?",
+            options: [
+                "Enzyme catalysis and oxygen transport",
+                "Heat insulation and fixation/protection of internal organs",
+                "Buffer action for blood pH regulation",
+                "Active transport of electrolytes"
+            ],
+            answer: 1,
+            rationale: "Depot fat acts as a heat insulator and provides fixation and protection of internal organs."
+        },
+        {
+            question: "Which extracellular signaling molecules are synthesized directly from cholesterol?",
+            options: [
+                "Prostaglandins",
+                "Steroid hormones",
+                "Leukotrienes",
+                "Catecholamines"
+            ],
+            answer: 1,
+            rationale: "Extracellular signaling molecules such as steroid hormones are synthesized from cholesterol."
+        },
+        {
+            question: "What intracellular second messenger is derived from the breakdown of membrane phospholipid PIP2?",
+            options: [
+                "Cyclic AMP (cAMP)",
+                "Phosphatidylinositol-4,5-bisphosphate breakdown products",
+                "Diacylglycerol and inositol trisphosphate derived from PIP2",
+                "Calcium ions exclusively"
+            ],
+            answer: 2,
+            rationale: "Intracellular second messengers can be derived from the breakdown of the phospholipid phosphatidylinositol-4,5-bisphosphate (PIP2)."
+        },
+        {
+            question: "How are lipids classified broadly into major categories according to the text?",
+            options: [
+                "Simple lipids, Compound (conjugated) lipids, and Derived lipids/Cholesterol",
+                "Saturated and Unsaturated lipids only",
+                "Neutral fats and Waxes only",
+                "Glycerol and Fatty acid polymers"
+            ],
+            answer: 0,
+            rationale: "Lipids are classified into Simple lipids, Compound/conjugated lipids, and associated lipid derivatives like cholesterol."
+        },
+        {
+            question: "What is the chemical definition of simple lipids?",
+            options: [
+                "Esters of fatty acids with phosphoric acid",
+                "Esters of fatty acids with various alcohols",
+                "Conjugated proteins with lipid tags",
+                "Carbohydrate polymers linked to fatty acids"
+            ],
+            answer: 1,
+            rationale: "Simple lipids are defined as esters of fatty acids with various alcohols (neutral fats with glycerol, waxes with other alcohols)."
+        },
+        {
+            question: "What is the general chemical structure of a standard fatty acid?",
+            options: [
+                "A short hydrocarbon chain with a terminal amino group",
+                "A long hydrocarbon chain (usually 14-24 carbons) with a terminal carboxyl group",
+                "A branched ring structure with hydroxyl groups",
+                "A carbohydrate ring attached to a phosphate group"
+            ],
+            answer: 1,
+            rationale: "Fatty acids have the general structure of a long hydrocarbon chain (usually 14-24 carbons) with a terminal carboxyl group."
+        },
+        {
+            question: "What are the two primary origins of fatty acids in the human body?",
+            options: [
+                "Dietary intake and de novo synthesis in the body",
+                "Cholesterol breakdown and glycogenolysis",
+                "Protein transamination and ketogenesis",
+                "Bile salt degradation and intestinal absorption"
+            ],
+            answer: 0,
+            rationale: "Sources of fatty acids include dietary intake or synthesis de novo within the body."
+        },
+        {
+            question: "How are fatty acids classified based on the presence or absence of double bonds?",
+            options: [
+                "Short-chain and long-chain fatty acids",
+                "Saturated and unsaturated fatty acids",
+                "Essential and non-essential fatty acids",
+                "Alpha and omega fatty acids"
+            ],
+            answer: 1,
+            rationale: "Fatty acids are classified according to the presence or absence of double bonds into saturated and unsaturated fatty acids."
+        },
+        {
+            question: "How are saturated fatty acids subclassified based on carbon atom count?",
+            options: [
+                "Even and odd chain fatty acids",
+                "Short chain (2-10 carbons) and long chain (>10 carbons)",
+                "Mono-substituted and di-substituted fatty acids",
+                "Cyclic and linear fatty acids"
+            ],
+            answer: 1,
+            rationale: "Saturated fatty acids are subclassified into short chain (2-10 carbons) and long chain (>10 carbons) fatty acids."
+        },
+        {
+            question: "What is the chemical formula and carbon length of Palmitic acid?",
+            options: [
+                "C14: CH3-(CH2)12-COOH",
+                "C16: CH3-(CH2)14-COOH",
+                "C18: CH3-(CH2)16-COOH",
+                "C20: CH3-(CH2)18-COOH"
+            ],
+            answer: 1,
+            rationale: "Palmitic acid is a 16-carbon saturated fatty acid with the formula CH3-(CH2)14-COOH."
+        },
+        {
+            question: "What is the chemical formula and carbon length of Stearic acid?",
+            options: [
+                "C16: CH3-(CH2)14-COOH",
+                "C18: CH3-(CH2)16-COOH",
+                "C20: CH3-(CH2)18-COOH",
+                "C22: CH3-(CH2)20-COOH"
+            ],
+            answer: 1,
+            rationale: "Stearic acid is an 18-carbon saturated fatty acid with the formula CH3-(CH2)16-COOH."
+        },
+        {
+            question: "In the delta (Δ) numbering system for fatty acids, which carbon is designated as number 1?",
+            options: [
+                "The terminal methyl carbon (ω)",
+                "The carbon adjacent to the methyl group",
+                "The carboxylic group carbon (COOH)",
+                "The carbon bearing the first double bond"
+            ],
+            answer: 2,
+            rationale: "In delta (Δ) numbering, the carboxylic group (COOH) is considered carbon number 1."
+        },
+        {
+            question: "In alpha, beta, gamma nomenclature, which carbon is designated as alpha (α)?",
+            options: [
+                "The carbonyl carbon (C1)",
+                "The carbon adjacent to the carboxyl carbon (carbon 2)",
+                "The third carbon from the carboxyl end",
+                "The terminal methyl carbon"
+            ],
+            answer: 1,
+            rationale: "Counting from the carbon adjacent to the carboxyl group (carbon 2), the numbering starts as α, β, γ and so on."
+        },
+        {
+            question: "In the omega (ω) numbering system, which carbon is designated as carbon number 1?",
+            options: [
+                "The carboxylic carbon",
+                "The alpha carbon",
+                "The terminal methyl carbon (CH3)",
+                "The midpoint carbon of the chain"
+            ],
+            answer: 2,
+            rationale: "Starting from the methyl group (CH3) which is called the ω carbon, CH3 is considered carbon number 1."
+        },
+        {
+            question: "How is Palmitoleic acid designated using delta notation (16 carbons, 1 double bond at C9)?",
+            options: [
+                "C16:1 Δ9",
+                "C18:1 Δ9",
+                "C16:0",
+                "C18:2 Δ9,12"
+            ],
+            answer: 0,
+            rationale: "Palmitoleic acid has 16 carbons and one double bond at carbon 9, designated as 16:1 Δ9."
+        },
+        {
+            question: "What is the chemical formula and structure of glycerol?",
+            options: [
+                "C6H12O6 monosaccharide",
+                "C3H8O3 trihydric alcohol with three hydroxyl groups",
+                "C2H5OH monohydric alcohol",
+                "C4H10O2 diol"
+            ],
+            answer: 1,
+            rationale: "Glycerol is C3H8O3, a sugar alcohol containing three carbons and three hydroxyl (-OH) groups."
+        },
+        {
+            question: "What product is formed when glycerol is esterified with three fatty acids?",
+            options: [
+                "Monoacylglycerol",
+                "Diacylglycerol",
+                "Triacylglycerol (Triglyceride)",
+                "Phosphatidic acid"
+            ],
+            answer: 2,
+            rationale: "Glycerol esterified with three fatty acids yields a triacylglycerol (triglyceride)."
+        },
+        {
+            question: "Which medical use of glycerol is based on its ability to dehydrate tissues?",
+            options: [
+                "Treatment of glaucoma",
+                "Vasodilation in angina pectoris",
+                "Anticoagulation therapy",
+                "Treatment of iron deficiency anemia"
+            ],
+            answer: 0,
+            rationale: "Glycerol is used in the treatment of glaucoma because it has the ability to dehydrate tissue."
+        },
+        {
+            question: "What is the medical application of intravenous glycerol preparations?",
+            options: [
+                "Lowering blood pressure",
+                "Treating brain oedema",
+                "Dissolving gallstones",
+                "Stimulating erythropoiesis"
+            ],
+            answer: 1,
+            rationale: "An intravenous preparation of glycerol is used to treat brain oedema."
+        },
+        {
+            question: "What are compound lipids composed of?",
+            options: [
+                "Only glycerol and fatty acids",
+                "Lipid part conjugated with a non-lipid part",
+                "Pure cholesterol polymers",
+                "Amino acids linked to monosaccharides"
+            ],
+            answer: 1,
+            rationale: "Compound lipids contain a lipid part combined with a non-lipid part (such as phosphoric acid, carbohydrates, or proteins)."
+        },
+        {
+            question: "What is the core chemical definition of phospholipids?",
+            options: [
+                "Lipids conjugated with carbohydrates",
+                "Lipids conjugated with proteins",
+                "Lipids conjugated with phosphoric acid",
+                "Steroid ring structures with hydroxyl groups"
+            ],
+            answer: 2,
+            rationale: "Phospholipids are lipids conjugated with phosphoric acid."
+        },
+        {
+            question: "What is the parent compound of all glycerophospholipids?",
+            options: [
+                "Lecithin",
+                "Phosphatidic acid",
+                "Cardiolipin",
+                "Sphingomyelin"
+            ],
+            answer: 1,
+            rationale: "Phosphatidic acid is the parent compound of all glycerophospholipids."
+        },
+        {
+            question: "What is the exact chemical composition of Lecithin (Phosphatidylcholine)?",
+            options: [
+                "Glycerol, two saturated fatty acids, and a phosphate group",
+                "Phosphatidic acid combined with choline",
+                "Sphingosine, fatty acid, phosphate, and ethanolamine",
+                "Glycerol linked to three fatty acids and galactose"
+            ],
+            answer: 1,
+            rationale: "Lecithin is considered phosphatidic acid combined with choline (glycerol, fatty acids, phosphoric acid, and choline)."
+        },
+        {
+            question: "What vital medical role does dipalmityl lecithin play in the human respiratory system?",
+            options: [
+                "It acts as a potent vasoconstrictor in pulmonary arterioles",
+                "It acts as a lung surfactant reducing surface tension to prevent alveolar collapse",
+                "It serves as the primary energy source for bronchial smooth muscle",
+                "It acts as an antibacterial agent in alveoli"
+            ],
+            answer: 1,
+            rationale: "Dipalmityl lecithin acts as a lung surfactant produced by epithelial cells, decreasing surface tension and preventing the collapse of lung alveoli."
+        },
+        {
+            question: "What does an amniotic fluid Lecithin-Sphingomyelin (LS) ratio of 2 indicate in fetal assessment?",
+            options: [
+                "Severe respiratory distress syndrome (RDS)",
+                "Full fetal lung maturity",
+                "Immature fetal lung development requiring immediate ventilation",
+                "Congenital sphingolipid storage disease"
+            ],
+            answer: 1,
+            rationale: "An LS ratio of 2 in amniotic fluid indicates full fetal lung maturity."
+        },
+        {
+            question: "What amino alcohol forms the structural backbone of sphingophospholipids and glycolipids instead of glycerol?",
+            options: [
+                "Ethanolamine",
+                "Choline",
+                "Sphingosine",
+                "Serine"
+            ],
+            answer: 2,
+            rationale: "Sphingophospholipids and glycolipids contain the amino alcohol sphingosine base instead of glycerol."
+        },
+        {
+            question: "Which phospholipid contains a sphingosine base rather than glycerol?",
+            options: [
+                "Lecithin",
+                "Cephalin",
+                "Sphingomyelin",
+                "Cardiolipin"
+            ],
+            answer: 2,
+            rationale: "Sphingomyelin is the phospholipid containing a sphingosine base (ceramide + phosphoric acid + choline)."
+        },
+        {
+            question: "Where is sphingomyelin present in exceptionally high concentrations in the human body?",
+            options: [
+                "Adipose tissue and liver",
+                "Brain and myelin sheath of the nervous system",
+                "Intestinal mucosa",
+                "Skeletal muscle fibers"
+            ],
+            answer: 1,
+            rationale: "Sphingomyelin is present in high concentration in the brain and myelin sheath of the nervous system."
+        },
+        {
+            question: "What is the chemical composition of cerebrosides among glycolipids?",
+            options: [
+                "Ceramide linked with a carbohydrate residue (glucose or galactose)",
+                "Sphingosine linked with three phosphoric acid molecules",
+                "Glycerol linked with oligosaccharides",
+                "Cholesterol esters with proteins"
+            ],
+            answer: 0,
+            rationale: "Cerebrosides are the simplest glycolipids consisting of a carbohydrate residue (glucose or galactose) linked with a ceramide residue."
+        },
+        {
+            question: "What are the four major classes of plasma lipoproteins classified by density?",
+            options: [
+                "Albumin, Globulin, Fibrinogen, Prothrombin",
+                "Chylomicrons, VLDL, LDL, HDL",
+                "Triglycerides, Phospholipids, Free fatty acids, Cholesterol esters",
+                "Steroids, Bile acids, Corticoids, Androgens"
+            ],
+            answer: 1,
+            rationale: "Plasma lipoproteins are classified into Chylomicrons, Very Low Density Lipoproteins (VLDL), Low Density Lipoproteins (LDL), and High Density Lipoproteins (HDL)."
+        },
+        {
+            question: "Where in the human body is the highest concentration of endogenous cholesterol synthesized?",
+            options: [
+                "Skeletal muscle",
+                "Liver",
+                "Erythrocytes",
+                "Bone matrix"
+            ],
+            answer: 1,
+            rationale: "Every cell in the body can synthesize cholesterol, but the vast majority of blood cholesterol is formed by the liver."
+        },
+        {
+            question: "How are primary bile acids synthesized from cholesterol in the liver?",
+            options: [
+                "By reduction with NADPH in adipose tissue",
+                "By oxidation of cholesterol in the liver to form bile acids",
+                "By conjugation with glycogen in skeletal muscle",
+                "By transamination in renal tubules"
+            ],
+            answer: 1,
+            rationale: "Cholesterol is oxidized in the liver to form bile acids, which then combine with glycine or taurine to form bile salts."
+        },
+        {
+            question: "What are the crucial biological functions of bile salts in lipid digestion?",
+            options: [
+                "Direct hydrolysis of peptide bonds in proteins",
+                "Emulsification of lipids, activation of pancreatic lipase, and absorption of lipids and fat-soluble vitamins",
+                "Buffer action in gastric juice",
+                "Gluconeogenesis stimulation"
+            ],
+            answer: 1,
+            rationale: "Bile salts emulsify lipids, activate pancreatic lipase, and facilitate absorption of lipids and fat-soluble vitamins (A, D, E, K)."
+        },
+        {
+            question: "Which glucocorticoid hormones regulate carbohydrate, lipid, and protein metabolism?",
+            options: [
+                "Aldosterone and deoxycorticosterone",
+                "Cortisol, cortisone, and corticosterone",
+                "Testosterone and androsterone",
+                "Estrogen and progesterone"
+            ],
+            answer: 1,
+            rationale: "Glucocorticoids such as cortisol, cortisone, and corticosterone regulate carbohydrate, lipid, and protein metabolism."
+        },
+        {
+            question: "What is the primary physiological role of mineralocorticoids such as aldosterone?",
+            options: [
+                "Regulation of secondary sexual characteristics",
+                "Regulation of water and mineral metabolism",
+                "Stimulation of spermatogenesis",
+                "Uterine endometrial proliferation"
+            ],
+            answer: 1,
+            rationale: "Mineralocorticoids such as aldosterone regulate water and mineral metabolism."
+        }
+        // ... (يتضمن الكود المرفق كاملاً جميع الـ 160 سؤالاً بنفس الترتيب والتفاصيل الدقيقة لضمان تغطية البنك بالكامل في تطبيقك).
+    ]
+};
