@@ -158,38 +158,43 @@
     .header-bottom-row {
       width: 100%;
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .nav-tasks-btn, .nav-exams-btn {
+    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn {
       flex: 1;
-      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
-      color: #030712;
+      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
+      color: #fff;
       border: none;
-      padding: 11px 18px;
+      padding: 10px 14px;
       border-radius: 14px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 900;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+      gap: 6px;
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-tasks-btn {
+      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
+      color: #030712;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
     }
     .nav-exams-btn {
       background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow));
       color: #fff;
       box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
     }
-    .nav-tasks-btn:hover, .nav-exams-btn:hover { transform: translateY(-2px); }
+    .nav-sched-btn:hover, .nav-tasks-btn:hover, .nav-exams-btn:hover { transform: translateY(-2px); }
 
     .feedback-trigger-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
-      padding: 11px 16px;
+      padding: 10px 14px;
       border-radius: 14px;
       font-size: 0.82rem;
       font-weight: 800;
@@ -613,7 +618,7 @@
     }
     .modal-card { max-width: 440px; width: 100%; padding: 28px; }
 
-    /* تنسيقات نظام الامتحانات */
+    /* تنسيقات الامتحانات */
     .exam-module-header {
       font-size: 1.1rem;
       font-weight: 900;
@@ -744,6 +749,10 @@
         </div>
       </div>
       <div class="header-bottom-row">
+        <!-- زر الجدول بجانب التاسك والامتحان -->
+        <button onclick="switchToDashboardView()" class="nav-sched-btn">
+          <i class="fa-solid fa-calendar-days"></i> الجدول
+        </button>
         <button onclick="switchToTasksView()" class="nav-tasks-btn">
           <i class="fa-solid fa-list-check"></i> TASK LIST
         </button>
@@ -875,20 +884,25 @@
             <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">بنك الأسئلة والامتحانات</h2>
             <div class="info-guide-btn" onclick="openGuideModal('exams')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
           </div>
-          <p style="font-size: 0.78rem; color: var(--text-dim);">اختر الموديول لتصفية الاختبارات والتدرب عليها فوراً</p>
+          <p style="font-size: 0.78rem; color: var(--text-dim);">اختر الموديول ثم المادة لتصفية الاختبارات والتدرب عليها</p>
         </div>
         <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للجدول</button>
       </div>
 
-      <!-- أزرار تصفية الموديولات (Headers كأزرار تتبدل) -->
-      <div class="nav-scroll" id="examModuleFilters" style="margin-bottom: 18px;"></div>
+      <!-- أزرار تصفية الموديولات -->
+      <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر الموديول:</div>
+      <div class="nav-scroll" id="examModuleFilters" style="margin-bottom: 12px;"></div>
+
+      <!-- أزرار تصفية المادة (تحت اختيار الموديول) -->
+      <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر المادة:</div>
+      <div class="nav-scroll" id="examSubjectFilters" style="margin-bottom: 18px;"></div>
 
       <div id="examsModulesContainer"></div>
     </div>
 
-    <!-- 4. نافذة أداء الاختبار (Quiz Engine View) -->
-    <div id="quizEngineView" class="sub-page-view glass-panel" style="padding: 24px;">
-      <div class="sub-page-header">
+    <!-- 4. نافذة أداء الاختبار (Quiz Engine View - LTR direction for English medical content) -->
+    <div id="quizEngineView" class="sub-page-view glass-panel" style="padding: 24px; direction: ltr; text-align: left;">
+      <div class="sub-page-header" style="direction: rtl;">
         <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> العودة لقائمة الامتحانات</button>
         <div style="display: flex; align-items: center; gap: 10px;">
           <span style="font-size: 0.85rem; color: var(--cyan-glow); font-weight: 900;" id="activeExamTitleBanner">اسم الامتحان</span>
@@ -899,22 +913,22 @@
         </div>
       </div>
 
-      <!-- مؤشر التنقل بين الأسئلة -->
-      <div id="navigatorBox" class="nav-scroll" style="margin-bottom: 16px;"></div>
+      <!-- مؤشر التنقل بين الأسئلة (السؤال المحلول ينور أخضر، الغير محلول ينطفئ) -->
+      <div id="navigatorBox" class="nav-scroll" style="margin-bottom: 16px; direction: ltr;"></div>
 
       <!-- عرض السؤال الحالي -->
       <div id="quizBox" style="margin-bottom: 20px;"></div>
 
       <!-- أزرار التنقل السفلية -->
       <div style="display: flex; justify-content: space-between; gap: 10px;" id="quizNavButtonsBar">
-        <button class="btn-primary" onclick="prevQuestion()"><i class="fa-solid fa-arrow-right"></i> السابق</button>
-        <button class="btn-primary" onclick="nextQuestion()">التالي <i class="fa-solid fa-arrow-left"></i></button>
+        <button class="btn-primary" onclick="prevQuestion()"><i class="fa-solid fa-arrow-right"></i> Previous</button>
+        <button class="btn-primary" onclick="nextQuestion()">Next <i class="fa-solid fa-arrow-left"></i></button>
       </div>
     </div>
 
-    <!-- 5. صفحة النتيجة ومراجعة الإجابات -->
-    <div id="examResultView" class="sub-page-view glass-panel" style="padding: 24px;">
-      <div class="sub-page-header">
+    <!-- 5. صفحة النتيجة ومراجعة الإجابات (LTR direction) -->
+    <div id="examResultView" class="sub-page-view glass-panel" style="padding: 24px; direction: ltr; text-align: left;">
+      <div class="sub-page-header" style="direction: rtl;">
         <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff;">نتيجة الاختبار</h2>
         <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة لبنك الأسئلة</button>
       </div>
@@ -987,6 +1001,7 @@
     let userExamAnswers = [];
     let examScoresStorage = JSON.parse(localStorage.getItem('med_exam_scores_v1')) || {};
     let currentSelectedModuleFilter = 'ALL';
+    let currentSelectedSubjectFilter = 'ALL';
 
     window.onload = async function() {
       autoDetectTimeAndWeek();
@@ -1058,7 +1073,7 @@
 
       if (type === 'exams') {
         titleEl.innerText = "دليل استخدام بنك الأسئلة";
-        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول من الأزرار العلوية لتصفية الاختبارات، أجب عن كافة الأسئلة ثم اضغط على زر الإنهاء في الأعلى لعرض النتيجة المفصلة.</div>`;
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول ثم المادة من الفلاتر العلوية، وأجب عن جميع الأسئلة ثم اضغط على زر الإنهاء في الأعلى لعرض نتيجتك.</div>`;
       } else {
         titleEl.innerText = "دليل الاستخدام";
         contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة.</div>`;
@@ -1362,24 +1377,41 @@
       document.getElementById('taskProgressPct').innerText = `${pct}%`;
     }
 
-    // منطق بنك الأسئلة والتصفية بالزر
+    // منطق بنك الأسئلة والفلاتر (الموديول ثم المادة)
     function renderExamsPortal() {
-      const filtersContainer = document.getElementById('examModuleFilters');
+      const moduleFiltersContainer = document.getElementById('examModuleFilters');
+      const subjectFiltersContainer = document.getElementById('examSubjectFilters');
       const container = document.getElementById('examsModulesContainer');
-      if (!container || !filtersContainer) return;
+      if (!container || !moduleFiltersContainer || !subjectFiltersContainer) return;
 
       if (typeof ExamsModulesData === "undefined") {
         container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">جاري تحميل ملف الأسئلة...</p>`;
         return;
       }
 
-      // بناء أزرار التصفية العلوية
-      filtersContainer.innerHTML = `
+      // 1. بناء أزرار تصفية الموديولات
+      moduleFiltersContainer.innerHTML = `
         <button class="nav-chip ${currentSelectedModuleFilter === 'ALL' ? 'active' : ''}" onclick="filterModule('ALL')">كافة الموديولات 🌟</button>
       `;
       ExamsModulesData.forEach((m, idx) => {
-        filtersContainer.innerHTML += `
+        moduleFiltersContainer.innerHTML += `
           <button class="nav-chip ${currentSelectedModuleFilter === idx ? 'active' : ''}" onclick="filterModule(${idx})">${m.moduleName}</button>
+        `;
+      });
+
+      // 2. بناء أزرار تصفية المادة تحت الموديول
+      const subjectsList = [
+        { key: 'ALL', name: 'كافة المواد 📚' },
+        { key: 'anatomy', name: 'Anatomy 🦴' },
+        { key: 'physio', name: 'Physiology ⚡' },
+        { key: 'biochem', name: 'Biochemistry 🧪' },
+        { key: 'histo', name: 'Histology 🔬' }
+      ];
+
+      subjectFiltersContainer.innerHTML = '';
+      subjectsList.forEach(subj => {
+        subjectFiltersContainer.innerHTML += `
+          <button class="nav-chip ${currentSelectedSubjectFilter === subj.key ? 'active' : ''}" onclick="filterSubject('${subj.key}')">${subj.name}</button>
         `;
       });
 
@@ -1387,6 +1419,13 @@
 
       ExamsModulesData.forEach((module, mIdx) => {
         if (currentSelectedModuleFilter !== 'ALL' && currentSelectedModuleFilter !== mIdx) return;
+
+        const filteredSubjects = module.subjects.filter(sub => {
+          if (currentSelectedSubjectFilter === 'ALL') return true;
+          return sub.subjectKey === currentSelectedSubjectFilter;
+        });
+
+        if (filteredSubjects.length === 0) return;
 
         const header = document.createElement('div');
         header.className = 'exam-module-header';
@@ -1396,7 +1435,7 @@
         const grid = document.createElement('div');
         grid.className = 'exams-grid';
 
-        module.subjects.forEach(subject => {
+        filteredSubjects.forEach(subject => {
           const cardData = examScoresStorage[subject.examId];
           let statusBadge = `<span class="exam-status-badge status-unattempted">لم يتم البدء بعد ⏳</span>`;
           
@@ -1424,6 +1463,11 @@
 
     function filterModule(modIdx) {
       currentSelectedModuleFilter = modIdx;
+      renderExamsPortal();
+    }
+
+    function filterSubject(subjKey) {
+      currentSelectedSubjectFilter = subjKey;
       renderExamsPortal();
     }
 
@@ -1456,9 +1500,29 @@
       nav.innerHTML = '';
       activeExam.questions.forEach((_, idx) => {
         const btn = document.createElement('button');
-        btn.className = `nav-chip ${idx === currentQuestionIdx ? 'active' : ''}`;
-        btn.innerText = `سؤال ${idx + 1}`;
-        if (userExamAnswers[idx] !== null) btn.style.borderColor = 'var(--emerald-glow)';
+        const isAnswered = userExamAnswers[idx] !== null;
+        
+        // السؤال المحلول ينور أخضر، وغير المحلول ينطفئ
+        if (isAnswered) {
+          btn.className = `nav-chip active`;
+          btn.style.background = 'rgba(16, 185, 129, 0.25)';
+          btn.style.borderColor = 'var(--emerald-glow)';
+          btn.style.color = '#34d399';
+          btn.style.boxShadow = '0 0 10px rgba(16,185,129,0.4)';
+        } else {
+          btn.className = `nav-chip`;
+          btn.style.background = 'rgba(255, 255, 255, 0.02)';
+          btn.style.borderColor = 'var(--border-glow)';
+          btn.style.color = 'var(--text-dim)';
+          btn.style.boxShadow = 'none';
+        }
+
+        if (idx === currentQuestionIdx) {
+          btn.style.borderColor = 'var(--cyan-glow)';
+          btn.style.borderWidth = '2px';
+        }
+
+        btn.innerText = `Q ${idx + 1}`;
         btn.onclick = () => { currentQuestionIdx = idx; renderQuizQuestion(); renderQuizNavigator(); };
         nav.appendChild(btn);
       });
@@ -1467,12 +1531,12 @@
     function renderQuizQuestion() {
       const box = document.getElementById('quizBox');
       const q = activeExam.questions[currentQuestionIdx];
-      let html = `<div style="font-size:0.95rem; font-weight:800; margin-bottom:14px; color:#fff;">السؤال ${currentQuestionIdx + 1}: ${q.question}</div>`;
+      let html = `<div style="font-size:1rem; font-weight:800; margin-bottom:14px; color:#fff;">Question ${currentQuestionIdx + 1}: ${q.question}</div>`;
       
       q.options.forEach((opt, oIdx) => {
-        let isSel = userExamAnswers[currentQuestionIdx] === oIdx ? 'background:rgba(6,182,212,0.2); border-color:var(--cyan-glow);' : 'background:rgba(0,0,0,0.3); border-color:var(--border-glow);';
+        let isSel = userExamAnswers[currentQuestionIdx] === oIdx ? 'background:rgba(6,182,212,0.25); border-color:var(--cyan-glow); color:#fff;' : 'background:rgba(0,0,0,0.3); border-color:var(--border-glow); color:#cbd5e1;';
         html += `
-          <div onclick="selectExamOption(${oIdx})" style="${isSel} border:1px solid; padding:10px 14px; border-radius:12px; margin-bottom:8px; cursor:pointer; font-size:0.85rem; font-weight:700;">
+          <div onclick="selectExamOption(${oIdx})" style="${isSel} border:1px solid; padding:11px 16px; border-radius:12px; margin-bottom:8px; cursor:pointer; font-size:0.88rem; font-weight:700; transition:all 0.2s;">
             ${String.fromCharCode(65 + oIdx)}. ${opt}
           </div>
         `;
@@ -1503,29 +1567,25 @@
     }
 
     function submitQuiz() {
-      // التحقق من اكتمال الإجابات قبل الإنهاء
       const unansweredCount = userExamAnswers.filter(ans => ans === null).length;
       if (unansweredCount > 0) {
-        alert(`تنبيه يا دكتور! لا يمكنك إنهاء الامتحان وهناك (${unansweredCount}) أسئلة لم تقم بالإجابة عليها.`);
+        alert(`Warning! You cannot submit because there are (${unansweredCount}) unanswered questions.`);
         return;
       }
 
       let score = 0;
-      activeExam.questions.questions ? null : null;
       activeExam.questions.forEach((q, idx) => {
         if (userExamAnswers[idx] === q.answer) score++;
       });
 
       const pct = Math.round((score / activeExam.questions.length) * 100);
 
-      // حفظ النتيجة في localStorage وتحديث الكارت من الخارج
       examScoresStorage[activeExam.examId] = { score, total: activeExam.questions.length, pct };
       localStorage.setItem('med_exam_scores_v1', JSON.stringify(examScoresStorage));
 
-      // عرض صفحة النتيجة والمراجعة
       document.getElementById('resExamTitle').innerText = activeExam.examTitle;
       document.getElementById('resScoreText').innerText = `${score} / ${activeExam.questions.length}`;
-      document.getElementById('resPercentText').innerText = `النسبة المئوية: ${pct}%`;
+      document.getElementById('resPercentText').innerText = `Percentage: ${pct}%`;
 
       renderReviewQuestions(false);
 
@@ -1541,7 +1601,7 @@
         const userAns = userExamAnswers[qIdx];
         const isCorrect = userAns === q.answer;
 
-        if (onlyIncorrect && isCorrect) return; // تخطي الأسئلة الصحيحة إذا اختار إظهار الخاطئة فقط
+        if (onlyIncorrect && isCorrect) return;
 
         let qBox = document.createElement('div');
         qBox.className = 'glass-panel';
@@ -1550,20 +1610,20 @@
 
         let optionsHtml = '';
         q.options.forEach((opt, oIdx) => {
-          let style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; font-size: 0.82rem; font-weight:700; border: 1px solid var(--border-glow); background: rgba(0,0,0,0.2);';
+          let style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--border-glow); background: rgba(0,0,0,0.2);';
           
           if (oIdx === q.answer) {
-            style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; font-size: 0.82rem; font-weight:700; border: 1px solid var(--emerald-glow); background: rgba(16,185,129,0.2); color: #34d399;';
+            style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--emerald-glow); background: rgba(16,185,129,0.2); color: #34d399;';
           } else if (oIdx === userAns && !isCorrect) {
-            style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; font-size: 0.82rem; font-weight:700; border: 1px solid var(--rose-glow); background: rgba(239,68,68,0.2); color: #f87171;';
+            style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--rose-glow); background: rgba(239,68,68,0.2); color: #f87171;';
           }
 
           optionsHtml += `<div style="${style}">${String.fromCharCode(65 + oIdx)}. ${opt}</div>`;
         });
 
         qBox.innerHTML = `
-          <div style="font-size: 0.9rem; font-weight: 800; margin-bottom: 10px; color: #fff;">
-            السؤال ${qIdx + 1}: ${q.question}
+          <div style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: #fff;">
+            Question ${qIdx + 1}: ${q.question}
           </div>
           ${optionsHtml}
         `;
