@@ -4304,7 +4304,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "09:00 - 10:30",
@@ -4315,7 +4315,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "09:00 - 10:30",
@@ -4326,7 +4326,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "09:00 - 10:30",
@@ -4337,7 +4337,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "09:00 - 10:30",
@@ -4348,7 +4348,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "09:00 - 10:30",
@@ -4359,7 +4359,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "09:00 - 10:30",
@@ -4370,7 +4370,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 9: RNA synthesis (Transcription)",
     "time": "09:00 - 10:30",
@@ -4381,7 +4381,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Histology",
     "title": "Histology lecture 8 (Connective tissue)",
     "time": "09:00 - 10:30",
@@ -4392,7 +4392,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "10:30 - 12:00",
@@ -4403,7 +4403,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "10:30 - 12:00",
@@ -4414,7 +4414,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "10:30 - 12:00",
@@ -4425,7 +4425,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "10:30 - 12:00",
@@ -4436,7 +4436,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "10:30 - 12:00",
@@ -4447,7 +4447,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "10:30 - 12:00",
@@ -4458,7 +4458,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 9: RNA synthesis (Transcription)",
     "time": "10:30 - 12:00",
@@ -4469,7 +4469,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Histology",
     "title": "Histology lecture 8 (Connective tissue)",
     "time": "10:30 - 12:00",
@@ -4480,7 +4480,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "12:00 - 12:15",
@@ -4491,7 +4491,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "12:00 - 12:15",
@@ -4502,7 +4502,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "12:00 - 12:15",
@@ -4513,7 +4513,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "12:00 - 12:15",
@@ -4524,7 +4524,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "12:15 - 01:45",
@@ -4535,7 +4535,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "12:15 - 01:45",
@@ -4546,7 +4546,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Histology",
     "title": "Histology lecture 8 (Connective tissue)",
     "time": "12:15 - 01:45",
@@ -4557,7 +4557,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 9: RNA synthesis (Transcription)",
     "time": "12:15 - 01:45",
@@ -4568,7 +4568,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Professional practice",
     "title": "Professional practice (PP)",
     "time": "01:45 - 03:15",
@@ -4579,7 +4579,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Physiology",
     "title": "Physiology",
     "time": "01:45 - 03:15",
@@ -4590,7 +4590,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Histology",
     "title": "Histology",
     "time": "01:45 - 03:15",
@@ -4601,7 +4601,7 @@
   {
     "week": 5,
     "day": "Mon",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Biochemistry",
     "title": "تسليم بورتفليو",
     "time": "01:45 - 03:15",
@@ -4612,7 +4612,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "09:00 - 10:30",
@@ -4623,7 +4623,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "09:00 - 10:30",
@@ -4634,7 +4634,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "09:00 - 10:30",
@@ -4645,7 +4645,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "09:00 - 10:30",
@@ -4656,7 +4656,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "09:00 - 10:30",
@@ -4667,7 +4667,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "09:00 - 10:30",
@@ -4678,7 +4678,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 10: Protein synthesis",
     "time": "09:00 - 10:30",
@@ -4689,7 +4689,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Physiology",
     "title": "Physiology lecture 9: coagulation disorders, WBCS",
     "time": "09:00 - 10:30",
@@ -4700,7 +4700,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "10:30 - 12:00",
@@ -4711,7 +4711,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "10:30 - 12:00",
@@ -4722,7 +4722,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "10:30 - 12:00",
@@ -4733,7 +4733,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "10:30 - 12:00",
@@ -4744,7 +4744,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "10:30 - 12:00",
@@ -4755,7 +4755,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "10:30 - 12:00",
@@ -4766,7 +4766,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Histology",
     "title": "Histology lecture 8 (Connective tissue II)",
     "time": "10:30 - 12:00",
@@ -4777,7 +4777,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 9: RNA synthesis (Transcription)",
     "time": "10:30 - 12:00",
@@ -4788,7 +4788,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "12:00 - 12:15",
@@ -4799,7 +4799,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "12:00 - 12:15",
@@ -4810,7 +4810,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "12:00 - 12:15",
@@ -4821,7 +4821,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "12:00 - 12:15",
@@ -4832,7 +4832,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "12:15 - 01:45",
@@ -4843,7 +4843,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Biochemistry",
     "title": "Practical Biochemistry 5: Molecular Biology techniques",
     "time": "12:15 - 01:45",
@@ -4854,7 +4854,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 10: Protein synthesis",
     "time": "12:15 - 01:45",
@@ -4865,7 +4865,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Physiology",
     "title": "Physiology lecture 9: coagulation disorders, WBCS",
     "time": "12:15 - 01:45",
@@ -4876,7 +4876,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Biochemistry",
     "title": "تسليم بورتفليو",
     "time": "01:45 - 03:15",
@@ -4887,7 +4887,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Histology",
     "title": "Histology",
     "time": "01:45 - 03:15",
@@ -4898,7 +4898,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Physiology",
     "title": "Physiology",
     "time": "01:45 - 03:15",
@@ -4909,7 +4909,7 @@
   {
     "week": 5,
     "day": "Tue",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Professional practice",
     "title": "Professional practice (PP)",
     "time": "01:45 - 03:15",
@@ -4920,7 +4920,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "09:00 - 10:30",
@@ -4931,7 +4931,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "09:00 - 10:30",
@@ -4942,7 +4942,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "09:00 - 10:30",
@@ -4953,7 +4953,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "09:00 - 10:30",
@@ -4964,7 +4964,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "09:00 - 10:30",
@@ -4975,7 +4975,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "09:00 - 10:30",
@@ -4986,7 +4986,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Physiology",
     "title": "Physiology lecture 9: coagulation disorders, WBCS",
     "time": "09:00 - 10:30",
@@ -4997,7 +4997,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 10: Protein synthesis",
     "time": "09:00 - 10:30",
@@ -5008,7 +5008,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "10:30 - 12:00",
@@ -5019,7 +5019,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "10:30 - 12:00",
@@ -5030,7 +5030,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "10:30 - 12:00",
@@ -5041,7 +5041,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "10:30 - 12:00",
@@ -5052,7 +5052,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "10:30 - 12:00",
@@ -5063,7 +5063,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "10:30 - 12:00",
@@ -5074,7 +5074,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Physiology",
     "title": "Physiology lecture 9: coagulation disorders, WBCS",
     "time": "10:30 - 12:00",
@@ -5085,7 +5085,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 10: Protein synthesis",
     "time": "10:30 - 12:00",
@@ -5096,7 +5096,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "12:00 - 12:15",
@@ -5107,7 +5107,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "12:00 - 12:15",
@@ -5118,7 +5118,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "12:00 - 12:15",
@@ -5129,7 +5129,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "12:00 - 12:15",
@@ -5140,7 +5140,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "12:15 - 01:45",
@@ -5151,7 +5151,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "12:15 - 01:45",
@@ -5162,7 +5162,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 11: Enzyme I",
     "time": "12:15 - 01:45",
@@ -5173,7 +5173,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Physiology",
     "title": "Physiology lecture 10: Autonomic, Sympathetic",
     "time": "12:15 - 01:45",
@@ -5184,7 +5184,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Histology",
     "title": "Histology",
     "time": "01:45 - 03:15",
@@ -5195,7 +5195,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Biochemistry",
     "title": "تسليم بورتفليو",
     "time": "01:45 - 03:15",
@@ -5206,7 +5206,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Professional practice",
     "title": "Professional practice (PP)",
     "time": "01:45 - 03:15",
@@ -5217,7 +5217,7 @@
   {
     "week": 5,
     "day": "Wed",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Physiology",
     "title": "Physiology",
     "time": "01:45 - 03:15",
@@ -5228,7 +5228,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C1"],
+    "groups": ["C1"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia",
     "time": "09:00 - 10:30",
@@ -5239,7 +5239,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C2"],
+    "groups": ["C2"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "09:00 - 10:30",
@@ -5250,7 +5250,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C3"],
+    "groups": ["C3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "09:00 - 10:30",
@@ -5261,7 +5261,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D1"],
+    "groups": ["D1"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "09:00 - 10:30",
@@ -5272,7 +5272,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D2"],
+    "groups": ["D2"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "09:00 - 10:30",
@@ -5283,7 +5283,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D3"],
+    "groups": ["D3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "09:00 - 10:30",
@@ -5294,7 +5294,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Physiology",
     "title": "Physiology lecture 10: Autonomic, Sympathetic",
     "time": "09:00 - 10:30",
@@ -5305,7 +5305,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 11: Enzyme I",
     "time": "09:00 - 10:30",
@@ -5316,7 +5316,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "10:30 - 12:00",
@@ -5327,7 +5327,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "10:30 - 12:00",
@@ -5338,7 +5338,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "10:30 - 12:00",
@@ -5349,7 +5349,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "10:30 - 12:00",
@@ -5360,7 +5360,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "10:30 - 12:00",
@@ -5371,7 +5371,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "10:30 - 12:00",
@@ -5382,7 +5382,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 11: Enzyme I",
     "time": "10:30 - 12:00",
@@ -5393,7 +5393,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Physiology",
     "title": "Physiology lecture 10: Autonomic, Sympathetic",
     "time": "10:30 - 12:00",
@@ -5404,7 +5404,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A1"],
+    "groups": ["A1"],
     "subject": "Anatomy",
     "title": "Anatomy femur2 tibia revision",
     "time": "12:00 - 12:15",
@@ -5415,7 +5415,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A2"],
+    "groups": ["A2"],
     "subject": "Physiology",
     "title": "Physiology: ESR, Hemostatic tests",
     "time": "12:00 - 12:15",
@@ -5426,7 +5426,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A3"],
+    "groups": ["A3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "12:00 - 12:15",
@@ -5437,7 +5437,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B1"],
+    "groups": ["B1"],
     "subject": "Histology",
     "title": "Histology Practical 2 (Epithelial and connective tissues)",
     "time": "12:00 - 12:15",
@@ -5448,7 +5448,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B2"],
+    "groups": ["B2"],
     "subject": "Professional practice",
     "title": "Professional practice Medical ethics",
     "time": "12:15 - 01:45",
@@ -5459,7 +5459,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B3"],
+    "groups": ["B3"],
     "subject": "Biochemistry",
     "title": "SGS Biochemistry 5: DNA repair and mutation",
     "time": "12:15 - 01:45",
@@ -5470,7 +5470,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Physiology",
     "title": "Physiology lecture 10: Autonomic, Sympathetic",
     "time": "12:15 - 01:45",
@@ -5481,7 +5481,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Biochemistry",
     "title": "Biochemistry lecture 11: Enzyme I",
     "time": "12:15 - 01:45",
@@ -5492,7 +5492,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-A"],
+    "groups": ["A"],
     "subject": "Physiology",
     "title": "Physiology",
     "time": "01:45 - 03:15",
@@ -5503,7 +5503,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-B"],
+    "groups": ["B"],
     "subject": "Professional practice",
     "title": "Professional practice (PP)",
     "time": "01:45 - 03:15",
@@ -5514,7 +5514,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-C"],
+    "groups": ["C"],
     "subject": "Biochemistry",
     "title": "تسليم بورتفليو",
     "time": "01:45 - 03:15",
@@ -5525,7 +5525,7 @@
   {
     "week": 5,
     "day": "Thu",
-    "groups": ["1-D"],
+    "groups": ["D"],
     "subject": "Histology",
     "title": "Histology",
     "time": "01:45 - 03:15",
