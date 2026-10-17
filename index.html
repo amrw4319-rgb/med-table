@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
@@ -749,7 +749,6 @@
         </div>
       </div>
       <div class="header-bottom-row">
-        <!-- زر الجدول بجانب التاسك والامتحان -->
         <button onclick="switchToDashboardView()" class="nav-sched-btn">
           <i class="fa-solid fa-calendar-days"></i> الجدول
         </button>
@@ -789,7 +788,7 @@
           <div class="widget-badge" id="widgetBadge"><i class="fa-solid fa-bolt"></i> المحاضرة القادمة</div>
           <div class="countdown-box" id="countdownTimerText">نشط ⚡</div>
         </div>
-        <div class="widget-title" id="widgetTitle">جاري تحديث المحاضرة القادمة...</div>
+        <div class="widget-title" id="widgetTitle">جاري تحميل المحاضرة القادمة...</div>
         <div class="widget-grid">
           <div class="w-item"><span class="w-label">الوقت</span><span class="w-val" id="valTime">--:--</span></div>
           <div class="w-item"><span class="w-label">المكان</span><span class="w-val" id="valLocation">---</span></div>
@@ -1007,7 +1006,7 @@
     let batchSchedule = [];
     let currentUserName = localStorage.getItem('med_user_name') || '';
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
-    let selectedWeek = 5;
+    let selectedWeek = 4;
     let selectedDay = 'Sat';
     let currentTab = 'schedule';
     let activeNextItem = null;
@@ -1181,7 +1180,7 @@
       const now = new Date();
       const dateStr = now.toISOString().split('T')[0];
       const match = studyWeeks.find(w => dateStr >= w.startDate && dateStr <= w.endDate);
-      selectedWeek = match ? match.id : 5;
+      selectedWeek = match ? match.id : 4;
       const daysMap = { 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat' };
       selectedDay = daysMap[now.getDay()] || 'Sat';
       highlightDayChip(selectedDay);
@@ -1223,15 +1222,34 @@
     function renderScheduleTimeline() {
       const container = document.getElementById('mainTimelineList');
       const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+      const hidePast = document.getElementById('hidePastToggle') ? document.getElementById('hidePastToggle').checked : true;
       container.innerHTML = '';
 
+      const now = new Date();
+      const daysOrder = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const todayDayStr = daysOrder[now.getDay()];
+      const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
+
       const filtered = batchSchedule.filter(item => {
-        return item.week === selectedWeek && item.day === selectedDay && item.groups.includes(currentUserGroup) &&
-          (!search || item.title.toLowerCase().includes(search) || item.subject.toLowerCase().includes(search));
+        if (item.week !== selectedWeek || item.day !== selectedDay || !item.groups.includes(currentUserGroup)) return false;
+        if (search && !item.title.toLowerCase().includes(search) && !item.subject.toLowerCase().includes(search)) return false;
+
+        // إخفاء المنتهي بدقة بناءً على وقت انتهاء المحاضرة
+        if (hidePast && selectedDay === todayDayStr) {
+          const parts = item.time.split('-');
+          if (parts.length >= 2) {
+            const [eh, em] = parts[1].trim().split(':').map(Number);
+            const sessEndMinutes = eh * 60 + em;
+            if (sessEndMinutes <= currentMinutesNow) {
+              return false;
+            }
+          }
+        }
+        return true;
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد محاضرات في هذا اليوم. يمكنك الانتقال لقائمة المهام والامتحانات! 🎉</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد محاضرات مطابقة لهذه الفلاتر أو انتهت محاضرات اليوم. 🎉</div>`;
         return;
       }
 
@@ -1285,7 +1303,7 @@
     }
 
     /* -------------------------------------------------------------
-       الخوارزمية الذكية والجديدة لحساب المحاضرة القادمة بدقة والعد التنازلي
+       خوارزمية المحاضرة القادمة المحسنة بدقة مطلقة (حصر في الأسبوع الحالي فقط)
     ---------------------------------------------------------------- */
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
@@ -1295,7 +1313,8 @@
       const currentDayIndex = now.getDay();
       const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
 
-      const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup));
+      // حصر البحث في الأسبوع الحالي فقط لمنع أي تسريب لأيام قديمة أو أسابيع أخرى
+      const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup) && s.week === selectedWeek);
 
       let upcomingSession = null;
       let minDiffInMinutes = Infinity;
@@ -1304,22 +1323,19 @@
         const sessDayIdx = daysOrder.indexOf(sess.day);
         if (sessDayIdx === -1) return;
 
-        // استخراج وقت البداية من السلسلة "08:00 - 09:30"
         const startTimeStr = sess.time.split('-')[0].trim();
         const [h, m] = startTimeStr.split(':').map(Number);
         const sessStartMinutes = h * 60 + m;
 
-        // حساب فارق الأيام
         let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
         
-        // إذا كانت المحاضرة اليوم ولكن انتهى وقت بدايتها، نعتبرها في الأسبوع القادم
         if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) {
           dayDiff = 7;
         }
 
         const totalDiffMinutes = (dayDiff * 24 * 60) + (sessStartMinutes - currentMinutesNow);
 
-        if (totalDiffMinutes < minDiffInMinutes) {
+        if (totalDiffMinutes < minDiffInMinutes && totalDiffMinutes >= 0) {
           minDiffInMinutes = totalDiffMinutes;
           upcomingSession = sess;
         }
@@ -1333,7 +1349,6 @@
         document.getElementById('valSubject').innerText = upcomingSession.subject;
         document.getElementById('valDoctor').innerText = upcomingSession.doctor || 'غير محدد';
 
-        // حساب الوقت التنازلي المتبقي
         const hrsLeft = Math.floor(minDiffInMinutes / 60);
         const minsLeft = minDiffInMinutes % 60;
         const secsLeft = 59 - now.getSeconds();
@@ -1345,7 +1360,7 @@
           document.getElementById('countdownTimerText').innerText = `تبقي ${hrsLeft}س : ${minsLeft}د : ${secsLeft}ث ⚡`;
         }
       } else {
-        document.getElementById('widgetTitle').innerText = 'لا توجد محاضرات قادمة معتمدة حالياً';
+        document.getElementById('widgetTitle').innerText = 'لا توجد محاضرات قادمة في هذا الأسبوع';
         document.getElementById('valTime').innerText = '--:--';
         document.getElementById('valLocation').innerText = '---';
         document.getElementById('valSubject').innerText = '---';
