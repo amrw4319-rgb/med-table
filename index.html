@@ -250,20 +250,20 @@
     }
 
     .info-guide-btn {
-      background: rgba(6, 182, 212, 0.12);
+      background: rgba(6, 182, 212, 0.15);
       border: 1px solid var(--cyan-glow);
       color: var(--cyan-glow);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      cursor: pointer;
+      gap: 6px;
       transition: all 0.3s;
     }
-    .info-guide-btn:hover { background: var(--cyan-glow); color: #030712; transform: scale(1.1); }
+    .info-guide-btn:hover { background: var(--cyan-glow); color: #030712; transform: scale(1.05); }
 
     .next-widget {
       padding: 22px;
@@ -716,14 +716,15 @@
     </div>
   </div>
 
-  <!-- Modal الدليل -->
+  <!-- Modal الدليل (مع زر إغلاق علوي وسفلي بارز) -->
   <div id="guideModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-glow); padding-bottom: 10px;">
         <h3 id="guideModalTitle" style="font-size: 1.1rem; font-weight: 900; color: var(--cyan-glow);">دليل الاستخدام الاحترافي</h3>
-        <button onclick="document.getElementById('guideModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:18px;"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="document.getElementById('guideModal').style.display='none'" style="background:rgba(239, 68, 68, 0.2); border:1px solid var(--rose-glow); color:#f87171; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:14px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="guideModalContent" style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.75; display: flex; flex-direction: column; gap: 10px;"></div>
+      <div id="guideModalContent" style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.75; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;"></div>
+      <button onclick="document.getElementById('guideModal').style.display='none'" class="btn-primary" style="width: 100%; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-glow);">إغلاق الدليل ✕</button>
     </div>
   </div>
 
@@ -780,7 +781,7 @@
 
       <div class="section-header-flex">
         <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن</div>
-        <div class="info-guide-btn" onclick="openGuideModal('schedule')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
+        <div class="info-guide-btn" onclick="openGuideModal('schedule')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل الاستخدام</div>
       </div>
 
       <div class="next-widget glass-panel" id="nextWidgetBox">
@@ -834,7 +835,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
-            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
+            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل</div>
           </div>
           <p style="font-size: 0.78rem; color: var(--text-dim);">إدارة مهامك وتنظيم جدولك اليومي بدقة وسلاسة</p>
         </div>
@@ -896,7 +897,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">بنك الأسئلة والامتحانات</h2>
-            <div class="info-guide-btn" onclick="openGuideModal('exams')" title="GUIDE"><i class="fa-solid fa-info"></i></div>
+            <div class="info-guide-btn" onclick="openGuideModal('exams')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل</div>
           </div>
           <p style="font-size: 0.78rem; color: var(--text-dim);">اختر الموديول ثم المادة لتصفية الاختبارات والتدرب عليها</p>
         </div>
@@ -963,9 +964,10 @@
   <script src="exams-data.js"></script>
 
   <script>
+    // تم تحديث الأسبوع الخامس ليطابق تاريخ اليوم (17 أكتوبر 2026) بدقة تامة
     const studyWeeks = [
-      { id: 4, name: "الأسبوع 4", startDate: "2026-10-11", endDate: "2026-10-17" },
-      { id: 5, name: "الأسبوع 5 (مراجعة)", startDate: "2026-10-18", endDate: "2026-10-24" },
+      { id: 4, name: "الأسبوع 4", startDate: "2026-10-10", endDate: "2026-10-16" },
+      { id: 5, name: "الأسبوع 5 (مراجعة)", startDate: "2026-10-17", endDate: "2026-10-24" },
       { id: 6, name: "الأسبوع 6 (امتحانات)", startDate: "2026-10-25", endDate: "2026-10-31" }
     ];
 
@@ -1006,7 +1008,7 @@
     let batchSchedule = [];
     let currentUserName = localStorage.getItem('med_user_name') || '';
     let currentUserGroup = localStorage.getItem('med_user_group') || '';
-    let selectedWeek = 4;
+    let selectedWeek = 5;
     let selectedDay = 'Sat';
     let currentTab = 'schedule';
     let activeNextItem = null;
@@ -1091,7 +1093,7 @@
         contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول ثم المادة من الفلاتر العلوية، وأجب عن جميع الأسئلة ثم اضغط على زر الإنهاء في الأعلى لعرض نتيجتك.</div>`;
       } else {
         titleEl.innerText = "دليل الاستخدام";
-        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة.</div>`;
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة. يمكنك تصفية المحاضرات أو إخفاء المنتهي ومتابعة العد التنازلي للمحاضرة القادمة.</div>`;
       }
       modal.style.display = 'flex';
     }
@@ -1180,7 +1182,7 @@
       const now = new Date();
       const dateStr = now.toISOString().split('T')[0];
       const match = studyWeeks.find(w => dateStr >= w.startDate && dateStr <= w.endDate);
-      selectedWeek = match ? match.id : 4;
+      selectedWeek = match ? match.id : 5;
       const daysMap = { 0: 'Sun', 1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat' };
       selectedDay = daysMap[now.getDay()] || 'Sat';
       highlightDayChip(selectedDay);
@@ -1234,7 +1236,6 @@
         if (item.week !== selectedWeek || item.day !== selectedDay || !item.groups.includes(currentUserGroup)) return false;
         if (search && !item.title.toLowerCase().includes(search) && !item.subject.toLowerCase().includes(search)) return false;
 
-        // إخفاء المنتهي بدقة بناءً على وقت انتهاء المحاضرة
         if (hidePast && selectedDay === todayDayStr) {
           const parts = item.time.split('-');
           if (parts.length >= 2) {
@@ -1303,7 +1304,7 @@
     }
 
     /* -------------------------------------------------------------
-       خوارزمية المحاضرة القادمة المحسنة بدقة مطلقة (حصر في الأسبوع الحالي فقط)
+       خوارزمية المحاضرة القادمة (حصر الأسبوع الحالي فقط والعد التنازلي)
     ---------------------------------------------------------------- */
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
@@ -1313,7 +1314,6 @@
       const currentDayIndex = now.getDay();
       const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
 
-      // حصر البحث في الأسبوع الحالي فقط لمنع أي تسريب لأيام قديمة أو أسابيع أخرى
       const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup) && s.week === selectedWeek);
 
       let upcomingSession = null;
