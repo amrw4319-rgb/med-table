@@ -805,9 +805,6 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-dim);">اختر اليوم:</div>
-          <label style="font-size: 0.75rem; color: var(--text-dim); cursor: pointer;">
-            <input type="checkbox" id="hidePastToggle" checked onchange="renderMainContent()"> إخفاء المنتهي 👁️‍🗨️
-          </label>
         </div>
         <div class="nav-scroll" id="daysNavContainer">
           <button class="nav-chip" data-day="Sat" onclick="selectDay('Sat')">السبت</button>
@@ -996,9 +993,18 @@
       { id: 15, text: "مراجعة سريعة جداً للعينات والعناوين الرئيسية (قراءة خفيفة ونوم مبكر)", day: "السبت 31 أكتوبر (ليلة الامتحان)", completed: false }
     ];
 
-    let userLists = JSON.parse(localStorage.getItem('med_task_lists_v10')) || [
-      { id: 'def_list', name: 'End module revision', items: defaultTasks }
-    ];
+    let storedLists = JSON.parse(localStorage.getItem('med_task_lists_v10'));
+    let userLists = storedLists || [{ id: 'def_list', name: 'End module revision', items: defaultTasks }];
+
+    // ضمان وجود وتكامل قائمة المراجعة الأساسية دائماً
+    let defListInUser = userLists.find(l => l.id === 'def_list');
+    if (!defListInUser) {
+      userLists.unshift({ id: 'def_list', name: 'End module revision', items: defaultTasks });
+    } else if (defListInUser.items.length < defaultTasks.length) {
+      // تحديث المهام إذا كانت ناقصة
+      defListInUser.items = defaultTasks;
+    }
+
     let currentActiveListId = userLists[0].id;
     let tempSelectedDayVal = "عام";
     let tempLoginGroup = "";
@@ -1091,7 +1097,7 @@
         contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول ثم المادة من الفلاتر العلوية، وأجب عن جميع الأسئلة ثم اضغط على زر الإنهاء في الأعلى لعرض نتيجتك.</div>`;
       } else {
         titleEl.innerText = "دليل الاستخدام";
-        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة. يمكنك تصفية المحاضرات أو إخفاء المنتهي ومتابعة العد التنازلي للمحاضرة القادمة.</div>`;
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة. يمكنك تصفية المحاضرات ومتابعة العد التنازلي للمحاضرة القادمة.</div>`;
       }
       modal.style.display = 'flex';
     }
@@ -1222,33 +1228,16 @@
     function renderScheduleTimeline() {
       const container = document.getElementById('mainTimelineList');
       const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-      const hidePast = document.getElementById('hidePastToggle') ? document.getElementById('hidePastToggle').checked : true;
       container.innerHTML = '';
-
-      const now = new Date();
-      const daysOrder = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      const todayDayStr = daysOrder[now.getDay()];
-      const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
 
       const filtered = batchSchedule.filter(item => {
         if (item.week !== selectedWeek || item.day !== selectedDay || !item.groups.includes(currentUserGroup)) return false;
         if (search && !item.title.toLowerCase().includes(search) && !item.subject.toLowerCase().includes(search)) return false;
-
-        if (hidePast && selectedDay === todayDayStr) {
-          const parts = item.time.split('-');
-          if (parts.length >= 2) {
-            const [eh, em] = parts[1].trim().split(':').map(Number);
-            const sessEndMinutes = eh * 60 + em;
-            if (sessEndMinutes <= currentMinutesNow) {
-              return false;
-            }
-          }
-        }
         return true;
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد محاضرات مطابقة لهذه الفلاتر أو انتهت محاضرات اليوم. 🎉</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد محاضرات مطابقة لهذا اليوم 🎉</div>`;
         return;
       }
 
@@ -1316,7 +1305,6 @@
       
       if (isPM && h < 12) h += 12;
       if (isAM && h === 12) h = 0;
-      // تصحيح تلقائي للساعات المسائية المكتوبة بصيغة مقتضبة مثل 1:45 لتعني 13:45 ظهراً
       if (!isAM && !isPM && h >= 1 && h <= 6) {
         h += 12;
       }
@@ -1347,7 +1335,6 @@
         const sessStartMinutes = parseTimeString(sess.time);
         let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
         
-        // إذا كانت المحاضرة في نفس اليوم وقد انتهى وقت بدايتها، يتم ترحيلها للأسبوع القادم مؤقتاً لتظهر المحاضرة اللاحقة (غداً أو بعده)
         if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) {
           dayDiff = 7;
         }
