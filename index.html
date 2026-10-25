@@ -1055,7 +1055,7 @@
       if (!text) { alert('يرجى كتابة رسالتك أولاً!'); return; }
 
       try {
-        const response = await fetch("https://formspree.io/f/mjygjgvy", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxgvxq4Davq98ge1Or6vcnUjhAEglvOII0jfd1g3dbwnR7tYhjWbNkgq2y9wG4ioN2K/exec", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: currentUserName, group: currentUserGroup, message: text })
