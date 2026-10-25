@@ -905,13 +905,15 @@
   <script src="exams-data.js"></script>
 
   <script>
+    // رابط السكريبت الخاص بـ Apps Script المربوط بشيت الإكسيل مباشرة
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec";
+
     const studyWeeks = [
       { id: 4, name: "الأسبوع 4", startDate: "2026-10-10", endDate: "2026-10-16" },
       { id: 5, name: "الأسبوع 5 (مراجعة)", startDate: "2026-10-17", endDate: "2026-10-24" },
       { id: 6, name: "الأسبوع 6 (امتحانات)", startDate: "2026-10-25", endDate: "2026-10-31" }
     ];
 
-    // جدول امتحانات الفرقة الأولى الشامل والمطابق تماماً للملف الرسمي المعتمد
     const year1Exams = [
       { title: "TBL: structure and function", date: "2026-10-10", time: "09:00 ص", day: "السبت", week: "الأسبوع 4", type: "TBL" },
       { title: "QUIZ: structure and function", date: "2026-11-01", time: "10:00 ص", day: "الأحد", week: "الأسبوع 7", type: "Quiz" },
@@ -998,7 +1000,7 @@
       });
     }
 
-    /* دالة تسجيل الدخول وتسجيل الزيارة فوراً في جوجل شيت ولوحة الإحصائيات */
+    /* تسجيل دخول الطالب وإرسال بياناته فوراً للشيت وللداشبورد */
     async function handleUserLogin() {
       const name = document.getElementById('modalNameInput').value.trim();
       if (!name || !tempLoginGroup) { alert('يرجى كتابة الاسم وتحديد مجموعتك الفرعية!'); return; }
@@ -1012,16 +1014,16 @@
       updateHeaderUI();
       renderMainContent();
 
-      // إرسال تفاصيل تسجيل الدخول والزيارة إلى جوجل شيت تلقائياً
+      // إرسال البيانات المباشرة لجدول الإكسيل وللداشبورد
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec", {
+        await fetch(SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "text/plain" },
           body: JSON.stringify({ 
             name: currentUserName, 
             group: currentUserGroup, 
-            message: `🩺 تسجيل دخول للطالب (المجموعة: ${currentUserGroup})` 
+            message: "تسجيل دخول" 
           })
         });
       } catch (e) {
@@ -1069,12 +1071,13 @@
       modal.style.display = 'flex';
     }
 
+    /* إرسال رسالة أو ملاحظة فورية إلى جدول الإكسيل */
     async function sendFeedbackMessage() {
       const text = document.getElementById('feedbackText').value.trim();
       if (!text) { alert('يرجى كتابة رسالتك أولاً!'); return; }
 
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec", {
+        await fetch(SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "text/plain" },
