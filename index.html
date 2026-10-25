@@ -22,7 +22,7 @@
   <style>
     :root {
       --bg-main: #030712;
-      --bg-card: rgba(11, 19, 38, 0.78);
+      --bg-card: rgba(11, 19, 38, 0.82);
       --border-glow: rgba(255, 255, 255, 0.08);
       --border-glow-hover: rgba(6, 182, 212, 0.5);
       
@@ -106,7 +106,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(3, 7, 18, 0.85);
+      background: rgba(3, 7, 18, 0.88);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
       border-bottom: 1px solid var(--border-glow);
@@ -134,18 +134,18 @@
     }
 
     .profile-pill {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       transition: all 0.25s;
     }
-    .profile-pill:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.08); }
+    .profile-pill:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.09); }
 
     .group-tag {
       background: var(--cyan-glow);
@@ -159,10 +159,12 @@
       width: 100%;
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn {
+    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn, .login-btn-header {
       flex: 1;
+      min-width: 110px;
       background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
       color: #fff;
       border: none;
@@ -188,6 +190,13 @@
       color: #fff;
       box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
     }
+    .login-btn-header {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-glow);
+      color: #fff;
+      box-shadow: none;
+    }
+    .login-btn-header:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.12); }
     .nav-sched-btn:hover, .nav-tasks-btn:hover, .nav-exams-btn:hover { transform: translateY(-2px); }
 
     .feedback-trigger-btn {
@@ -424,7 +433,6 @@
     }
     .card-details span { color: #f1f5f9; font-weight: 700; }
 
-    /* الأقسام المنفصلة */
     .sub-page-view { display: none; }
 
     .sub-page-header {
@@ -681,12 +689,12 @@
   <div class="ambient-glow orb-1"></div>
   <div class="ambient-glow orb-2"></div>
 
-  <!-- Modal تسجيل الدخول -->
-  <div id="loginModal" class="modal-backdrop" style="display: flex;">
+  <!-- Modal تسجيل الدخول وتغيير الحساب -->
+  <div id="loginModal" class="modal-backdrop">
     <div class="modal-card glass-panel" style="text-align: center;">
       <div style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow)); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; margin: 0 auto 16px;">🩺</div>
       <h2 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 6px;">مرحباً بك يا دكتور</h2>
-      <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 18px;">اختر مجموعتك الفرعية واكتب اسمك للبدء</p>
+      <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 18px;">اختر مجموعتك الفرعية واكتب اسمك للبدء في المنصة</p>
 
       <div style="text-align: right; margin-bottom: 14px;">
         <label style="font-size: 0.78rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 6px;">الاسم الكريم:</label>
@@ -753,13 +761,16 @@
           <i class="fa-solid fa-calendar-days"></i> الجدول
         </button>
         <button onclick="switchToTasksView()" class="nav-tasks-btn">
-          <i class="fa-solid fa-list-check"></i> TASK LIST
+          <i class="fa-solid fa-list-check"></i> المهام
         </button>
         <button onclick="switchToExamsView()" class="nav-exams-btn">
-          <i class="fa-solid fa-graduation-cap"></i> EXAMS PORTAL
+          <i class="fa-solid fa-graduation-cap"></i> بنك الأسئلة
+        </button>
+        <button onclick="openLoginModal()" class="login-btn-header" title="تسجيل الدخول / تغيير الحساب">
+          <i class="fa-solid fa-user-gear"></i> الحساب
         </button>
         <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn">
-          <i class="fa-solid fa-comment-dots"></i> إرسال ملاحظة
+          <i class="fa-solid fa-comment-dots"></i> ملاحظة
         </button>
       </div>
     </div>
@@ -767,19 +778,19 @@
 
   <div class="app-container">
 
-    <!-- 1. لوحة التحكم الرئيسية (الجدول) -->
+    <!-- 1. لوحة التحكم الرئيسية (الجدول والامتحانات الرسمية) -->
     <div id="mainDashboardView">
       <div class="view-selector">
         <button class="view-btn active" id="btnSchedTab" onclick="switchTab('schedule')">
           <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
         </button>
         <button class="view-btn exams-mode" id="btnExamTab" onclick="switchTab('exams')">
-          <i class="fa-solid fa-award"></i> الامتحانات 🩺
+          <i class="fa-solid fa-award"></i> امتحانات الفرقة الأولى 🩺
         </button>
       </div>
 
       <div class="section-header-flex">
-        <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim);"><i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن</div>
+        <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim);" id="sectionHeaderTitle"><i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن</div>
         <div class="info-guide-btn" onclick="openGuideModal('schedule')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل الاستخدام</div>
       </div>
 
@@ -887,7 +898,7 @@
       </div>
     </div>
 
-    <!-- 3. صفحة EXAMS PORTAL المنفصلة -->
+    <!-- 3. صفحة EXAMS PORTAL المنفصلة (بنك الأسئلة) -->
     <div id="examsPageView" class="sub-page-view glass-panel" style="padding: 24px;">
       <div class="sub-page-header">
         <div>
@@ -966,12 +977,19 @@
       { id: 6, name: "الأسبوع 6 (امتحانات)", startDate: "2026-10-25", endDate: "2026-10-31" }
     ];
 
+    // جدول امتحانات الفرقة الأولى الشامل وغير المنقوص بناءً على الملف الرسمي المعتمد
     const year1Exams = [
       { title: "TBL: structure and function", date: "2026-10-10", day: "السبت", week: "الأسبوع 4", type: "TBL" },
       { title: "QUIZ: structure and function", date: "2026-11-01", day: "الأحد", week: "الأسبوع 7", type: "Quiz" },
       { title: "Practical anatomy, histology (1)", date: "2026-11-02", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE" },
       { title: "Practical anatomy, histology (2)", date: "2026-11-03", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE" },
       { title: "Practical biochemistry, physiology", date: "2026-11-05", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Quiz: professional practice 1", date: "2026-11-12", day: "الخميس", week: "الأسبوع 8", type: "Quiz" },
+      { title: "TBL: musculoskeletal", date: "2026-11-28", day: "السبت", week: "الأسبوع 11", type: "TBL" },
+      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", day: "الأحد", week: "الأسبوع 14", type: "Quiz" },
+      { title: "Practical anatomy, histology (1)", date: "2026-12-21", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical anatomy, histology (2)", date: "2026-12-22", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical physiology", date: "2026-12-24", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE" },
       { title: "بداية امتحانات الفاينل (Final Exam)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final" }
     ];
 
@@ -996,12 +1014,10 @@
     let storedLists = JSON.parse(localStorage.getItem('med_task_lists_v10'));
     let userLists = storedLists || [{ id: 'def_list', name: 'End module revision', items: defaultTasks }];
 
-    // ضمان وجود وتكامل قائمة المراجعة الأساسية دائماً
     let defListInUser = userLists.find(l => l.id === 'def_list');
     if (!defListInUser) {
       userLists.unshift({ id: 'def_list', name: 'End module revision', items: defaultTasks });
     } else if (defListInUser.items.length < defaultTasks.length) {
-      // تحديث المهام إذا كانت ناقصة
       defListInUser.items = defaultTasks;
     }
 
@@ -1163,11 +1179,14 @@
       document.getElementById('btnExamTab').classList.remove('active');
       document.getElementById('scheduleFilterControls').style.display = (tab === 'schedule') ? 'block' : 'none';
       document.getElementById('nextWidgetBox').style.display = (tab === 'schedule') ? 'block' : 'none';
-
+      
+      const headerTitle = document.getElementById('sectionHeaderTitle');
       if (tab === 'schedule') {
         document.getElementById('btnSchedTab').classList.add('active');
+        headerTitle.innerHTML = `<i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن`;
       } else {
         document.getElementById('btnExamTab').classList.add('active');
+        headerTitle.innerHTML = `<i class="fa-solid fa-award"></i> جدول امتحانات وأنشطة الفرقة الأولى`;
       }
       renderMainContent();
     }
@@ -1262,14 +1281,26 @@
 
     function renderExamsList() {
       const container = document.getElementById('mainTimelineList');
+      const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
       container.innerHTML = '';
-      year1Exams.forEach(exam => {
+
+      const filtered = year1Exams.filter(exam => {
+        if (search && !exam.title.toLowerCase().includes(search) && !exam.type.toLowerCase().includes(search)) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد امتحانات مطابقة للبحث 🔍</div>`;
+        return;
+      }
+
+      filtered.forEach(exam => {
         const card = document.createElement('div');
         card.className = 'timeline-card glass-panel';
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag exam">${exam.type}</span>
-            <span style="font-size:0.78rem; color:var(--amber-glow); font-weight:900;">امتحان معتمد 🎯</span>
+            <span style="font-size:0.78rem; color:var(--amber-glow); font-weight:900;">الفرقة الأولى 🩺</span>
           </div>
           <div class="card-title">${exam.title}</div>
           <div class="card-details">
@@ -1290,9 +1321,6 @@
       }
     }
 
-    /* -------------------------------------------------------------
-       محلل أوقات ذكي ودقيق (يتعامل مع 12 ساعة و 24 ساعة بدقة مطلقة)
-    ---------------------------------------------------------------- */
     function parseTimeString(timeStr) {
       if (!timeStr) return 0;
       let start = timeStr.split('-')[0].trim().toLowerCase();
@@ -1312,9 +1340,6 @@
       return h * 60 + m;
     }
 
-    /* -------------------------------------------------------------
-       الخوارزمية الدقيقة لمحاضرة اليوم والغد والعد التنازلي دون أي خلط
-    ---------------------------------------------------------------- */
     function updateRealtimeClock() {
       if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
 
