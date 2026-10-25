@@ -905,8 +905,8 @@
   <script src="exams-data.js"></script>
 
   <script>
-    // رابط السكريبت الخاص بـ Apps Script المربوط بشيت الإكسيل مباشرة
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec";
+    // رابط السكريبت الجديد والمحدث الخاص بك
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKU3dVCmn075IPLhzhg1gLbfOsUCLq49xeQhCaqvnz0TpBu3raTr0gcqz1zWy3jerCDQ/exec";
 
     const studyWeeks = [
       { id: 4, name: "الأسبوع 4", startDate: "2026-10-10", endDate: "2026-10-16" },
@@ -1000,7 +1000,7 @@
       });
     }
 
-    /* تسجيل دخول الطالب وإرسال بياناته فوراً للشيت وللداشبورد */
+    /* تسجيل دخول الطالب وإرسال بياناته فوراً للشيت */
     async function handleUserLogin() {
       const name = document.getElementById('modalNameInput').value.trim();
       if (!name || !tempLoginGroup) { alert('يرجى كتابة الاسم وتحديد مجموعتك الفرعية!'); return; }
@@ -1014,7 +1014,6 @@
       updateHeaderUI();
       renderMainContent();
 
-      // إرسال البيانات المباشرة لجدول الإكسيل وللداشبورد
       try {
         await fetch(SCRIPT_URL, {
           method: "POST",
