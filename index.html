@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>دليل كلية الطب | منصة رفيق الدكاترة 🩺</title>
 
   <!-- PWA & Mobile Web App Meta Tags -->
@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Cpath d='M20 52h14l6-16 10 32 9-22 7 8h14' stroke='%23ffffff' stroke-width='6.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230ea5e9'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Cpath d='M20 52h14l6-16 10 32 9-22 7 8h14' stroke='%23ffffff' stroke-width='6.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,13 +21,13 @@
 
   <style>
     :root {
-      --bg-main: #030712;
-      --bg-card: rgba(11, 19, 38, 0.82);
-      --border-glow: rgba(255, 255, 255, 0.08);
-      --border-glow-hover: rgba(6, 182, 212, 0.5);
+      --bg-main: #020617;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --border-glow: rgba(56, 189, 248, 0.12);
+      --border-glow-hover: rgba(20, 184, 166, 0.5);
       
-      --cyan-glow: #06b6d4;
-      --indigo-glow: #6366f1;
+      --teal-glow: #14b8a6;
+      --sky-glow: #0ea5e9;
       --emerald-glow: #10b981;
       --rose-glow: #f43f5e;
       --amber-glow: #f59e0b;
@@ -47,16 +47,15 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 85% 85%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+        radial-gradient(at 10% 10%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(20, 184, 166, 0.12) 0px, transparent 50%);
       background-attachment: fixed;
       background-size: 200% 200%;
-      animation: bgMorph 18s ease infinite alternate;
+      animation: bgMorph 20s ease infinite alternate;
       color: var(--text-white);
       min-height: 100vh;
-      padding-bottom: 60px;
+      padding-bottom: 50px;
       overflow-x: hidden;
-      position: relative;
     }
 
     @keyframes bgMorph {
@@ -66,58 +65,52 @@
 
     .ambient-glow {
       position: fixed;
-      width: 350px;
-      height: 350px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(90px);
       z-index: -1;
-      opacity: 0.2;
+      opacity: 0.18;
       pointer-events: none;
     }
-    .orb-1 { top: -100px; right: -100px; background: var(--indigo-glow); }
-    .orb-2 { bottom: -100px; left: -100px; background: var(--cyan-glow); }
+    .orb-1 { top: -80px; right: -80px; background: var(--sky-glow); }
+    .orb-2 { bottom: -80px; left: -80px; background: var(--teal-glow); }
 
     .app-container {
-      max-width: 900px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 12px;
       position: relative;
       z-index: 1;
     }
 
     .glass-panel {
       background: var(--bg-card);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-glow);
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .glass-panel:hover {
-      border-color: var(--border-glow-hover);
-      box-shadow: 0 20px 45px rgba(6, 182, 212, 0.2);
-      transform: translateY(-2px);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(3, 7, 18, 0.88);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-glow);
-      padding: 14px 0;
-      margin-bottom: 24px;
+      padding: 10px 0;
+      margin-bottom: 16px;
     }
 
     .header-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .header-top-row {
@@ -128,127 +121,102 @@
     }
 
     .user-greeting {
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       font-weight: 800;
       color: #fff;
     }
 
     .profile-pill {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glow);
-      padding: 7px 14px;
+      padding: 5px 12px;
       border-radius: 30px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
-      font-size: 0.8rem;
-      transition: all 0.25s;
+      font-size: 0.75rem;
+      transition: all 0.2s;
     }
-    .profile-pill:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.09); }
+    .profile-pill:hover { border-color: var(--teal-glow); background: rgba(255,255,255,0.08); }
 
     .group-tag {
-      background: var(--cyan-glow);
-      color: #030712;
-      padding: 2px 9px;
-      border-radius: 10px;
-      font-weight: 800;
+      background: var(--teal-glow);
+      color: #020617;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-weight: 900;
     }
 
     .header-bottom-row {
       width: 100%;
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 6px;
     }
 
-    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn, .login-btn-header {
+    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn, .feedback-trigger-btn {
       flex: 1;
-      min-width: 110px;
-      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
-      color: #fff;
+      background: linear-gradient(135deg, var(--sky-glow), var(--teal-glow));
+      color: #020617;
       border: none;
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-size: 0.82rem;
+      padding: 9px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
       font-weight: 900;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 5px;
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+      transition: all 0.25s;
     }
     .nav-tasks-btn {
-      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
-      color: #030712;
-      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+      background: linear-gradient(135deg, var(--emerald-glow), var(--teal-glow));
+      color: #020617;
     }
     .nav-exams-btn {
       background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow));
       color: #fff;
-      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
     }
-    .login-btn-header {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border-glow);
-      color: #fff;
-      box-shadow: none;
-    }
-    .login-btn-header:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.12); }
-    .nav-sched-btn:hover, .nav-tasks-btn:hover, .nav-exams-btn:hover { transform: translateY(-2px); }
-
     .feedback-trigger-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
-      padding: 10px 14px;
-      border-radius: 14px;
+    }
+    .feedback-trigger-btn:hover { border-color: var(--teal-glow); }
+
+    .view-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .view-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glow);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-dim);
       font-size: 0.82rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       transition: all 0.3s;
     }
-    .feedback-trigger-btn:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.09); }
-
-    .view-selector {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .view-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border-glow);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-dim);
-      font-size: 0.88rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .view-btn:hover { background: rgba(255,255,255,0.06); color: #fff; }
-
     .view-btn.active {
-      background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow));
-      color: #fff;
+      background: linear-gradient(135deg, var(--sky-glow), var(--teal-glow));
+      color: #020617;
       border-color: transparent;
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
     }
-
     .view-btn.exams-mode.active {
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+      background: linear-gradient(135deg, var(--amber-glow), var(--rose-glow));
+      color: #fff;
     }
 
     .section-header-flex {
@@ -259,82 +227,81 @@
     }
 
     .info-guide-btn {
-      background: rgba(6, 182, 212, 0.15);
-      border: 1px solid var(--cyan-glow);
-      color: var(--cyan-glow);
-      padding: 6px 12px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid var(--teal-glow);
+      color: var(--teal-glow);
+      padding: 5px 10px;
       border-radius: 20px;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s;
+      gap: 5px;
     }
-    .info-guide-btn:hover { background: var(--cyan-glow); color: #030712; transform: scale(1.05); }
 
     .next-widget {
-      padding: 22px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(6, 182, 212, 0.35);
+      padding: 16px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
     }
 
     .widget-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .widget-badge {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      background: rgba(6, 182, 212, 0.15);
-      color: var(--cyan-glow);
-      border: 1px solid var(--cyan-glow);
-      padding: 4px 12px;
-      border-radius: 20px;
+      background: rgba(20, 184, 166, 0.15);
+      color: var(--teal-glow);
+      border: 1px solid var(--teal-glow);
+      padding: 3px 10px;
+      border-radius: 15px;
     }
 
     .countdown-box {
-      font-size: 0.8rem;
-      font-weight: 800;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px 14px;
-      border-radius: 14px;
-      color: var(--cyan-glow);
+      font-size: 0.76rem;
+      font-weight: 900;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: var(--teal-glow);
     }
 
     .widget-title {
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       font-weight: 900;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       color: #fff;
     }
 
     .widget-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-      gap: 10px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 14px;
-      border-radius: 14px;
-      margin-bottom: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
     }
 
-    .w-item { font-size: 0.8rem; }
-    .w-label { color: var(--text-dim); display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+    .w-item { font-size: 0.78rem; }
+    .w-label { color: var(--text-dim); display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; }
     .w-val { font-weight: 800; color: #f1f5f9; }
 
     .nav-scroll {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 14px;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
       scrollbar-width: none;
     }
     .nav-scroll::-webkit-scrollbar { display: none; }
@@ -343,92 +310,88 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
       color: var(--text-dim);
-      padding: 9px 16px;
-      border-radius: 14px;
-      font-size: 0.82rem;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.78rem;
       font-weight: 800;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s;
     }
     .nav-chip:hover { background: rgba(255,255,255,0.08); color: #fff; }
     .nav-chip.active {
-      background: var(--cyan-glow);
-      color: #030712;
+      background: var(--teal-glow);
+      color: #020617;
       border-color: transparent;
       font-weight: 900;
-      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.35);
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .search-box i {
       position: absolute;
-      right: 18px;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-dim);
+      font-size: 0.85rem;
     }
     .search-input {
       width: 100%;
-      background: rgba(11, 19, 38, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 12px 42px 12px 16px;
-      border-radius: 14px;
+      padding: 11px 38px 11px 14px;
+      border-radius: 12px;
       color: #fff;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       outline: none;
       transition: all 0.3s;
     }
-    .search-input:focus { border-color: var(--cyan-glow); box-shadow: 0 0 15px rgba(6,182,212,0.25); }
+    .search-input:focus { border-color: var(--teal-glow); box-shadow: 0 0 12px rgba(20,184,166,0.25); }
 
     .timeline-card {
-      padding: 18px;
-      margin-bottom: 14px;
-      animation: fadeInCard 0.35s ease;
-    }
-    @keyframes fadeInCard {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      padding: 15px;
+      margin-bottom: 12px;
     }
 
     .card-top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .subject-tag {
-      padding: 3px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
       font-weight: 900;
       color: #fff;
     }
-    .anatomy { background: #f97316; }
-    .biochem { background: #10b981; }
-    .physio { background: #06b6d4; }
-    .histo { background: #a855f7; }
-    .prof { background: #ec4899; }
-    .exam { background: #f59e0b; }
+    .anatomy { background: #ea580c; }
+    .biochem { background: #0d9488; }
+    .physio { background: #0284c7; }
+    .histo { background: #9333ea; }
+    .prof { background: #db2777; }
+    .exam { background: #d97706; }
 
     .card-title {
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       font-weight: 900;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: #fff;
     }
 
     .card-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 0.82rem;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
       color: var(--text-dim);
     }
     .card-details span { color: #f1f5f9; font-weight: 700; }
@@ -439,54 +402,50 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .back-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
-      padding: 9px 16px;
-      border-radius: 12px;
-      font-size: 0.82rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s;
+      gap: 5px;
     }
-    .back-btn:hover { border-color: var(--cyan-glow); background: rgba(255,255,255,0.09); }
 
     .task-row-card {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 14px 18px;
-      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 12px 14px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
-      transition: all 0.3s;
+      margin-bottom: 8px;
     }
-    .task-row-card:hover { border-color: rgba(16, 185, 129, 0.4); transform: translateY(-2px); }
 
     .task-content {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       flex: 1;
     }
     .task-checkbox {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       accent-color: var(--emerald-glow);
       cursor: pointer;
     }
     .task-title-text {
-      font-size: 0.92rem;
+      font-size: 0.86rem;
       font-weight: 800;
       color: #e2e8f0;
     }
@@ -498,11 +457,11 @@
       background: rgba(16, 185, 129, 0.15);
       color: var(--emerald-glow);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      font-size: 0.72rem;
-      padding: 2px 10px;
-      border-radius: 8px;
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 6px;
       font-weight: 800;
-      margin-right: 10px;
+      margin-right: 6px;
     }
 
     .custom-dropdown-container {
@@ -510,178 +469,159 @@
       user-select: none;
     }
     .custom-dropdown-trigger {
-      background: rgba(11, 19, 38, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 11px 14px;
-      border-radius: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.3s;
     }
-    .custom-dropdown-trigger:hover { border-color: var(--cyan-glow); }
     .custom-dropdown-menu {
       position: absolute;
       bottom: 100%;
       left: 0; right: 0;
-      background: #0b1326;
-      border: 1px solid rgba(6, 182, 212, 0.4);
-      border-radius: 14px;
-      margin-bottom: 6px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      background: #0f172a;
+      border: 1px solid var(--teal-glow);
+      border-radius: 12px;
+      margin-bottom: 5px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
       display: none;
       z-index: 50;
-      max-height: 200px;
+      max-height: 180px;
       overflow-y: auto;
     }
     .custom-dropdown-item {
-      padding: 10px 14px;
-      font-size: 0.82rem;
+      padding: 9px 12px;
+      font-size: 0.78rem;
       font-weight: 700;
       color: #cbd5e1;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
     }
-    .custom-dropdown-item:hover { background: rgba(6, 182, 212, 0.15); color: #fff; }
+    .custom-dropdown-item:hover { background: rgba(20, 184, 166, 0.15); color: #fff; }
 
     .groups-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 6px;
+      margin-bottom: 14px;
     }
     .group-pill-option {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glow);
-      padding: 10px;
-      border-radius: 12px;
+      padding: 8px;
+      border-radius: 10px;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 900;
       color: var(--text-dim);
       cursor: pointer;
-      transition: all 0.3s;
     }
-    .group-pill-option:hover { border-color: var(--cyan-glow); color: #fff; }
     .group-pill-option.selected {
-      background: var(--cyan-glow);
-      color: #030712;
+      background: var(--teal-glow);
+      color: #020617;
       border-color: transparent;
-      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
     }
 
     .add-task-form-box {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 16px;
-      border-radius: 16px;
-      margin-top: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 12px;
+      border-radius: 14px;
+      margin-top: 12px;
       display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 10px;
-    }
-    @media(max-width: 750px) {
-      .add-task-form-box { grid-template-columns: 1fr; }
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
 
     .form-ctrl {
-      background: rgba(11, 19, 38, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border-glow);
-      padding: 11px 14px;
-      border-radius: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       outline: none;
-      transition: all 0.3s;
     }
-    .form-ctrl:focus { border-color: var(--emerald-glow); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--emerald-glow), var(--cyan-glow));
-      color: #030712;
+      background: linear-gradient(135deg, var(--emerald-glow), var(--teal-glow));
+      color: #020617;
       border: none;
-      padding: 11px 20px;
-      border-radius: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
       font-weight: 900;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       cursor: pointer;
-      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
-      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(16, 185, 129, 0.5); }
 
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(15px);
+      background: rgba(2, 6, 23, 0.88);
+      backdrop-filter: blur(12px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      padding: 16px;
+      padding: 12px;
     }
-    .modal-card { max-width: 440px; width: 100%; padding: 28px; }
+    .modal-card { max-width: 380px; width: 100%; padding: 22px; }
 
     .exam-module-header {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 900;
-      color: var(--cyan-glow);
-      margin: 20px 0 10px 0;
+      color: var(--teal-glow);
+      margin: 16px 0 8px 0;
       border-bottom: 1px solid var(--border-glow);
-      padding-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding-bottom: 5px;
     }
     .exams-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
-      margin-bottom: 20px;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .exam-card {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.25);
       border: 1px solid var(--border-glow);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 12px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s;
     }
-    .exam-card:hover { border-color: var(--cyan-glow); transform: translateY(-2px); }
 
     .exam-status-badge {
-      font-size: 0.72rem;
-      padding: 3px 10px;
-      border-radius: 10px;
+      font-size: 0.68rem;
+      padding: 2px 8px;
+      border-radius: 8px;
       font-weight: 800;
       display: inline-block;
-      margin-top: 6px;
+      margin-top: 5px;
     }
     .status-unattempted { background: rgba(148, 163, 184, 0.15); color: var(--text-dim); border: 1px dashed var(--text-dim); }
     .status-passed { background: rgba(16, 185, 129, 0.2); color: var(--emerald-glow); border: 1px solid rgba(16, 185, 129, 0.4); }
     .status-failed { background: rgba(245, 158, 11, 0.2); color: var(--amber-glow); border: 1px solid rgba(245, 158, 11, 0.4); }
 
     footer {
-      margin-top: 50px;
+      margin-top: 35px;
       text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-dim);
       border-top: 1px solid var(--border-glow);
-      padding-top: 20px;
+      padding-top: 15px;
     }
     .developer-credit {
-      color: var(--cyan-glow);
+      color: var(--teal-glow);
       font-weight: 900;
       text-decoration: none;
-      transition: all 0.3s;
     }
-    .developer-credit:hover { color: #fff; text-shadow: 0 0 12px var(--cyan-glow); }
   </style>
 </head>
 <body>
@@ -692,17 +632,17 @@
   <!-- Modal تسجيل الدخول وتغيير الحساب -->
   <div id="loginModal" class="modal-backdrop">
     <div class="modal-card glass-panel" style="text-align: center;">
-      <div style="width: 48px; height: 48px; border-radius: 16px; background: linear-gradient(135deg, var(--indigo-glow), var(--cyan-glow)); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; margin: 0 auto 16px;">🩺</div>
-      <h2 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 6px;">مرحباً بك يا دكتور</h2>
-      <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 18px;">اختر مجموعتك الفرعية واكتب اسمك للبدء في المنصة</p>
+      <div style="width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--sky-glow), var(--teal-glow)); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #020617; margin: 0 auto 14px;">🩺</div>
+      <h2 style="font-size: 1.15rem; font-weight: 900; margin-bottom: 4px;">مرحباً بك يا دكتور</h2>
+      <p style="font-size: 0.76rem; color: var(--text-dim); margin-bottom: 14px;">اختر مجموعتك الفرعية واكتب اسمك للبدء</p>
 
-      <div style="text-align: right; margin-bottom: 14px;">
-        <label style="font-size: 0.78rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 6px;">الاسم الكريم:</label>
+      <div style="text-align: right; margin-bottom: 12px;">
+        <label style="font-size: 0.74rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 4px;">الاسم الكريم:</label>
         <input type="text" id="modalNameInput" class="search-input" placeholder="مثال: د. أحمد...">
       </div>
 
-      <div style="text-align: right; margin-bottom: 20px;">
-        <label style="font-size: 0.78rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 6px;">اختر مجموعتك الفرعية (Subgroup):</label>
+      <div style="text-align: right; margin-bottom: 16px;">
+        <label style="font-size: 0.74rem; color: var(--text-dim); font-weight: 800; display: block; margin-bottom: 4px;">مجموعتك الفرعية (Subgroup):</label>
         <div class="groups-grid" id="loginGroupsGrid">
           <div class="group-pill-option" onclick="selectLoginGroup('A1')">A1</div>
           <div class="group-pill-option" onclick="selectLoginGroup('A2')">A2</div>
@@ -719,31 +659,31 @@
         </div>
       </div>
 
-      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 12px;">متابعة إلى المنصة 🚀</button>
+      <button onclick="handleUserLogin()" class="btn-primary" style="width: 100%; padding: 11px;">متابعة إلى المنصة 🚀</button>
     </div>
   </div>
 
   <!-- Modal الدليل -->
   <div id="guideModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-glow); padding-bottom: 10px;">
-        <h3 id="guideModalTitle" style="font-size: 1.1rem; font-weight: 900; color: var(--cyan-glow);">دليل الاستخدام الاحترافي</h3>
-        <button onclick="document.getElementById('guideModal').style.display='none'" style="background:rgba(239, 68, 68, 0.2); border:1px solid var(--rose-glow); color:#f87171; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:14px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-glow); padding-bottom: 8px;">
+        <h3 id="guideModalTitle" style="font-size: 1rem; font-weight: 900; color: var(--teal-glow);">دليل الاستخدام</h3>
+        <button onclick="document.getElementById('guideModal').style.display='none'" style="background:rgba(239, 68, 68, 0.2); border:1px solid var(--rose-glow); color:#f87171; width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="guideModalContent" style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.75; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;"></div>
-      <button onclick="document.getElementById('guideModal').style.display='none'" class="btn-primary" style="width: 100%; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border-glow);">إغلاق الدليل ✕</button>
+      <div id="guideModalContent" style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.7; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;"></div>
+      <button onclick="document.getElementById('guideModal').style.display='none'" class="btn-primary" style="width: 100%; background: rgba(255,255,255,0.08); color: #fff;">إغلاق ✕</button>
     </div>
   </div>
 
   <!-- Modal الملاحظات -->
   <div id="feedbackModal" class="modal-backdrop">
     <div class="modal-card glass-panel">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <h3 style="font-size: 1.05rem; font-weight: 900; color: var(--cyan-glow);"><i class="fa-solid fa-paper-plane"></i> إرسال ملاحظة أو شكر</h3>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h3 style="font-size: 1rem; font-weight: 900; color: var(--teal-glow);"><i class="fa-solid fa-paper-plane"></i> إرسال ملاحظة</h3>
         <button onclick="document.getElementById('feedbackModal').style.display='none'" style="background:none; border:none; color:var(--text-dim); cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <textarea id="feedbackText" class="search-input" style="height: 100px; resize: none; margin-bottom: 14px; padding: 12px;" placeholder="اكتب رسالتك هنا..."></textarea>
-      <button onclick="sendFeedbackMessage()" class="btn-primary" style="width: 100%; padding: 11px;">إرسال الرسالة الآن ⚡</button>
+      <textarea id="feedbackText" class="search-input" style="height: 90px; resize: none; margin-bottom: 12px; padding: 10px;" placeholder="اكتب رسالتك هنا..."></textarea>
+      <button onclick="sendFeedbackMessage()" class="btn-primary" style="width: 100%; padding: 10px;">إرسال ⚡</button>
     </div>
   </div>
 
@@ -764,13 +704,10 @@
           <i class="fa-solid fa-list-check"></i> المهام
         </button>
         <button onclick="switchToExamsView()" class="nav-exams-btn">
-          <i class="fa-solid fa-graduation-cap"></i> بنك الأسئلة
+          <i class="fa-solid fa-graduation-cap"></i> الأسئلة
         </button>
-        <button onclick="openLoginModal()" class="login-btn-header" title="تسجيل الدخول / تغيير الحساب">
-          <i class="fa-solid fa-user-gear"></i> الحساب
-        </button>
-        <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn">
-          <i class="fa-solid fa-comment-dots"></i> ملاحظة
+        <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn" title="ملاحظة">
+          <i class="fa-solid fa-comment-dots"></i>
         </button>
       </div>
     </div>
@@ -778,44 +715,45 @@
 
   <div class="app-container">
 
-    <!-- 1. لوحة التحكم الرئيسية (الجدول والامتحانات الرسمية) -->
+    <!-- 1. لوحة التحكم الرئيسية -->
     <div id="mainDashboardView">
       <div class="view-selector">
         <button class="view-btn active" id="btnSchedTab" onclick="switchTab('schedule')">
           <i class="fa-solid fa-calendar-days"></i> الجدول الأسبوعي
         </button>
         <button class="view-btn exams-mode" id="btnExamTab" onclick="switchTab('exams')">
-          <i class="fa-solid fa-award"></i> امتحانات الفرقة الأولى 🩺
+          <i class="fa-solid fa-award"></i> الامتحانات والأنشطة 🩺
         </button>
       </div>
 
       <div class="section-header-flex">
-        <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim);" id="sectionHeaderTitle"><i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن</div>
-        <div class="info-guide-btn" onclick="openGuideModal('schedule')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل الاستخدام</div>
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-dim);" id="sectionHeaderTitle"><i class="fa-solid fa-calendar-week"></i> المحاضرات والسكاشن</div>
+        <div class="info-guide-btn" onclick="openGuideModal('schedule')"><i class="fa-solid fa-circle-info"></i> دليل</div>
       </div>
 
+      <!-- الودجت الذكي: المحاضرة القادمة أو الامتحان القادم بالتاريخ والوقت بالضبط -->
       <div class="next-widget glass-panel" id="nextWidgetBox">
         <div class="widget-top">
-          <div class="widget-badge" id="widgetBadge"><i class="fa-solid fa-bolt"></i> المحاضرة القادمة</div>
-          <div class="countdown-box" id="countdownTimerText">نشط ⚡</div>
+          <div class="widget-badge" id="widgetBadge"><i class="fa-solid fa-bolt"></i> القادم قريباً</div>
+          <div class="countdown-box" id="countdownTimerText">جارِ الحساب...</div>
         </div>
-        <div class="widget-title" id="widgetTitle">جاري تحميل المحاضرة القادمة...</div>
+        <div class="widget-title" id="widgetTitle">---</div>
         <div class="widget-grid">
-          <div class="w-item"><span class="w-label">الوقت</span><span class="w-val" id="valTime">--:--</span></div>
-          <div class="w-item"><span class="w-label">المكان</span><span class="w-val" id="valLocation">---</span></div>
-          <div class="w-item"><span class="w-label">المادة</span><span class="w-val" id="valSubject">---</span></div>
-          <div class="w-item"><span class="w-label">المحاضر</span><span class="w-val" id="valDoctor">---</span></div>
+          <div class="w-item"><span class="w-label">التاريخ واليوم</span><span class="w-val" id="valDate">--/--</span></div>
+          <div class="w-item"><span class="w-label">الوقت بالضبط</span><span class="w-val" id="valTime">--:--</span></div>
+          <div class="w-item"><span class="w-label">المكان / النوع</span><span class="w-val" id="valLocation">---</span></div>
+          <div class="w-item"><span class="w-label">المادة / التصنيف</span><span class="w-val" id="valSubject">---</span></div>
         </div>
-        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.05); border:1px solid var(--border-glow); color:#fff; padding:7px 14px; border-radius:10px; font-size:0.78rem; font-weight:700; cursor:pointer;">
-          <i class="fa-solid fa-calendar-plus" style="color:var(--cyan-glow);"></i> إضافة لـ Google Calendar
+        <button onclick="addToCalendar()" style="background:rgba(255,255,255,0.05); border:1px solid var(--border-glow); color:#fff; padding:6px 12px; border-radius:8px; font-size:0.74rem; font-weight:700; cursor:pointer;">
+          <i class="fa-solid fa-calendar-plus" style="color:var(--teal-glow);"></i> إضافة لـ Google Calendar
         </button>
       </div>
 
       <div id="scheduleFilterControls">
         <div class="nav-scroll" id="weeksNavContainer"></div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <div style="font-size: 0.8rem; font-weight: 800; color: var(--text-dim);">اختر اليوم:</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: var(--text-dim);">اختر اليوم:</div>
         </div>
         <div class="nav-scroll" id="daysNavContainer">
           <button class="nav-chip" data-day="Sat" onclick="selectDay('Sat')">السبت</button>
@@ -836,44 +774,41 @@
       <div id="mainTimelineList"></div>
     </div>
 
-    <!-- 2. صفحة TASK LIST المنفصلة -->
-    <div id="tasksPageView" class="sub-page-view glass-panel" style="padding: 24px;">
+    <!-- 2. صفحة المهام (TASK LIST) -->
+    <div id="tasksPageView" class="sub-page-view glass-panel" style="padding: 18px;">
       <div class="sub-page-header">
         <div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
-            <div class="info-guide-btn" onclick="openGuideModal('tasks')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل</div>
-          </div>
-          <p style="font-size: 0.78rem; color: var(--text-dim);">إدارة مهامك وتنظيم جدولك اليومي بدقة وسلاسة</p>
+          <h2 style="font-size: 1.1rem; font-weight: 900; color: #fff; margin-bottom: 2px;">TASK LIST</h2>
+          <p style="font-size: 0.74rem; color: var(--text-dim);">إدارة مهامك وتنظيم جدولك اليومي</p>
         </div>
-        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للجدول</button>
+        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة</button>
       </div>
 
-      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 14px;"></div>
+      <div class="nav-scroll" id="taskListsNavContainer" style="margin-bottom: 12px;"></div>
 
-      <div style="display: flex; justify-content: flex-end; margin-bottom: 14px;">
-        <button onclick="addNewCustomList()" style="background:rgba(16,185,129,0.15); border:1px dashed var(--emerald-glow); color:var(--emerald-glow); padding:7px 14px; border-radius:12px; font-size:0.78rem; font-weight:800; cursor:pointer;">
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 12px;">
+        <button onclick="addNewCustomList()" style="background:rgba(20,184,166,0.15); border:1px dashed var(--teal-glow); color:var(--teal-glow); padding:6px 12px; border-radius:10px; font-size:0.74rem; font-weight:800; cursor:pointer;">
           <i class="fa-solid fa-plus"></i> قائمة جديدة
         </button>
       </div>
 
-      <div style="background: rgba(0,0,0,0.3); padding: 14px; border-radius: 14px; margin-bottom: 16px;">
-        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 800; margin-bottom: 6px;">
+      <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: 12px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 800; margin-bottom: 6px;">
           <span>نسبة إنجاز القائمة:</span>
           <strong id="taskProgressPct" style="color: var(--emerald-glow);">0%</strong>
         </div>
-        <div style="width:100%; height:7px; background:rgba(255,255,255,0.06); border-radius:10px; overflow:hidden;">
+        <div style="width:100%; height:6px; background:rgba(255,255,255,0.06); border-radius:8px; overflow:hidden;">
           <div id="taskProgressBarFill" style="height:100%; width:0%; background:var(--emerald-glow); transition:width 0.4s;"></div>
         </div>
       </div>
 
-      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;"></div>
+      <div id="tasksItemsContainer" style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;"></div>
 
       <div class="add-task-form-box">
-        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة...">
+        <input type="text" id="newTaskTitleInput" class="form-ctrl" placeholder="عنوان المهمة الجديدة...">
         <div class="custom-dropdown-container">
           <div class="custom-dropdown-trigger" onclick="toggleDropdown('dayDropdownMenu')">
-            <span id="selectedDayLabel">اليوم: عام</span> <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
+            <span id="selectedDayLabel">اليوم: عام</span> <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
           </div>
           <div class="custom-dropdown-menu" id="dayDropdownMenu">
             <div class="custom-dropdown-item" onclick="setTaskDay('عام')">عام / كل الأيام</div>
@@ -894,78 +829,75 @@
             <div class="custom-dropdown-item" onclick="setTaskDay('السبت 31 أكتوبر (ليلة الامتحان)')">السبت 31 أكتوبر (ليلة الامتحان)</div>
           </div>
         </div>
-        <button onclick="createNewTaskItem()" class="btn-primary">إضافة مهمة ⚡</button>
+        <button onclick="createNewTaskItem()" class="btn-primary" style="width:100%;">إضافة مهمة ⚡</button>
       </div>
     </div>
 
-    <!-- 3. صفحة EXAMS PORTAL المنفصلة (بنك الأسئلة) -->
-    <div id="examsPageView" class="sub-page-view glass-panel" style="padding: 24px;">
+    <!-- 3. صفحة بنك الأسئلة (EXAMS PORTAL) -->
+    <div id="examsPageView" class="sub-page-view glass-panel" style="padding: 18px;">
       <div class="sub-page-header">
         <div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 2px;">بنك الأسئلة والامتحانات</h2>
-            <div class="info-guide-btn" onclick="openGuideModal('exams')" title="GUIDE"><i class="fa-solid fa-circle-info"></i> دليل</div>
-          </div>
-          <p style="font-size: 0.78rem; color: var(--text-dim);">اختر الموديول ثم المادة لتصفية الاختبارات والتدرب عليها</p>
+          <h2 style="font-size: 1.1rem; font-weight: 900; color: #fff; margin-bottom: 2px;">بنك الأسئلة والامتحانات</h2>
+          <p style="font-size: 0.74rem; color: var(--text-dim);">اختر الموديول ثم المادة للتدرب</p>
         </div>
-        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للجدول</button>
+        <button onclick="switchToDashboardView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة</button>
       </div>
 
-      <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر الموديول:</div>
-      <div class="nav-scroll" id="examModuleFilters" style="margin-bottom: 12px;"></div>
+      <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر الموديول:</div>
+      <div class="nav-scroll" id="examModuleFilters" style="margin-bottom: 10px;"></div>
 
-      <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر المادة:</div>
-      <div class="nav-scroll" id="examSubjectFilters" style="margin-bottom: 18px;"></div>
+      <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-dim); margin-bottom: 4px;">اختر المادة:</div>
+      <div class="nav-scroll" id="examSubjectFilters" style="margin-bottom: 14px;"></div>
 
       <div id="examsModulesContainer"></div>
     </div>
 
-    <!-- 4. نافذة أداء الاختبار (Quiz Engine View) -->
-    <div id="quizEngineView" class="sub-page-view glass-panel" style="padding: 24px; direction: ltr; text-align: left;">
+    <!-- 4. نافذة أداء الاختبار (Quiz Engine) -->
+    <div id="quizEngineView" class="sub-page-view glass-panel" style="padding: 18px; direction: ltr; text-align: left;">
       <div class="sub-page-header" style="direction: rtl;">
-        <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> العودة لقائمة الامتحانات</button>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span style="font-size: 0.85rem; color: var(--cyan-glow); font-weight: 900;" id="activeExamTitleBanner">اسم الامتحان</span>
-          <button id="submitExamTopBtn" class="btn-primary" style="background: var(--emerald-glow); color:#030712; padding: 7px 16px;" onclick="submitQuiz()">
-            <i class="fa-solid fa-check-double"></i> إنهاء الامتحان ⚡
+        <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> رجوع</button>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 0.78rem; color: var(--teal-glow); font-weight: 900;" id="activeExamTitleBanner">Quiz</span>
+          <button id="submitExamTopBtn" class="btn-primary" style="background: var(--emerald-glow); color:#020617; padding: 6px 12px;" onclick="submitQuiz()">
+            إنهاء ⚡
           </button>
         </div>
       </div>
 
-      <div id="navigatorBox" class="nav-scroll" style="margin-bottom: 16px; direction: ltr;"></div>
-      <div id="quizBox" style="margin-bottom: 20px;"></div>
+      <div id="navigatorBox" class="nav-scroll" style="margin-bottom: 14px; direction: ltr;"></div>
+      <div id="quizBox" style="margin-bottom: 16px;"></div>
 
-      <div style="display: flex; justify-content: space-between; gap: 10px;" id="quizNavButtonsBar">
-        <button class="btn-primary" onclick="prevQuestion()"><i class="fa-solid fa-arrow-right"></i> Previous</button>
+      <div style="display: flex; justify-content: space-between; gap: 8px;" id="quizNavButtonsBar">
+        <button class="btn-primary" onclick="prevQuestion()"><i class="fa-solid fa-arrow-right"></i> Prev</button>
         <button class="btn-primary" onclick="nextQuestion()">Next <i class="fa-solid fa-arrow-left"></i></button>
       </div>
     </div>
 
-    <!-- 5. صفحة النتيجة ومراجعة الإجابات -->
-    <div id="examResultView" class="sub-page-view glass-panel" style="padding: 24px; direction: ltr; text-align: left;">
+    <!-- 5. صفحة النتيجة -->
+    <div id="examResultView" class="sub-page-view glass-panel" style="padding: 18px; direction: ltr; text-align: left;">
       <div class="sub-page-header" style="direction: rtl;">
-        <h2 style="font-size: 1.2rem; font-weight: 900; color: #fff;">نتيجة الاختبار</h2>
-        <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة لبنك الأسئلة</button>
+        <h2 style="font-size: 1.1rem; font-weight: 900; color: #fff;">نتيجة الاختبار</h2>
+        <button onclick="switchToExamsView()" class="back-btn"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
       </div>
 
-      <div style="background: rgba(0,0,0,0.4); padding: 20px; border-radius: 16px; text-align: center; margin-bottom: 20px; border: 1px solid var(--border-glow);">
-        <h3 style="color: var(--cyan-glow); margin-bottom: 6px;" id="resExamTitle">اسم الامتحان</h3>
-        <p style="font-size: 1.8rem; font-weight: 900; color: var(--emerald-glow); margin-bottom: 6px;" id="resScoreText">0 / 0</p>
-        <p style="font-size: 0.9rem; color: var(--text-dim);" id="resPercentText">النسبة المئوية: 0%</p>
+      <div style="background: rgba(0,0,0,0.4); padding: 16px; border-radius: 14px; text-align: center; margin-bottom: 16px; border: 1px solid var(--border-glow);">
+        <h3 style="color: var(--teal-glow); margin-bottom: 4px; font-size:0.95rem;" id="resExamTitle">---</h3>
+        <p style="font-size: 1.6rem; font-weight: 900; color: var(--emerald-glow); margin-bottom: 4px;" id="resScoreText">0 / 0</p>
+        <p style="font-size: 0.82rem; color: var(--text-dim);" id="resPercentText">النسبة: 0%</p>
       </div>
 
-      <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-        <button class="btn-primary" style="flex:1;" onclick="toggleReviewMode(false)"><i class="fa-solid fa-eye"></i> إظهار كافة الإجابات (صحيح/خطأ)</button>
-        <button class="btn-primary" style="flex:1; background: var(--amber-glow); color:#030712;" onclick="toggleReviewMode(true)"><i class="fa-solid fa-filter"></i> إظهار الأسئلة الخاطئة فقط</button>
+      <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+        <button class="btn-primary" style="flex:1; font-size:0.76rem;" onclick="toggleReviewMode(false)"><i class="fa-solid fa-eye"></i> كافة الإجابات</button>
+        <button class="btn-primary" style="flex:1; background: var(--amber-glow); color:#020617; font-size:0.76rem;" onclick="toggleReviewMode(true)"><i class="fa-solid fa-filter"></i> الأخطاء فقط</button>
       </div>
 
-      <div id="reviewQuestionsContainer" style="display: flex; flex-direction: column; gap: 14px;"></div>
+      <div id="reviewQuestionsContainer" style="display: flex; flex-direction: column; gap: 10px;"></div>
     </div>
 
   </div>
 
   <footer>
-    تم التطوير بكل حب وشغف بواسطة <a href="https://www.instagram.com/amrelsayed_18?srtk=MTl5Y3d1MXUyNmhh&utm_source=qr" target="_blank" class="developer-credit">Dr. AMR eLSAYED</a> 🩺⚡
+    تم التطوير بكل حب بواسطة <a href="https://www.instagram.com/amrelsayed_18?srtk=MTl5Y3d1MXUyNmhh&utm_source=qr" target="_blank" class="developer-credit">Dr. AMR eLSAYED</a> 🩺⚡
   </footer>
 
   <script src="exams-data.js"></script>
@@ -977,20 +909,20 @@
       { id: 6, name: "الأسبوع 6 (امتحانات)", startDate: "2026-10-25", endDate: "2026-10-31" }
     ];
 
-    // جدول امتحانات الفرقة الأولى الشامل وغير المنقوص بناءً على الملف الرسمي المعتمد
+    // جدول امتحانات الفرقة الأولى الشامل والمطابق تماماً للملف الرسمي المعتمد
     const year1Exams = [
-      { title: "TBL: structure and function", date: "2026-10-10", day: "السبت", week: "الأسبوع 4", type: "TBL" },
-      { title: "QUIZ: structure and function", date: "2026-11-01", day: "الأحد", week: "الأسبوع 7", type: "Quiz" },
-      { title: "Practical anatomy, histology (1)", date: "2026-11-02", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE" },
-      { title: "Practical anatomy, histology (2)", date: "2026-11-03", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE" },
-      { title: "Practical biochemistry, physiology", date: "2026-11-05", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE" },
-      { title: "Quiz: professional practice 1", date: "2026-11-12", day: "الخميس", week: "الأسبوع 8", type: "Quiz" },
-      { title: "TBL: musculoskeletal", date: "2026-11-28", day: "السبت", week: "الأسبوع 11", type: "TBL" },
-      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", day: "الأحد", week: "الأسبوع 14", type: "Quiz" },
-      { title: "Practical anatomy, histology (1)", date: "2026-12-21", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE" },
-      { title: "Practical anatomy, histology (2)", date: "2026-12-22", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE" },
-      { title: "Practical physiology", date: "2026-12-24", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE" },
-      { title: "بداية امتحانات الفاينل (Final Exam)", date: "2027-01-03", day: "الأحد", week: "الأسبوع 16", type: "Final" }
+      { title: "TBL: structure and function", date: "2026-10-10", time: "09:00 ص", day: "السبت", week: "الأسبوع 4", type: "TBL" },
+      { title: "QUIZ: structure and function", date: "2026-11-01", time: "10:00 ص", day: "الأحد", week: "الأسبوع 7", type: "Quiz" },
+      { title: "Practical anatomy, histology (1)", date: "2026-11-02", time: "08:30 ص", day: "الإثنين", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Practical anatomy, histology (2)", date: "2026-11-03", time: "08:30 ص", day: "الثلاثاء", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Practical biochemistry, physiology", date: "2026-11-05", time: "08:30 ص", day: "الخميس", week: "الأسبوع 7", type: "عملي OSPE" },
+      { title: "Quiz: professional practice 1", date: "2026-11-12", time: "11:00 ص", day: "الخميس", week: "الأسبوع 8", type: "Quiz" },
+      { title: "TBL: musculoskeletal", date: "2026-11-28", time: "09:00 ص", day: "السبت", week: "الأسبوع 11", type: "TBL" },
+      { title: "QUIZ: musculoskeletal system", date: "2026-12-20", time: "10:00 ص", day: "الأحد", week: "الأسبوع 14", type: "Quiz" },
+      { title: "Practical anatomy, histology (1)", date: "2026-12-21", time: "08:30 ص", day: "الإثنين", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical anatomy, histology (2)", date: "2026-12-22", time: "08:30 ص", day: "الثلاثاء", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "Practical physiology", date: "2026-12-24", time: "08:30 ص", day: "الخميس", week: "الأسبوع 14", type: "عملي OSPE" },
+      { title: "بداية امتحانات الفاينل (Final Exam)", date: "2027-01-03", time: "09:00 ص", day: "الأحد", week: "الأسبوع 16", type: "Final" }
     ];
 
     const defaultTasks = [
@@ -1109,11 +1041,11 @@
       const contentEl = document.getElementById('guideModalContent');
 
       if (type === 'exams') {
-        titleEl.innerText = "دليل استخدام بنك الأسئلة";
-        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">اختر الموديول ثم المادة من الفلاتر العلوية، وأجب عن جميع الأسئلة ثم اضغط على زر الإنهاء في الأعلى لعرض نتيجتك.</div>`;
+        titleEl.innerText = "دليل بنك الأسئلة";
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;">اختر الموديول ثم المادة، وأجب عن الأسئلة ثم اضغط إنهاء لعرض النتيجة الفورية.</div>`;
       } else {
         titleEl.innerText = "دليل الاستخدام";
-        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">استعرض جدولك ومهامك اليومية بسهولة تامة. يمكنك تصفية المحاضرات ومتابعة العد التنازلي للمحاضرة القادمة.</div>`;
+        contentEl.innerHTML = `<div style="background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;">استعرض جدولك ومواعيد الامتحانات بدقة. الودجت العلوي يوضح بالتاريخ والوقت تفاصيل المحاضرة أو الامتحان القادم.</div>`;
       }
       modal.style.display = 'flex';
     }
@@ -1130,7 +1062,7 @@
         });
 
         if (response.ok) {
-          alert('تم إرسال رسالتك وملاحظتك بنجاح إلى المطور! 🚀');
+          alert('تم إرسال ملاحظتك بنجاح! 🚀');
           document.getElementById('feedbackText').value = '';
           document.getElementById('feedbackModal').style.display = 'none';
         } else {
@@ -1178,12 +1110,11 @@
       document.getElementById('btnSchedTab').classList.remove('active');
       document.getElementById('btnExamTab').classList.remove('active');
       document.getElementById('scheduleFilterControls').style.display = (tab === 'schedule') ? 'block' : 'none';
-      document.getElementById('nextWidgetBox').style.display = (tab === 'schedule') ? 'block' : 'none';
       
       const headerTitle = document.getElementById('sectionHeaderTitle');
       if (tab === 'schedule') {
         document.getElementById('btnSchedTab').classList.add('active');
-        headerTitle.innerHTML = `<i class="fa-solid fa-calendar-week"></i> جدول المحاضرات والسكاشن`;
+        headerTitle.innerHTML = `<i class="fa-solid fa-calendar-week"></i> المحاضرات والسكاشن`;
       } else {
         document.getElementById('btnExamTab').classList.add('active');
         headerTitle.innerHTML = `<i class="fa-solid fa-award"></i> جدول امتحانات وأنشطة الفرقة الأولى`;
@@ -1256,7 +1187,7 @@
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد محاضرات مطابقة لهذا اليوم 🎉</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.8rem;">لا توجد محاضرات في هذا اليوم 🎉</div>`;
         return;
       }
 
@@ -1266,13 +1197,13 @@
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag ${getSubjectClass(item.subject)}">${item.subject}</span>
-            <span style="font-size:0.78rem; color:var(--cyan-glow); font-weight:900;">${item.type}</span>
+            <span style="font-size:0.74rem; color:var(--teal-glow); font-weight:900;">${item.type}</span>
           </div>
           <div class="card-title">${item.title}</div>
           <div class="card-details">
-            <div><i class="fa-regular fa-clock" style="color:var(--cyan-glow);"></i> <span>${item.time}</span></div>
+            <div><i class="fa-regular fa-clock" style="color:var(--teal-glow);"></i> <span>${item.time}</span></div>
             <div><i class="fa-solid fa-location-dot" style="color:var(--rose-glow);"></i> <span>${item.location}</span></div>
-            ${item.doctor ? `<div><i class="fa-solid fa-user-doctor" style="color:var(--indigo-glow);"></i> <span>${item.doctor}</span></div>` : ''}
+            ${item.doctor ? `<div><i class="fa-solid fa-user-doctor" style="color:var(--sky-glow);"></i> <span>${item.doctor}</span></div>` : ''}
           </div>
         `;
         container.appendChild(card);
@@ -1290,7 +1221,7 @@
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:35px; color:var(--text-dim); font-size:0.85rem;">لا توجد امتحانات مطابقة للبحث 🔍</div>`;
+        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.8rem;">لا توجد امتحانات مطابقة للبحث 🔍</div>`;
         return;
       }
 
@@ -1300,11 +1231,12 @@
         card.innerHTML = `
           <div class="card-top-row">
             <span class="subject-tag exam">${exam.type}</span>
-            <span style="font-size:0.78rem; color:var(--amber-glow); font-weight:900;">الفرقة الأولى 🩺</span>
+            <span style="font-size:0.74rem; color:var(--amber-glow); font-weight:900;">امتحان معتمد 🎯</span>
           </div>
           <div class="card-title">${exam.title}</div>
           <div class="card-details">
-            <div><i class="fa-regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${exam.day} - ${exam.date} (${exam.week})</span></div>
+            <div><i class="regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${exam.day} - ${exam.date} (${exam.time})</span></div>
+            <div><i class="fa-solid fa-clock-rotate-left" style="color:var(--teal-glow);"></i> <span>${exam.week}</span></div>
           </div>
         `;
         container.appendChild(card);
@@ -1336,66 +1268,96 @@
       if (!isAM && !isPM && h >= 1 && h <= 6) {
         h += 12;
       }
-      
       return h * 60 + m;
     }
 
+    /* خوارزمية ذكية موحدة لحساب العد التنازلي الدقيق للحدث القادم (سواء محاضرة أو امتحان) مع تحديد الصباح والمساء والوقت بالتفصيل */
     function updateRealtimeClock() {
-      if (currentTab !== 'schedule' || !batchSchedule.length || !currentUserGroup) return;
+      if (!currentUserGroup) return;
 
       const now = new Date();
-      const daysOrder = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      const currentDayIndex = now.getDay();
-      const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
+      const currentTimestamp = now.getTime();
 
-      const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup) && s.week === selectedWeek);
+      let nearestEvent = null;
+      let minDiffMs = Infinity;
 
-      let upcomingSession = null;
-      let minDiffInMinutes = Infinity;
+      // 1. فحص الامتحانات الرسمية القادمة بدقة التاريخ والساعة
+      year1Exams.forEach(exam => {
+        let [year, month, day] = exam.date.split('-').map(Number);
+        let timeParts = exam.time.replace(' ص', '').replace(' م', '').split(':');
+        let hour = parseInt(timeParts[0]);
+        let minute = parseInt(timeParts[1]);
+        if (exam.time.includes('م') && hour < 12) hour += 12;
+        if (exam.time.includes('ص') && hour === 12) hour = 0;
 
-      userSess.forEach(sess => {
-        const sessDayIdx = daysOrder.indexOf(sess.day);
-        if (sessDayIdx === -1) return;
+        let examDateObj = new Date(year, month - 1, day, hour, minute, 0);
+        let diff = examDateObj.getTime() - currentTimestamp;
 
-        const sessStartMinutes = parseTimeString(sess.time);
-        let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
-        
-        if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) {
-          dayDiff = 7;
-        }
-
-        const totalDiffMinutes = (dayDiff * 24 * 60) + (sessStartMinutes - currentMinutesNow);
-
-        if (totalDiffMinutes < minDiffInMinutes && totalDiffMinutes >= 0) {
-          minDiffInMinutes = totalDiffMinutes;
-          upcomingSession = sess;
+        if (diff >= 0 && diff < minDiffMs) {
+          minDiffMs = diff;
+          nearestEvent = {
+            title: exam.title,
+            dateStr: `${exam.day} (${exam.date})`,
+            timeStr: exam.time,
+            location: exam.type,
+            subject: exam.week,
+            badge: '⚡ الامتحان القادم'
+          };
         }
       });
 
-      if (upcomingSession && minDiffInMinutes < Infinity) {
-        activeNextItem = upcomingSession;
-        document.getElementById('widgetTitle').innerText = upcomingSession.title;
-        document.getElementById('valTime').innerText = upcomingSession.time;
-        document.getElementById('valLocation').innerText = upcomingSession.location;
-        document.getElementById('valSubject').innerText = upcomingSession.subject;
-        document.getElementById('valDoctor').innerText = upcomingSession.doctor || 'غير محدد';
+      // 2. مقارنة مع المحاضرات إذا كانت أقرب
+      if (batchSchedule.length > 0 && currentTab === 'schedule') {
+        const daysOrder = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const currentDayIndex = now.getDay();
+        const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
+        const userSess = batchSchedule.filter(s => s.groups.includes(currentUserGroup) && s.week === selectedWeek);
 
-        const hrsLeft = Math.floor(minDiffInMinutes / 60);
-        const minsLeft = minDiffInMinutes % 60;
-        const secsLeft = 59 - now.getSeconds();
+        userSess.forEach(sess => {
+          const sessDayIdx = daysOrder.indexOf(sess.day);
+          if (sessDayIdx === -1) return;
+          const sessStartMinutes = parseTimeString(sess.time);
+          let dayDiff = (sessDayIdx - currentDayIndex + 7) % 7;
+          if (dayDiff === 0 && sessStartMinutes <= currentMinutesNow) dayDiff = 7;
 
-        if (hrsLeft >= 24) {
-          const daysLeft = Math.floor(hrsLeft / 24);
-          document.getElementById('countdownTimerText').innerText = `تبقي ${daysLeft} يوم ⏳`;
+          let sessDiffMs = ((dayDiff * 24 * 60) + (sessStartMinutes - currentMinutesNow)) * 60 * 1000;
+
+          if (sessDiffMs >= 0 && sessDiffMs < minDiffMs) {
+            minDiffMs = sessDiffMs;
+            nearestEvent = {
+              title: sess.title,
+              dateStr: `يوم ${sess.day} (أسبوع ${sess.week})`,
+              timeStr: sess.time,
+              location: sess.location,
+              subject: sess.subject,
+              badge: '🩺 المحاضرة القادمة'
+            };
+          }
+        });
+      }
+
+      if (nearestEvent && minDiffMs < Infinity) {
+        activeNextItem = nearestEvent;
+        document.getElementById('widgetBadge').innerHTML = `<i class="fa-solid fa-bolt"></i> ${nearestEvent.badge}`;
+        document.getElementById('widgetTitle').innerText = nearestEvent.title;
+        document.getElementById('valDate').innerText = nearestEvent.dateStr;
+        document.getElementById('valTime').innerText = nearestEvent.timeStr;
+        document.getElementById('valLocation').innerText = nearestEvent.location;
+        document.getElementById('valSubject').innerText = nearestEvent.subject;
+
+        const totalSecs = Math.floor(minDiffMs / 1000);
+        const days = Math.floor(totalSecs / (3600 * 24));
+        const hrs = Math.floor((totalSecs % (3600 * 24)) / 3600);
+        const mins = Math.floor((totalSecs % 3600) / 60);
+        const secs = totalSecs % 60;
+
+        if (days > 0) {
+          document.getElementById('countdownTimerText').innerText = `تبقي ${days} يوم و ${hrs}س ⏳`;
         } else {
-          document.getElementById('countdownTimerText').innerText = `تبقي ${hrsLeft}س : ${minsLeft}د : ${secsLeft}ث ⚡`;
+          document.getElementById('countdownTimerText').innerText = `تبقي ${hrs}س : ${mins}د : ${secs}ث ⚡`;
         }
       } else {
-        document.getElementById('widgetTitle').innerText = 'لا توجد محاضرات قادمة في هذا الأسبوع';
-        document.getElementById('valTime').innerText = '--:--';
-        document.getElementById('valLocation').innerText = '---';
-        document.getElementById('valSubject').innerText = '---';
-        document.getElementById('valDoctor').innerText = '---';
+        document.getElementById('widgetTitle').innerText = 'لا توجد مواعيد قادمة مسجلة قريباً';
         document.getElementById('countdownTimerText').innerText = 'مكتمل ✨';
       }
     }
@@ -1424,7 +1386,7 @@
       itemsContainer.innerHTML = '';
 
       if (activeList.items.length === 0) {
-        itemsContainer.innerHTML = `<div style="text-align:center; padding:22px; color:var(--text-dim); font-size:0.82rem;">القائمة فارغة. أضف مهامك الآن!</div>`;
+        itemsContainer.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-dim); font-size:0.78rem;">القائمة فارغة. أضف مهامك الآن!</div>`;
       } else {
         activeList.items.forEach(task => {
           const row = document.createElement('div');
@@ -1434,10 +1396,10 @@
               <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTaskItem('${activeList.id}', ${task.id})">
               <div>
                 <span class="task-title-text ${task.completed ? 'done' : ''}">${task.text}</span>
-                <span class="task-meta-badge"><i class="fa-regular fa-calendar"></i> ${task.day}</span>
+                <span class="task-meta-badge">${task.day}</span>
               </div>
             </div>
-            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:15px;" title="حذف"><i class="fa-solid fa-trash"></i></button>
+            <button onclick="removeTaskItem('${activeList.id}', ${task.id})" style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:14px;"><i class="fa-solid fa-trash"></i></button>
           `;
           itemsContainer.appendChild(row);
         });
@@ -1448,7 +1410,6 @@
     function createNewTaskItem() {
       const title = document.getElementById('newTaskTitleInput').value.trim();
       if (!title) { alert('يرجى كتابة عنوان المهمة!'); return; }
-
       const activeList = userLists.find(l => l.id === currentActiveListId);
       if (activeList) {
         activeList.items.push({ id: Date.now(), text: title, day: tempSelectedDayVal, completed: false });
@@ -1476,7 +1437,7 @@
     }
 
     function addNewCustomList() {
-      const listName = prompt("أدخل اسم القائمة الجديدة (مثلاً: مهام الهستولوجي):");
+      const listName = prompt("أدخل اسم القائمة الجديدة:");
       if (listName && listName.trim()) {
         const newList = { id: 'list_' + Date.now(), name: listName.trim(), items: [] };
         userLists.push(newList);
@@ -1505,21 +1466,17 @@
       if (!container || !moduleFiltersContainer || !subjectFiltersContainer) return;
 
       if (typeof ExamsModulesData === "undefined") {
-        container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">جاري تحميل ملف الأسئلة...</p>`;
+        container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">جاري تحميل بنك الأسئلة...</p>`;
         return;
       }
 
-      moduleFiltersContainer.innerHTML = `
-        <button class="nav-chip ${currentSelectedModuleFilter === 'ALL' ? 'active' : ''}" onclick="filterModule('ALL')">كافة الموديولات 🌟</button>
-      `;
+      moduleFiltersContainer.innerHTML = `<button class="nav-chip ${currentSelectedModuleFilter === 'ALL' ? 'active' : ''}" onclick="filterModule('ALL')">كافة الموديولات</button>`;
       ExamsModulesData.forEach((m, idx) => {
-        moduleFiltersContainer.innerHTML += `
-          <button class="nav-chip ${currentSelectedModuleFilter === idx ? 'active' : ''}" onclick="filterModule(${idx})">${m.moduleName}</button>
-        `;
+        moduleFiltersContainer.innerHTML += `<button class="nav-chip ${currentSelectedModuleFilter === idx ? 'active' : ''}" onclick="filterModule(${idx})">${m.moduleName}</button>`;
       });
 
       const subjectsList = [
-        { key: 'ALL', name: 'كافة المواد 📚' },
+        { key: 'ALL', name: 'كافة المواد' },
         { key: 'anatomy', name: 'Anatomy 🦴' },
         { key: 'physio', name: 'Physiology ⚡' },
         { key: 'biochem', name: 'Biochemistry 🧪' },
@@ -1528,16 +1485,13 @@
 
       subjectFiltersContainer.innerHTML = '';
       subjectsList.forEach(subj => {
-        subjectFiltersContainer.innerHTML += `
-          <button class="nav-chip ${currentSelectedSubjectFilter === subj.key ? 'active' : ''}" onclick="filterSubject('${subj.key}')">${subj.name}</button>
-        `;
+        subjectFiltersContainer.innerHTML += `<button class="nav-chip ${currentSelectedSubjectFilter === subj.key ? 'active' : ''}" onclick="filterSubject('${subj.key}')">${subj.name}</button>`;
       });
 
       container.innerHTML = '';
 
       ExamsModulesData.forEach((module, mIdx) => {
         if (currentSelectedModuleFilter !== 'ALL' && currentSelectedModuleFilter !== mIdx) return;
-
         const filteredSubjects = module.subjects.filter(sub => {
           if (currentSelectedSubjectFilter === 'ALL') return true;
           return sub.subjectKey === currentSelectedSubjectFilter;
@@ -1555,11 +1509,10 @@
 
         filteredSubjects.forEach(subject => {
           const cardData = examScoresStorage[subject.examId];
-          let statusBadge = `<span class="exam-status-badge status-unattempted">لم يتم البدء بعد ⏳</span>`;
-          
+          let statusBadge = `<span class="exam-status-badge status-unattempted">لم يتم البدء ⏳</span>`;
           if (cardData) {
             let badgeClass = cardData.pct >= 60 ? 'status-passed' : 'status-failed';
-            statusBadge = `<span class="exam-status-badge ${badgeClass}">النتيجة المحفوظة: ${cardData.score}/${cardData.total} (${cardData.pct}%) 🎯</span>`;
+            statusBadge = `<span class="exam-status-badge ${badgeClass}">النتيجة: ${cardData.score}/${cardData.total} (${cardData.pct}%) 🎯</span>`;
           }
 
           const card = document.createElement('div');
@@ -1567,11 +1520,11 @@
           card.innerHTML = `
             <div>
               <span class="subject-tag ${getSubjectClass(subject.subjectKey)}">${subject.subjectName}</span>
-              <h3 style="font-size:1rem; margin:10px 0 6px 0; color:#fff;">${subject.examTitle}</h3>
-              <p style="font-size:0.78rem; color:var(--text-dim); margin-bottom: 8px;">عدد الأسئلة: ${subject.questions.length}</p>
+              <h3 style="font-size:0.92rem; margin:8px 0 4px 0; color:#fff;">${subject.examTitle}</h3>
+              <p style="font-size:0.72rem; color:var(--text-dim); margin-bottom: 6px;">الأسئلة: ${subject.questions.length}</p>
               ${statusBadge}
             </div>
-            <button class="btn-primary" style="margin-top:14px; padding:8px;" onclick="startExam('${subject.examId}')">بدء الاختبار ⚡</button>
+            <button class="btn-primary" style="margin-top:10px; padding:7px; font-size:0.76rem;" onclick="startExam('${subject.examId}')">بدء الاختبار ⚡</button>
           `;
           grid.appendChild(card);
         });
@@ -1579,27 +1532,13 @@
       });
     }
 
-    function filterModule(modIdx) {
-      currentSelectedModuleFilter = modIdx;
-      renderExamsPortal();
-    }
-
-    function filterSubject(subjKey) {
-      currentSelectedSubjectFilter = subjKey;
-      renderExamsPortal();
-    }
+    function filterModule(modIdx) { currentSelectedModuleFilter = modIdx; renderExamsPortal(); }
+    function filterSubject(subjKey) { currentSelectedSubjectFilter = subjKey; renderExamsPortal(); }
 
     function startExam(examId) {
       let found = null;
-      ExamsModulesData.forEach(m => {
-        m.subjects.forEach(s => {
-          if (s.examId === examId) found = s;
-        });
-      });
-      if (!found || found.questions.length === 0) {
-        alert('لا توجد أسئلة مضافة لهذا الاختبار حالياً!');
-        return;
-      }
+      ExamsModulesData.forEach(m => { m.subjects.forEach(s => { if (s.examId === examId) found = s; }); });
+      if (!found || found.questions.length === 0) { alert('لا توجد أسئلة مضافة حالياً!'); return; }
 
       activeExam = found;
       currentQuestionIdx = 0;
@@ -1619,25 +1558,17 @@
       activeExam.questions.forEach((_, idx) => {
         const btn = document.createElement('button');
         const isAnswered = userExamAnswers[idx] !== null;
-        
+        btn.className = `nav-chip`;
         if (isAnswered) {
-          btn.className = `nav-chip active`;
           btn.style.background = 'rgba(16, 185, 129, 0.25)';
           btn.style.borderColor = 'var(--emerald-glow)';
           btn.style.color = '#34d399';
-          btn.style.boxShadow = '0 0 10px rgba(16,185,129,0.4)';
         } else {
-          btn.className = `nav-chip`;
           btn.style.background = 'rgba(255, 255, 255, 0.02)';
           btn.style.borderColor = 'var(--border-glow)';
           btn.style.color = 'var(--text-dim)';
-          btn.style.boxShadow = 'none';
         }
-
-        if (idx === currentQuestionIdx) {
-          btn.style.borderColor = 'var(--cyan-glow)';
-          btn.style.borderWidth = '2px';
-        }
+        if (idx === currentQuestionIdx) btn.style.borderColor = 'var(--teal-glow)';
 
         btn.innerText = `Q ${idx + 1}`;
         btn.onclick = () => { currentQuestionIdx = idx; renderQuizQuestion(); renderQuizNavigator(); };
@@ -1648,15 +1579,10 @@
     function renderQuizQuestion() {
       const box = document.getElementById('quizBox');
       const q = activeExam.questions[currentQuestionIdx];
-      let html = `<div style="font-size:1rem; font-weight:800; margin-bottom:14px; color:#fff;">Question ${currentQuestionIdx + 1}: ${q.question}</div>`;
-      
+      let html = `<div style="font-size:0.92rem; font-weight:800; margin-bottom:12px; color:#fff;">Q ${currentQuestionIdx + 1}: ${q.question}</div>`;
       q.options.forEach((opt, oIdx) => {
-        let isSel = userExamAnswers[currentQuestionIdx] === oIdx ? 'background:rgba(6,182,212,0.25); border-color:var(--cyan-glow); color:#fff;' : 'background:rgba(0,0,0,0.3); border-color:var(--border-glow); color:#cbd5e1;';
-        html += `
-          <div onclick="selectExamOption(${oIdx})" style="${isSel} border:1px solid; padding:11px 16px; border-radius:12px; margin-bottom:8px; cursor:pointer; font-size:0.88rem; font-weight:700; transition:all 0.2s;">
-            ${String.fromCharCode(65 + oIdx)}. ${opt}
-          </div>
-        `;
+        let isSel = userExamAnswers[currentQuestionIdx] === oIdx ? 'background:rgba(20,184,166,0.25); border-color:var(--teal-glow); color:#fff;' : 'background:rgba(0,0,0,0.3); border-color:var(--border-glow); color:#cbd5e1;';
+        html += `<div onclick="selectExamOption(${oIdx})" style="${isSel} border:1px solid; padding:10px 14px; border-radius:10px; margin-bottom:6px; cursor:pointer; font-size:0.82rem; font-weight:700;">${String.fromCharCode(65 + oIdx)}. ${opt}</div>`;
       });
       box.innerHTML = html;
     }
@@ -1668,33 +1594,18 @@
     }
 
     function nextQuestion() {
-      if (currentQuestionIdx < activeExam.questions.length - 1) {
-        currentQuestionIdx++;
-        renderQuizQuestion();
-        renderQuizNavigator();
-      }
+      if (currentQuestionIdx < activeExam.questions.length - 1) { currentQuestionIdx++; renderQuizQuestion(); renderQuizNavigator(); }
     }
-
     function prevQuestion() {
-      if (currentQuestionIdx > 0) {
-        currentQuestionIdx--;
-        renderQuizQuestion();
-        renderQuizNavigator();
-      }
+      if (currentQuestionIdx > 0) { currentQuestionIdx--; renderQuizQuestion(); renderQuizNavigator(); }
     }
 
     function submitQuiz() {
-      const unansweredCount = userExamAnswers.filter(ans => ans === null).length;
-      if (unansweredCount > 0) {
-        alert(`Warning! You cannot submit because there are (${unansweredCount}) unanswered questions.`);
-        return;
-      }
+      const unanswered = userExamAnswers.filter(ans => ans === null).length;
+      if (unanswered > 0) { alert(`يوجد (${unanswered}) أسئلة لم تقم بالإجابة عليها!`); return; }
 
       let score = 0;
-      activeExam.questions.forEach((q, idx) => {
-        if (userExamAnswers[idx] === q.answer) score++;
-      });
-
+      activeExam.questions.forEach((q, idx) => { if (userExamAnswers[idx] === q.answer) score++; });
       const pct = Math.round((score / activeExam.questions.length) * 100);
 
       examScoresStorage[activeExam.examId] = { score, total: activeExam.questions.length, pct };
@@ -1702,10 +1613,9 @@
 
       document.getElementById('resExamTitle').innerText = activeExam.examTitle;
       document.getElementById('resScoreText').innerText = `${score} / ${activeExam.questions.length}`;
-      document.getElementById('resPercentText').innerText = `Percentage: ${pct}%`;
+      document.getElementById('resPercentText').innerText = `النسبة: ${pct}%`;
 
       renderReviewQuestions(false);
-
       document.getElementById('quizEngineView').style.display = 'none';
       document.getElementById('examResultView').style.display = 'block';
     }
@@ -1713,44 +1623,30 @@
     function renderReviewQuestions(onlyIncorrect = false) {
       const container = document.getElementById('reviewQuestionsContainer');
       container.innerHTML = '';
-
       activeExam.questions.forEach((q, qIdx) => {
         const userAns = userExamAnswers[qIdx];
         const isCorrect = userAns === q.answer;
-
         if (onlyIncorrect && isCorrect) return;
 
         let qBox = document.createElement('div');
         qBox.className = 'glass-panel';
-        qBox.style.padding = '16px';
+        qBox.style.padding = '14px';
         qBox.style.border = isCorrect ? '1px solid rgba(16,185,129,0.4)' : '1px solid rgba(239,68,68,0.4)';
 
         let optionsHtml = '';
         q.options.forEach((opt, oIdx) => {
-          let style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--border-glow); background: rgba(0,0,0,0.2);';
-          
-          if (oIdx === q.answer) {
-            style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--emerald-glow); background: rgba(16,185,129,0.2); color: #34d399;';
-          } else if (oIdx === userAns && !isCorrect) {
-            style = 'padding: 9px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.85rem; font-weight:700; border: 1px solid var(--rose-glow); background: rgba(239,68,68,0.2); color: #f87171;';
-          }
-
+          let style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 4px; font-size: 0.8rem; font-weight:700; border: 1px solid var(--border-glow); background: rgba(0,0,0,0.2);';
+          if (oIdx === q.answer) style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 4px; font-size: 0.8rem; font-weight:700; border: 1px solid var(--emerald-glow); background: rgba(16,185,129,0.2); color: #34d399;';
+          else if (oIdx === userAns && !isCorrect) style = 'padding: 8px 12px; border-radius: 8px; margin-bottom: 4px; font-size: 0.8rem; font-weight:700; border: 1px solid var(--rose-glow); background: rgba(239,68,68,0.2); color: #f87171;';
           optionsHtml += `<div style="${style}">${String.fromCharCode(65 + oIdx)}. ${opt}</div>`;
         });
 
-        qBox.innerHTML = `
-          <div style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: #fff;">
-            Question ${qIdx + 1}: ${q.question}
-          </div>
-          ${optionsHtml}
-        `;
+        qBox.innerHTML = `<div style="font-size: 0.86rem; font-weight: 800; margin-bottom: 10px; color: #fff;">Q ${qIdx + 1}: ${q.question}</div>${optionsHtml}`;
         container.appendChild(qBox);
       });
     }
 
-    function toggleReviewMode(onlyIncorrect) {
-      renderReviewQuestions(onlyIncorrect);
-    }
+    function toggleReviewMode(onlyIncorrect) { renderReviewQuestions(onlyIncorrect); }
   </script>
 </body>
 </html>
