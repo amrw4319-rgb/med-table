@@ -154,7 +154,7 @@
       gap: 6px;
     }
 
-    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn, .feedback-trigger-btn, .admin-link-btn {
+    .nav-sched-btn, .nav-tasks-btn, .nav-exams-btn, .feedback-trigger-btn {
       flex: 1;
       background: linear-gradient(135deg, var(--sky-glow), var(--teal-glow));
       color: #020617;
@@ -184,16 +184,9 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glow);
       color: #fff;
+      max-width: 45px;
     }
     .feedback-trigger-btn:hover { border-color: var(--teal-glow); }
-    
-    .admin-link-btn {
-      background: rgba(20, 184, 166, 0.12);
-      border: 1px solid var(--teal-glow);
-      color: var(--teal-glow);
-      max-width: 42px;
-    }
-    .admin-link-btn:hover { background: var(--teal-glow); color: #020617; }
 
     .view-selector {
       display: flex;
@@ -718,10 +711,6 @@
         <button onclick="document.getElementById('feedbackModal').style.display='flex'" class="feedback-trigger-btn" title="ملاحظة">
           <i class="fa-solid fa-comment-dots"></i>
         </button>
-        <!-- زر الدخول المباشر للوحة الإحصائيات -->
-        <a href="admin-analytics.html" class="admin-link-btn" title="لوحة تحكم الإحصائيات">
-          <i class="fa-solid fa-chart-pie"></i>
-        </a>
       </div>
     </div>
   </header>
@@ -1009,7 +998,8 @@
       });
     }
 
-    function handleUserLogin() {
+    /* دالة تسجيل الدخول وتسجيل الزيارة فوراً في جوجل شيت ولوحة الإحصائيات */
+    async function handleUserLogin() {
       const name = document.getElementById('modalNameInput').value.trim();
       if (!name || !tempLoginGroup) { alert('يرجى كتابة الاسم وتحديد مجموعتك الفرعية!'); return; }
 
@@ -1021,6 +1011,22 @@
       document.getElementById('loginModal').style.display = 'none';
       updateHeaderUI();
       renderMainContent();
+
+      // إرسال تفاصيل تسجيل الدخول والزيارة إلى جوجل شيت تلقائياً
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec", {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({ 
+            name: currentUserName, 
+            group: currentUserGroup, 
+            message: `🩺 تسجيل دخول للطالب (المجموعة: ${currentUserGroup})` 
+          })
+        });
+      } catch (e) {
+        console.log("Analytics sync offline");
+      }
     }
 
     function openLoginModal() {
@@ -1068,7 +1074,6 @@
       if (!text) { alert('يرجى كتابة رسالتك أولاً!'); return; }
 
       try {
-        // إرسال الملاحظة باستخدام no-cors ورابط Web App API المعتمد لتجاوز حظر المتصفحات
         await fetch("https://script.google.com/macros/s/AKfycbxpxZsmjUXiP9-X39zPQgz5Vh6OjtUqJHIVlMO3fWaVwoHXsuLYu6oj9ckgwWnqb16Z/exec", {
           method: "POST",
           mode: "no-cors",
@@ -1286,7 +1291,6 @@
       return h * 60 + m;
     }
 
-    /* خوارزمية ذكية موحدة لحساب العد التنازلي الدقيق للحدث القادم (سواء محاضرة أو امتحان) مع تحديد الصباح والمساء والوقت بالتفصيل */
     function updateRealtimeClock() {
       if (!currentUserGroup) return;
 
@@ -1296,7 +1300,6 @@
       let nearestEvent = null;
       let minDiffMs = Infinity;
 
-      // 1. فحص الامتحانات الرسمية القادمة بدقة التاريخ والساعة
       year1Exams.forEach(exam => {
         let [year, month, day] = exam.date.split('-').map(Number);
         let timeParts = exam.time.replace(' ص', '').replace(' م', '').split(':');
@@ -1321,7 +1324,6 @@
         }
       });
 
-      // 2. مقارنة مع المحاضرات إذا كانت أقرب
       if (batchSchedule.length > 0 && currentTab === 'schedule') {
         const daysOrder = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const currentDayIndex = now.getDay();
