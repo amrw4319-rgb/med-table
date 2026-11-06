@@ -2,12 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>دليل كلية الطب | منصة رفيق الدكاترة 🩺</title>
 
   <!-- PWA & Mobile Web App Meta Tags -->
   <meta name="theme-color" content="#030712">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Favicon -->
@@ -624,6 +625,52 @@
       font-weight: 900;
       text-decoration: none;
     }
+
+/* ===== App shell (mobile-first) ===== */
+html{-webkit-text-size-adjust:100%}
+body{min-height:100dvh;padding-bottom:calc(92px + env(safe-area-inset-bottom));touch-action:manipulation}
+header{padding-top:calc(8px + env(safe-area-inset-top));margin-bottom:12px}
+.header-wrapper{flex-direction:row!important;align-items:center;gap:10px}
+.header-top-row{flex:1}.header-bottom-row{width:auto}
+.header-bottom-row>:not(.feedback-trigger-btn){display:none}
+.feedback-trigger-btn{max-width:none;width:42px;height:42px;flex:none;border-radius:14px}
+.view-selector{display:none}
+.search-input,.form-ctrl,textarea{font-size:16px!important}
+.nav-chip{min-height:40px;scroll-snap-align:start}.nav-scroll{scroll-snap-type:x proximity}
+.group-pill-option{padding:12px 0}.btn-primary{min-height:44px}.back-btn{min-height:40px}
+#mainDashboardView,.sub-page-view{animation:pageIn .3s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:200;display:flex;justify-content:space-around;padding:6px 8px calc(6px + env(safe-area-inset-bottom));background:rgba(2,6,23,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-top:1px solid var(--border-glow)}
+.bottom-nav button{flex:1;max-width:120px;background:none;border:0;color:var(--text-dim);display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0;font-size:.68rem;font-weight:800;cursor:pointer;position:relative;transition:color .25s}
+.bottom-nav button i{font-size:1.15rem;transition:transform .3s}
+.bottom-nav button.active{color:var(--teal-glow)}
+.bottom-nav button.active i{transform:translateY(-2px) scale(1.15)}
+.bottom-nav button.active::before{content:"";position:absolute;top:-7px;width:28px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--sky-glow),var(--teal-glow))}
+.modal-backdrop{align-items:flex-end!important;padding:0!important}
+.modal-card{max-width:none!important;max-height:92dvh;overflow:auto;border-radius:24px 24px 0 0!important;padding-bottom:calc(22px + env(safe-area-inset-bottom))!important;animation:sheetUp .32s cubic-bezier(.2,.9,.3,1)}
+@keyframes sheetUp{from{transform:translateY(100%)}}
+@media(min-width:640px){.modal-backdrop{align-items:center!important;padding:12px!important}.modal-card{max-width:400px!important;border-radius:24px!important}.app-container{max-width:640px}}
+/* ===== Level-style timeline ===== */
+.lv-sum{padding:12px 14px;margin-bottom:14px;border-radius:14px;background:rgba(0,0,0,.28);border:1px solid var(--border-glow)}
+.lv-sum-top{display:flex;justify-content:space-between;font-size:.8rem;font-weight:800;margin-bottom:8px}
+.lv-bar{height:8px;border-radius:8px;background:rgba(255,255,255,.07);overflow:hidden}
+.lv-bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--emerald-glow),var(--teal-glow),var(--sky-glow));transition:width .6s}
+.lv{position:relative;padding-inline-start:48px;padding-bottom:14px}
+.lv .timeline-card{margin:0;position:relative;transition:all .4s}
+.lv:not(:last-child)::before{content:"";position:absolute;inset-inline-start:15px;top:34px;bottom:-6px;width:4px;border-radius:4px;background:rgba(148,163,184,.16)}
+.lv.done:not(:last-child)::before{background:linear-gradient(var(--emerald-glow),var(--teal-glow))}
+.lv.live:not(:last-child)::before{background:linear-gradient(var(--amber-glow) var(--p,0%),rgba(148,163,184,.16) var(--p,0%))}
+.lv-node{position:absolute;inset-inline-start:0;top:6px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:900;background:#0f172a;border:2px solid rgba(148,163,184,.3);color:var(--text-dim);z-index:1}
+.lv.done .lv-node{background:rgba(16,185,129,.18);border-color:var(--emerald-glow);color:var(--emerald-glow)}
+.lv.done .timeline-card{opacity:.42;filter:saturate(.35)}
+.lv.live .lv-node,.lv.next .lv-node{background:linear-gradient(135deg,var(--amber-glow),var(--rose-glow));border-color:#fff;color:#fff;transform:scale(1.15);animation:nodePulse 1.6s infinite}
+@keyframes nodePulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.75)}70%{box-shadow:0 0 0 15px rgba(245,158,11,0)}100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}}
+.lv.live .timeline-card,.lv.next .timeline-card{border-color:var(--amber-glow);animation:cardGlow 2.4s ease-in-out infinite}
+@keyframes cardGlow{50%{box-shadow:0 0 24px rgba(245,158,11,.4),0 12px 35px rgba(0,0,0,.5)}}
+.lv-tag{display:inline-block;margin-bottom:8px;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:900;color:#1c1004;background:linear-gradient(110deg,#f59e0b 30%,#fde68a 50%,#f59e0b 70%);background-size:220% 100%;animation:shine 2.2s linear infinite}
+.lv-tag.live{background-image:linear-gradient(110deg,#f43f5e 30%,#fda4af 50%,#f43f5e 70%);color:#fff}
+@keyframes shine{to{background-position:-220% 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
@@ -898,6 +945,13 @@
 
   </div>
 
+  <nav class="bottom-nav" id="bottomNav">
+    <button data-n="schedule" onclick="goNav('schedule')"><i class="fa-solid fa-calendar-days"></i><span>الجدول</span></button>
+    <button data-n="exams" onclick="goNav('exams')"><i class="fa-solid fa-award"></i><span>الامتحانات</span></button>
+    <button data-n="bank" onclick="goNav('bank')"><i class="fa-solid fa-graduation-cap"></i><span>الأسئلة</span></button>
+    <button data-n="tasks" onclick="goNav('tasks')"><i class="fa-solid fa-list-check"></i><span>المهام</span></button>
+  </nav>
+
   <footer>
     تم التطوير بكل حب بواسطة <a href="https://www.instagram.com/amrelsayed_18?srtk=MTl5Y3d1MXUyNmhh&utm_source=qr" target="_blank" class="developer-credit">Dr. AMR eLSAYED</a> 🩺⚡
   </footer>
@@ -977,6 +1031,7 @@
     let currentSelectedSubjectFilter = 'ALL';
 
     window.onload = async function() {
+      track('visit', 'دخول للموقع');
       autoDetectTimeAndWeek();
       renderWeeksNav();
       await loadSchedule();
@@ -990,6 +1045,9 @@
       }
       renderExamsPortal();
       setInterval(updateRealtimeClock, 1000);
+      setInterval(lvTick, 15000);
+      setNav('schedule');
+      loadExamFiles().then(renderExamsPortal);
     };
 
     function selectLoginGroup(group) {
@@ -1014,20 +1072,7 @@
       updateHeaderUI();
       renderMainContent();
 
-      try {
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify({ 
-            name: currentUserName, 
-            group: currentUserGroup, 
-            message: "تسجيل دخول" 
-          })
-        });
-      } catch (e) {
-        console.log("Analytics sync offline");
-      }
+      track('login', 'تسجيل دخول');
     }
 
     function openLoginModal() {
@@ -1083,7 +1128,7 @@
           body: JSON.stringify({ 
             name: currentUserName, 
             group: currentUserGroup, 
-            message: text 
+            type: 'feedback', uid: getUid(), message: text 
           })
         });
 
@@ -1197,82 +1242,192 @@
       }
     }
 
+    /* ===== Analytics: every visit is logged ===== */
+    function getUid() {
+      let u = localStorage.getItem('med_uid');
+      if (!u) { u = 'u' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem('med_uid', u); }
+      return u;
+    }
+    function track(type, message) {
+      try {
+        const v = (parseInt(localStorage.getItem('med_visits')) || 0) + (type === 'visit' ? 1 : 0);
+        localStorage.setItem('med_visits', v);
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ type, uid: getUid(), name: currentUserName || 'زائر', group: currentUserGroup || '--', message,
+            ua: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop', standalone: matchMedia('(display-mode: standalone)').matches }) });
+      } catch (e) {}
+    }
+    let hiddenAt = 0;
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) hiddenAt = Date.now();
+      else if (hiddenAt && Date.now() - hiddenAt > 30 * 60000) { hiddenAt = 0; track('visit', 'عودة للموقع'); }
+    });
+
+    /* ===== PWA manifest (home-screen install) ===== */
+    try {
+      const icon = document.querySelector('link[rel=icon]').href;
+      const man = { name: 'رفيق الدكاترة', short_name: 'رفيق', display: 'standalone', start_url: location.href, background_color: '#020617', theme_color: '#030712', dir: 'rtl', lang: 'ar', icons: [{ src: icon, sizes: 'any', type: 'image/svg+xml' }] };
+      const l = document.createElement('link'); l.rel = 'manifest';
+      l.href = URL.createObjectURL(new Blob([JSON.stringify(man)], { type: 'application/manifest+json' }));
+      document.head.appendChild(l);
+    } catch (e) {}
+
+    /* ===== Bottom navigation ===== */
+    function setNav(n) { document.querySelectorAll('#bottomNav button').forEach(b => b.classList.toggle('active', b.dataset.n === n)); }
+    function goNav(n) {
+      if (n === 'bank') switchToExamsView();
+      else if (n === 'tasks') switchToTasksView();
+      else { switchToDashboardView(); switchTab(n); }
+      window.scrollTo({ top: 0 });
+    }
+    { const _d = switchToDashboardView, _t = switchToTasksView, _e = switchToExamsView, _s = switchTab;
+      switchToDashboardView = function () { _d(); setNav(currentTab === 'exams' ? 'exams' : 'schedule'); };
+      switchToTasksView = function () { _t(); setNav('tasks'); };
+      switchToExamsView = function () { _e(); setNav('bank'); };
+      switchTab = function (t) { _s(t); setNav(t === 'exams' ? 'exams' : 'schedule'); lvScroll = (t === 'exams'); renderMainContent(); }; }
+
+    /* ===== Level-style timeline ===== */
+    const DAY_IDX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    let lvWins = [], lvSig = '', lvScroll = false;
+
+    function sessionDate(it) {
+      const w = studyWeeks.find(x => x.id === it.week);
+      if (!w || DAY_IDX[it.day] === undefined) return null;
+      const [y, m, d] = w.startDate.split('-').map(Number);
+      const b = new Date(y, m - 1, d);
+      b.setDate(d + (DAY_IDX[it.day] - b.getDay() + 7) % 7);
+      return b;
+    }
+    function parseRange(t) {
+      const parts = String(t || '').toLowerCase().split(/\s*[-–—]\s*/);
+      const mk = x => { const m = x && x.match(/(\d{1,2})(?::(\d{2}))?/); return m ? { h: +m[1], mi: +(m[2] || 0), pm: /م|pm/.test(x), am: /ص|am/.test(x) } : null; };
+      const cv = x => { let h = x.h; if (x.pm && h < 12) h += 12; else if (x.am && h === 12) h = 0; else if (!x.pm && !x.am && h >= 1 && h <= 6) h += 12; return h * 60 + x.mi; };
+      const a = mk(parts[0]) || { h: 0, mi: 0 }, b = parts[1] ? mk(parts[1]) : null;
+      let st = cv(a), en = b ? cv(b) : st + 90;
+      if (b && !a.pm && !a.am && (b.pm || b.am)) { st = cv({ ...a, pm: b.pm, am: b.am }); if (st >= en) st = cv({ ...a, pm: b.am, am: b.pm }); }
+      if (en <= st) en = st + 90;
+      return [st, en];
+    }
+    const statusOf = (w, n) => n >= w[1] ? 'done' : n >= w[0] ? 'live' : 'up';
+
+    function renderLevels(list) {
+      const box = document.getElementById('mainTimelineList'), now = Date.now();
+      lvWins = list.map(x => x.win);
+      lvSig = lvWins.map(w => statusOf(w, now)).join();
+      const done = lvWins.filter(w => now >= w[1]).length, pct = Math.round(done / list.length * 100);
+      const live = lvWins.some(w => statusOf(w, now) === 'live');
+      let nextDone = false;
+      box.innerHTML = `<div class="lv-sum"><div class="lv-sum-top"><span>${done === list.length ? '🏆 خلصت الكل!' : '🎮 تقدّمك'}</span><b>${done}/${list.length}</b></div><div class="lv-bar"><i style="width:${pct}%"></i></div></div><div class="lv-list">` +
+        list.map((x, i) => {
+          let st = statusOf(x.win, now);
+          if (st === 'up' && !live && !nextDone) { st = 'next'; nextDone = true; }
+          const icon = st === 'done' ? '<i class="fa-solid fa-check"></i>' : st === 'live' ? '<i class="fa-solid fa-bolt"></i>' : st === 'next' ? '<i class="fa-solid fa-star"></i>' : i + 1;
+          const tag = st === 'live' ? '<div class="lv-tag live">🔴 جارية الآن <span class="lv-rem"></span></div>' : st === 'next' ? '<div class="lv-tag">⭐ التالية</div>' : '';
+          return `<div class="lv ${st}" data-s="${x.win[0]}" data-e="${x.win[1]}"><div class="lv-node">${icon}</div><div class="timeline-card glass-panel">${tag}${x.html}</div></div>`;
+        }).join('') + '</div>';
+      lvTick();
+      if (lvScroll) { lvScroll = false; const el = box.querySelector('.lv.live,.lv.next'); if (el) setTimeout(() => el.scrollIntoView({ block: 'center', behavior: 'smooth' }), 250); }
+    }
+    function lvTick() {
+      if (!lvWins.length) return;
+      const n = Date.now();
+      if (lvWins.map(w => statusOf(w, n)).join() !== lvSig) { renderMainContent(); return; }
+      document.querySelectorAll('.lv.live').forEach(el => {
+        const st = +el.dataset.s, en = +el.dataset.e;
+        el.style.setProperty('--p', Math.min(100, Math.max(0, (n - st) / (en - st) * 100)) + '%');
+        const r = el.querySelector('.lv-rem'); if (r) r.textContent = '· باقي ' + Math.max(1, Math.ceil((en - n) / 60000)) + ' د';
+      });
+    }
+    const emptyBox = msg => { lvWins = []; document.getElementById('mainTimelineList').innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.8rem;">${msg}</div>`; };
+
     function renderScheduleTimeline() {
-      const container = document.getElementById('mainTimelineList');
-      const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-      container.innerHTML = '';
-
-      const filtered = batchSchedule.filter(item => {
-        if (item.week !== selectedWeek || item.day !== selectedDay || !item.groups.includes(currentUserGroup)) return false;
-        if (search && !item.title.toLowerCase().includes(search) && !item.subject.toLowerCase().includes(search)) return false;
-        return true;
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.8rem;">لا توجد محاضرات في هذا اليوم 🎉</div>`;
-        return;
-      }
-
-      filtered.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'timeline-card glass-panel';
-        card.innerHTML = `
-          <div class="card-top-row">
-            <span class="subject-tag ${getSubjectClass(item.subject)}">${item.subject}</span>
-            <span style="font-size:0.74rem; color:var(--teal-glow); font-weight:900;">${item.type}</span>
-          </div>
-          <div class="card-title">${item.title}</div>
-          <div class="card-details">
-            <div><i class="fa-regular fa-clock" style="color:var(--teal-glow);"></i> <span>${item.time}</span></div>
-            <div><i class="fa-solid fa-location-dot" style="color:var(--rose-glow);"></i> <span>${item.location}</span></div>
-            ${item.doctor ? `<div><i class="fa-solid fa-user-doctor" style="color:var(--sky-glow);"></i> <span>${item.doctor}</span></div>` : ''}
-          </div>
-        `;
-        container.appendChild(card);
-      });
+      const q = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+      const list = batchSchedule.filter(it => it.week === selectedWeek && it.day === selectedDay && it.groups.includes(currentUserGroup) &&
+        (!q || it.title.toLowerCase().includes(q) || it.subject.toLowerCase().includes(q)))
+        .map(it => {
+          const d = sessionDate(it); if (!d) return null;
+          const r = parseRange(it.time), b = d.getTime();
+          return { win: [b + r[0] * 6e4, b + r[1] * 6e4], html: `
+            <div class="card-top-row"><span class="subject-tag ${getSubjectClass(it.subject)}">${it.subject}</span><span style="font-size:0.74rem; color:var(--teal-glow); font-weight:900;">${it.type}</span></div>
+            <div class="card-title">${it.title}</div>
+            <div class="card-details">
+              <div><i class="fa-regular fa-clock" style="color:var(--teal-glow);"></i> <span>${it.time}</span></div>
+              <div><i class="fa-solid fa-location-dot" style="color:var(--rose-glow);"></i> <span>${it.location}</span></div>
+              ${it.doctor ? `<div><i class="fa-solid fa-user-doctor" style="color:var(--sky-glow);"></i> <span>${it.doctor}</span></div>` : ''}
+            </div>` };
+        }).filter(Boolean).sort((a, b) => a.win[0] - b.win[0]);
+      if (!list.length) return emptyBox('لا توجد محاضرات في هذا اليوم 🎉');
+      renderLevels(list);
     }
 
     function renderExamsList() {
-      const container = document.getElementById('mainTimelineList');
-      const search = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-      container.innerHTML = '';
-
-      const filtered = year1Exams.filter(exam => {
-        if (search && !exam.title.toLowerCase().includes(search) && !exam.type.toLowerCase().includes(search)) return false;
-        return true;
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-dim); font-size:0.8rem;">لا توجد امتحانات مطابقة للبحث 🔍</div>`;
-        return;
-      }
-
-      filtered.forEach(exam => {
-        const card = document.createElement('div');
-        card.className = 'timeline-card glass-panel';
-        card.innerHTML = `
-          <div class="card-top-row">
-            <span class="subject-tag exam">${exam.type}</span>
-            <span style="font-size:0.74rem; color:var(--amber-glow); font-weight:900;">امتحان معتمد 🎯</span>
-          </div>
-          <div class="card-title">${exam.title}</div>
-          <div class="card-details">
-            <div><i class="regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${exam.day} - ${exam.date} (${exam.time})</span></div>
-            <div><i class="fa-solid fa-clock-rotate-left" style="color:var(--teal-glow);"></i> <span>${exam.week}</span></div>
-          </div>
-        `;
-        container.appendChild(card);
-      });
+      const q = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+      const today0 = new Date().setHours(0, 0, 0, 0);
+      const list = year1Exams.filter(e => !q || e.title.toLowerCase().includes(q) || e.type.toLowerCase().includes(q))
+        .map(e => {
+          const [y, m, d] = e.date.split('-').map(Number), r = parseRange(e.time), b = new Date(y, m - 1, d).getTime();
+          const win = [b + r[0] * 6e4, b + (r[0] + 120) * 6e4], dd = Math.round((b - today0) / 864e5);
+          const left = win[1] > Date.now() ? (dd <= 0 ? 'النهاردة' : dd === 1 ? 'بكرة' : `بعد ${dd} يوم`) : '';
+          return { win, html: `
+            <div class="card-top-row"><span class="subject-tag exam">${e.type}</span><span style="font-size:0.74rem; color:var(--amber-glow); font-weight:900;">امتحان معتمد 🎯</span></div>
+            <div class="card-title">${e.title}</div>
+            <div class="card-details">
+              <div><i class="fa-regular fa-calendar" style="color:var(--amber-glow);"></i> <span>${e.day} - ${e.date} (${e.time})</span></div>
+              <div><i class="fa-solid fa-clock-rotate-left" style="color:var(--teal-glow);"></i> <span>${e.week}</span></div>
+              ${left ? `<div><i class="fa-solid fa-hourglass-half" style="color:var(--sky-glow);"></i> <span>${left}</span></div>` : ''}
+            </div>` };
+        }).sort((a, b) => a.win[0] - b.win[0]);
+      if (!list.length) return emptyBox('لا توجد امتحانات مطابقة للبحث 🔍');
+      renderLevels(list);
     }
 
     function getSubjectClass(subj) {
-      switch(subj) {
-        case 'Anatomy': return 'anatomy';
-        case 'Biochemistry': return 'biochem';
-        case 'Physiology': return 'physio';
-        case 'Histology': return 'histo';
-        default: return 'prof';
-      }
+      const k = String(subj || '').toLowerCase();
+      if (k.startsWith('anat')) return 'anatomy';
+      if (k.startsWith('bio')) return 'biochem';
+      if (k.startsWith('phys')) return 'physio';
+      if (k.startsWith('hist')) return 'histo';
+      return 'prof';
+    }
+
+    /* ===== Exams: one JSON file per exam, auto-detected from the repo ===== */
+    const EXAMS_DIR = 'exams';
+    const EXAMS_REPO = ''; // optional "owner/repo" override (auto-derived on github.io)
+    let examsLib = null;
+
+    async function listExamFiles() {
+      const names = new Set();
+      const add = a => (a || []).forEach(n => { n = String(n).split('/').pop(); if (/\.json$/i.test(n) && n.toLowerCase() !== 'index.json') names.add(n); });
+      try { const r = await fetch(`${EXAMS_DIR}/index.json`, { cache: 'no-cache' }); if (r.ok) add(await r.json()); } catch (e) {}
+      try {
+        let repo = EXAMS_REPO;
+        if (!repo && /\.github\.io$/i.test(location.hostname)) repo = location.hostname.split('.')[0] + '/' + (location.pathname.split('/')[1] || location.hostname);
+        if (repo) { const r = await fetch(`https://api.github.com/repos/${repo}/contents/${EXAMS_DIR}`); if (r.ok) add((await r.json()).filter(f => f.type === 'file').map(f => f.name)); }
+      } catch (e) {}
+      if (names.size) localStorage.setItem('exam_files_v1', JSON.stringify([...names]));
+      else { try { add(JSON.parse(localStorage.getItem('exam_files_v1') || '[]')); } catch (e) {} }
+      return [...names];
+    }
+
+    async function loadExamFiles() {
+      const mods = [];
+      if (typeof ExamsModulesData !== 'undefined') ExamsModulesData.forEach(m => mods.push(m));
+      const names = await listExamFiles();
+      const res = await Promise.allSettled(names.map(n => fetch(`${EXAMS_DIR}/${encodeURIComponent(n)}`, { cache: 'no-cache' }).then(r => r.json()).then(j => ({ n, j }))));
+      res.forEach(r => {
+        if (r.status !== 'fulfilled') return;
+        const { n, j } = r.value;
+        [].concat(j).forEach((e, i) => {
+          if (!e || !Array.isArray(e.questions)) return;
+          const id = String(e.examId || n.replace(/\.json$/i, '') + (Array.isArray(j) ? '_' + i : '')).replace(/['"\\]/g, '');
+          const mn = e.moduleName || 'عام';
+          let m = mods.find(x => x.moduleName === mn);
+          if (!m) { m = { moduleName: mn, subjects: [] }; mods.push(m); }
+          if (m.subjects.some(x => x.examId === id)) return;
+          m.subjects.push({ examId: id, examTitle: e.examTitle || e.title || id, subjectKey: e.subjectKey || 'other', subjectName: e.subjectName || e.subjectKey || 'عام', questions: e.questions });
+        });
+      });
+      examsLib = mods;
     }
 
     function parseTimeString(timeStr) {
@@ -1484,23 +1639,19 @@
       const container = document.getElementById('examsModulesContainer');
       if (!container || !moduleFiltersContainer || !subjectFiltersContainer) return;
 
-      if (typeof ExamsModulesData === "undefined") {
-        container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">جاري تحميل بنك الأسئلة...</p>`;
+      if (!examsLib || !examsLib.length) {
+        container.innerHTML = `<p style="color:var(--text-dim); text-align:center;">${examsLib ? 'لا توجد اختبارات متاحة حالياً 📭' : 'جاري تحميل بنك الأسئلة...'}</p>`;
         return;
       }
 
       moduleFiltersContainer.innerHTML = `<button class="nav-chip ${currentSelectedModuleFilter === 'ALL' ? 'active' : ''}" onclick="filterModule('ALL')">كافة الموديولات</button>`;
-      ExamsModulesData.forEach((m, idx) => {
+      examsLib.forEach((m, idx) => {
         moduleFiltersContainer.innerHTML += `<button class="nav-chip ${currentSelectedModuleFilter === idx ? 'active' : ''}" onclick="filterModule(${idx})">${m.moduleName}</button>`;
       });
 
-      const subjectsList = [
-        { key: 'ALL', name: 'كافة المواد' },
-        { key: 'anatomy', name: 'Anatomy 🦴' },
-        { key: 'physio', name: 'Physiology ⚡' },
-        { key: 'biochem', name: 'Biochemistry 🧪' },
-        { key: 'histo', name: 'Histology 🔬' }
-      ];
+      const subjectsList = [{ key: 'ALL', name: 'كافة المواد' }];
+      const seenSub = {};
+      examsLib.forEach(m => m.subjects.forEach(x => { if (!seenSub[x.subjectKey]) { seenSub[x.subjectKey] = 1; subjectsList.push({ key: x.subjectKey, name: x.subjectName }); } }));
 
       subjectFiltersContainer.innerHTML = '';
       subjectsList.forEach(subj => {
@@ -1509,7 +1660,7 @@
 
       container.innerHTML = '';
 
-      ExamsModulesData.forEach((module, mIdx) => {
+      examsLib.forEach((module, mIdx) => {
         if (currentSelectedModuleFilter !== 'ALL' && currentSelectedModuleFilter !== mIdx) return;
         const filteredSubjects = module.subjects.filter(sub => {
           if (currentSelectedSubjectFilter === 'ALL') return true;
@@ -1556,7 +1707,7 @@
 
     function startExam(examId) {
       let found = null;
-      ExamsModulesData.forEach(m => { m.subjects.forEach(s => { if (s.examId === examId) found = s; }); });
+      examsLib.forEach(m => { m.subjects.forEach(s => { if (s.examId === examId) found = s; }); });
       if (!found || found.questions.length === 0) { alert('لا توجد أسئلة مضافة حالياً!'); return; }
 
       activeExam = found;
